@@ -2,7 +2,7 @@
   "name": "qinlin-portfolio",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://Qinlin619.github.io/qinlin2026"
+  "homepage": "/qinlin2026",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
