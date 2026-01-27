@@ -175,7 +175,7 @@ main > *:not(.hero) {
 /* Hero 区域 */
 .hero {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   min-height: 100vh;
   display: flex;
@@ -184,6 +184,8 @@ main > *:not(.hero) {
   text-align: center;
   overflow: hidden;
   background: #fff;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .hero-content {
