@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -21,22 +21,41 @@ function HomePage() {
   );
 }
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // 每次路由变化时滚动到顶部
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }, [location.pathname]);
+
   return (
-    <LanguageProvider>
-      <div className="App">
-        <Navbar />
-        <main>
-          <Routes>
+    <div className="App">
+      <Navbar />
+      <main className="page-transition-wrapper">
+        <div key={location.pathname} className="page-transition">
+          <Routes location={location}>
             <Route index element={<HomePage />} />
             <Route path="/work/:id" element={<WorkDetail />} />
             <Route path="/side" element={<Side />} />
             <Route path="/about" element={<About />} />
             <Route path="/cv" element={<CV />} />
           </Routes>
-        </main>
-        <Footer />
-      </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
     </LanguageProvider>
   );
 }

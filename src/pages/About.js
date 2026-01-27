@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { memo, useState } from 'react';
 
 function About() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <div className="page-content about-page">
       <div className="about-cover">
         <img 
-          src={`${process.env.PUBLIC_URL}/about/2.jpg`} 
+          src={`${process.env.PUBLIC_URL}/about/1.jpg`} 
           alt="Qinlin Liu" 
-          className="about-cover-image"
+          className={`about-cover-image ${imageLoaded ? 'loaded' : ''}`}
+          loading="eager"
+          onLoad={() => setImageLoaded(true)}
           onError={(e) => {
             console.error('Image failed to load:', e.target.src);
+            setImageLoaded(true);
           }}
         />
       </div>
@@ -25,4 +30,4 @@ function About() {
   );
 }
 
-export default About;
+export default memo(About);

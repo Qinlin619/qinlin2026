@@ -3,8 +3,8 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const sideData = {
   en: {
-    title: 'Side Projects',
-    intro: 'Personal experimental projects and creative explorations. Sharing design experiments, technical attempts and interesting side projects here.',
+    title: 'Life',
+    intro: 'loading',
     categories: {
       all: 'All',
       design: 'Design',
@@ -15,51 +15,51 @@ const sideData = {
     projects: [
       {
         id: 1,
-        title: 'Interactive Data Visualization',
+        title: 'loading',
         category: 'design',
-        description: 'Dynamic data visualization tool created with D3.js and React, exploring the beauty of data',
+        description: 'loading',
         year: '2024'
       },
       {
         id: 2,
-        title: 'AI Art Generator',
+        title: 'loading',
         category: 'tech',
-        description: 'Experimental project combining machine learning with creative design, exploring AI possibilities in art creation',
+        description: 'loading',
         year: '2024'
       },
       {
         id: 3,
-        title: 'Music Visualization Experience',
+        title: 'loading',
         category: 'design',
-        description: 'Real-time audio analysis and visual presentation, creating immersive music listening experience',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 4,
-        title: 'Open Source UI Component Library',
+        title: 'loading',
         category: 'tech',
-        description: 'A carefully designed React component library focusing on accessibility and user experience',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 5,
-        title: '3D Interactive Scene',
+        title: 'loading',
         category: 'design',
-        description: '3D virtual environment built with Three.js, exploring spatial interaction design',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 6,
-        title: 'Mobile Game Prototype',
+        title: 'loading',
         category: 'tech',
-        description: 'Lightweight mobile game development, focusing on simple interactions and smooth experience',
+        description: 'loading',
         year: '2022'
       }
     ]
   },
   zh: {
-    title: 'Side Projects',
-    intro: '个人实验项目与创意探索，在这里分享设计实验、技术尝试和有趣的side projects。',
+    title: '生活',
+    intro: 'loading',
     categories: {
       all: '全部',
       design: '设计',
@@ -70,51 +70,51 @@ const sideData = {
     projects: [
       {
         id: 1,
-        title: '交互式数据可视化',
+        title: 'loading',
         category: 'design',
-        description: '使用D3.js和React创建的动态数据可视化工具，探索数据之美',
+        description: 'loading',
         year: '2024'
       },
       {
         id: 2,
-        title: 'AI艺术生成器',
+        title: 'loading',
         category: 'tech',
-        description: '结合机器学习与创意设计的实验性项目，探索AI在艺术创作中的可能性',
+        description: 'loading',
         year: '2024'
       },
       {
         id: 3,
-        title: '音乐可视化体验',
+        title: 'loading',
         category: 'design',
-        description: '实时音频分析与视觉呈现，创造沉浸式的音乐聆听体验',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 4,
-        title: '开源UI组件库',
+        title: 'loading',
         category: 'tech',
-        description: '一套精心设计的React组件库，注重可访问性和用户体验',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 5,
-        title: '3D交互式场景',
+        title: 'loading',
         category: 'design',
-        description: '使用Three.js构建的3D虚拟环境，探索空间交互设计',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 6,
-        title: '移动端游戏原型',
+        title: 'loading',
         category: 'tech',
-        description: '轻量级移动游戏开发，专注于简洁的交互和流畅的体验',
+        description: 'loading',
         year: '2022'
       }
     ]
   },
   en: {
-    title: 'Side Projects',
-    intro: 'Personal experimental projects and creative explorations. Sharing design experiments, technical attempts and interesting side projects here.',
+    title: 'Life',
+    intro: 'loading',
     categories: {
       all: 'All',
       design: 'Design',
@@ -125,51 +125,51 @@ const sideData = {
     projects: [
       {
         id: 1,
-        title: 'Interactive Data Visualization',
+        title: 'loading',
         category: 'design',
-        description: 'Dynamic data visualization tool created with D3.js and React, exploring the beauty of data',
+        description: 'loading',
         year: '2024'
       },
       {
         id: 2,
-        title: 'AI Art Generator',
+        title: 'loading',
         category: 'tech',
-        description: 'Experimental project combining machine learning with creative design, exploring AI possibilities in art creation',
+        description: 'loading',
         year: '2024'
       },
       {
         id: 3,
-        title: 'Music Visualization Experience',
+        title: 'loading',
         category: 'design',
-        description: 'Real-time audio analysis and visual presentation, creating immersive music listening experience',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 4,
-        title: 'Open Source UI Component Library',
+        title: 'loading',
         category: 'tech',
-        description: 'A carefully designed React component library focusing on accessibility and user experience',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 5,
-        title: '3D Interactive Scene',
+        title: 'loading',
         category: 'design',
-        description: '3D virtual environment built with Three.js, exploring spatial interaction design',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 6,
-        title: 'Mobile Game Prototype',
+        title: 'loading',
         category: 'tech',
-        description: 'Lightweight mobile game development, focusing on simple interactions and smooth experience',
+        description: 'loading',
         year: '2022'
       }
     ]
   },
   'zh-TW': {
-    title: 'Side Projects',
-    intro: '個人實驗專案與創意探索，在這裡分享設計實驗、技術嘗試和有趣的side projects。',
+    title: '生活',
+    intro: 'loading',
     categories: {
       all: '全部',
       design: '設計',
@@ -180,44 +180,44 @@ const sideData = {
     projects: [
       {
         id: 1,
-        title: '互動式數據可視化',
+        title: 'loading',
         category: 'design',
-        description: '使用D3.js和React創建的動態數據可視化工具，探索數據之美',
+        description: 'loading',
         year: '2024'
       },
       {
         id: 2,
-        title: 'AI藝術生成器',
+        title: 'loading',
         category: 'tech',
-        description: '結合機器學習與創意設計的實驗性專案，探索AI在藝術創作中的可能性',
+        description: 'loading',
         year: '2024'
       },
       {
         id: 3,
-        title: '音樂可視化體驗',
+        title: 'loading',
         category: 'design',
-        description: '即時音頻分析與視覺呈現，創造沉浸式的音樂聆聽體驗',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 4,
-        title: '開源UI組件庫',
+        title: 'loading',
         category: 'tech',
-        description: '一套精心設計的React組件庫，注重可訪問性和用戶體驗',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 5,
-        title: '3D互動式場景',
+        title: 'loading',
         category: 'design',
-        description: '使用Three.js構建的3D虛擬環境，探索空間互動設計',
+        description: 'loading',
         year: '2023'
       },
       {
         id: 6,
-        title: '行動端遊戲原型',
+        title: 'loading',
         category: 'tech',
-        description: '輕量級行動遊戲開發，專注於簡潔的互動和流暢的體驗',
+        description: 'loading',
         year: '2022'
       }
     ]
@@ -225,17 +225,18 @@ const sideData = {
 };
 
 const projectImages = [
-  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1511379938547-1e0d9d0e5c1a?w=800&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop'
+  'https://via.placeholder.com/800x600/e5e5e5/e5e5e5',
+  'https://via.placeholder.com/800x600/e8e8e8/e8e8e8',
+  'https://via.placeholder.com/800x600/f0f0f0/f0f0f0',
+  'https://via.placeholder.com/800x600/e0e0e0/e0e0e0',
+  'https://via.placeholder.com/800x600/d8d8d8/d8d8d8',
+  'https://via.placeholder.com/800x600/f5f5f5/f5f5f5'
 ];
 
 function Side() {
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState('all');
+  const [imageLoaded, setImageLoaded] = useState(false);
   const data = sideData[language] || sideData.en;
   const categories = ['all', 'design', 'tech'];
   
@@ -253,11 +254,14 @@ function Side() {
     <div className="page-content side-page">
       <div className="side-cover">
         <img 
-          src={`${process.env.PUBLIC_URL}/about/1.jpg`} 
+          src={`${process.env.PUBLIC_URL}/about/2.jpg`} 
           alt="Side Projects" 
-          className="side-cover-image"
+          className={`side-cover-image ${imageLoaded ? 'loaded' : ''}`}
+          loading="eager"
+          onLoad={() => setImageLoaded(true)}
           onError={(e) => {
             console.error('Image failed to load:', e.target.src);
+            setImageLoaded(true);
           }}
         />
       </div>
