@@ -2,7 +2,7 @@
   "name": "qinlin-portfolio",
   "version": "1.0.0",
   "private": true,
-  "homepage": "/qinlin2026",
+  "homepage": "https://Qinlin619.github.io/qinlin2026",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -12,6 +12,8 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.0",
