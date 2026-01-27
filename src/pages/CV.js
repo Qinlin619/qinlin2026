@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const cvData = {
@@ -28,31 +28,45 @@ const cvData = {
         dates: '2024-8 - 2025-2',
         role: 'Philips Hue & WiZ Visual Merchandising/Design Intern',
         company: 'Signify Netherlands B.V.',
-        description: 'Create innovative designs and content for brands like Philips Hue and WiZ, including online and in-store marketing materials. Ensure a consistent brand experience worldwide. Edit images and videos for various uses, and help teammates bring their ideas to life with structured project management.'
+        description: [
+          'Design user-centered digital experiences for brands such as Philips Hue and WiZ across web and in-store touchpoints, translating brand values into intuitive UX and refined UI.',
+          'Analyze UX research reports, user feedback, and marketing performance data to identify insights and inform experience optimization and design decisions.',
+          'Contribute to the development and maintenance of a global design system by aligning interaction patterns, visual language, and usability standards across regions.',
+          'Create, iterate, and refine UI assets, motion, and visual content for multiple digital platforms.'
+        ]
+      },
+      {
+        dates: '2024-10 - 2024-12',
+        role: 'Business Assistant (International & Offline Operations)',
+        company: 'Suzhou Biyi Network Technology Co.',
+        description: 'Supported overseas partnership coordination, contributing to collaborations with four offline retail stores and one supply chain partner.'
       },
       {
         dates: '2023-12 - 2024-2',
         role: 'Student Assistant',
         company: 'Delft University of Technology',
-        description: 'Assist with some documentation at the Delft Health Initiative'
+        description: 'Assist with data analysis, classification, and documentation at the Delft Health Initiative, supporting the structuring of health-related datasets and information systems to enable clearer insights and more efficient knowledge sharing.'
       },
       {
         dates: '2023-10 - 2023-10',
         role: 'Student Assistant',
         company: 'Dutch Design Week',
-        description: 'Responsible for greeting and directing visitors, providing information about the event and ensuring a smooth exhibition'
+        description: 'Guided visitors and explained seven AI-focused design projects at a TU Delft exhibition with 100,000+ total attendees.'
       },
       {
-        dates: '2022-3 - 2023-10',
-        role: 'Design Assistant',
+        dates: '2022-3 - 2023-10, 2024-6 - 2024-10',
+        role: 'Product Designer (E-commerce & IP Design)',
         company: 'Suzhou Biyi Network Technology Co.',
-        description: 'Responsible for product packaging and promotional graphic design'
+        description: [
+          'Designed product packaging, promotional graphics, and Taobao e-commerce assets aligned with brand and campaign requirements.',
+          'Developed product merchandise and IP-based visual designs, ensuring consistency across online and physical touchpoints.'
+        ]
       }
     ],
     education: [
       {
-        dates: '2023-9 - present',
-        degree: 'Design for Interaction, Faculty of Industrial Design Engineering, Master of Science',
+        dates: '2023-9 - 2025-11',
+        degree: 'Design for Interaction, Master of Science',
         university: 'Delft University of Technology'
       },
       {
@@ -136,6 +150,12 @@ const cvData = {
         description: '为Philips Hue和WiZ等品牌创建创新的设计和内容，包括在线和店内营销材料。确保全球一致的品牌体验。编辑用于各种用途的图像和视频，并通过结构化的项目管理帮助团队成员实现他们的想法。'
       },
       {
+        dates: '2024-10 - 2024-12',
+        role: '商务助理（国际与线下运营）',
+        company: '苏州比翼网络科技有限公司',
+        description: '支持海外合作伙伴协调，促成与四家线下零售店和一家供应链合作伙伴的合作。'
+      },
+      {
         dates: '2023-12 - 2024-2',
         role: '学生助理',
         company: '代尔夫特理工大学',
@@ -148,16 +168,19 @@ const cvData = {
         description: '负责迎接和引导访客，提供活动信息并确保展览顺利进行'
       },
       {
-        dates: '2022-3 - 2023-10',
-        role: '设计助理',
+        dates: '2022-3 - 2023-10, 2024-6 - 2024-10',
+        role: '产品设计师（电商与IP设计）',
         company: '苏州比翼网络科技有限公司',
-        description: '负责产品包装和促销平面设计'
+        description: [
+          '设计产品包装、促销图形和淘宝电商素材，符合品牌和活动要求。',
+          '开发产品周边和基于IP的视觉设计，确保线上和线下触点的一致性。'
+        ]
       }
     ],
     education: [
       {
-        dates: '2023-9 - 至今',
-        degree: '交互设计，工业设计工程学院，理学硕士',
+        dates: '2023-9 - 2025-11',
+        degree: '交互设计，理学硕士',
         university: '代尔夫特理工大学'
       },
       {
@@ -241,6 +264,12 @@ const cvData = {
         description: '為Philips Hue和WiZ等品牌創建創新的設計和內容，包括線上和店內營銷材料。確保全球一致的品牌體驗。編輯用於各種用途的圖像和影片，並通過結構化的專案管理幫助團隊成員實現他們的想法。'
       },
       {
+        dates: '2024-10 - 2024-12',
+        role: '商務助理（國際與線下運營）',
+        company: '蘇州比翼網絡科技有限公司',
+        description: '支持海外合作夥伴協調，促成與四家線下零售店和一家供應鏈合作夥伴的合作。'
+      },
+      {
         dates: '2023-12 - 2024-2',
         role: '學生助理',
         company: '代爾夫特理工大學',
@@ -253,16 +282,19 @@ const cvData = {
         description: '負責迎接和引導訪客，提供活動信息並確保展覽順利進行'
       },
       {
-        dates: '2022-3 - 2023-10',
-        role: '設計助理',
+        dates: '2022-3 - 2023-10, 2024-6 - 2024-10',
+        role: '產品設計師（電商與IP設計）',
         company: '蘇州比翼網絡科技有限公司',
-        description: '負責產品包裝和促銷平面設計'
+        description: [
+          '設計產品包裝、促銷圖形和淘寶電商素材，符合品牌和活動要求。',
+          '開發產品周邊和基於IP的視覺設計，確保線上和線下觸點的一致性。'
+        ]
       }
     ],
     education: [
       {
-        dates: '2023-9 - 至今',
-        degree: '互動設計，工業設計工程學院，理學碩士',
+        dates: '2023-9 - 2025-11',
+        degree: '互動設計，理學碩士',
         university: '代爾夫特理工大學'
       },
       {
@@ -322,6 +354,42 @@ const cvData = {
 function CV() {
   const { language } = useLanguage();
   const data = cvData[language] || cvData.en;
+  const [showCopyToast, setShowCopyToast] = useState(false);
+  const [copyToastMessage, setCopyToastMessage] = useState('');
+
+  const copyToClipboard = (text, message) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopyToastMessage(message);
+      setShowCopyToast(true);
+      setTimeout(() => {
+        setShowCopyToast(false);
+      }, 2000);
+    }).catch(() => {
+      // 如果复制失败，使用备用方法
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopyToastMessage(message);
+      setShowCopyToast(true);
+      setTimeout(() => {
+        setShowCopyToast(false);
+      }, 2000);
+    });
+  };
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    const email = 'qinlinliu619@gmail.com';
+    const message = language === 'zh' 
+      ? `已复制邮件地址 ${email}` 
+      : language === 'zh-TW' 
+      ? `已複製郵件地址 ${email}` 
+      : `Email address copied ${email}`;
+    copyToClipboard(email, message);
+  };
 
   return (
     <div className="page-content cv-page">
@@ -346,7 +414,18 @@ function CV() {
               <span className="cv-dates">{work.dates}</span>
             </div>
             <p className="cv-company">{work.company}</p>
-            <p>{work.description}</p>
+            {Array.isArray(work.description) ? (
+              <p>
+                {work.description.map((item, idx) => (
+                  <React.Fragment key={idx}>
+                    - {item}
+                    {idx < work.description.length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </p>
+            ) : (
+              <p>{work.description}</p>
+            )}
           </div>
         ))}
       </section>
@@ -394,13 +473,26 @@ function CV() {
       <div className="cv-footer">
         <div className="cv-footer-section">
           <h3 className="cv-footer-title">{data.sections.contact}</h3>
-          <p className="cv-footer-content">{data.personalInfo.email}</p>
+          <p className="cv-footer-content">
+            <a 
+              href="#" 
+              className="cv-footer-email-link" 
+              onClick={handleEmailClick}
+            >
+              {data.personalInfo.email}
+            </a>
+          </p>
         </div>
         <div className="cv-footer-section">
           <h3 className="cv-footer-title">{data.sections.cv}</h3>
           <a href="/CV_Qinlin_Liu.pdf" className="cv-footer-link" download>{data.sections.viewDownload}</a>
         </div>
       </div>
+      {showCopyToast && (
+        <div className="copy-toast">
+          {copyToastMessage}
+        </div>
+      )}
     </div>
   );
 }

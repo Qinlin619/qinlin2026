@@ -166,9 +166,9 @@ main > *:not(.hero) {
 }
 
 .nav-links a.active {
-  opacity: 0.4;
+  color: #fff;
   transform: scale(0.8);
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   contain: layout style;
 }
 
@@ -479,6 +479,7 @@ main > *:not(.hero) {
   color: #666;
   margin-bottom: 0.75rem;
   font-weight: 300;
+  font-style: italic;
 }
 
 .cv-item p {
@@ -539,6 +540,20 @@ main > *:not(.hero) {
   line-height: 1.6;
 }
 
+.cv-footer-email-link {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 300;
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+  transition: text-decoration-color 0.2s ease;
+  cursor: pointer;
+}
+
+.cv-footer-email-link:hover {
+  text-decoration-color: #000;
+}
+
 .cv-footer-link {
   font-size: 0.95rem;
   color: #333;
@@ -564,6 +579,14 @@ main > *:not(.hero) {
 
 .about-page p {
   text-align: justify;
+}
+
+.about-page h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
 }
 
 .about-cover {

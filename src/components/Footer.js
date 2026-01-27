@@ -64,6 +64,17 @@ function Footer() {
     copyToClipboard(phone, message);
   };
 
+  const handleWeChatClick = (e) => {
+    e.preventDefault();
+    const wechatId = 'ss1172503100';
+    const message = language === 'zh' 
+      ? `已复制微信号 ${wechatId}` 
+      : language === 'zh-TW' 
+      ? `已複製微信號 ${wechatId}` 
+      : `WeChat ID copied ${wechatId}`;
+    copyToClipboard(wechatId, message);
+  };
+
   // 社交媒体链接
   const socialLinks = [
     { 
@@ -92,6 +103,12 @@ function Footer() {
       name: 'github', 
       url: 'https://github.com/Qinlin619',
       svg: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+    },
+    { 
+      name: 'wechat', 
+      url: '#',
+      svg: <svg width="20" height="20" viewBox="0 0 26 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" transform="scale(1.15, 1) translate(-0.5, 0)"></path><circle cx="9" cy="11.5" r="1"></circle><circle cx="13.5" cy="11.5" r="1"></circle><circle cx="18" cy="11.5" r="1"></circle></svg>,
+      onClick: handleWeChatClick
     }
   ];
 
@@ -103,7 +120,7 @@ function Footer() {
             key={index}
             href={link.url}
             className="footer-social-link"
-            target={link.name === 'email' || link.name === 'whatsapp' ? '_self' : '_blank'}
+            target={link.name === 'email' || link.name === 'whatsapp' || link.name === 'wechat' ? '_self' : '_blank'}
             rel="noopener noreferrer"
             aria-label={link.name}
             onClick={link.onClick}
