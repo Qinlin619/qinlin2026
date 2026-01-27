@@ -81,6 +81,7 @@ const cvData = {
       }
     ],
     skills: [
+      'Prompt Engineering',
       'UI/UX Design',
       'Human-Computer Interaction',
       'Programming',
@@ -89,8 +90,7 @@ const cvData = {
       'MS office',
       'Adobe family',
       '3D Modeling',
-      'Video Editing',
-      'Prompt Engineering'
+      'Video Editing'
     ],
     languages: [
       { name: 'Mandarin', level: 'C2' },
@@ -195,6 +195,7 @@ const cvData = {
       }
     ],
     skills: [
+      '很会prompt',
       'UI/UX设计',
       '人机交互',
       '编程',
@@ -203,8 +204,7 @@ const cvData = {
       'MS office',
       'Adobe系列',
       '建模',
-      '剪辑',
-      '很会prompt'
+      '剪辑'
     ],
     languages: [
       { name: '普通话', level: 'C2' },
@@ -309,6 +309,7 @@ const cvData = {
       }
     ],
     skills: [
+      '很會prompt',
       'UI/UX設計',
       '人機互動',
       '程式設計',
@@ -317,8 +318,7 @@ const cvData = {
       'MS office',
       'Adobe系列',
       '建模',
-      '剪輯',
-      '很會prompt'
+      '剪輯'
     ],
     languages: [
       { name: '普通話', level: 'C2' },

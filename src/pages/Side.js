@@ -289,7 +289,6 @@ function Side() {
                 alt={project.title}
                 className="side-project-image"
               />
-              <div className="side-project-year">{project.year}</div>
             </div>
             <div className="side-project-content">
               <div className="side-project-category">{data.categories[project.category]}</div>

@@ -294,7 +294,7 @@ main > *:not(.hero) {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.6);
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   font-size: 0.875rem;
@@ -303,12 +303,48 @@ main > *:not(.hero) {
 }
 
 .work-card-category {
-  font-size: 0.875rem;
-  color: #999;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.category-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  transition: color 0.2s ease;
+}
+
+.category-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.category-abbr {
+  font-size: 0.75rem;
+  color: #999;
   font-weight: 400;
   letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.work-card:hover .category-icon-wrapper,
+.work-card:hover .category-abbr {
+  color: #666;
+}
+
+.work-card-active .category-icon-wrapper,
+.work-card-active .category-abbr {
+  color: #ccc;
 }
 
 .work-card-content {
@@ -335,6 +371,7 @@ main > *:not(.hero) {
   font-weight: 300;
   margin: 0;
   transition: color 0.3s ease;
+  text-align: justify;
 }
 
 .work-card-active .card-desc {
@@ -884,7 +921,7 @@ main > *:not(.hero) {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.6);
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   font-size: 0.875rem;
@@ -969,6 +1006,43 @@ main > *:not(.hero) {
 .work-detail.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.work-detail-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 4rem 2rem;
+  text-align: left;
+}
+
+.work-detail-loading h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+
+.work-detail-loading p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #666;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.work-detail-loading a {
+  text-decoration: underline;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 300;
+  transition: opacity 0.2s ease;
+}
+
+.work-detail-loading a:hover {
+  opacity: 0.6;
 }
 
 .work-detail-header {

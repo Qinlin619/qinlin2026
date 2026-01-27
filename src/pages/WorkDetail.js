@@ -5,25 +5,24 @@ import { useLanguage } from '../contexts/LanguageContext';
 const workData = {
   en: {
     1: {
-      title: 'Enterprise SaaS Platform',
-      description: 'Full-stack enterprise solution providing comprehensive business management tools and data analytics',
+      title: 'Pixelated Adventures',
+      description: 'A board game design offering a novel way for people to share their travel memories.',
       year: 2024,
-      category: 'Web Application',
-      heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
+      category: 'Individual. User Experience. Product',
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
       images: [
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=500&fit=crop'
+        `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`
       ],
-      overview: 'A full-stack SaaS solution for enterprises, designed to help businesses improve operational efficiency and management capabilities.',
-      overviewExtra: 'Through deep understanding of user needs and market trends, we designed and developed a practical and beautiful solution aimed at enhancing user experience and work efficiency.',
-      role: 'Full-stack Developer',
-      roleDesc: 'In this project, I was responsible for all aspects from conceptual design to final implementation, ensuring timely delivery and meeting expected goals.',
-      process: ['Requirements Analysis', 'Architecture Design', 'Frontend Development', 'Backend Development', 'Testing & Deployment'],
-      insights: ['User Experience Optimization', 'Performance Enhancement', 'Data Security'],
-      results: 'After launch, user satisfaction increased by 40% and system response time decreased by 60%.'
+      overview: 'Pixelated Adventures - a board game design on my Exploring Interaction course, offering a novel way for people to share their travel memories. I began by examining the challenges of souvenir selection, delving deeper into the inadequacies of traditional storytelling, and exploring innovative methods to enhance these experiences with interactivity and appeal.',
+      overviewExtra: '',
+      role: 'Designer',
+      roleDesc: 'In this project, I was responsible for the complete design process from research and ideation to prototyping and testing, creating an engaging board game experience that transforms how people share travel memories.',
+      process: ['Research & Analysis', 'Concept Development', 'Prototyping', 'User Testing', 'Refinement'],
+      insights: ['Gamification in Storytelling', 'Physical Product Design', 'User Experience Innovation'],
+      results: 'The design successfully transforms traditional travel memory sharing into an interactive and engaging board game experience.'
     },
     2: {
-      title: 'Mobile E-commerce App',
+      title: 'E.C.H.O.',
       description: 'High-performance mobile shopping experience with integrated payment, recommendation system and real-time inventory management',
       year: 2024,
       category: 'Mobile App',
@@ -133,40 +132,38 @@ const workData = {
   },
   zh: {
     1: {
-      title: '企业级SaaS平台',
-      description: '全栈企业解决方案，提供完整的业务管理工具和数据分析功能',
+      title: 'Pixelated Adventures',
+      description: '一款棋盘游戏设计，为人们分享旅行回忆提供了一种新颖的方式。',
       year: 2024,
-      category: 'Web应用',
-      heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
+      category: '个人项目. 用户体验. 产品',
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
       images: [
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=500&fit=crop'
+        `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`
       ],
-      overview: '这是一个面向企业的全栈SaaS解决方案，旨在帮助企业提升运营效率和管理水平。',
-      overviewExtra: '通过深入理解用户需求和市场趋势，我们设计并开发了一个既实用又美观的解决方案，旨在提升用户体验和工作效率。',
-      role: '全栈开发工程师',
-      roleDesc: '在这个项目中，我负责从概念设计到最终实现的各个环节，确保项目按时交付并达到预期目标。',
-      process: ['需求分析', '架构设计', '前端开发', '后端开发', '测试部署'],
-      insights: ['用户体验优化', '性能提升', '数据安全'],
-      results: '项目上线后，用户满意度提升40%，系统响应时间减少60%。'
+      overview: 'Pixelated Adventures - 我在探索交互课程中设计的棋盘游戏，为人们分享旅行回忆提供了一种新颖的方式。我从研究纪念品选择的挑战开始，深入探讨传统叙事的不足，并探索创新方法，通过互动性和吸引力来增强这些体验。',
+      overviewExtra: '',
+      role: '设计师',
+      roleDesc: '在这个项目中，我负责从研究和构思到原型制作和测试的完整设计过程，创造了一个引人入胜的棋盘游戏体验，改变了人们分享旅行回忆的方式。',
+      process: ['研究与分析', '概念开发', '原型制作', '用户测试', '优化改进'],
+      insights: ['叙事中的游戏化', '实体产品设计', '用户体验创新'],
+      results: '该设计成功地将传统的旅行回忆分享转变为互动且引人入胜的棋盘游戏体验。'
     },
     2: {
-      title: '移动端电商应用',
-      description: '高性能移动购物体验，集成支付、推荐系统和实时库存管理',
+      title: 'E.C.H.O.',
+      description: '一个社区机器人，与居民互动、收集故事，探索机器人在未来社区中的角色。',
       year: 2024,
-      category: '移动应用',
-      heroImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop',
+      category: '团队. 编程. 人工智能. 产品',
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       images: [
-        'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop'
+        `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`
       ],
-      overview: '一款专注于移动端购物体验的电商应用，提供流畅的购物流程和个性化推荐。',
-      overviewExtra: '通过深入理解用户需求和市场趋势，我们设计并开发了一个既实用又美观的解决方案，旨在提升用户体验和工作效率。',
-      role: '移动端开发负责人',
-      roleDesc: '在这个项目中，我负责从概念设计到最终实现的各个环节，确保项目按时交付并达到预期目标。',
-      process: ['用户研究', '原型设计', 'UI/UX设计', '开发实现', '性能优化'],
-      insights: ['移动端性能优化', '用户体验设计', '推荐算法'],
-      results: '应用上线后，日活跃用户增长200%，转化率提升35%。'
+      overview: 'E.C.H.O.是一个社区机器人，与居民互动、收集他们的故事并记录下来。通过引入ECHO，我们想要探讨机器人在未来社区中的角色。',
+      overviewExtra: '',
+      role: '设计师 & 开发者',
+      roleDesc: '在这个团队项目中，我参与了E.C.H.O.的设计和开发，探索机器人如何成为社区生活的一部分并促进社交互动。',
+      process: ['研究与概念', '原型制作', '开发实现', '社区测试', '优化改进'],
+      insights: ['人机交互', '社区参与', 'AI在社会场景中的应用'],
+      results: '该项目成功探索了机器人作为社区成员的潜在角色，并提出了关于未来社区的重要问题。'
     },
     3: {
       title: '智能数据分析仪表板',
@@ -279,22 +276,21 @@ const workData = {
       results: 'After launch, user satisfaction increased by 40% and system response time decreased by 60%.'
     },
     2: {
-      title: 'Mobile E-commerce App',
-      description: 'High-performance mobile shopping experience with integrated payment, recommendation system and real-time inventory management',
+      title: 'E.C.H.O.',
+      description: 'A community robot that interacts with residents, collects stories, and explores the role of robots in future neighborhoods.',
       year: 2024,
-      category: 'Mobile App',
-      heroImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop',
+      category: 'Group. Programming. Artificial Intelligence. Product',
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       images: [
-        'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop'
+        `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`
       ],
-      overview: 'An e-commerce app focused on mobile shopping experience, providing smooth shopping flow and personalized recommendations.',
-      overviewExtra: 'Through deep understanding of user needs and market trends, we designed and developed a practical and beautiful solution aimed at enhancing user experience and work efficiency.',
-      role: 'Mobile Development Lead',
-      roleDesc: 'In this project, I was responsible for all aspects from conceptual design to final implementation, ensuring timely delivery and meeting expected goals.',
-      process: ['User Research', 'Prototype Design', 'UI/UX Design', 'Development', 'Performance Optimization'],
-      insights: ['Mobile Performance Optimization', 'User Experience Design', 'Recommendation Algorithm'],
-      results: 'After launch, daily active users increased by 200% and conversion rate improved by 35%.'
+      overview: 'E.C.H.O. is a robot in the community that interacts with residents, collects their stories, and records them. With the introduction of ECHO we wanted to ask questions considering the role of the robot (or robots) in the neighbourhoods of the future.',
+      overviewExtra: '',
+      role: 'Designer & Developer',
+      roleDesc: 'In this group project, I contributed to the design and development of E.C.H.O., exploring how robots can become part of community life and facilitate social interactions.',
+      process: ['Research & Concept', 'Prototyping', 'Development', 'Community Testing', 'Refinement'],
+      insights: ['Human-Robot Interaction', 'Community Engagement', 'AI in Social Context'],
+      results: 'The project successfully explores the potential role of robots as community members and raises important questions about future neighborhoods.'
     },
     3: {
       title: 'Smart Data Analytics Dashboard',
@@ -371,40 +367,38 @@ const workData = {
   },
   'zh-TW': {
     1: {
-      title: '企業級SaaS平台',
-      description: '全棧企業解決方案，提供完整的業務管理工具和數據分析功能',
+      title: 'Pixelated Adventures',
+      description: '一款棋盤遊戲設計，為人們分享旅行回憶提供了一種新穎的方式。',
       year: 2024,
-      category: 'Web應用',
-      heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
+      category: '個人專案. 用戶體驗. 產品',
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
       images: [
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=500&fit=crop'
+        `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`
       ],
-      overview: '這是一個面向企業的全棧SaaS解決方案，旨在幫助企業提升營運效率和管理水平。',
-      overviewExtra: '通過深入理解用戶需求和市場趨勢，我們設計並開發了一個既實用又美觀的解決方案，旨在提升用戶體驗和工作效率。',
-      role: '全棧開發工程師',
-      roleDesc: '在這個專案中，我負責從概念設計到最終實現的各個環節，確保專案按時交付並達到預期目標。',
-      process: ['需求分析', '架構設計', '前端開發', '後端開發', '測試部署'],
-      insights: ['用戶體驗優化', '效能提升', '數據安全'],
-      results: '專案上線後，用戶滿意度提升40%，系統響應時間減少60%。'
+      overview: 'Pixelated Adventures - 我在探索互動課程中設計的棋盤遊戲，為人們分享旅行回憶提供了一種新穎的方式。我從研究紀念品選擇的挑戰開始，深入探討傳統敘事的不足，並探索創新方法，通過互動性和吸引力來增強這些體驗。',
+      overviewExtra: '',
+      role: '設計師',
+      roleDesc: '在這個專案中，我負責從研究和構思到原型製作和測試的完整設計過程，創造了一個引人入勝的棋盤遊戲體驗，改變了人們分享旅行回憶的方式。',
+      process: ['研究與分析', '概念開發', '原型製作', '用戶測試', '優化改進'],
+      insights: ['敘事中的遊戲化', '實體產品設計', '用戶體驗創新'],
+      results: '該設計成功地將傳統的旅行回憶分享轉變為互動且引人入勝的棋盤遊戲體驗。'
     },
     2: {
-      title: '行動端電商應用',
-      description: '高效能行動購物體驗，整合支付、推薦系統和即時庫存管理',
+      title: 'E.C.H.O.',
+      description: '一個社區機器人，與居民互動、收集故事，探索機器人在未來社區中的角色。',
       year: 2024,
-      category: '行動應用',
-      heroImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop',
+      category: '團隊. 程式設計. 人工智慧. 產品',
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       images: [
-        'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop'
+        `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`
       ],
-      overview: '一款專注於行動端購物體驗的電商應用，提供流暢的購物流程和個人化推薦。',
-      overviewExtra: '通過深入理解用戶需求和市場趨勢，我們設計並開發了一個既實用又美觀的解決方案，旨在提升用戶體驗和工作效率。',
-      role: '行動端開發負責人',
-      roleDesc: '在這個專案中，我負責從概念設計到最終實現的各個環節，確保專案按時交付並達到預期目標。',
-      process: ['用戶研究', '原型設計', 'UI/UX設計', '開發實現', '效能優化'],
-      insights: ['行動端效能優化', '用戶體驗設計', '推薦演算法'],
-      results: '應用上線後，日活躍用戶增長200%，轉化率提升35%。'
+      overview: 'E.C.H.O.是一個社區機器人，與居民互動、收集他們的故事並記錄下來。通過引入ECHO，我們想要探討機器人在未來社區中的角色。',
+      overviewExtra: '',
+      role: '設計師 & 開發者',
+      roleDesc: '在這個團隊專案中，我參與了E.C.H.O.的設計和開發，探索機器人如何成為社區生活的一部分並促進社交互動。',
+      process: ['研究與概念', '原型製作', '開發實現', '社區測試', '優化改進'],
+      insights: ['人機互動', '社區參與', 'AI在社會場景中的應用'],
+      results: '該專案成功探索了機器人作為社區成員的潛在角色，並提出了關於未來社區的重要問題。'
     },
     3: {
       title: '智能數據分析儀表板',
@@ -509,7 +503,9 @@ const sectionLabels = {
     insights: 'Key Insights',
     results: 'Project Results',
     notFound: 'Project Not Found',
-    notFoundDesc: 'The project you\'re looking for doesn\'t exist.'
+    notFoundDesc: 'The project you\'re looking for doesn\'t exist.',
+    loading: 'Loading',
+    loadingDesc: 'Project content is being prepared.'
   },
   zh: {
     back: '← 返回作品',
@@ -520,7 +516,9 @@ const sectionLabels = {
     insights: '关键洞察',
     results: '项目成果',
     notFound: '项目未找到',
-    notFoundDesc: '您查找的项目不存在。'
+    notFoundDesc: '您查找的项目不存在。',
+    loading: '加载中',
+    loadingDesc: '项目内容正在准备中。'
   },
   'zh-TW': {
     back: '← 返回作品',
@@ -531,7 +529,9 @@ const sectionLabels = {
     insights: '關鍵洞察',
     results: '專案成果',
     notFound: '專案未找到',
-    notFoundDesc: '您查找的專案不存在。'
+    notFoundDesc: '您查找的專案不存在。',
+    loading: '載入中',
+    loadingDesc: '專案內容正在準備中。'
   }
 };
 
@@ -549,7 +549,7 @@ function WorkDetail() {
 
   if (!work) {
     return (
-      <div className="page-content">
+      <div className="page-content work-detail-loading">
         <h1>{labels.notFound}</h1>
         <p>{labels.notFoundDesc}</p>
         <Link to="/">{labels.back}</Link>
@@ -558,100 +558,10 @@ function WorkDetail() {
   }
 
   return (
-    <div className={`page-content work-detail ${isVisible ? 'visible' : ''}`}>
-      <Link to="/" className="back-link">
-        {labels.back}
-      </Link>
-      
-      <div className="work-detail-header">
-        <div className="work-meta">
-          <span className="work-year">{work.year}</span>
-          <span className="work-category">{work.category}</span>
-        </div>
-        <h1>{work.title}</h1>
-        <p className="work-description">{work.description}</p>
-      </div>
-
-      <div className="work-hero-image">
-        <img src={work.heroImage} alt={work.title} />
-      </div>
-
-      <div className="work-content">
-        <section className="work-section-block">
-          <h2>{labels.overview}</h2>
-          <div className="text-content">
-            <p>{work.overview}</p>
-            <p>{work.overviewExtra}</p>
-          </div>
-        </section>
-
-        <section className="work-section-block">
-          <h2>{labels.role}</h2>
-          <div className="role-content">
-            <div className="role-badge">{work.role}</div>
-            <p>{work.roleDesc}</p>
-          </div>
-        </section>
-
-        <section className="work-section-block">
-          <h2>{labels.process}</h2>
-          <div className="process-timeline">
-            {work.process.map((step, index) => (
-              <div key={index} className="process-step">
-                <div className="process-number">{index + 1}</div>
-                <div className="process-content">
-                  <h3>{step}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="work-section-block">
-          <h2>{labels.images}</h2>
-          <div className="work-images-gallery">
-            <div className="gallery-main">
-              <img 
-                src={work.images[activeImage]} 
-                alt={`${work.title} - Image ${activeImage + 1}`}
-                className="gallery-main-image"
-              />
-            </div>
-            {work.images.length > 1 && (
-              <div className="gallery-thumbnails">
-                {work.images.map((img, index) => (
-                  <button
-                    key={index}
-                    className={`thumbnail ${activeImage === index ? 'active' : ''}`}
-                    onClick={() => setActiveImage(index)}
-                  >
-                    <img src={img} alt={`Thumbnail ${index + 1}`} />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
-
-        <section className="work-section-block">
-          <h2>{labels.insights}</h2>
-          <div className="insights-grid">
-            {work.insights.map((insight, index) => (
-              <div key={index} className="insight-card">
-                <div className="insight-icon">💡</div>
-                <h3>{insight}</h3>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="work-section-block">
-          <h2>{labels.results}</h2>
-          <div className="results-box">
-            <p>{work.results}</p>
-          </div>
-        </section>
-      </div>
+    <div className="page-content work-detail-loading">
+      <h1>{labels.loading}</h1>
+      <p>{labels.loadingDesc}</p>
+      <Link to="/">{labels.back}</Link>
     </div>
   );
 }

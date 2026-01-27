@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import CategoryIcons from './CategoryIcons';
 
 function WorkCard({ work }) {
   const location = useLocation();
@@ -16,13 +17,10 @@ function WorkCard({ work }) {
           alt={work.title}
           className="work-card-image"
         />
-        {work.year && (
-          <div className="work-card-year">{work.year}</div>
-        )}
       </div>
       <div className="work-card-content">
         {work.category && (
-          <div className="work-card-category">{work.category}</div>
+          <CategoryIcons category={work.category} className="work-card-category" />
         )}
         <h2 className="card-title">{work.title}</h2>
         <p className="card-desc">{work.description}</p>
