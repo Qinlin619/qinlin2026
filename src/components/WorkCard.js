@@ -15,7 +15,7 @@ function WorkCard({ work }) {
         <img 
           src={work.image} 
           alt={work.title}
-          className="work-card-image"
+          className={`work-card-image ${work.id === 11 ? 'work-card-image-cobrush' : ''}`}
         />
       </div>
       <div className="work-card-content">

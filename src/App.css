@@ -286,8 +286,17 @@ main > *:not(.hero) {
   transition: transform 0.5s ease;
 }
 
+.work-card-image-cobrush {
+  object-position: 80% center;
+  transform: scale(1.6);
+}
+
 .work-card:hover .work-card-image {
   transform: scale(1.08);
+}
+
+.work-card:hover .work-card-image-cobrush {
+  transform: scale(1.68);
 }
 
 .work-card-year {

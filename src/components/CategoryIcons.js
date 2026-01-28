@@ -108,6 +108,11 @@ const getCategoryAbbr = (category) => {
     'Zoo': 'Zoo',
     'Installation': 'Installation',
     'Redesign': 'Redesign',
+    'Events': 'Events',
+    '活动': '活动',
+    'Human-Computer Interaction': 'HCI',
+    '人机交互': '人机交互',
+    '人機互動': '人機互動',
     '用户体验': 'UX',
     '用户界面': 'UI',
     '编程': 'Dev',
@@ -132,6 +137,7 @@ const getCategoryAbbr = (category) => {
     '動物園': 'Zoo',
     '裝置': 'Installation',
     '重新設計': 'Redesign',
+    '活動': '活動',
   };
   return abbrMap[category] || category;
 };

@@ -6,51 +6,19 @@ const works = {
   en: [
     {
       id: 8,
-      title: 'loading',
+      title: 'EuroStay',
       description: 'loading',
       year: 2026,
-      image: 'https://via.placeholder.com/800x600/e5e5e5/e5e5e5',
-      category: 'loading'
-    },
-    {
-      id: 9,
-      title: 'loading',
-      description: 'loading',
-      year: 2026,
-      image: 'https://via.placeholder.com/800x600/e8e8e8/e8e8e8',
-      category: 'loading'
-    },
-    {
-      id: 10,
-      title: 'loading',
-      description: 'loading',
-      year: 2026,
-      image: 'https://via.placeholder.com/800x600/f0f0f0/f0f0f0',
-      category: 'loading'
+      image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
+      category: 'User Interface. User Experience. Events'
     },
     {
       id: 11,
-      title: 'loading',
-      description: 'loading',
+      title: 'Cobrush',
+      description: 'A collaborative system that enables humans and robots to paint together through multi-turn interactions.',
       year: 2025,
-      image: 'https://via.placeholder.com/800x600/d8d8d8/d8d8d8',
-      category: 'loading'
-    },
-    {
-      id: 12,
-      title: 'loading',
-      description: 'loading',
-      year: 2025,
-      image: 'https://via.placeholder.com/800x600/f5f5f5/f5f5f5',
-      category: 'loading'
-    },
-    {
-      id: 13,
-      title: 'loading',
-      description: 'loading',
-      year: 2025,
-      image: 'https://via.placeholder.com/800x600/e5e5e5/e5e5e5',
-      category: 'loading'
+      image: `${process.env.PUBLIC_URL}/work/2025/1.JPEG`,
+      category: 'Human-Computer Interaction. Programming'
     },
     {
       id: 1,
@@ -120,51 +88,19 @@ const works = {
   zh: [
     {
       id: 8,
-      title: 'loading',
+      title: 'EuroStay',
       description: 'loading',
       year: 2026,
-      image: 'https://via.placeholder.com/800x600/e5e5e5/e5e5e5',
-      category: 'loading'
-    },
-    {
-      id: 9,
-      title: 'loading',
-      description: 'loading',
-      year: 2026,
-      image: 'https://via.placeholder.com/800x600/e8e8e8/e8e8e8',
-      category: 'loading'
-    },
-    {
-      id: 10,
-      title: 'loading',
-      description: 'loading',
-      year: 2026,
-      image: 'https://via.placeholder.com/800x600/f0f0f0/f0f0f0',
-      category: 'loading'
+      image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
+      category: '用户界面. 用户体验. 活动'
     },
     {
       id: 11,
-      title: 'loading',
-      description: 'loading',
+      title: 'Cobrush',
+      description: '一个让人和机器人能够通过多轮交互一起画画的协同系统',
       year: 2025,
-      image: 'https://via.placeholder.com/800x600/d8d8d8/d8d8d8',
-      category: 'loading'
-    },
-    {
-      id: 12,
-      title: 'loading',
-      description: 'loading',
-      year: 2025,
-      image: 'https://via.placeholder.com/800x600/f5f5f5/f5f5f5',
-      category: 'loading'
-    },
-    {
-      id: 13,
-      title: 'loading',
-      description: 'loading',
-      year: 2025,
-      image: 'https://via.placeholder.com/800x600/e5e5e5/e5e5e5',
-      category: 'loading'
+      image: `${process.env.PUBLIC_URL}/work/2025/1.JPEG`,
+      category: '人机交互. 编程'
     },
     {
       id: 1,
@@ -234,51 +170,19 @@ const works = {
   'zh-TW': [
     {
       id: 8,
-      title: 'loading',
+      title: 'EuroStay',
       description: 'loading',
       year: 2026,
-      image: 'https://via.placeholder.com/800x600/e5e5e5/e5e5e5',
-      category: 'loading'
-    },
-    {
-      id: 9,
-      title: 'loading',
-      description: 'loading',
-      year: 2026,
-      image: 'https://via.placeholder.com/800x600/e8e8e8/e8e8e8',
-      category: 'loading'
-    },
-    {
-      id: 10,
-      title: 'loading',
-      description: 'loading',
-      year: 2026,
-      image: 'https://via.placeholder.com/800x600/f0f0f0/f0f0f0',
-      category: 'loading'
+      image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
+      category: '用戶界面. 用戶體驗. 活動'
     },
     {
       id: 11,
-      title: 'loading',
-      description: 'loading',
+      title: 'Cobrush',
+      description: '一個讓人和機器人能夠通過多輪互動一起畫畫的協同系統',
       year: 2025,
-      image: 'https://via.placeholder.com/800x600/d8d8d8/d8d8d8',
-      category: 'loading'
-    },
-    {
-      id: 12,
-      title: 'loading',
-      description: 'loading',
-      year: 2025,
-      image: 'https://via.placeholder.com/800x600/f5f5f5/f5f5f5',
-      category: 'loading'
-    },
-    {
-      id: 13,
-      title: 'loading',
-      description: 'loading',
-      year: 2025,
-      image: 'https://via.placeholder.com/800x600/e5e5e5/e5e5e5',
-      category: 'loading'
+      image: `${process.env.PUBLIC_URL}/work/2025/1.JPEG`,
+      category: '人機互動. 程式設計'
     },
     {
       id: 1,
