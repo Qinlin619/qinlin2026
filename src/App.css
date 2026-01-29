@@ -1,4 +1,10 @@
 /* 全局重置与基础样式 */
+:root {
+  /* 黑色雨水光标：线框(默认) / 填满(可点击·悬浮)，瘦一点、线细一点 */
+  --cursor-rain-outline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Cg transform='rotate(-18 16 16)'%3E%3Cpath d='M16 2C12 10 8 18 8 22c0 4 4 8 8 8s8-4 8-8c0-4-4-12-8-20z' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E") 16 2;
+  --cursor-rain-filled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Cg transform='rotate(-18 16 16)'%3E%3Cpath d='M16 2C12 10 8 18 8 22c0 4 4 8 8 8s8-4 8-8c0-4-4-12-8-20z' fill='%23000'/%3E%3C/g%3E%3C/svg%3E") 16 2;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +24,7 @@ body {
   color: #000;
   background-color: #fff;
   line-height: 1.6;
+  cursor: var(--cursor-rain-outline), auto;
 }
 
 .App {
@@ -172,6 +179,73 @@ main > *:not(.hero) {
   contain: layout style;
 }
 
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.nav-hamburger:hover {
+  border-color: #000;
+}
+
+.hamburger-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #000;
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 1.5rem 1.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.nav-mobile-menu a {
+  display: block;
+  padding: 0.75rem 0;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-mobile-menu a:hover {
+  background: #f5f5f5;
+}
+
+.nav-mobile-menu a.active {
+  color: #fff;
+  background: #000;
+  transform: none;
+}
+
 /* Hero 区域 */
 .hero {
   position: relative;
@@ -210,6 +284,14 @@ main > *:not(.hero) {
   letter-spacing: 0.01em;
 }
 
+.hero-motto {
+  margin-top: 1.75rem;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #999;
+  letter-spacing: 0.02em;
+}
+
 /* Work Container */
 .work-container {
   max-width: 1200px;
@@ -220,6 +302,95 @@ main > *:not(.hero) {
 /* Work 网格 */
 .work-section {
   padding: 4rem 0 6rem;
+}
+
+.work-year-filter-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+  overflow: visible;
+}
+
+.work-year-filter-wrap {
+  position: relative;
+}
+
+.work-year-filter-wrap--open {
+  margin-left: -20px;
+  padding-left: 20px;
+}
+
+.work-year-trigger {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #666;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.work-year-trigger:hover {
+  border-color: #000;
+  color: #000;
+}
+
+.work-year-popup {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  margin-right: 0;
+  min-width: 140px;
+  transform-origin: right top;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transform: translateX(8px);
+  opacity: 0;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease-out;
+}
+
+.work-year-popup--open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.work-year-popup--closing {
+  transform: translateX(8px);
+  opacity: 0;
+}
+
+.work-year-option {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #333;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.work-year-option:hover {
+  background: #f5f5f5;
+}
+
+.work-year-option.active {
+  color: #000;
+  font-weight: 500;
 }
 
 .work-year-group {
@@ -286,17 +457,8 @@ main > *:not(.hero) {
   transition: transform 0.5s ease;
 }
 
-.work-card-image-cobrush {
-  object-position: 80% center;
-  transform: scale(1.6);
-}
-
 .work-card:hover .work-card-image {
   transform: scale(1.08);
-}
-
-.work-card:hover .work-card-image-cobrush {
-  transform: scale(1.68);
 }
 
 .work-card-year {
@@ -1398,29 +1560,63 @@ main > *:not(.hero) {
   }
 
   .nav-right {
-    gap: 1.5rem;
-  }
-
-  .nav-links {
-    gap: 1.5rem;
-  }
-
-  .nav-links a {
-    font-size: 0.875rem;
-  }
-
-  .language-toggle {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    min-width: 45px;
+    gap: 1rem;
   }
 
   .logo-text {
-    font-size: 1rem;
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .language-toggle {
+    height: 36px;
+    min-height: 36px;
+    padding: 0 0.8rem;
+    font-size: 0.925rem;
+    min-width: 45px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-mobile-open .nav-hamburger .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar-mobile-open .nav-hamburger .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-mobile-open .nav-hamburger .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-mobile-menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-mobile-menu.nav-mobile-menu-open {
+    display: flex;
   }
 
   .logo-icon {
-    font-size: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .nav-mobile-menu a {
+    font-size: 0.875rem;
   }
 
   main {
@@ -1438,11 +1634,16 @@ main > *:not(.hero) {
   }
 
   .hero .title {
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 
   .hero .subtitle {
-    font-size: 1.125rem;
+    font-size: 0.875rem;
+  }
+
+  .hero-motto {
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
   }
 
   .work-grid {
@@ -1450,13 +1651,25 @@ main > *:not(.hero) {
     gap: 2.5rem 0;
   }
 
+  .work-card-image-wrapper {
+    height: 200px;
+  }
+
   .work-year-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   .page-content {
     margin-top: 6rem;
     padding-top: 2rem;
+  }
+
+  .page-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .stat-number {
+    font-size: 2.25rem;
   }
 
   .about-cover {
@@ -1477,10 +1690,6 @@ main > *:not(.hero) {
     padding-top: 1.5rem;
   }
 
-  .page-content h1 {
-    font-size: 2rem;
-  }
-
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1489,10 +1698,6 @@ main > *:not(.hero) {
   .research-stats {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
   }
 
   .side-projects-grid {
@@ -1520,6 +1725,21 @@ main > *:not(.hero) {
     flex-direction: column;
     gap: 2.5rem;
   }
+
+  .footer-social {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem 1.5rem;
+    justify-items: center;
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+
+  .footer {
+    font-size: 0.625rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1528,15 +1748,15 @@ main > *:not(.hero) {
   }
 
   .nav-links a {
-    font-size: 0.8rem;
-  }
-
-  .logo-text {
-    font-size: 0.9rem;
+    font-size: 0.55rem;
   }
 
   .logo-icon {
-    font-size: 1.1rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-mobile-menu a {
+    font-size: 0.75rem;
   }
 
   .hero {
@@ -1545,11 +1765,16 @@ main > *:not(.hero) {
   }
 
   .hero .title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .hero .subtitle {
-    font-size: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .hero-motto {
+    margin-top: 1rem;
+    font-size: 0.7rem;
   }
 
   .work-card-content {
@@ -1581,5 +1806,91 @@ main > *:not(.hero) {
 
   .results-box {
     padding: 1.5rem;
+  }
+}
+
+/* 雨水光标：可点击/可选中/悬浮用填满 */
+a, button, [role="button"], input, select, textarea,
+.work-card, .work-year-trigger, .work-year-option,
+.nav-logo a, .nav-links a, .nav-mobile-menu a,
+.language-toggle, .nav-hamburger,
+.footer-social-link,
+.side-project-card, .side-project-link, .tab-button {
+  cursor: var(--cursor-rain-outline), auto;
+}
+a:hover, a:focus-visible, button:hover, button:focus-visible,
+[role="button"]:hover, [role="button"]:focus-visible,
+input:hover, input:focus, select:hover, select:focus, textarea:hover, textarea:focus,
+.work-card:hover, .work-year-trigger:hover, .work-year-option:hover,
+.nav-logo a:hover, .nav-links a:hover, .nav-mobile-menu a:hover,
+.language-toggle:hover, .nav-hamburger:hover,
+.footer-social-link:hover,
+.side-project-card:hover, .side-project-link:hover, .tab-button:hover,
+.tab-button.active {
+  cursor: var(--cursor-rain-filled), auto;
+}
+a.active, .work-card-active {
+  cursor: var(--cursor-rain-filled), auto;
+}
+
+/* 雨水光标：扩大触碰范围，线框碰到即算 hover（按钮、链接等小目标） */
+.work-year-trigger, .work-year-option, .language-toggle, .nav-hamburger,
+.footer-social-link, .tab-button,
+.nav-logo a, .nav-links a, .nav-mobile-menu a {
+  position: relative;
+}
+.work-year-trigger::before, .work-year-option::before,
+.language-toggle::before, .nav-hamburger::before,
+.footer-social-link::before, .tab-button::before,
+.nav-logo a::before, .nav-links a::before, .nav-mobile-menu a::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  z-index: -1;
+}
+
+/* 点击波纹：线条散开 */
+.ripple-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.ripple-ring {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border: 0.5px solid #000;
+  border-radius: 50%;
+  opacity: 0.7;
+  transform-origin: center;
+  animation: ripple-wave 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.ripple-ring:nth-child(2) {
+  inset: -4px;
+  animation-delay: 0.06s;
+}
+
+.ripple-ring:nth-child(3) {
+  inset: -8px;
+  animation-delay: 0.12s;
+}
+
+@keyframes ripple-wave {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
   }
 }

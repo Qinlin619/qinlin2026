@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import WorkCard from './WorkCard';
+
+const yearFilterText = {
+  en: { label: 'Year', all: 'All' },
+  zh: { label: '年份', all: '全部' },
+  'zh-TW': { label: '年份', all: '全部' }
+};
 
 const works = {
   en: [
@@ -17,7 +23,7 @@ const works = {
       title: 'Cobrush',
       description: 'A collaborative system that enables humans and robots to paint together through multi-turn interactions.',
       year: 2025,
-      image: `${process.env.PUBLIC_URL}/work/2025/1.JPEG`,
+      image: `${process.env.PUBLIC_URL}/work/2025/1.png`,
       category: 'Human-Computer Interaction. Programming'
     },
     {
@@ -84,6 +90,54 @@ const works = {
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
       category: 'Group. Well-being. User Experience. User Interface'
     },
+    {
+      id: 15,
+      title: 'Bottle Opener',
+      description: 'Exploring the fusion of Art Deco and compact kitchenware.',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/1/1.png`,
+      category: 'Individual. Product Design'
+    },
+    {
+      id: 16,
+      title: 'Calorie Calculator',
+      description: 'A web tool to support people on their weight-loss journey.',
+      year: 2020,
+      image: `${process.env.PUBLIC_URL}/work/2020/1CalorieCalculator/1.png`,
+      category: 'Individual. Web Design'
+    },
+    {
+      id: 20,
+      title: 'Chair Modelling',
+      description: 'Unleash imagination and practice modelling skills.',
+      year: 2020,
+      image: `${process.env.PUBLIC_URL}/work/2020/2Chair/1.jpg`,
+      category: 'Individual. Modelling'
+    },
+    {
+      id: 17,
+      title: 'Hammer',
+      description: 'Engineering drawings and model making.',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/1Hammer/1(1).jpg`,
+      category: 'Individual. Industrial Design'
+    },
+    {
+      id: 18,
+      title: 'Superman',
+      description: 'Load-bearing cardboard chair challenge.',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/2Superman/1.jpg`,
+      category: 'Group. Industrial Design'
+    },
+    {
+      id: 19,
+      title: 'BananaBoard',
+      description: 'loading',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
+      category: 'Individual. Modelling. Industrial Design'
+    },
   ],
   zh: [
     {
@@ -99,7 +153,7 @@ const works = {
       title: 'Cobrush',
       description: '一个让人和机器人能够通过多轮交互一起画画的协同系统',
       year: 2025,
-      image: `${process.env.PUBLIC_URL}/work/2025/1.JPEG`,
+      image: `${process.env.PUBLIC_URL}/work/2025/1.png`,
       category: '人机交互. 编程'
     },
     {
@@ -166,6 +220,54 @@ const works = {
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
       category: '團隊. 健康福祉. 用戶體驗. 用戶界面'
     },
+    {
+      id: 15,
+      title: '开瓶器',
+      description: '探索经典艺术风格与小型厨具的结合',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/1/1.png`,
+      category: '个人项目. 产品设计'
+    },
+    {
+      id: 16,
+      title: 'Calorie Calculator',
+      description: '为减重人群做一点小贡献。',
+      year: 2020,
+      image: `${process.env.PUBLIC_URL}/work/2020/1CalorieCalculator/1.png`,
+      category: '个人项目. 网页设计'
+    },
+    {
+      id: 20,
+      title: '椅子建模',
+      description: '释放想象力，练习建模能力',
+      year: 2020,
+      image: `${process.env.PUBLIC_URL}/work/2020/2Chair/1.jpg`,
+      category: '个人项目. 建模'
+    },
+    {
+      id: 17,
+      title: 'Hammer',
+      description: '画工程图和制作模型',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/1Hammer/1(1).jpg`,
+      category: '单人项目. 工业设计'
+    },
+    {
+      id: 18,
+      title: 'Superman',
+      description: '承重纸板椅子挑战',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/2Superman/1.jpg`,
+      category: '团队. 工业设计'
+    },
+    {
+      id: 19,
+      title: 'BananaBoard',
+      description: 'loading',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
+      category: '个人项目. 建模. 工业设计'
+    },
   ],
   'zh-TW': [
     {
@@ -181,7 +283,7 @@ const works = {
       title: 'Cobrush',
       description: '一個讓人和機器人能夠通過多輪互動一起畫畫的協同系統',
       year: 2025,
-      image: `${process.env.PUBLIC_URL}/work/2025/1.JPEG`,
+      image: `${process.env.PUBLIC_URL}/work/2025/1.png`,
       category: '人機互動. 程式設計'
     },
     {
@@ -248,6 +350,54 @@ const works = {
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
       category: '团队. 健康福祉. 用户体验. 用户界面'
     },
+    {
+      id: 15,
+      title: '開瓶器',
+      description: '探索經典藝術風格與小型廚具的結合',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/1/1.png`,
+      category: '個人專案. 產品設計'
+    },
+    {
+      id: 16,
+      title: 'Calorie Calculator',
+      description: '為減重人群做一點小貢獻。',
+      year: 2020,
+      image: `${process.env.PUBLIC_URL}/work/2020/1CalorieCalculator/1.png`,
+      category: '個人專案. 網頁設計'
+    },
+    {
+      id: 20,
+      title: '椅子建模',
+      description: '釋放想像力，練習建模能力',
+      year: 2020,
+      image: `${process.env.PUBLIC_URL}/work/2020/2Chair/1.jpg`,
+      category: '個人專案. 建模'
+    },
+    {
+      id: 17,
+      title: 'Hammer',
+      description: '畫工程圖和製作模型',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/1Hammer/1(1).jpg`,
+      category: '個人專案. 工業設計'
+    },
+    {
+      id: 18,
+      title: 'Superman',
+      description: '承重紙板椅子挑戰',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/2Superman/1.jpg`,
+      category: '團隊. 工業設計'
+    },
+    {
+      id: 19,
+      title: 'BananaBoard',
+      description: 'loading',
+      year: 2019,
+      image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
+      category: '個人專案. 建模. 工業設計'
+    },
   ]
 };
 
@@ -268,6 +418,23 @@ function WorkGrid() {
   const worksList = works[language] || works.en;
   const worksByYear = groupByYear(worksList);
   const years = Object.keys(worksByYear).sort((a, b) => b - a);
+  const [selectedYear, setSelectedYear] = useState(null);
+  const [yearPopupOpen, setYearPopupOpen] = useState(false);
+  const [yearPopupClosing, setYearPopupClosing] = useState(false);
+  const [yearPopupReady, setYearPopupReady] = useState(false);
+  const closeTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    if (yearPopupOpen && !yearPopupClosing) {
+      setYearPopupReady(false);
+      const t = setTimeout(() => setYearPopupReady(true), 0);
+      return () => clearTimeout(t);
+    }
+    if (!yearPopupOpen) setYearPopupReady(false);
+  }, [yearPopupOpen, yearPopupClosing]);
+
+  useEffect(() => () => { if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current); }, []);
+  const filterText = yearFilterText[language] || yearFilterText.en;
 
   const getYearLabel = (year) => {
     const yearNum = parseInt(year, 10);
@@ -279,13 +446,64 @@ function WorkGrid() {
     return year;
   };
 
+  const displayYears = selectedYear ? [selectedYear] : years;
+
   return (
     <section className="work-section">
-      {years.map(year => (
+      <div className="work-year-filter-row">
+        <div
+          className={`work-year-filter-wrap${yearPopupOpen ? ' work-year-filter-wrap--open' : ''}`}
+          onMouseEnter={() => {
+            if (closeTimeoutRef.current) { clearTimeout(closeTimeoutRef.current); closeTimeoutRef.current = null; }
+            setYearPopupClosing(false);
+            setYearPopupOpen(true);
+          }}
+          onMouseLeave={() => {
+            if (!yearPopupOpen) return;
+            setYearPopupClosing(true);
+            closeTimeoutRef.current = setTimeout(() => {
+              setYearPopupOpen(false);
+              setYearPopupClosing(false);
+              closeTimeoutRef.current = null;
+            }, 260);
+          }}
+        >
+        <button type="button" className="work-year-trigger" aria-haspopup="true" aria-expanded={yearPopupOpen}>
+          {filterText.label}
+        </button>
+        {yearPopupOpen && (
+          <div
+            className={`work-year-popup${yearPopupReady && !yearPopupClosing ? ' work-year-popup--open' : ''}${yearPopupClosing ? ' work-year-popup--closing' : ''}`}
+            role="menu"
+          >
+            <button
+              type="button"
+              role="menuitem"
+              className={!selectedYear ? 'work-year-option active' : 'work-year-option'}
+              onClick={() => { setSelectedYear(null); setYearPopupOpen(false); setYearPopupClosing(false); }}
+            >
+              {filterText.all}
+            </button>
+            {years.map((y) => (
+              <button
+                key={y}
+                type="button"
+                role="menuitem"
+                className={selectedYear === y ? 'work-year-option active' : 'work-year-option'}
+                onClick={() => { setSelectedYear(y); setYearPopupOpen(false); setYearPopupClosing(false); }}
+              >
+                {getYearLabel(y)}
+              </button>
+            ))}
+          </div>
+        )}
+        </div>
+      </div>
+      {displayYears.map((year) => (
         <div key={year} className="work-year-group">
           <h2 className="work-year-title">{getYearLabel(year)}</h2>
           <div className="work-grid">
-            {worksByYear[year].map(work => (
+            {worksByYear[year].map((work) => (
               <WorkCard key={work.id} work={work} />
             ))}
           </div>

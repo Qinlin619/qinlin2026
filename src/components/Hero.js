@@ -5,15 +5,18 @@ import Particles from './Particles';
 const heroText = {
   en: {
     title: 'Qinlin Liu',
-    subtitle: 'UX Designer / Product Designer'
+    subtitle: 'Interaction Designer',
+    motto: 'The interaction of X and X'
   },
   zh: {
     title: 'Qinlin Liu',
-    subtitle: 'UX设计师 / 产品设计师'
+    subtitle: '交互设计师',
+    motto: 'X与X的交互'
   },
   'zh-TW': {
     title: 'Qinlin Liu',
-    subtitle: 'UX設計師 / 產品設計師'
+    subtitle: '互動設計師',
+    motto: 'X與X的互動'
   }
 };
 
@@ -27,6 +30,7 @@ function Hero() {
       <div className="hero-content">
         <h1 className="title">{texts.title}</h1>
         <p className="subtitle">{texts.subtitle}</p>
+        <p className="hero-motto">{texts.motto}</p>
       </div>
     </section>
   );

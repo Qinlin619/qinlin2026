@@ -9,6 +9,7 @@ import WorkDetail from './pages/WorkDetail';
 import Side from './pages/Side';
 import About from './pages/About';
 import CV from './pages/CV';
+import RippleEffect from './components/RippleEffect';
 
 function HomePage() {
   return (
@@ -35,6 +36,7 @@ function AppContent() {
 
   return (
     <div className="App">
+      <RippleEffect />
       <Navbar />
       <main className="page-transition-wrapper">
         <div key={location.pathname} className="page-transition">
