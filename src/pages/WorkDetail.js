@@ -3,6 +3,16 @@ import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { getWorksListByYear } from '../components/WorkGrid';
 
+function getYoutubeEmbedUrl(url) {
+  if (!url || typeof url !== 'string') return null;
+  const trimmed = url.trim();
+  const watchMatch = trimmed.match(/(?:youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/);
+  if (watchMatch) return `https://www.youtube.com/embed/${watchMatch[1]}`;
+  const shortMatch = trimmed.match(/(?:youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if (shortMatch) return `https://www.youtube.com/embed/${shortMatch[1]}`;
+  return null;
+}
+
 const workData = {
   en: {
     1: {
@@ -136,6 +146,7 @@ const workData = {
       year: 2025,
       category: 'Group. Human-Computer Interaction. Programming',
       heroImage: `${process.env.PUBLIC_URL}/work/2025/1.png`,
+      youtubeUrl: '',
       images: [
         `${process.env.PUBLIC_URL}/work/2025/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/10.JPEG`,
@@ -284,6 +295,7 @@ const workData = {
       year: 2025,
       category: '团队. 人机交互. 编程',
       heroImage: `${process.env.PUBLIC_URL}/work/2025/1.png`,
+      youtubeUrl: '',
       images: [
         `${process.env.PUBLIC_URL}/work/2025/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/10.JPEG`,
@@ -415,6 +427,7 @@ const workData = {
       year: 2025,
       category: 'Group. Human-Computer Interaction. Programming',
       heroImage: `${process.env.PUBLIC_URL}/work/2025/1.png`,
+      youtubeUrl: '',
       images: [
         `${process.env.PUBLIC_URL}/work/2025/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/10.JPEG`,
@@ -563,6 +576,7 @@ const workData = {
       year: 2025,
       category: '團隊. 人機互動. 程式設計',
       heroImage: `${process.env.PUBLIC_URL}/work/2025/1.png`,
+      youtubeUrl: '',
       images: [
         `${process.env.PUBLIC_URL}/work/2025/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/10.JPEG`,
@@ -590,10 +604,11 @@ const sectionLabels = {
     process: 'Development Process',
     images: 'Project Images',
     insights: 'Key Insights',
-    results: 'Project Results',
     moreProjects: 'More Projects',
+    prevProject: 'Previous project',
+    nextProject: 'Next project',
     notFound: 'Project Not Found',
-    notFoundDesc: 'The project you\'re looking for doesn\'t exist.',
+    notFoundDesc: 'Under construction.',
     loading: 'Loading',
     loadingDesc: 'Project content is being prepared.'
   },
@@ -604,10 +619,11 @@ const sectionLabels = {
     process: '开发流程',
     images: '项目图片',
     insights: '关键洞察',
-    results: '项目成果',
     moreProjects: '更多作品',
+    prevProject: '上一个项目',
+    nextProject: '下一个项目',
     notFound: '项目未找到',
-    notFoundDesc: '您查找的项目不存在。',
+    notFoundDesc: '正在建设中',
     loading: '加载中',
     loadingDesc: '项目内容正在准备中。'
   },
@@ -618,10 +634,11 @@ const sectionLabels = {
     process: '開發流程',
     images: '專案圖片',
     insights: '關鍵洞察',
-    results: '專案成果',
     moreProjects: '更多作品',
+    prevProject: '上一個專案',
+    nextProject: '下一個專案',
     notFound: '專案未找到',
-    notFoundDesc: '您查找的專案不存在。',
+    notFoundDesc: '正在建設中',
     loading: '載入中',
     loadingDesc: '專案內容正在準備中。'
   }
@@ -635,11 +652,20 @@ function WorkDetail() {
   const [activeImage, setActiveImage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
+  const worksList = useMemo(() => getWorksListByYear(language), [language]);
   const otherProjects = useMemo(() => {
-    const list = getWorksListByYear(language);
     const currentId = parseInt(id, 10);
-    return list.filter((w) => w.id !== currentId);
-  }, [language, id]);
+    return worksList.filter((w) => w.id !== currentId);
+  }, [language, id, worksList]);
+
+  const workFromList = useMemo(() => {
+    if (work) return null;
+    return worksList.find((w) => w.id === parseInt(id, 10)) || null;
+  }, [work, worksList, id]);
+
+  const currentIndex = useMemo(() => worksList.findIndex((w) => w.id === parseInt(id, 10)), [worksList, id]);
+  const prevProject = currentIndex > 0 ? worksList[currentIndex - 1] : null;
+  const nextProject = currentIndex >= 0 && currentIndex < worksList.length - 1 ? worksList[currentIndex + 1] : null;
 
   const moreScrollRef = useRef(null);
   const ARROW_SCROLL = 600;
@@ -655,7 +681,7 @@ function WorkDetail() {
   }, [id, language]);
 
   const moreSection = (
-    <section className="work-detail-more" aria-label={labels.moreProjects}>
+    <section className="work-detail-more work-detail-more-desktop" aria-label={labels.moreProjects}>
       <h2 className="work-detail-more-title">{labels.moreProjects}</h2>
       <div className="work-detail-more-row">
         <button type="button" className="work-detail-more-arrow work-detail-more-arrow-left" aria-label="Previous" onClick={() => scrollBy(-ARROW_SCROLL)} />
@@ -682,22 +708,54 @@ function WorkDetail() {
     </section>
   );
 
+  const prevNextSection = (prevProject || nextProject) ? (
+    <nav className="work-detail-prev-next" aria-label="Previous / Next project">
+      <div className="work-detail-prev-next-inner">
+        {prevProject ? (
+          <Link to={`/work/${prevProject.id}`} className="work-detail-prev-next-link work-detail-prev-next-prev">
+            ← {labels.prevProject}
+          </Link>
+        ) : (
+          <span className="work-detail-prev-next-link work-detail-prev-next-prev work-detail-prev-next-placeholder" aria-hidden />
+        )}
+        {nextProject ? (
+          <Link to={`/work/${nextProject.id}`} className="work-detail-prev-next-link work-detail-prev-next-next">
+            {labels.nextProject} →
+          </Link>
+        ) : (
+          <span className="work-detail-prev-next-link work-detail-prev-next-next work-detail-prev-next-placeholder" aria-hidden />
+        )}
+      </div>
+    </nav>
+  ) : null;
+
   if (!work) {
+    const notFoundTitle = workFromList ? workFromList.title : labels.notFound;
     return (
       <>
         <div className="page-content work-detail-loading">
-          <h1>{labels.notFound}</h1>
+          <h1>{notFoundTitle}</h1>
           <p>{labels.notFoundDesc}</p>
           <Link to="/">{labels.back}</Link>
         </div>
         {moreSection}
+        {prevNextSection}
       </>
     );
   }
 
+  const bannerImages = work.images && work.images.length > 0 ? work.images : (work.heroImage ? [work.heroImage] : []);
+
   return (
     <>
       <div className={`page-content work-detail ${isVisible ? 'visible' : ''}`}>
+        {bannerImages.length > 0 && (
+          <div className="work-detail-banner" aria-hidden>
+            {bannerImages.map((src, i) => (
+              <img key={i} src={src} alt="" />
+            ))}
+          </div>
+        )}
         <Link to="/" className="work-detail-back">{labels.back}</Link>
         <header className="work-detail-header">
           <div className="work-meta">
@@ -707,9 +765,19 @@ function WorkDetail() {
           <h1 className="work-detail-title">{work.title}</h1>
           <p className="work-description">{work.description}</p>
         </header>
-        <div className="work-hero-image">
-          <img src={work.heroImage} alt={work.title} />
-        </div>
+        {work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl) && (
+          <div className="work-detail-video-wrap">
+            <div className="work-detail-video">
+              <iframe
+                title={work.title}
+                src={getYoutubeEmbedUrl(work.youtubeUrl)}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
         <div className="work-content">
           <section className="work-section-block">
             <h2>{labels.overview}</h2>
@@ -769,17 +837,10 @@ function WorkDetail() {
               </div>
             </section>
           )}
-          {work.results && (
-            <section className="work-section-block">
-              <h2>{labels.results}</h2>
-              <div className="results-box">
-                <p>{work.results}</p>
-              </div>
-            </section>
-          )}
         </div>
       </div>
       {moreSection}
+      {prevNextSection}
     </>
   );
 }

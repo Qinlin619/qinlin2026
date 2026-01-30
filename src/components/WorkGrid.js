@@ -48,7 +48,7 @@ const works = {
     },
     {
       id: 14,
-      title: 'Intimate relationship',
+      title: 'Intimate Relationship',
       description: 'An immersive experience exploring Klimt\'s "The Kiss" using graphic processing technology.',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
@@ -194,7 +194,7 @@ const works = {
     },
     {
       id: 14,
-      title: 'Intimate relationship',
+      title: 'Intimate Relationship',
       description: '使用圖形處理技術探索克林姆特《吻》的沉浸式體驗。',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
@@ -340,7 +340,7 @@ const works = {
     },
     {
       id: 14,
-      title: 'Intimate relationship',
+      title: 'Intimate Relationship',
       description: '使用图形处理技术探索克林姆特《吻》的沉浸式体验。',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
