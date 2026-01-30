@@ -26,13 +26,31 @@ function AppContent() {
   const location = useLocation();
 
   useEffect(() => {
-    // 每次路由变化时滚动到顶部
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-  }, [location.pathname]);
+    const { pathname, hash, state } = location;
+    if (state?.fromYearNav) return;
+    if (pathname === '/' && hash && hash.startsWith('#work-year-')) {
+      const id = hash.slice(1);
+      const el = document.getElementById(id);
+      const t = setTimeout(() => {
+        el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      return () => clearTimeout(t);
+    }
+    if (pathname === '/') {
+      const saved = sessionStorage.getItem('workListScrollY');
+      if (saved !== null) {
+        try {
+          sessionStorage.removeItem('workListScrollY');
+          const y = parseInt(saved, 10);
+          if (!Number.isNaN(y)) {
+            const t = setTimeout(() => window.scrollTo(0, y), 0);
+            return () => clearTimeout(t);
+          }
+        } catch (_) {}
+      }
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [location.pathname, location.hash, location.state]);
 
   return (
     <div className="App">

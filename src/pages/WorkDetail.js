@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { getWorksListByYear } from '../components/WorkGrid';
 
 const workData = {
   en: {
@@ -129,6 +130,28 @@ const workData = {
       insights: ['Design System Best Practices', 'AI in Design', 'Component Reusability'],
       results: 'The design system reduced design time by 60% and improved consistency across all products by 85%.'
     },
+    11: {
+      title: 'Cobrush',
+      description: 'A collaborative system that enables humans and robots to paint together through multi-turn interactions.',
+      year: 2025,
+      category: 'Group. Human-Computer Interaction. Programming',
+      heroImage: `${process.env.PUBLIC_URL}/work/2025/1.png`,
+      images: [
+        `${process.env.PUBLIC_URL}/work/2025/1.png`,
+        `${process.env.PUBLIC_URL}/work/2025/10.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_0224.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_0244.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_2897.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_2902.JPEG`
+      ],
+      overview: 'Cobrush is a collaborative system that enables humans and robots to paint together through multi-turn interactions. The project explores how shared creativity and real-time feedback can bridge human and machine in a creative context.',
+      overviewExtra: '',
+      role: 'Designer & Developer',
+      roleDesc: 'In this team project, I contributed to the design and development of the collaborative painting system, focusing on interaction design and multi-turn dialogue between user and robot.',
+      process: ['Research & Concept', 'Interaction Design', 'Prototyping', 'Robot Integration', 'User Testing'],
+      insights: ['Human-Robot Collaboration', 'Creative AI', 'Multi-turn Interaction'],
+      results: 'The system successfully enables co-creative painting sessions between humans and robots, opening possibilities for collaborative art and assistive creativity.'
+    },
   },
   zh: {
     1: {
@@ -255,6 +278,28 @@ const workData = {
       insights: ['设计系统最佳实践', 'AI在设计中的应用', '组件可复用性'],
       results: '设计系统将设计时间减少60%，产品一致性提升85%。'
     },
+    11: {
+      title: 'Cobrush',
+      description: '一个让人和机器人能够通过多轮交互一起画画的协同系统。',
+      year: 2025,
+      category: '团队. 人机交互. 编程',
+      heroImage: `${process.env.PUBLIC_URL}/work/2025/1.png`,
+      images: [
+        `${process.env.PUBLIC_URL}/work/2025/1.png`,
+        `${process.env.PUBLIC_URL}/work/2025/10.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_0224.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_0244.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_2897.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_2902.JPEG`
+      ],
+      overview: 'Cobrush 是一个让人与机器人通过多轮交互共同绘画的协同系统。项目探索共享创意与实时反馈如何将人与机器在创作情境中连接起来。',
+      overviewExtra: '',
+      role: '设计师 & 开发者',
+      roleDesc: '在这个团队项目中，我参与了协同绘画系统的设计与开发，侧重交互设计与用户和机器人之间的多轮对话。',
+      process: ['研究与概念', '交互设计', '原型制作', '机器人集成', '用户测试'],
+      insights: ['人机协同创作', '创意 AI', '多轮交互'],
+      results: '系统成功实现了人与机器人的共同绘画会话，为协同艺术与辅助创作提供了可能。'
+    },
   },
   en: {
     1: {
@@ -363,6 +408,28 @@ const workData = {
       process: ['Requirements Research', 'Feature Design', 'Full-stack Development', 'Video Streaming Technology', 'Testing & Optimization'],
       insights: ['Video Streaming Technology', 'User Experience Design', 'Education Technology'],
       results: 'The platform has over 100,000 registered users with a course completion rate of 75%.'
+    },
+    11: {
+      title: 'Cobrush',
+      description: 'A collaborative system that enables humans and robots to paint together through multi-turn interactions.',
+      year: 2025,
+      category: 'Group. Human-Computer Interaction. Programming',
+      heroImage: `${process.env.PUBLIC_URL}/work/2025/1.png`,
+      images: [
+        `${process.env.PUBLIC_URL}/work/2025/1.png`,
+        `${process.env.PUBLIC_URL}/work/2025/10.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_0224.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_0244.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_2897.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_2902.JPEG`
+      ],
+      overview: 'Cobrush is a collaborative system that enables humans and robots to paint together through multi-turn interactions. The project explores how shared creativity and real-time feedback can bridge human and machine in a creative context.',
+      overviewExtra: '',
+      role: 'Designer & Developer',
+      roleDesc: 'In this team project, I contributed to the design and development of the collaborative painting system, focusing on interaction design and multi-turn dialogue between user and robot.',
+      process: ['Research & Concept', 'Interaction Design', 'Prototyping', 'Robot Integration', 'User Testing'],
+      insights: ['Human-Robot Collaboration', 'Creative AI', 'Multi-turn Interaction'],
+      results: 'The system successfully enables co-creative painting sessions between humans and robots, opening possibilities for collaborative art and assistive creativity.'
     },
   },
   'zh-TW': {
@@ -490,6 +557,28 @@ const workData = {
       insights: ['設計系統最佳實踐', 'AI在設計中的應用', '組件可復用性'],
       results: '設計系統將設計時間減少60%，產品一致性提升85%。'
     },
+    11: {
+      title: 'Cobrush',
+      description: '一個讓人和機器人能夠通過多輪互動一起畫畫的協同系統。',
+      year: 2025,
+      category: '團隊. 人機互動. 程式設計',
+      heroImage: `${process.env.PUBLIC_URL}/work/2025/1.png`,
+      images: [
+        `${process.env.PUBLIC_URL}/work/2025/1.png`,
+        `${process.env.PUBLIC_URL}/work/2025/10.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_0224.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_0244.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_2897.JPEG`,
+        `${process.env.PUBLIC_URL}/work/2025/IMG_2902.JPEG`
+      ],
+      overview: 'Cobrush 是一個讓人與機器人通過多輪互動共同繪畫的協同系統。專案探索共享創意與即時回饋如何將人與機器在創作情境中連接起來。',
+      overviewExtra: '',
+      role: '設計師 & 開發者',
+      roleDesc: '在這個團隊專案中，我參與了協同繪畫系統的設計與開發，側重互動設計與用戶和機器人之間的多輪對話。',
+      process: ['研究與概念', '互動設計', '原型製作', '機器人整合', '用戶測試'],
+      insights: ['人機協同創作', '創意 AI', '多輪互動'],
+      results: '系統成功實現了人與機器人的共同繪畫會話，為協同藝術與輔助創作提供了可能。'
+    },
   }
 };
 
@@ -502,6 +591,7 @@ const sectionLabels = {
     images: 'Project Images',
     insights: 'Key Insights',
     results: 'Project Results',
+    moreProjects: 'More Projects',
     notFound: 'Project Not Found',
     notFoundDesc: 'The project you\'re looking for doesn\'t exist.',
     loading: 'Loading',
@@ -515,6 +605,7 @@ const sectionLabels = {
     images: '项目图片',
     insights: '关键洞察',
     results: '项目成果',
+    moreProjects: '更多作品',
     notFound: '项目未找到',
     notFoundDesc: '您查找的项目不存在。',
     loading: '加载中',
@@ -528,6 +619,7 @@ const sectionLabels = {
     images: '專案圖片',
     insights: '關鍵洞察',
     results: '專案成果',
+    moreProjects: '更多作品',
     notFound: '專案未找到',
     notFoundDesc: '您查找的專案不存在。',
     loading: '載入中',
@@ -543,26 +635,152 @@ function WorkDetail() {
   const [activeImage, setActiveImage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
+  const otherProjects = useMemo(() => {
+    const list = getWorksListByYear(language);
+    const currentId = parseInt(id, 10);
+    return list.filter((w) => w.id !== currentId);
+  }, [language, id]);
+
+  const moreScrollRef = useRef(null);
+  const ARROW_SCROLL = 600;
+
+  const scrollBy = useCallback((delta) => {
+    const el = moreScrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: delta, behavior: 'smooth' });
+  }, []);
+
   useEffect(() => {
     setIsVisible(true);
   }, [id, language]);
 
+  const moreSection = (
+    <section className="work-detail-more" aria-label={labels.moreProjects}>
+      <h2 className="work-detail-more-title">{labels.moreProjects}</h2>
+      <div className="work-detail-more-row">
+        <button type="button" className="work-detail-more-arrow work-detail-more-arrow-left" aria-label="Previous" onClick={() => scrollBy(-ARROW_SCROLL)} />
+        <div className="work-detail-more-scroll-wrap">
+          <div className="work-detail-more-scroll" ref={moreScrollRef}>
+            <div className="work-detail-more-list">
+            {otherProjects.map((w) => (
+              <Link key={w.id} to={`/work/${w.id}`} className="work-detail-more-item">
+                <div className="work-detail-more-item-image-wrap">
+                  <img src={w.image} alt={w.title} className="work-detail-more-item-image" />
+                  <div className="work-detail-more-item-overlay" aria-hidden />
+                  <div className="work-detail-more-item-caption">
+                    <span className="work-detail-more-item-title">{w.title}</span>
+                    <span className="work-detail-more-item-year">{w.year}</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+            </div>
+          </div>
+        </div>
+        <button type="button" className="work-detail-more-arrow work-detail-more-arrow-right" aria-label="Next" onClick={() => scrollBy(ARROW_SCROLL)} />
+      </div>
+    </section>
+  );
+
   if (!work) {
     return (
-      <div className="page-content work-detail-loading">
-        <h1>{labels.notFound}</h1>
-        <p>{labels.notFoundDesc}</p>
-        <Link to="/">{labels.back}</Link>
-      </div>
+      <>
+        <div className="page-content work-detail-loading">
+          <h1>{labels.notFound}</h1>
+          <p>{labels.notFoundDesc}</p>
+          <Link to="/">{labels.back}</Link>
+        </div>
+        {moreSection}
+      </>
     );
   }
 
   return (
-    <div className="page-content work-detail-loading">
-      <h1>{labels.loading}</h1>
-      <p>{labels.loadingDesc}</p>
-      <Link to="/">{labels.back}</Link>
-    </div>
+    <>
+      <div className={`page-content work-detail ${isVisible ? 'visible' : ''}`}>
+        <Link to="/" className="work-detail-back">{labels.back}</Link>
+        <header className="work-detail-header">
+          <div className="work-meta">
+            <span className="work-year">{work.year}</span>
+            <span className="work-category">{work.category}</span>
+          </div>
+          <h1 className="work-detail-title">{work.title}</h1>
+          <p className="work-description">{work.description}</p>
+        </header>
+        <div className="work-hero-image">
+          <img src={work.heroImage} alt={work.title} />
+        </div>
+        <div className="work-content">
+          <section className="work-section-block">
+            <h2>{labels.overview}</h2>
+            <div className="text-content">
+              <p>{work.overview}</p>
+              {work.overviewExtra && <p>{work.overviewExtra}</p>}
+            </div>
+          </section>
+          <section className="work-section-block">
+            <h2>{labels.role}</h2>
+            <div className="role-content">
+              <span className="role-badge">{work.role}</span>
+              <p className="text-content">{work.roleDesc}</p>
+            </div>
+          </section>
+          {work.process && work.process.length > 0 && (
+            <section className="work-section-block">
+              <h2>{labels.process}</h2>
+              <div className="process-timeline">
+                {work.process.map((step, idx) => (
+                  <div key={idx} className="process-step">
+                    <span className="process-number">{idx + 1}</span>
+                    <div className="process-content">
+                      <h3>{step}</h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+          {work.images && work.images.length > 0 && (
+            <section className="work-section-block">
+              <h2>{labels.images}</h2>
+              <div className="work-images-gallery">
+                <div className="gallery-main">
+                  <img src={work.images[activeImage]} alt={`${work.title} ${activeImage + 1}`} className="gallery-main-image" />
+                </div>
+                {work.images.length > 1 && (
+                  <div className="gallery-thumbnails">
+                    {work.images.map((src, idx) => (
+                      <button key={idx} type="button" className={`thumbnail ${activeImage === idx ? 'active' : ''}`} onClick={() => setActiveImage(idx)}>
+                        <img src={src} alt="" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
+          {work.insights && work.insights.length > 0 && (
+            <section className="work-section-block">
+              <h2>{labels.insights}</h2>
+              <div className="insights-grid">
+                {work.insights.map((item, idx) => (
+                  <div key={idx} className="insight-card">{item}</div>
+                ))}
+              </div>
+            </section>
+          )}
+          {work.results && (
+            <section className="work-section-block">
+              <h2>{labels.results}</h2>
+              <div className="results-box">
+                <p>{work.results}</p>
+              </div>
+            </section>
+          )}
+        </div>
+      </div>
+      {moreSection}
+    </>
   );
 }
 

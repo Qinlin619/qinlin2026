@@ -1,15 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { loadLikes, addLike } from '../data/likesStorage';
 
 const footerText = {
   en: {
-    copyright: `© ${new Date().getFullYear()} Qinlin Liu. All rights reserved.`
+    copyright: `© ${new Date().getFullYear()} Qinlin Liu. All rights reserved.`,
+    likeQuestion: 'Do you like Umbrella\'s website?',
+    likeToast: 'Umbrella has received your like ♡',
+    likeFormTitle: 'Leave a like',
+    nicknamePlaceholder: 'What should I call you?',
+    confirmBtn: 'Confirm',
+    alreadyLikedTitle: 'You\'ve already liked! Want to add more?',
+    addMoreCountPlaceholder: 'How many more? (number)',
+    addMoreCountLabel: 'Add how many likes?',
   },
   zh: {
-    copyright: `© ${new Date().getFullYear()} Qinlin Liu. 保留所有权利。`
+    copyright: `© ${new Date().getFullYear()} Qinlin Liu. 保留所有权利。`,
+    likeQuestion: '你喜欢伞伞的网站吗？',
+    likeToast: '伞伞已经收到你的喜欢 ♡',
+    likeFormTitle: '留下你的喜欢',
+    nicknamePlaceholder: '我该怎么称呼你',
+    confirmBtn: '确认',
+    alreadyLikedTitle: '你已经点过赞了哦，还要点赞吗？',
+    addMoreCountPlaceholder: '加几次（填数字）',
+    addMoreCountLabel: '再加几次点赞？',
   },
   'zh-TW': {
-    copyright: `© ${new Date().getFullYear()} Qinlin Liu. 保留所有權利。`
+    copyright: `© ${new Date().getFullYear()} Qinlin Liu. 保留所有權利。`,
+    likeQuestion: '你喜歡傘傘的網站嗎？',
+    likeToast: '傘傘已經收到你的喜歡 ♡',
+    likeFormTitle: '留下你的喜歡',
+    nicknamePlaceholder: '我該怎麼稱呼你',
+    confirmBtn: '確認',
+    alreadyLikedTitle: '你已經點過讚了哦，還要點讚嗎？',
+    addMoreCountPlaceholder: '加幾次（填數字）',
+    addMoreCountLabel: '再加幾次點讚？',
   }
 };
 
@@ -18,6 +43,17 @@ function Footer() {
   const texts = footerText[language] || footerText.en;
   const [showCopyToast, setShowCopyToast] = useState(false);
   const [copyToastMessage, setCopyToastMessage] = useState('');
+  const [likeFormOpen, setLikeFormOpen] = useState(false);
+  const [likeFormMode, setLikeFormMode] = useState('first'); // 'first' | 'addMore'
+  const [nicknameInput, setNicknameInput] = useState('');
+  const [addMoreCount, setAddMoreCount] = useState('1');
+  const [showLikeToast, setShowLikeToast] = useState(false);
+  const [likes, setLikes] = useState([]);
+  const [heartDisabled, setHeartDisabled] = useState(false);
+
+  useEffect(() => {
+    setLikes(loadLikes());
+  }, []);
 
   const copyToClipboard = (text, message) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -75,6 +111,30 @@ function Footer() {
     copyToClipboard(wechatId, message);
   };
 
+  const openLikeForm = () => {
+    if (heartDisabled) return;
+    setNicknameInput('');
+    setAddMoreCount('1');
+    setLikeFormMode(likes.length > 0 ? 'addMore' : 'first');
+    setLikeFormOpen(true);
+  };
+
+  const submitLike = () => {
+    const name = nicknameInput.trim();
+    if (!name) return;
+    if (likeFormMode === 'addMore') {
+      const n = Math.max(1, parseInt(addMoreCount, 10) || 1);
+      addLike(name, n);
+    } else {
+      addLike(name, 1);
+    }
+    setLikes(loadLikes());
+    setLikeFormOpen(false);
+    setShowLikeToast(true);
+    setTimeout(() => setShowLikeToast(false), 2500);
+    setHeartDisabled(true);
+  };
+
   // 社交媒体链接
   const socialLinks = [
     { 
@@ -112,8 +172,39 @@ function Footer() {
     }
   ];
 
+  const likeIcon = (size = 36) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
+  );
+
+  const addMoreNum = Math.max(1, parseInt(addMoreCount, 10) || 0);
+  const canSubmit = !!nicknameInput.trim() && (likeFormMode !== 'addMore' || addMoreNum >= 1);
+  const hasLiked = likes.length > 0;
+
   return (
     <footer className="footer">
+      <div className="footer-like-row">
+        {!hasLiked && <p className="footer-like-question">{texts.likeQuestion}</p>}
+        <div className={`footer-like-heart-wrap${heartDisabled ? ' footer-like-heart-firework' : ''}`}>
+          {heartDisabled && (
+            <div className="footer-like-fireworks" aria-hidden>
+              {[...Array(12)].map((_, i) => (
+                <span key={i} className="footer-like-firework-dot" style={{ '--i': i }} />
+              ))}
+            </div>
+          )}
+          <button
+            type="button"
+            className={`footer-like-btn footer-like-btn-big${hasLiked || heartDisabled ? ' footer-like-btn-liked' : ''}${heartDisabled ? ' footer-like-btn-disabled' : ''}`}
+            aria-label="like"
+            aria-disabled={heartDisabled}
+            onClick={openLikeForm}
+          >
+            {likeIcon(40)}
+          </button>
+        </div>
+      </div>
       <div className="footer-social">
         {socialLinks.map((link, index) => (
           <a
@@ -132,6 +223,47 @@ function Footer() {
       {showCopyToast && (
         <div className="copy-toast">
           {copyToastMessage}
+        </div>
+      )}
+      {likeFormOpen && (
+        <div className="like-form-backdrop" onClick={() => setLikeFormOpen(false)} role="dialog" aria-modal="true" aria-labelledby="like-form-title">
+          <div className="like-form-modal" onClick={(e) => e.stopPropagation()}>
+            <h3 id="like-form-title" className="like-form-title">
+              {likeFormMode === 'addMore' ? texts.alreadyLikedTitle : texts.likeFormTitle}
+            </h3>
+            <input
+              type="text"
+              className="like-form-input"
+              placeholder={texts.nicknamePlaceholder}
+              value={nicknameInput}
+              onChange={(e) => setNicknameInput(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && canSubmit && submitLike()}
+              maxLength={32}
+              autoFocus
+            />
+            {likeFormMode === 'addMore' && (
+              <div className="like-form-row">
+                <label className="like-form-label">{texts.addMoreCountLabel}</label>
+                <input
+                  type="number"
+                  min={1}
+                  max={999}
+                  className="like-form-input like-form-input-num"
+                  placeholder={texts.addMoreCountPlaceholder}
+                  value={addMoreCount}
+                  onChange={(e) => setAddMoreCount(e.target.value)}
+                />
+              </div>
+            )}
+            <button type="button" className="like-form-submit" disabled={!canSubmit} onClick={submitLike}>
+              {texts.confirmBtn}
+            </button>
+          </div>
+        </div>
+      )}
+      {showLikeToast && (
+        <div className="like-popup" role="status" aria-live="polite">
+          <p className="like-popup-text">{texts.likeToast}</p>
         </div>
       )}
       <p>{texts.copyright}</p>

@@ -1,12 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import WorkCard from './WorkCard';
 
-const yearFilterText = {
-  en: { label: 'Year', all: 'All' },
-  zh: { label: '年份', all: '全部' },
-  'zh-TW': { label: '年份', all: '全部' }
-};
+export const getYearLabel = (year) => String(year);
 
 const works = {
   en: [
@@ -16,7 +12,7 @@ const works = {
       description: 'loading',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
-      category: 'User Interface. User Experience. Events'
+      category: 'Group. User Interface. User Experience. Events'
     },
     {
       id: 11,
@@ -24,7 +20,7 @@ const works = {
       description: 'A collaborative system that enables humans and robots to paint together through multi-turn interactions.',
       year: 2025,
       image: `${process.env.PUBLIC_URL}/work/2025/1.png`,
-      category: 'Human-Computer Interaction. Programming'
+      category: 'Group. Human-Computer Interaction. Programming'
     },
     {
       id: 1,
@@ -95,8 +91,24 @@ const works = {
       title: 'Bottle Opener',
       description: 'Exploring the fusion of Art Deco and compact kitchenware.',
       year: 2021,
-      image: `${process.env.PUBLIC_URL}/work/2021/1/1.png`,
+      image: `${process.env.PUBLIC_URL}/work/2021/1Bottle Opener/1.png`,
       category: 'Individual. Product Design'
+    },
+    {
+      id: 21,
+      title: 'Pizza Box',
+      description: 'Product packaging design.',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/2PizzaBox/1.png`,
+      category: 'Individual. Product Packaging Design'
+    },
+    {
+      id: 22,
+      title: 'Bike Refurbishment',
+      description: 'Helping improve children\'s bike learning experience.',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/3Bike/1.png`,
+      category: 'Group. Product Design. Child Play'
     },
     {
       id: 16,
@@ -132,8 +144,8 @@ const works = {
     },
     {
       id: 19,
-      title: 'BananaBoard',
-      description: 'loading',
+      title: 'Banana Skateboard',
+      description: 'Physical measurement and 3D modeling of a chosen vehicle (skateboard).',
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
       category: 'Individual. Modelling. Industrial Design'
@@ -146,7 +158,7 @@ const works = {
       description: 'loading',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
-      category: '用户界面. 用户体验. 活动'
+      category: '团队. 用户界面. 用户体验. 活动'
     },
     {
       id: 11,
@@ -154,7 +166,7 @@ const works = {
       description: '一个让人和机器人能够通过多轮交互一起画画的协同系统',
       year: 2025,
       image: `${process.env.PUBLIC_URL}/work/2025/1.png`,
-      category: '人机交互. 编程'
+      category: '团队. 人机交互. 编程'
     },
     {
       id: 1,
@@ -225,8 +237,24 @@ const works = {
       title: '开瓶器',
       description: '探索经典艺术风格与小型厨具的结合',
       year: 2021,
-      image: `${process.env.PUBLIC_URL}/work/2021/1/1.png`,
+      image: `${process.env.PUBLIC_URL}/work/2021/1Bottle Opener/1.png`,
       category: '个人项目. 产品设计'
+    },
+    {
+      id: 21,
+      title: '披萨盒',
+      description: '产品包装设计。',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/2PizzaBox/1.png`,
+      category: '个人项目. 产品包装设计'
+    },
+    {
+      id: 22,
+      title: '单车改造',
+      description: '帮助提升儿童学车体验。',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/3Bike/1.png`,
+      category: '团队. 产品设计. 儿童游戏'
     },
     {
       id: 16,
@@ -262,8 +290,8 @@ const works = {
     },
     {
       id: 19,
-      title: 'BananaBoard',
-      description: 'loading',
+      title: '香蕉滑板',
+      description: '选一个交通工具进行实物测量和建模',
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
       category: '个人项目. 建模. 工业设计'
@@ -276,7 +304,7 @@ const works = {
       description: 'loading',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
-      category: '用戶界面. 用戶體驗. 活動'
+      category: '團隊. 用戶界面. 用戶體驗. 活動'
     },
     {
       id: 11,
@@ -284,7 +312,7 @@ const works = {
       description: '一個讓人和機器人能夠通過多輪互動一起畫畫的協同系統',
       year: 2025,
       image: `${process.env.PUBLIC_URL}/work/2025/1.png`,
-      category: '人機互動. 程式設計'
+      category: '團隊. 人機互動. 程式設計'
     },
     {
       id: 1,
@@ -355,8 +383,24 @@ const works = {
       title: '開瓶器',
       description: '探索經典藝術風格與小型廚具的結合',
       year: 2021,
-      image: `${process.env.PUBLIC_URL}/work/2021/1/1.png`,
+      image: `${process.env.PUBLIC_URL}/work/2021/1Bottle Opener/1.png`,
       category: '個人專案. 產品設計'
+    },
+    {
+      id: 21,
+      title: '披薩盒',
+      description: '產品包裝設計。',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/2PizzaBox/1.png`,
+      category: '個人專案. 產品包裝設計'
+    },
+    {
+      id: 22,
+      title: '單車改造',
+      description: '幫助提升兒童學車體驗。',
+      year: 2021,
+      image: `${process.env.PUBLIC_URL}/work/2021/3Bike/1.png`,
+      category: '團隊. 產品設計. 兒童遊戲'
     },
     {
       id: 16,
@@ -392,8 +436,8 @@ const works = {
     },
     {
       id: 19,
-      title: 'BananaBoard',
-      description: 'loading',
+      title: '香蕉滑板',
+      description: '選一個交通工具進行實物測量和建模',
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
       category: '個人專案. 建模. 工業設計'
@@ -402,105 +446,36 @@ const works = {
 };
 
 // 按年份分组
-const groupByYear = (works) => {
-  return works.reduce((acc, work) => {
+const groupByYear = (list) => {
+  return list.reduce((acc, work) => {
     const year = work.year;
-    if (!acc[year]) {
-      acc[year] = [];
-    }
+    if (!acc[year]) acc[year] = [];
     acc[year].push(work);
     return acc;
   }, {});
+};
+
+export const getYears = (lang) => {
+  const list = works[lang] || works.en;
+  return Object.keys(groupByYear(list)).sort((a, b) => Number(b) - Number(a));
+};
+
+/** All works for current language, sorted by year descending (newest first). */
+export const getWorksListByYear = (lang) => {
+  const list = works[lang] || works.en;
+  return [...list].sort((a, b) => Number(b.year) - Number(a.year));
 };
 
 function WorkGrid() {
   const { language } = useLanguage();
   const worksList = works[language] || works.en;
   const worksByYear = groupByYear(worksList);
-  const years = Object.keys(worksByYear).sort((a, b) => b - a);
-  const [selectedYear, setSelectedYear] = useState(null);
-  const [yearPopupOpen, setYearPopupOpen] = useState(false);
-  const [yearPopupClosing, setYearPopupClosing] = useState(false);
-  const [yearPopupReady, setYearPopupReady] = useState(false);
-  const closeTimeoutRef = useRef(null);
-
-  useEffect(() => {
-    if (yearPopupOpen && !yearPopupClosing) {
-      setYearPopupReady(false);
-      const t = setTimeout(() => setYearPopupReady(true), 0);
-      return () => clearTimeout(t);
-    }
-    if (!yearPopupOpen) setYearPopupReady(false);
-  }, [yearPopupOpen, yearPopupClosing]);
-
-  useEffect(() => () => { if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current); }, []);
-  const filterText = yearFilterText[language] || yearFilterText.en;
-
-  const getYearLabel = (year) => {
-    const yearNum = parseInt(year, 10);
-    if (yearNum === 2026) {
-      if (language === 'zh') return '2026 进行中';
-      if (language === 'zh-TW') return '2026 進行中';
-      return '2026 and ongoing';
-    }
-    return year;
-  };
-
-  const displayYears = selectedYear ? [selectedYear] : years;
+  const years = Object.keys(worksByYear).sort((a, b) => Number(b) - Number(a));
 
   return (
     <section className="work-section">
-      <div className="work-year-filter-row">
-        <div
-          className={`work-year-filter-wrap${yearPopupOpen ? ' work-year-filter-wrap--open' : ''}`}
-          onMouseEnter={() => {
-            if (closeTimeoutRef.current) { clearTimeout(closeTimeoutRef.current); closeTimeoutRef.current = null; }
-            setYearPopupClosing(false);
-            setYearPopupOpen(true);
-          }}
-          onMouseLeave={() => {
-            if (!yearPopupOpen) return;
-            setYearPopupClosing(true);
-            closeTimeoutRef.current = setTimeout(() => {
-              setYearPopupOpen(false);
-              setYearPopupClosing(false);
-              closeTimeoutRef.current = null;
-            }, 260);
-          }}
-        >
-        <button type="button" className="work-year-trigger" aria-haspopup="true" aria-expanded={yearPopupOpen}>
-          {filterText.label}
-        </button>
-        {yearPopupOpen && (
-          <div
-            className={`work-year-popup${yearPopupReady && !yearPopupClosing ? ' work-year-popup--open' : ''}${yearPopupClosing ? ' work-year-popup--closing' : ''}`}
-            role="menu"
-          >
-            <button
-              type="button"
-              role="menuitem"
-              className={!selectedYear ? 'work-year-option active' : 'work-year-option'}
-              onClick={() => { setSelectedYear(null); setYearPopupOpen(false); setYearPopupClosing(false); }}
-            >
-              {filterText.all}
-            </button>
-            {years.map((y) => (
-              <button
-                key={y}
-                type="button"
-                role="menuitem"
-                className={selectedYear === y ? 'work-year-option active' : 'work-year-option'}
-                onClick={() => { setSelectedYear(y); setYearPopupOpen(false); setYearPopupClosing(false); }}
-              >
-                {getYearLabel(y)}
-              </button>
-            ))}
-          </div>
-        )}
-        </div>
-      </div>
-      {displayYears.map((year) => (
-        <div key={year} className="work-year-group">
+      {years.map((year) => (
+        <div key={year} id={`work-year-${year}`} className="work-year-group">
           <h2 className="work-year-title">{getYearLabel(year)}</h2>
           <div className="work-grid">
             {worksByYear[year].map((work) => (

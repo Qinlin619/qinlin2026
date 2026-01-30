@@ -6,10 +6,17 @@ function WorkCard({ work }) {
   const location = useLocation();
   const isActive = location.pathname === `/work/${work.id}`;
 
+  const saveScrollAndNavigate = () => {
+    try {
+      sessionStorage.setItem('workListScrollY', String(window.scrollY));
+    } catch (_) {}
+  };
+
   return (
     <Link 
       to={`/work/${work.id}`} 
       className={`work-card ${isActive ? 'work-card-active' : ''}`}
+      onClick={saveScrollAndNavigate}
     >
       <div className="work-card-image-wrapper">
         <img 
