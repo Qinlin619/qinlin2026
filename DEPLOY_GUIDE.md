@@ -90,4 +90,4 @@ npm run deploy
 ## 分享你的网站
 
 部署成功后，你可以分享这个链接：
-**https://Qinlin619.github.io/qinlin2026**
+**https://Qinlin619.github.io/qinlin2026/**
