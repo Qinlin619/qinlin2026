@@ -169,11 +169,20 @@ const workData = {
       description: 'An immersive experience exploring Klimt\'s "The Kiss" using graphic processing technology.',
       year: 2024,
       category: 'Individual. Digital Artwork. Programming Modelling',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
-      images: [
-        `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`
-      ],
-      overview: 'This project is an immersive digital reinterpretation of Gustav Klimt\'s masterpiece "The Kiss". By utilizing advanced graphic processing and 3D modeling, we decomposed the original painting into layered textures and patterns, allowing viewers to "step inside" the artwork and experience the intimacy of the moment from a new perspective.',
+      heroImage: '',
+      images: [],
+      overview: (
+        <>
+          <p>This project is an immersive digital reinterpretation of Gustav Klimt's masterpiece "The Kiss". By utilizing advanced graphic processing and 3D modeling, we decomposed the original painting into layered textures and patterns, allowing viewers to "step inside" the artwork and experience the intimacy of the moment from a new perspective.</p>
+          <div className="work-detail-iframe-container" style={{ margin: '2rem 0', width: '100%', aspectRatio: '16/9' }}>
+            <iframe
+              src="https://editor.p5js.org/Qinlin619/full/RqFTk8dEs"
+              style={{ width: '100%', height: '100%', border: 'none' }}
+              title="Intimate Relationship Interactive"
+            />
+          </div>
+        </>
+      ),
       overviewExtra: 'The project focuses on how digital technology can enhance our emotional connection to classical art, transforming a 2D surface into a 3D space of sensory experience.',
       role: 'Digital Artist & Developer',
       roleDesc: 'Responsible for the entire creative and technical process, including digital asset creation, shader programming, and interactive environment design.',
@@ -356,11 +365,20 @@ const workData = {
       description: '使用图形处理技术探索克林姆特《吻》的沉浸式体验。',
       year: 2024,
       category: '个人项目. 数字化艺术. 编程建模',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
-      images: [
-        `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`
-      ],
-      overview: '该项目是对古斯塔夫·克林姆特名作《吻》的沉浸式数字化重新诠释。通过利用先进的图形处理 and 3D 建模技术，我们将原作分解为多层纹理和图案，使观众能够“走进”作品内部，从全新的视角体验瞬间的亲密感。',
+      heroImage: '',
+      images: [],
+      overview: (
+        <>
+          <p>该项目是对古斯塔夫·克林姆特名作《吻》的沉浸式数字化重新诠释。通过利用先进的图形处理 and 3D 建模技术，我们将原作分解为多层纹理和图案，使观众能够“走进”作品内部，从全新的视角体验瞬间的亲密感。</p>
+          <div className="work-detail-iframe-container" style={{ margin: '2rem 0', width: '100%', aspectRatio: '16/9' }}>
+            <iframe
+              src="https://editor.p5js.org/Qinlin619/full/RqFTk8dEs"
+              style={{ width: '100%', height: '100%', border: 'none' }}
+              title="Intimate Relationship Interactive"
+            />
+          </div>
+        </>
+      ),
       overviewExtra: '项目重点探讨了数字技术如何增强我们与古典艺术的情感联系，将 2D 平面转化为感官体验的 3D 空间。',
       role: '数字艺术家 & 开发者',
       roleDesc: '负责整个创意和技术过程，包括数字资产创建、着色器编程以及交互式环境设计。',
@@ -536,8 +554,8 @@ function WorkDetail() {
             ))}
           </div>
         )}
-        <Link to="/" className="work-detail-back">{labels.back}</Link>
         <header className="work-detail-header">
+          <Link to="/" className="work-detail-back">{labels.back}</Link>
           <div className="work-meta">
             <span className="work-year">{work.year}</span>
             {work.category && (

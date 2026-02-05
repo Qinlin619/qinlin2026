@@ -235,14 +235,13 @@ function Side() {
                 alt={project.title}
                 className="side-project-image"
               />
-            </div>
-            <div className="side-project-content">
-              <div className="side-project-category">{data.categories[project.category]}</div>
-              <h2>{project.title}</h2>
-              <p>{project.description}</p>
-              <a href={project.link} className="side-project-link">
-                {data.viewDetails}
-              </a>
+              <div className="side-project-overlay">
+                <div className="side-project-content">
+                  <div className="side-project-category">{data.categories[project.category]}</div>
+                  <h2 className="side-project-title">{project.title}</h2>
+                  <p className="side-project-desc">{project.description}</p>
+                </div>
+              </div>
             </div>
           </div>
         ))}

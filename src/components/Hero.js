@@ -6,7 +6,7 @@ const heroText = {
   en: {
     title: 'Qinlin Liu',
     subtitle: 'Interaction Designer',
-    motto: 'The interaction of X and X'
+    motto: 'Between X and X'
   },
   zh: {
     title: 'Qinlin Liu',

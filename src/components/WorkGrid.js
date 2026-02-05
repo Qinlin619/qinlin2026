@@ -9,12 +9,12 @@ const works = {
     {
       id: 8,
       title: 'EuroStay',
-      description: 'loading',
+      description: "World's #1 Chinese Couchers Community",
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
       category: 'Group. User Interface. User Experience. Events',
-      evaluation: 'A vibrant global community platform for homestays.',
-      rating: 5
+      evaluation: 'Connect people. Explore life. Unlock possibilities.',
+      rating: 6
     },
     {
       id: 11,
@@ -23,7 +23,7 @@ const works = {
       year: 2025,
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
       category: 'Group. Human-Computer Interaction. Programming',
-      evaluation: 'Exploring the infinite possibilities of human-robot co-creation.',
+      evaluation: 'The project with the highest workload and longest duration. What a TUD graduation project......Owes me a software engineering degree.',
       rating: 6
     },
     {
@@ -33,8 +33,8 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
       category: 'Individual. User Experience. Product',
-      evaluation: 'Giving travel memories a second life through gameplay.',
-      rating: 4
+      evaluation: 'The electronic version is launched. An addictive social game.',
+      rating: 6
     },
     {
       id: 2,
@@ -43,7 +43,7 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       category: 'Group. Programming. Artificial Intelligence. Product',
-      evaluation: 'Finding the warm role of robots in future neighborhoods.',
+      evaluation: 'A very challenging project, but we completed it very well!',
       rating: 5
     },
     {
@@ -53,8 +53,8 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
       category: 'Group. User Interface. User Experience. Redesign',
-      evaluation: 'Redefining convenience and reliability in home cooking.',
-      rating: 4
+      evaluation: 'Very harmonious group collaboration, UX research is very organized.',
+      rating: 6
     },
     {
       id: 14,
@@ -63,7 +63,7 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
       category: 'Individual. Digital Artwork. Programming Modelling',
-      evaluation: 'Decoding classic art moments through technology.',
+      evaluation: 'Could be made more complex and interesting',
       rating: 5
     },
     {
@@ -73,8 +73,8 @@ const works = {
       year: 2023,
       image: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`,
       category: 'Individual. Child Play. Museum',
-      evaluation: 'Starting a fun dialogue between children and museums.',
-      rating: 4
+      evaluation: 'Most museums are boring; I hope to gamify all museums.',
+      rating: 6
     },
     {
       id: 4,
@@ -83,8 +83,8 @@ const works = {
       year: 2023,
       image: `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`,
       category: 'Individual. Well-being. Zoo. Installation',
-      evaluation: 'A remote care experiment across species and space.',
-      rating: 5
+      evaluation: "Oh~ Come and play with these lovely creatures for a while.",
+      rating: 6
     },
     {
       id: 5,
@@ -93,8 +93,8 @@ const works = {
       year: 2022,
       image: `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`,
       category: 'Group. Well-being. Child Play. Programming',
-      evaluation: 'Warm technology designed for children with special needs.',
-      rating: 4
+      evaluation: 'I took this more seriously than my undergraduate graduation project; awarded myself a mechanical engineering degree.',
+      rating: 6
     },
     {
       id: 6,
@@ -103,8 +103,8 @@ const works = {
       year: 2022,
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
       category: 'Group. Well-being. User Experience. User Interface',
-      evaluation: 'The care and respect of inclusive design for life.',
-      rating: 5
+      evaluation: 'Is there anything I cannot do?',
+      rating: 6
     },
     {
       id: 15,
@@ -191,12 +191,12 @@ const works = {
     {
       id: 8,
       title: 'EuroStay',
-      description: 'loading',
+      description: "World's #1 Chinese Couchers Community",
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
       category: '团队. 用户界面. 用户体验. 活动',
-      evaluation: '一个充满活力的全球换宿社区平台。',
-      rating: 5
+      evaluation: 'Connect people. Explore life. Unlock possibilities.',
+      rating: 6
     },
     {
       id: 11,
@@ -205,7 +205,7 @@ const works = {
       year: 2025,
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
       category: '团队. 人机交互. 编程',
-      evaluation: '探索人机协同创作的无限可能。',
+      evaluation: '工作量最大周期最长的一个项目，不愧是TUD的毕设，欠我一个软件工程师学位',
       rating: 6
     },
     {
@@ -215,8 +215,8 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
       category: '個人專案. 用戶體驗. 產品',
-      evaluation: '让旅行记忆在博弈中焕发新生。',
-      rating: 4
+      evaluation: '最终落地电子版，玩不厌的社交游戏',
+      rating: 6
     },
     {
       id: 2,
@@ -225,7 +225,7 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       category: '團隊. 程式設計. 人工智慧. 產品',
-      evaluation: '在未来社区中寻找机器人的温情角色。',
+      evaluation: '很具挑战的项目，但我们完成得很好！',
       rating: 5
     },
     {
@@ -235,8 +235,8 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
       category: '團隊. 用戶界面. 用戶體驗. 重新設計',
-      evaluation: '重新定义家庭烹饪的便捷与可靠。',
-      rating: 4
+      evaluation: '很和谐的小组合作，UX研究非常有条理',
+      rating: 6
     },
     {
       id: 14,
@@ -245,7 +245,7 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
       category: '個人專案. 數位藝術. 程式設計建模',
-      evaluation: '用技术解码艺术史上的经典瞬间。',
+      evaluation: '可以做得再复杂有趣一点',
       rating: 5
     },
     {
@@ -255,8 +255,8 @@ const works = {
       year: 2023,
       image: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`,
       category: '个人项目. 儿童游戏. 博物馆',
-      evaluation: '开启儿童与博物馆之间的趣味对话。',
-      rating: 4
+      evaluation: '大多数的博物馆都很无聊，希望能游戏化所有博物馆',
+      rating: 6
     },
     {
       id: 4,
@@ -265,8 +265,8 @@ const works = {
       year: 2023,
       image: `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`,
       category: '個人專案. 健康福祉. 動物園. 裝置',
-      evaluation: '横越物种与空间的远程关怀实验。',
-      rating: 5
+      evaluation: '哦~快来跟这些可爱的生物们玩一会儿',
+      rating: 6
     },
     {
       id: 5,
@@ -275,8 +275,8 @@ const works = {
       year: 2022,
       image: `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`,
       category: '团队. 健康福祉. 儿童游戏. 编程',
-      evaluation: '为特殊儿童设计的温暖科技。',
-      rating: 4
+      evaluation: '这个做得比本科毕设还认真，奖励自己一个机械工程学位',
+      rating: 6
     },
     {
       id: 6,
@@ -285,8 +285,8 @@ const works = {
       year: 2022,
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
       category: '團隊. 健康福祉. 用戶體驗. 用戶界面',
-      evaluation: '包容性设计对生命的体贴与尊重。',
-      rating: 5
+      evaluation: '还有什么我不会的？',
+      rating: 6
     },
     {
       id: 15,
