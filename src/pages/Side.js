@@ -167,61 +167,7 @@ const sideData = {
       }
     ]
   },
-  'zh-TW': {
-    title: '生活',
-    intro: 'loading',
-    categories: {
-      all: '全部',
-      design: '設計',
-      tech: '技術'
-    },
-    viewDetails: '查看詳情 →',
-    footer: '持續探索中，更多專案即將到來...',
-    projects: [
-      {
-        id: 1,
-        title: 'loading',
-        category: 'design',
-        description: 'loading',
-        year: '2024'
-      },
-      {
-        id: 2,
-        title: 'loading',
-        category: 'tech',
-        description: 'loading',
-        year: '2024'
-      },
-      {
-        id: 3,
-        title: 'loading',
-        category: 'design',
-        description: 'loading',
-        year: '2023'
-      },
-      {
-        id: 4,
-        title: 'loading',
-        category: 'tech',
-        description: 'loading',
-        year: '2023'
-      },
-      {
-        id: 5,
-        title: 'loading',
-        category: 'design',
-        description: 'loading',
-        year: '2023'
-      },
-      {
-        id: 6,
-        title: 'loading',
-        category: 'tech',
-        description: 'loading',
-        year: '2022'
-      }
-    ]
-  }
+
 };
 
 const projectImages = [
@@ -239,23 +185,23 @@ function Side() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const data = sideData[language] || sideData.en;
   const categories = ['all', 'design', 'tech'];
-  
+
   const projects = data.projects.map((project, index) => ({
     ...project,
     image: projectImages[index],
     link: '#'
   }));
 
-  const filteredProjects = activeTab === 'all' 
-    ? projects 
+  const filteredProjects = activeTab === 'all'
+    ? projects
     : projects.filter(p => p.category === activeTab);
 
   return (
     <div className="page-content side-page">
       <div className="side-cover">
-        <img 
-          src={`${process.env.PUBLIC_URL}/about/2.jpg`} 
-          alt="Side Projects" 
+        <img
+          src={`${process.env.PUBLIC_URL}/about/2.jpg`}
+          alt="Side Projects"
           className={`side-cover-image ${imageLoaded ? 'loaded' : ''}`}
           loading="eager"
           onLoad={() => setImageLoaded(true)}
@@ -284,8 +230,8 @@ function Side() {
         {filteredProjects.map((project) => (
           <div key={project.id} className="side-project-card">
             <div className="side-project-image-wrapper">
-              <img 
-                src={project.image} 
+              <img
+                src={project.image}
                 alt={project.title}
                 className="side-project-image"
               />

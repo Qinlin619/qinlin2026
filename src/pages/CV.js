@@ -235,120 +235,7 @@ const cvData = {
       viewDownload: '下载'
     }
   },
-  'zh-TW': {
-    title: '履歷',
-    name: 'Qinlin Liu',
-    role: '用戶體驗設計師',
-    personalInfo: {
-      email: 'qinlinliu619@gmail.com',
-      phone: '+31 617785667'
-    },
-    intro: '作為一名設計師，我對遊戲充滿熱情，並希望將遊戲化融入我的設計中，旨在讓我的每個專案既有趣又有意義。我渴望創建能夠增強用戶體驗或吸引客戶注意的引人入勝的網站。此外，我對新興技術（如人工智慧）有濃厚的興趣，希望不斷學習並將新技能融入我的工作中。我未來的設計努力將更加以人為本、永續和技術創新。',
-    workHistory: [
-      {
-        dates: '2024-4 - 至今',
-        role: '聯合創始人',
-        company: 'EuroStay',
-        description: '負責UI/UX設計工作和活動運營管理。創建以用戶為中心的設計方案，進行用戶研究，設計直觀的介面。策劃和執行活動，協調活動流程，確保數位和實體觸點的無縫用戶體驗。'
-      },
-      {
-        dates: '2024-8 - 2025-11-14',
-        role: 'Green Team IDE 組織者',
-        company: '代爾夫特理工大學',
-        description: '擔任品牌大使、活動組織者，並製作各種類型的視覺內容。'
-      },
-      {
-        dates: '2024-8 - 2025-2',
-        role: 'Philips Hue & WiZ 視覺營銷/設計實習生',
-        company: 'Signify Netherlands B.V.',
-        description: '為Philips Hue和WiZ等品牌創建創新的設計和內容，包括線上和店內營銷材料。確保全球一致的品牌體驗。編輯用於各種用途的圖像和影片，並通過結構化的專案管理幫助團隊成員實現他們的想法。'
-      },
-      {
-        dates: '2024-10 - 2024-12',
-        role: '商務助理（國際與線下運營）',
-        company: '蘇州比翼網絡科技有限公司',
-        description: '支持海外合作夥伴協調，促成與四家線下零售店和一家供應鏈合作夥伴的合作。'
-      },
-      {
-        dates: '2023-12 - 2024-2',
-        role: '學生助理',
-        company: '代爾夫特理工大學',
-        description: '協助代爾夫特健康倡議的一些文檔工作'
-      },
-      {
-        dates: '2023-10 - 2023-10',
-        role: '學生助理',
-        company: '荷蘭設計週',
-        description: '負責迎接和引導訪客，提供活動信息並確保展覽順利進行'
-      },
-      {
-        dates: '2022-3 - 2023-10, 2024-6 - 2024-10',
-        role: '產品設計師（電商與IP設計）',
-        company: '蘇州比翼網絡科技有限公司',
-        description: [
-          '設計產品包裝、促銷圖形和淘寶電商素材，符合品牌和活動要求。',
-          '開發產品周邊和基於IP的視覺設計，確保線上和線下觸點的一致性。'
-        ]
-      }
-    ],
-    education: [
-      {
-        dates: '2023-9 - 2025-11',
-        degree: '互動設計，理學碩士',
-        university: '代爾夫特理工大學'
-      },
-      {
-        dates: '2020-9 - 2022-7',
-        degree: '工業設計，工程學士',
-        university: '利物浦大學'
-      },
-      {
-        dates: '2018-9 - 2020-7',
-        degree: '工業設計，工程學士',
-        university: '西交利物浦大學'
-      }
-    ],
-    skills: [
-      '很會prompt',
-      'UI/UX設計',
-      '人機互動',
-      '程式設計',
-      '數據分析',
-      '溝通技能',
-      'MS office',
-      'Adobe系列',
-      '建模',
-      '剪輯'
-    ],
-    languages: [
-      { name: '普通話', level: 'C2' },
-      { name: '粵語', level: 'C1' },
-      { name: '英語', level: 'C1' },
-      { name: '湖南邵東話', level: 'C1' },
-      { name: '荷蘭語', level: 'A1' },
-      { name: '日語', level: 'A1' },
-      { name: '西班牙語', level: 'A1' }
-    ],
-    hobbies: [
-      '繪畫',
-      '樂器',
-      '遊戲設計',
-      '電影',
-      '看書',
-      '旅行'
-    ],
-    sections: {
-      personalInfo: '個人信息',
-      workHistory: '工作經歷',
-      education: '教育背景',
-      skills: '技能',
-      languages: '語言',
-      hobbies: '興趣愛好',
-      contact: 'CONTACT',
-      cv: 'CV',
-      viewDownload: '下載'
-    }
-  }
+
 };
 
 function CV() {
@@ -383,10 +270,8 @@ function CV() {
   const handleEmailClick = (e) => {
     e.preventDefault();
     const email = 'qinlinliu619@gmail.com';
-    const message = language === 'zh' 
-      ? `已复制邮件地址 ${email}` 
-      : language === 'zh-TW' 
-      ? `已複製郵件地址 ${email}` 
+    const message = language === 'zh'
+      ? `已复制邮件地址 ${email}`
       : `Email address copied ${email}`;
     copyToClipboard(email, message);
   };
@@ -474,9 +359,9 @@ function CV() {
         <div className="cv-footer-section">
           <h3 className="cv-footer-title">{data.sections.contact}</h3>
           <p className="cv-footer-content">
-            <a 
-              href="#" 
-              className="cv-footer-email-link" 
+            <a
+              href="#"
+              className="cv-footer-email-link"
               onClick={handleEmailClick}
             >
               {data.personalInfo.email}

@@ -16,12 +16,7 @@ const navText = {
     about: '关于',
     cv: '简历'
   },
-  'zh-TW': {
-    work: '作品',
-    side: '生活',
-    about: '關於',
-    cv: '履歷'
-  }
+
 };
 
 function Navbar() {

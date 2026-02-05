@@ -13,11 +13,7 @@ const heroText = {
     subtitle: '交互设计师',
     motto: 'X与X的交互'
   },
-  'zh-TW': {
-    title: 'Qinlin Liu',
-    subtitle: '互動設計師',
-    motto: 'X與X的互動'
-  }
+
 };
 
 function Hero() {

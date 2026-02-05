@@ -17,7 +17,6 @@ export const LanguageProvider = ({ children }) => {
   const toggleLanguage = () => {
     setLanguage(prev => {
       if (prev === 'en') return 'zh';
-      if (prev === 'zh') return 'zh-TW';
       return 'en';
     });
   };
@@ -25,8 +24,7 @@ export const LanguageProvider = ({ children }) => {
   const getLanguageLabel = useMemo(() => {
     return () => {
       if (language === 'en') return 'EN';
-      if (language === 'zh') return '简';
-      return '繁';
+      return '简';
     };
   }, [language]);
 
