@@ -26,8 +26,6 @@ export function CategoryIcons({ category, className = '' }) {
     个人项目: IndividualIcon,
     单人项目: IndividualIcon,
     团队: GroupIcon,
-    個人專案: IndividualIcon,
-    團隊: GroupIcon,
   };
 
   return (

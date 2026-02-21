@@ -53,19 +53,30 @@ const workData = {
       description: 'A board game design offering a novel way for people to share their travel memories.',
       year: 2024,
       category: 'Individual. User Experience. Product',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`,
       images: [
-        `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`
+        `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`
       ],
       overview: (
         <>
           <p>Pixelated Adventures - a board game design on my Exploring Interaction course, offering a novel way for people to share their travel memories. I began by examining the challenges of souvenir selection, delving deeper into the inadequacies of traditional storytelling, and exploring innovative methods to enhance these experiences with interactivity and appeal.</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/${num}.png`}
+                alt={`Pixelated Adventures featured ${num}`}
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Full Project (PDF)
             </a>
@@ -91,18 +102,60 @@ const workData = {
       overview: (
         <>
           <p>E.C.H.O. is a robot in the community that interacts with residents, collects their stories, and records them. With the introduction of ECHO we wanted to ask questions considering the role of the robot (or robots) in the neighbourhoods of the future.</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
+            {[1, 2, 3, 4, 5].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/${num}.${num === 2 || num === 4 ? 'jpeg' : 'png'}`}
+                alt={`E.C.H.O. featured ${num}`}
+                className="featured-photo-placeholder"
+                style={{
+                  height: '300px',
+                  width: 'auto',
+                  aspectRatio: 'auto',
+                  maxWidth: '100%'
+                }}
+              />
+            ))}
+          </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Project Poster (PDF)
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=nBapYYWg-BI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              Exhibition Video (YouTube)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              Final Project Video (MP4)
+            </a>
+            <a
+              href="https://github.com/Qinlin619/E.C.H.O.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              Source Code (GitHub)
             </a>
           </div>
         </>
       ),
+      youtubeUrl: '',
+      videoUrl: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`,
       overviewExtra: '',
       role: 'Designer & Developer',
       roleDesc: 'In this group project, I contributed to the design and development of E.C.H.O., exploring how robots can become part of community life and facilitate social interactions.',
@@ -127,7 +180,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Project Details (PDF)
             </a>
@@ -158,7 +211,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Project Details (PDF)
             </a>
@@ -189,7 +242,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Project Details (PDF)
             </a>
@@ -220,7 +273,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Project Details (PDF)
             </a>
@@ -251,7 +304,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Project Report (PDF)
             </a>
@@ -259,7 +312,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Project Poster (PDF)
             </a>
@@ -267,7 +320,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/UxadFinalPrototype.mp4`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Final Prototype (Video)
             </a>
@@ -327,7 +380,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2025/Cobrush/FinalReport.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               Final Report (PDF)
             </a>
@@ -377,22 +430,33 @@ const workData = {
     },
     1: {
       title: 'Pixelated Adventures',
-      description: '一款棋盘游戏设计，为人们分享旅行回忆提供了一种新颖的方式。',
+      description: '一款桌面实体互动游戏，为人们分享旅行回忆提供了一种新颖的方式。',
       year: 2024,
       category: '个人项目. 用户体验. 产品',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`,
       images: [
-        `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`
+        `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`
       ],
       overview: (
         <>
-          <p>Pixelated Adventures - 我在探索交互课程中设计的棋盘游戏，为人们分享旅行回忆提供了一种新颖的方式。我从研究纪念品选择的挑战开始，深入探讨传统叙事的不足，并探索创新方法，通过互动性和吸引力来增强这些体验。</p>
+          <p>Pixelated Adventures - 我在探索交互课程中设计的桌面实体互动游戏，为人们分享旅行回忆提供了一种新颖的方式。我从研究纪念品选择的挑战开始，深入探讨传统叙事的不足，并探索创新方法，通过互动性和吸引力来增强这些体验。</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/${num}.png`}
+                alt={`Pixelated Adventures featured ${num}`}
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               查看完整项目 (PDF)
             </a>
@@ -418,18 +482,60 @@ const workData = {
       overview: (
         <>
           <p>E.C.H.O.是一个社区机器人，与居民互动、收集他们的故事并记录下来。通过引入ECHO，我们想要探讨机器人在未来社区中的角色。</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
+            {[1, 2, 3, 4, 5].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/${num}.${num === 2 || num === 4 ? 'jpeg' : 'png'}`}
+                alt={`E.C.H.O. 精选照片 ${num}`}
+                className="featured-photo-placeholder"
+                style={{
+                  height: '300px',
+                  width: 'auto',
+                  aspectRatio: 'auto',
+                  maxWidth: '100%'
+                }}
+              />
+            ))}
+          </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               项目海报 (PDF)
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=nBapYYWg-BI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              展览视频 (YouTube)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              最终成品视频 (MP4)
+            </a>
+            <a
+              href="https://github.com/Qinlin619/E.C.H.O.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              项目代码库 (GitHub)
             </a>
           </div>
         </>
       ),
+      youtubeUrl: '',
+      videoUrl: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`,
       overviewExtra: '',
       role: '设计师 & 开发者',
       roleDesc: '在这个团队项目中，我参与了E.C.H.O.的设计和开发，探索机器人如何成为社区生活的一部分并促进社交互动。',
@@ -454,7 +560,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               作品详情 (PDF)
             </a>
@@ -485,7 +591,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               作品详情 (PDF)
             </a>
@@ -516,7 +622,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               作品详情 (PDF)
             </a>
@@ -547,7 +653,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               作品详情 (PDF)
             </a>
@@ -578,7 +684,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               项目报告 (PDF)
             </a>
@@ -586,7 +692,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               项目海报 (PDF)
             </a>
@@ -594,7 +700,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/UxadFinalPrototype.mp4`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               最终原型演示 (视频)
             </a>
@@ -654,7 +760,7 @@ const workData = {
               href={`${process.env.PUBLIC_URL}/work/2025/Cobrush/FinalReport.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline' }}
+              className="work-pdf-link"
             >
               最终报告 (PDF)
             </a>
@@ -679,6 +785,7 @@ const sectionLabels = {
     process: 'Development Process',
     images: 'Project Images',
     insights: 'Key Insights',
+    featuredPhotos: 'Featured Photos',
     moreProjects: 'More Projects',
     prevProject: 'Previous project',
     nextProject: 'Next project',
@@ -694,6 +801,7 @@ const sectionLabels = {
     process: '开发流程',
     images: '项目图片',
     insights: '关键洞察',
+    featuredPhotos: '精选照片',
     moreProjects: '更多作品',
     prevProject: '上一个项目',
     nextProject: '下一个项目',
@@ -827,7 +935,7 @@ function WorkDetail() {
           <h1 className="work-detail-title">{work.title}</h1>
           <p className="work-description">{work.description}</p>
         </header>
-        {work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl) && (
+        {(work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) ? (
           <div className="work-detail-video-wrap">
             <div className="work-detail-video">
               <iframe
@@ -839,7 +947,17 @@ function WorkDetail() {
               />
             </div>
           </div>
-        )}
+        ) : (work.videoUrl && (
+          <div className="work-detail-video-wrap">
+            <div className="work-detail-video">
+              <video
+                src={work.videoUrl}
+                controls
+                style={{ width: '100%', height: '100%', display: 'block' }}
+              />
+            </div>
+          </div>
+        ))}
         <div className="work-content">
           <section className="work-section-block">
             {parseInt(id, 10) !== 8 && <h2>{labels.overview}</h2>}
@@ -868,6 +986,8 @@ function WorkDetail() {
               </div>
             </section>
           )}
+
+
         </div>
       </div>
       {moreSection}
