@@ -21,22 +21,25 @@ const workData = {
       description: '',
       year: 2026,
       category: 'Group. User Interface. User Experience. Events',
-      heroImage: `${process.env.PUBLIC_URL}/work/2026/topE.png`,
-      images: [
-        `${process.env.PUBLIC_URL}/work/2026/topE.png`
-      ],
+      heroImage: '',
+      images: [],
       overview: (
-        <p>
-          Project Link:{' '}
-          <a
-            href="https://qinlin619.github.io/EuroStay-BU/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#000', textDecoration: 'underline', wordBreak: 'break-all' }}
-          >
-            https://qinlin619.github.io/EuroStay-BU/
-          </a>
-        </p>
+        <>
+          <p>
+            Project Link:{' '}
+            <a
+              href="https://www.eurostay.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline', wordBreak: 'break-all' }}
+            >
+              www.eurostay.co
+            </a>
+          </p>
+          <p>
+            By visiting this website, you can see all our detailed work. Within the team, I was responsible for the APP's UI/UX design, event planning, user engagement, and partial website construction.
+          </p>
+        </>
       ),
       overviewExtra: '',
       role: '',
@@ -54,7 +57,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`
       ],
-      overview: 'Pixelated Adventures - a board game design on my Exploring Interaction course, offering a novel way for people to share their travel memories. I began by examining the challenges of souvenir selection, delving deeper into the inadequacies of traditional storytelling, and exploring innovative methods to enhance these experiences with interactivity and appeal.',
+      overview: (
+        <>
+          <p>Pixelated Adventures - a board game design on my Exploring Interaction course, offering a novel way for people to share their travel memories. I began by examining the challenges of souvenir selection, delving deeper into the inadequacies of traditional storytelling, and exploring innovative methods to enhance these experiences with interactivity and appeal.</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Full Project (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: 'Designer',
       roleDesc: 'In this project, I was responsible for the complete design process from research and ideation to prototyping and testing, creating an engaging board game experience that transforms how people share travel memories.',
@@ -71,7 +88,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`
       ],
-      overview: 'E.C.H.O. is a robot in the community that interacts with residents, collects their stories, and records them. With the introduction of ECHO we wanted to ask questions considering the role of the robot (or robots) in the neighbourhoods of the future.',
+      overview: (
+        <>
+          <p>E.C.H.O. is a robot in the community that interacts with residents, collects their stories, and records them. With the introduction of ECHO we wanted to ask questions considering the role of the robot (or robots) in the neighbourhoods of the future.</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Project Poster (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: 'Designer & Developer',
       roleDesc: 'In this group project, I contributed to the design and development of E.C.H.O., exploring how robots can become part of community life and facilitate social interactions.',
@@ -88,7 +119,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`
       ],
-      overview: 'Created as a specialized guide for the Museum of Liverpool, the Lambanana Tour project aimed to gamify the museum experience for children. The illustrated map and interactive souvenir set encourage young visitors to explore specific exhibits and engage with Liverpool\'s rich history in a playful, memorable way.',
+      overview: (
+        <>
+          <p>Created as a specialized guide for the Museum of Liverpool, the Lambanana Tour project aimed to gamify the museum experience for children. The illustrated map and interactive souvenir set encourage young visitors to explore specific exhibits and engage with Liverpool's rich history in a playful, memorable way.</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Project Details (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: 'Project Designer & Illustrator',
       roleDesc: 'Responsible for the entire design cycle, from initial research on child-museum interaction to the final illustration and production of the physical guide materials.',
@@ -105,7 +150,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`
       ],
-      overview: 'Lemur Go is a telepresence installation designed to bridge the gap between people and zoo animals during periods of isolation. The system allows remote users to interact with lemurs through digital interfaces, providing mental stimulation for the animals and a unique conservation-focused experience for the users.',
+      overview: (
+        <>
+          <p>Lemur Go is a telepresence installation designed to bridge the gap between people and zoo animals during periods of isolation. The system allows remote users to interact with lemurs through digital interfaces, providing mental stimulation for the animals and a unique conservation-focused experience for the users.</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Project Details (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: 'Lead Designer & Researcher',
       roleDesc: 'Led the research into animal-computer interaction (ACI) and developed the hardware/software prototype for the remote engagement system.',
@@ -122,7 +181,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`
       ],
-      overview: 'Doozi is an innovative set of wheelchair accessories designed specifically for children with physical disabilities. The project includes a robotic domino-laying cart that helps children practice motor skills and spatial reasoning, and a musical puzzle carpet that provides tactile and auditory feedback. Our goal was to transform the wheelchair from just a mobility aid into a platform for play and social integration.',
+      overview: (
+        <>
+          <p>Doozi is an innovative set of wheelchair accessories designed specifically for children with physical disabilities. The project includes a robotic domino-laying cart that helps children practice motor skills and spatial reasoning, and a musical puzzle carpet that provides tactile and auditory feedback. Our goal was to transform the wheelchair from just a mobility aid into a platform for play and social integration.</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Project Details (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: 'Interaction Designer & Developer',
       roleDesc: 'Led the interaction design and programmed the robotic components, ensuring the technology was accessible, safe, and engaging for children with varying levels of mobility.',
@@ -139,7 +212,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`
       ],
-      overview: 'Happy Little Pill is an inclusive medication management system specifically designed for elderly individuals living with Alzheimer\'s. The product utilizes tactile and visual cues (color-coding and embossed patterns) to help users identify their medication schedule independently, reducing the anxiety and risk associated with daily pill intake.',
+      overview: (
+        <>
+          <p>Happy Little Pill is an inclusive medication management system specifically designed for elderly individuals living with Alzheimer's. The product utilizes tactile and visual cues (color-coding and embossed patterns) to help users identify their medication schedule independently, reducing the anxiety and risk associated with daily pill intake.</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Project Details (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: 'The project emphasizes "Dignity in Design," focusing on how everyday objects can be modified to empower those with cognitive impairments.',
       role: 'UX Designer & Visual Designer',
       roleDesc: 'Conducted user journey mapping for elderly patients and designed the visual language and tactile feedback system for the pill box and companion app interface.',
@@ -156,7 +243,37 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`
       ],
-      overview: 'The project focuses on redesigning the interface and physical interaction of the Atag induction hob to reduce cognitive load and improve user safety. We analyzed user pain points in modern kitchens and proposed a more intuitive layout and feedback system.',
+      overview: (
+        <>
+          <p>The project focuses on redesigning the interface and physical interaction of the Atag induction hob to reduce cognitive load and improve user safety. We analyzed user pain points in modern kitchens and proposed a more intuitive layout and feedback system.</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Project Report (PDF)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Project Poster (PDF)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/UxadFinalPrototype.mp4`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Final Prototype (Video)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: 'UX/UI Designer',
       roleDesc: 'Responsible for user research, prototype design, and usability testing, ensuring a seamless bridge between user needs and technical functionality.',
@@ -202,7 +319,21 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/6.JPEG`
       ],
-      overview: 'With the rapid advancement of generative AI, digital image generation has become highly automated. While efficiency increases, bodily engagement and sensory interaction diminish, leaving people more detached and often relegated to passive oversight. This shift has motivated the development of painting robots that reintroduce physical action and shared control between humans and machines. However, most existing systems prioritize single-turn output quality and overlook process-oriented aspects such as rhythm, control, and interaction. To bridge this gap, we propose CoBrush, which combines generative AI with robotic arms to enable human painters and AI to interact on a physical canvas. A user study demonstrates that CoBrush improved users’ sense of control by predicting and decomposing the painting process, enhanced creative engagement with human-like gestures and brushstroke expressions, and provided greater artistic satisfaction via an interactive, embodied co-creation experience.',
+      overview: (
+        <>
+          <p>With the rapid advancement of generative AI, digital image generation has become highly automated. While efficiency increases, bodily engagement and sensory interaction diminish, leaving people more detached and often relegated to passive oversight. This shift has motivated the development of painting robots that reintroduce physical action and shared control between humans and machines. However, most existing systems prioritize single-turn output quality and overlook process-oriented aspects such as rhythm, control, and interaction. To bridge this gap, we propose CoBrush, which combines generative AI with robotic arms to enable human painters and AI to interact on a physical canvas. A user study demonstrates that CoBrush improved users’ sense of control by predicting and decomposing the painting process, enhanced creative engagement with human-like gestures and brushstroke expressions, and provided greater artistic satisfaction via an interactive, embodied co-creation experience.</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2025/Cobrush/FinalReport.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              Final Report (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: 'Designer & Developer',
       roleDesc: 'In this team project, I contributed to the design and development of the collaborative painting system, focusing on interaction design and multi-turn dialogue between user and robot.',
@@ -217,22 +348,25 @@ const workData = {
       description: '',
       year: 2026,
       category: '团队. 用户界面. 用户体验. 活动',
-      heroImage: `${process.env.PUBLIC_URL}/work/2026/top.png`,
-      images: [
-        `${process.env.PUBLIC_URL}/work/2026/top.png`
-      ],
+      heroImage: '',
+      images: [],
       overview: (
-        <p>
-          附上链接：{' '}
-          <a
-            href="https://qinlin619.github.io/EuroStay-BU/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#000', textDecoration: 'underline', wordBreak: 'break-all' }}
-          >
-            https://qinlin619.github.io/EuroStay-BU/
-          </a>
-        </p>
+        <>
+          <p>
+            附上链接：{' '}
+            <a
+              href="https://www.eurostay.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline', wordBreak: 'break-all' }}
+            >
+              www.eurostay.co
+            </a>
+          </p>
+          <p>
+            点击这个网站你可以看到所有我们详细的工作，我在团队里负责APP的UIUX设计,活动策划,对接用户和部分网站搭建的工作
+          </p>
+        </>
       ),
       overviewExtra: '',
       role: '',
@@ -250,7 +384,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`
       ],
-      overview: 'Pixelated Adventures - 我在探索交互课程中设计的棋盘游戏，为人们分享旅行回忆提供了一种新颖的方式。我从研究纪念品选择的挑战开始，深入探讨传统叙事的不足，并探索创新方法，通过互动性和吸引力来增强这些体验。',
+      overview: (
+        <>
+          <p>Pixelated Adventures - 我在探索交互课程中设计的棋盘游戏，为人们分享旅行回忆提供了一种新颖的方式。我从研究纪念品选择的挑战开始，深入探讨传统叙事的不足，并探索创新方法，通过互动性和吸引力来增强这些体验。</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              查看完整项目 (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: '设计师',
       roleDesc: '在这个项目中，我负责从研究和构思到原型制作和测试的完整设计过程，创造了一个引人入胜的棋盘游戏体验，改变了人们分享旅行回忆的方式。',
@@ -267,7 +415,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`
       ],
-      overview: 'E.C.H.O.是一个社区机器人，与居民互动、收集他们的故事并记录下来。通过引入ECHO，我们想要探讨机器人在未来社区中的角色。',
+      overview: (
+        <>
+          <p>E.C.H.O.是一个社区机器人，与居民互动、收集他们的故事并记录下来。通过引入ECHO，我们想要探讨机器人在未来社区中的角色。</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              项目海报 (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: '设计师 & 开发者',
       roleDesc: '在这个团队项目中，我参与了E.C.H.O.的设计和开发，探索机器人如何成为社区生活的一部分并促进社交互动。',
@@ -284,7 +446,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`
       ],
-      overview: '该项目是为利物浦博物馆专门设计的导览系统，旨在平衡儿童的娱乐性与教育性。通过插画地图和互动纪念品，鼓励年轻观众探索特定展品，以一种游戏化且难忘的方式了解利物浦丰富的历史。',
+      overview: (
+        <>
+          <p>该项目是为利物浦博物馆专门设计的导览系统，旨在平衡儿童的娱乐性与教育性。通过插画地图和互动纪念品，鼓励年轻观众探索特定展品，以一种游戏化且难忘的方式了解利物浦丰富的历史。</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              作品详情 (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: '项目设计师 & 插画师',
       roleDesc: '负责整个设计周期，从最初关于儿童与博物馆互动的研究，到最终插画绘制及实体导览材料的制作。',
@@ -301,7 +477,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`
       ],
-      overview: 'Lemur Go 是一项远程呈现装置，旨在疫情隔离期间搭建人与动物园动物之间的桥梁。该系统允许远程用户通过数字界面与狐猴进行交互，为动物提供心理刺激，同时也为用户提供独特的以保护为导向的体验。',
+      overview: (
+        <>
+          <p>Lemur Go 是一项远程呈现装置，旨在疫情隔离期间搭建人与动物园动物之间的桥梁。该系统允许远程用户通过数字界面与狐猴进行交互，为动物提供心理刺激，同时也为用户提供独特的以保护为导向的体验。</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              作品详情 (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: '主设计师 & 研究员',
       roleDesc: '领导了动物与计算机交互 (ACI) 的研究，并开发了远程参与系统的硬件和软件原型。',
@@ -318,7 +508,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`
       ],
-      overview: 'Doozi 是一套专门为肢体残疾儿童设计的创新轮椅配件。该项目包括一个能自动摆放多米诺骨牌的机器人小车（帮助儿童锻炼运动技能和空间推理能力），以及一个提供触觉 and 听觉反馈的音乐解谜地毯。我们的目标是将轮椅从单纯的移动辅助工具转变为一个促进玩耍和社交融合的平台。',
+      overview: (
+        <>
+          <p>Doozi 是一套专门为肢体残疾儿童设计的创新轮椅配件。该项目包括一个能自动摆放多米诺骨牌的机器人小车（帮助儿童锻炼运动技能和空间推理能力），以及一个提供触觉 and 听觉反馈的音乐解谜地毯。我们的目标是将轮椅从单纯的移动辅助工具转变为一个促进玩耍和社交融合的平台。</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              作品详情 (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: '交互设计师 & 开发者',
       roleDesc: '领导了交互设计并编写了机器人组件的程序，确保技术方案对于不同运动能力等级的儿童都是无障碍、安全且有趣的。',
@@ -335,7 +539,21 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`
       ],
-      overview: 'Happy Little Pill 是一款专为阿兹海默症老年患者设计的包容性药物管理系统。该产品利用触觉和视觉提示（色彩编码和浮雕图案）帮助用户独立识别服药时间表，减少日常服药带来的焦虑 and 风险。',
+      overview: (
+        <>
+          <p>Happy Little Pill 是一款专为阿兹海默症老年患者设计的包容性药物管理系统。该产品利用触觉和视觉提示（色彩编码和浮雕图案）帮助用户独立识别服药时间表，减少日常服药带来的焦虑 and 风险。</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              作品详情 (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '该项目强调“尊严设计”，关注如何通过改造日常物品来赋能认知障碍群体。',
       role: 'UX 设计师 & 视觉设计师',
       roleDesc: '为老年患者进行了用户旅程映射，并为药盒以及配套 App 界面设计了视觉语言 and 触觉反馈系统。',
@@ -352,7 +570,37 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`
       ],
-      overview: '该项目专注于重新设计 Atag 感应炉的界面和物理交互，以降低用户的认知负荷并提高安全性。我们分析了现代厨房中的用户痛点，并提出了更直观的布局和反馈系统。',
+      overview: (
+        <>
+          <p>该项目专注于重新设计 Atag 感应炉的界面和物理交互，以降低用户的认知负荷并提高安全性。我们分析了现代厨房中的用户痛点，并提出了更直观的布局和反馈系统。</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              项目报告 (PDF)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              项目海报 (PDF)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/UxadFinalPrototype.mp4`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              最终原型演示 (视频)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: 'UX/UI 设计师',
       roleDesc: '负责用户研究、原型设计、可用性测试，确保在用户需求与技术功能之间建立无缝衔接。',
@@ -398,7 +646,21 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/6.JPEG`
       ],
-      overview: '随着生成式人工智能的飞速发展，数字图像生成已经高度自动化。虽然效率有所提高，但身体参与感和感官交互却在减少，使人们感到疏离，往往只能处于被动监督的状态。这种转变促使了绘画机器人的发展，它们重新引入了身体动作以及人机之间的共享控制。然而，大多数现有系统优先考虑单次输出的质量，而忽视了节奏、控制和交互等面向过程的方面。为了弥补这一差距，我们提出了 CoBrush，它将生成式 AI 与机械臂相结合，使人类画家 and AI 能够物理画布上进行交互。一项用户研究表明，CoBrush 通过预测和分解绘画过程，提高了用户的控制感；通过类人姿态 and 笔触表达，增强了创作参与感；并通过交互式、具身化的共同创作体验，提供了更高的艺术满意度。',
+      overview: (
+        <>
+          <p>随着生成式人工智能的飞速发展，数字图像生成已经高度自动化。虽然效率有所提高，但身体参与感和感官交互却在减少，使人们感到疏离，往往只能处于被动监督的状态。这种转变促使了绘画机器人的发展，它们重新引入了身体动作以及人机之间的共享控制。然而，大多数现有系统优先考虑单次输出的质量，而忽视了节奏、控制和交互等面向过程的方面。为了弥补这一差距，我们提出了 CoBrush，它将生成式 AI 与机械臂相结合，使人类画家 and AI 能够物理画布上进行交互。一项用户研究表明，CoBrush 通过预测和分解绘画过程，提高了用户的控制感；通过类人姿态 and 笔触表达，增强了创作参与感；并通过交互式、具身化的共同创作体验，提供了更高的艺术满意度。</p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2025/Cobrush/FinalReport.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#000', textDecoration: 'underline' }}
+            >
+              最终报告 (PDF)
+            </a>
+          </div>
+        </>
+      ),
       overviewExtra: '',
       role: '设计师 & 开发者',
       roleDesc: '在这个团队项目中，我参与了协同绘画系统的设计与开发，侧重交互设计与用户和机器人之间的多轮对话。',

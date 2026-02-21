@@ -19,6 +19,15 @@ const cvData = {
         description: 'Lead UI/UX design initiatives and manage event operations. Create user-centered design solutions, conduct user research, and design intuitive interfaces. Plan and execute events, coordinate logistics, and ensure seamless user experiences across digital and physical touchpoints.'
       },
       {
+        dates: '2025-10 - 2026-01',
+        role: 'Research Assistant',
+        company: 'Hong Kong University of Science and Technology, Division of Arts and Machine Creativity',
+        description: [
+          'System Development: Developed CoBrush, a human-robot collaborative painting system based on the 7-DOF Franka robotic arm.',
+          'Installation Exhibition: Responsible for the execution and management of large-scale public events, ensuring smooth and real-time collaborative creation and performance during the Hong Kong Artificial Intelligence Arts Festival and the "2025 Winter Concert" organized by the Hong Kong University of Science and Technology Philharmonic Orchestra.'
+        ]
+      },
+      {
         dates: '2024-8 - 2025-11-14',
         role: 'Green Team IDE Organiser',
         company: 'Delft University of Technology',
@@ -136,6 +145,15 @@ const cvData = {
         role: '联合创始人',
         company: 'EuroStay',
         description: '负责UI/UX设计工作和活动运营管理。创建以用户为中心的设计方案，进行用户研究，设计直观的界面。策划和执行活动，协调活动流程，确保数字和实体触点的无缝用户体验。'
+      },
+      {
+        dates: '2025-10 - 2026-01',
+        role: '研究助理',
+        company: '香港科技大学，艺术与机器创造学部 (Division of Arts and Machine Creativity)',
+        description: [
+          '系统开发：基于 7 自由度 Franka 机械臂开发了人机协作绘画系统 CoBrush。',
+          '装置展览：负责大型公共活动的执行与管理，确保在香港人工智能艺术节以及香港科技大学管弦乐团主办的“2025冬季音乐会”期间，协作创作与表演的流畅性与实时性。'
+        ]
       },
       {
         dates: '2024-8 - 2025-11-14',
