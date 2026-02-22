@@ -44,7 +44,7 @@ const works = {
       image: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       category: 'Group. Programming. Artificial Intelligence. Product',
       evaluation: 'A very challenging project, but we completed it very well!',
-      rating: 5
+      rating: 5.5
     },
     {
       id: 7,
@@ -113,8 +113,8 @@ const works = {
       year: 2021,
       image: `${process.env.PUBLIC_URL}/work/2021/1Bottle Opener/1.png`,
       category: 'Individual. Product Design',
-      evaluation: 'Fused aesthetic and functional kitchenware.',
-      rating: 4
+      evaluation: 'I really like this design approach, with a specific design style as a reference.',
+      rating: 5
     },
     {
       id: 21,
@@ -123,8 +123,8 @@ const works = {
       year: 2021,
       image: `${process.env.PUBLIC_URL}/work/2021/2PizzaBox/1.png`,
       category: 'Individual. Product Packaging Design',
-      evaluation: 'Creative packaging solution for modern delivery.',
-      rating: 3
+      evaluation: 'Although UX research was difficult during the pandemic, I love my unconventional thinking and hands-on ability at that time.',
+      rating: 4
     },
     {
       id: 22,
@@ -133,8 +133,8 @@ const works = {
       year: 2021,
       image: `${process.env.PUBLIC_URL}/work/2021/3Bike/1.png`,
       category: 'Group. Product Design. Child Play',
-      evaluation: 'Sustainable design for childhood mobility.',
-      rating: 4
+      evaluation: 'A super memorable and perfect group collaboration. Team formation was wonderful. Our first real-world project together.',
+      rating: 6
     },
     {
       id: 16,
@@ -143,8 +143,8 @@ const works = {
       year: 2020,
       image: `${process.env.PUBLIC_URL}/work/2020/1CalorieCalculator/1.png`,
       category: 'Individual. Web Design',
-      evaluation: 'A simple tool for a healthier lifestyle.',
-      rating: 3
+      evaluation: 'A very casual website design, just for calculating calories... Surprised this project was allowed to get marks, though I do like that gradient color.',
+      rating: 2
     },
     {
       id: 20,
@@ -153,8 +153,8 @@ const works = {
       year: 2020,
       image: `${process.env.PUBLIC_URL}/work/2020/2Chair/1.jpg`,
       category: 'Individual. Modelling',
-      evaluation: 'Pure exploration of form and structure.',
-      rating: 4
+      evaluation: 'I love modelling and Creo, but remember: NEVER save your work while in the sketch interface......',
+      rating: 6
     },
     {
       id: 17,
@@ -163,8 +163,8 @@ const works = {
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/1Hammer/1(1).jpg`,
       category: 'Individual. Industrial Design',
-      evaluation: 'Solid foundation in industrial craft.',
-      rating: 4
+      evaluation: 'Yay! First place in engineering drawings and second in model making! So happy to become a teaching case with my best friend. Even happier to see another friend\'s 5/100 marks hammer hhh.',
+      rating: 6
     },
     {
       id: 18,
@@ -173,7 +173,7 @@ const works = {
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/2Superman/1.jpg`,
       category: 'Group. Industrial Design',
-      evaluation: 'Structural integrity meets playful design.',
+      evaluation: 'Underestimated the load-bearing capacity of two cardboards, but did a deep dive into structural design.',
       rating: 5
     },
     {
@@ -183,8 +183,8 @@ const works = {
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
       category: 'Individual. Modelling. Industrial Design',
-      evaluation: 'Precision modeling for industrial application.',
-      rating: 4
+      evaluation: 'I will remember the time spent painstakingly measuring with a ruler and hand-crafting the skateboard model. The curves of the bearings are so beautiful.',
+      rating: 5.5
     },
   ],
   zh: [
@@ -226,7 +226,7 @@ const works = {
       image: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       category: '团队. 程序设计. 人工智能. 产品',
       evaluation: '很具挑战的项目，但我们完成得很好！',
-      rating: 5
+      rating: 5.5
     },
     {
       id: 7,
@@ -295,8 +295,8 @@ const works = {
       year: 2021,
       image: `${process.env.PUBLIC_URL}/work/2021/1Bottle Opener/1.png`,
       category: '个人项目. 产品设计',
-      evaluation: '经典艺术风格与厨具的完美融合。',
-      rating: 4
+      evaluation: '很喜欢这种设计思路，有一个设计风格作参考',
+      rating: 5
     },
     {
       id: 21,
@@ -305,8 +305,8 @@ const works = {
       year: 2021,
       image: `${process.env.PUBLIC_URL}/work/2021/2PizzaBox/1.png`,
       category: '个人项目. 产品包装设计',
-      evaluation: '现代外送服务的创意包装方案。',
-      rating: 3
+      evaluation: '虽然疫情期间用研不方便做，但是喜欢当时自己的跳脱思维和动手能力',
+      rating: 4
     },
     {
       id: 22,
@@ -315,8 +315,8 @@ const works = {
       year: 2021,
       image: `${process.env.PUBLIC_URL}/work/2021/3Bike/1.png`,
       category: '团队. 产品设计. 儿童游戏',
-      evaluation: '童年出行的可持续化设计。',
-      rating: 4
+      evaluation: '超级难忘完美的一次小组合作，自由组队实在是太美妙了，一起完成的人生中第一个落地项目',
+      rating: 6
     },
     {
       id: 16,
@@ -325,8 +325,8 @@ const works = {
       year: 2020,
       image: `${process.env.PUBLIC_URL}/work/2020/1CalorieCalculator/1.png`,
       category: '个人项目. 网页设计',
-      evaluation: '助力健康生活的极简工具。',
-      rating: 3
+      evaluation: '很随意的一个网站设计，居然计算卡路里......这种作品居然被允许得分，虽然我喜欢这个渐变色',
+      rating: 2
     },
     {
       id: 20,
@@ -335,8 +335,8 @@ const works = {
       year: 2020,
       image: `${process.env.PUBLIC_URL}/work/2020/2Chair/1.jpg`,
       category: '个人项目. 建模',
-      evaluation: '对形式与结构的纯粹探索。',
-      rating: 4
+      evaluation: '喜欢建模，喜欢Creo但是记得一定不要在草稿界面保存作品......',
+      rating: 6
     },
     {
       id: 17,
@@ -345,8 +345,8 @@ const works = {
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/1Hammer/1(1).jpg`,
       category: '单人项目. 工业设计',
-      evaluation: '坚实的工业工艺基础。',
-      rating: 4
+      evaluation: '耶图纸得分第一模型得分第二！跟好朋友一起成为教学案例非常开心，看到另一个好朋友5/100分的锤子我更开心了hhh',
+      rating: 6
     },
     {
       id: 18,
@@ -355,7 +355,7 @@ const works = {
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/2Superman/1.jpg`,
       category: '团队. 工业设计',
-      evaluation: '结构稳固性与趣味设计的融合。',
+      evaluation: '低估了两个纸板的承重能力，但是狠狠地研究了一下承重结构',
       rating: 5
     },
     {
@@ -365,20 +365,27 @@ const works = {
       year: 2019,
       image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
       category: '个人项目. 建模. 工业设计',
-      evaluation: '面向工业应用的精密建模。',
-      rating: 4
+      evaluation: '会记得用尺子辛辛苦苦测量，手搓轮滑模型的时光，原来轴承的曲面那么美',
+      rating: 5.5
     },
   ],
 };
 
 // 按年份分组
 const groupByYear = (list) => {
-  return list.reduce((acc, work) => {
+  const grouped = list.reduce((acc, work) => {
     const year = work.year;
     if (!acc[year]) acc[year] = [];
     acc[year].push(work);
     return acc;
   }, {});
+
+  // Sort works within each year by rating (most stars first)
+  Object.keys(grouped).forEach(year => {
+    grouped[year].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  });
+
+  return grouped;
 };
 
 export const getYears = (lang) => {
@@ -389,7 +396,12 @@ export const getYears = (lang) => {
 /** All works for current language, sorted by year descending (newest first). */
 export const getWorksListByYear = (lang) => {
   const list = works[lang] || works.en;
-  return [...list].sort((a, b) => Number(b.year) - Number(a.year));
+  return [...list].sort((a, b) => {
+    if (Number(b.year) !== Number(a.year)) {
+      return Number(b.year) - Number(a.year);
+    }
+    return (b.rating || 0) - (a.rating || 0);
+  });
 };
 
 function WorkGrid() {

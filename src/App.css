@@ -1152,8 +1152,8 @@ main>*:not(.hero) {
 }
 
 .side-project-card {
-  background: #fff;
-  border: 1px solid #e5e5e5;
+  background: #000;
+  border: 1px solid #1a1a1a;
   border-radius: 0;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -1173,13 +1173,14 @@ main>*:not(.hero) {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #f5f5f5;
+  background: #000;
 }
 
 .side-project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin: 0 !important;
   transition: transform 0.5s ease;
 }
 
@@ -1583,7 +1584,7 @@ main>*:not(.hero) {
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

@@ -60,14 +60,14 @@ const workData = {
       overview: (
         <>
           <p>Pixelated Adventures - a board game design on my Exploring Interaction course, offering a novel way for people to share their travel memories. I began by examining the challenges of souvenir selection, delving deeper into the inadequacies of traditional storytelling, and exploring innovative methods to enhance these experiences with interactivity and appeal.</p>
-          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+          <div className="featured-photos-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
             {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
               <img
                 key={num}
                 src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/${num}.png`}
                 alt={`Pixelated Adventures featured ${num}`}
                 className="featured-photo-placeholder"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', aspectRatio: '3/2' }}
               />
             ))}
           </div>
@@ -95,28 +95,33 @@ const workData = {
       description: 'A community robot that interacts with residents, collects stories, and explores the role of robots in future neighborhoods.',
       year: 2024,
       category: 'Group. Programming. Artificial Intelligence. Product',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/6.jpg`,
       images: [
-        `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`
+        `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/6.jpg`
       ],
       overview: (
         <>
           <p>E.C.H.O. is a robot in the community that interacts with residents, collects their stories, and records them. With the introduction of ECHO we wanted to ask questions considering the role of the robot (or robots) in the neighbourhoods of the future.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
-            {[1, 2, 3, 4, 5].map(num => (
-              <img
-                key={num}
-                src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/${num}.${num === 2 || num === 4 ? 'jpeg' : 'png'}`}
-                alt={`E.C.H.O. featured ${num}`}
-                className="featured-photo-placeholder"
-                style={{
-                  height: '300px',
-                  width: 'auto',
-                  aspectRatio: 'auto',
-                  maxWidth: '100%'
-                }}
-              />
-            ))}
+            {[2, 3, 4, 5, 6, 7].map(num => {
+              let ext = 'png';
+              if (num === 2 || num === 4) ext = 'jpeg';
+              if (num === 6 || num === 7) ext = 'jpg';
+              return (
+                <img
+                  key={num}
+                  src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/${num}.${ext}`}
+                  alt={`E.C.H.O. featured ${num}`}
+                  className="featured-photo-placeholder"
+                  style={{
+                    height: '300px',
+                    width: 'auto',
+                    aspectRatio: 'auto',
+                    maxWidth: '100%'
+                  }}
+                />
+              );
+            })}
           </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
@@ -292,21 +297,48 @@ const workData = {
       description: 'Redesign the Atag Induction Hob for enhanced usability, targeting a dependable and convenient cooking experience at home.',
       year: 2024,
       category: 'Group. User Interface. User Experience. Redesign',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`,
       images: [
-        `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`
+        `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
       ],
       overview: (
         <>
           <p>The project focuses on redesigning the interface and physical interaction of the Atag induction hob to reduce cognitive load and improve user safety. We analyzed user pain points in modern kitchens and proposed a more intuitive layout and feedback system.</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {['1.png', '2.png', '3.png', '4.jpg'].map(file => (
+              <img
+                key={file}
+                src={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/${file}`}
+                alt="Atag Induction Hob featured"
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report.pdf`}
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="work-pdf-link"
             >
-              Project Report (PDF)
+              Phase 1 Report (PDF)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              Phase 2 Report (PDF)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              Phase 3 Final Report (PDF)
             </a>
             <a
               href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
@@ -316,17 +348,10 @@ const workData = {
             >
               Project Poster (PDF)
             </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/UxadFinalPrototype.mp4`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Final Prototype (Video)
-            </a>
           </div>
         </>
       ),
+      videoUrl: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/UxadFinalPrototype.mp4`,
       overviewExtra: '',
       role: 'UX/UI Designer',
       roleDesc: 'Responsible for user research, prototype design, and usability testing, ensuring a seamless bridge between user needs and technical functionality.',
@@ -375,15 +400,8 @@ const workData = {
       overview: (
         <>
           <p>With the rapid advancement of generative AI, digital image generation has become highly automated. While efficiency increases, bodily engagement and sensory interaction diminish, leaving people more detached and often relegated to passive oversight. This shift has motivated the development of painting robots that reintroduce physical action and shared control between humans and machines. However, most existing systems prioritize single-turn output quality and overlook process-oriented aspects such as rhythm, control, and interaction. To bridge this gap, we propose CoBrush, which combines generative AI with robotic arms to enable human painters and AI to interact on a physical canvas. A user study demonstrates that CoBrush improved users’ sense of control by predicting and decomposing the painting process, enhanced creative engagement with human-like gestures and brushstroke expressions, and provided greater artistic satisfaction via an interactive, embodied co-creation experience.</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2025/Cobrush/FinalReport.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Final Report (PDF)
-            </a>
+          <div style={{ marginTop: '1rem', color: '#666', fontStyle: 'italic' }}>
+            Submission is currently under discussion. Full project report is not available for display at this moment.
           </div>
         </>
       ),
@@ -440,14 +458,14 @@ const workData = {
       overview: (
         <>
           <p>Pixelated Adventures - 我在探索交互课程中设计的桌面实体互动游戏，为人们分享旅行回忆提供了一种新颖的方式。我从研究纪念品选择的挑战开始，深入探讨传统叙事的不足，并探索创新方法，通过互动性和吸引力来增强这些体验。</p>
-          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+          <div className="featured-photos-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
             {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
               <img
                 key={num}
                 src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/${num}.png`}
                 alt={`Pixelated Adventures featured ${num}`}
                 className="featured-photo-placeholder"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', aspectRatio: '3/2' }}
               />
             ))}
           </div>
@@ -475,28 +493,33 @@ const workData = {
       description: '一个社区机器人，与居民互动、收集故事，探索机器人在未来社区中的角色。',
       year: 2024,
       category: '团队. 编程. 人工智能. 产品',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/6.jpg`,
       images: [
-        `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`
+        `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/6.jpg`
       ],
       overview: (
         <>
           <p>E.C.H.O.是一个社区机器人，与居民互动、收集他们的故事并记录下来。通过引入ECHO，我们想要探讨机器人在未来社区中的角色。</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
-            {[1, 2, 3, 4, 5].map(num => (
-              <img
-                key={num}
-                src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/${num}.${num === 2 || num === 4 ? 'jpeg' : 'png'}`}
-                alt={`E.C.H.O. 精选照片 ${num}`}
-                className="featured-photo-placeholder"
-                style={{
-                  height: '300px',
-                  width: 'auto',
-                  aspectRatio: 'auto',
-                  maxWidth: '100%'
-                }}
-              />
-            ))}
+            {[2, 3, 4, 5, 6, 7].map(num => {
+              let ext = 'png';
+              if (num === 2 || num === 4) ext = 'jpeg';
+              if (num === 6 || num === 7) ext = 'jpg';
+              return (
+                <img
+                  key={num}
+                  src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/${num}.${ext}`}
+                  alt={`E.C.H.O. 精选照片 ${num}`}
+                  className="featured-photo-placeholder"
+                  style={{
+                    height: '300px',
+                    width: 'auto',
+                    aspectRatio: 'auto',
+                    maxWidth: '100%'
+                  }}
+                />
+              );
+            })}
           </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
@@ -672,21 +695,48 @@ const workData = {
       description: '重新设计Atag感应炉，提升可用性，旨在提供可靠且便捷的家庭烹饪体验。',
       year: 2024,
       category: '团队. 用户界面. 用户体验. 重新设计',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`,
       images: [
-        `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`
+        `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
       ],
       overview: (
         <>
           <p>该项目专注于重新设计 Atag 感应炉的界面和物理交互，以降低用户的认知负荷并提高安全性。我们分析了现代厨房中的用户痛点，并提出了更直观的布局和反馈系统。</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {['1.png', '2.png', '3.png', '4.jpg'].map(file => (
+              <img
+                key={file}
+                src={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/${file}`}
+                alt="Atag Induction Hob 精选照片"
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report.pdf`}
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="work-pdf-link"
             >
-              项目报告 (PDF)
+              第一阶段报告 Phase 1 (PDF)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              第二阶段报告 Phase 2 (PDF)
+            </a>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              第三阶段最终报告 Phase 3 (PDF)
             </a>
             <a
               href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
@@ -696,17 +746,10 @@ const workData = {
             >
               项目海报 (PDF)
             </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/UxadFinalPrototype.mp4`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              最终原型演示 (视频)
-            </a>
           </div>
         </>
       ),
+      videoUrl: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/UxadFinalPrototype.mp4`,
       overviewExtra: '',
       role: 'UX/UI 设计师',
       roleDesc: '负责用户研究、原型设计、可用性测试，确保在用户需求与技术功能之间建立无缝衔接。',
@@ -755,15 +798,8 @@ const workData = {
       overview: (
         <>
           <p>随着生成式人工智能的飞速发展，数字图像生成已经高度自动化。虽然效率有所提高，但身体参与感和感官交互却在减少，使人们感到疏离，往往只能处于被动监督的状态。这种转变促使了绘画机器人的发展，它们重新引入了身体动作以及人机之间的共享控制。然而，大多数现有系统优先考虑单次输出的质量，而忽视了节奏、控制和交互等面向过程的方面。为了弥补这一差距，我们提出了 CoBrush，它将生成式 AI 与机械臂相结合，使人类画家 and AI 能够物理画布上进行交互。一项用户研究表明，CoBrush 通过预测和分解绘画过程，提高了用户的控制感；通过类人姿态 and 笔触表达，增强了创作参与感；并通过交互式、具身化的共同创作体验，提供了更高的艺术满意度。</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2025/Cobrush/FinalReport.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              最终报告 (PDF)
-            </a>
+          <div style={{ marginTop: '1rem', color: '#666', fontStyle: 'italic' }}>
+            作品正在商议投稿中，不方便进行展示，请见谅
           </div>
         </>
       ),
