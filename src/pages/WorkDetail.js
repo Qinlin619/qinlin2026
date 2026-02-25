@@ -60,14 +60,14 @@ const workData = {
       overview: (
         <>
           <p>Pixelated Adventures - a board game design on my Exploring Interaction course, offering a novel way for people to share their travel memories. I began by examining the challenges of souvenir selection, delving deeper into the inadequacies of traditional storytelling, and exploring innovative methods to enhance these experiences with interactivity and appeal.</p>
-          <div className="featured-photos-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
             {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
               <img
                 key={num}
                 src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/${num}.png`}
                 alt={`Pixelated Adventures featured ${num}`}
                 className="featured-photo-placeholder"
-                style={{ objectFit: 'cover', aspectRatio: '3/2' }}
+                style={{ objectFit: 'cover' }}
               />
             ))}
           </div>
@@ -102,7 +102,7 @@ const workData = {
       overview: (
         <>
           <p>E.C.H.O. is a robot in the community that interacts with residents, collects their stories, and records them. With the introduction of ECHO we wanted to ask questions considering the role of the robot (or robots) in the neighbourhoods of the future.</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
             {[2, 3, 4, 5, 6, 7].map(num => {
               let ext = 'png';
               if (num === 2 || num === 4) ext = 'jpeg';
@@ -113,12 +113,7 @@ const workData = {
                   src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/${num}.${ext}`}
                   alt={`E.C.H.O. featured ${num}`}
                   className="featured-photo-placeholder"
-                  style={{
-                    height: '300px',
-                    width: 'auto',
-                    aspectRatio: 'auto',
-                    maxWidth: '100%'
-                  }}
+                  style={{ objectFit: 'cover' }}
                 />
               );
             })}
@@ -458,14 +453,14 @@ const workData = {
       overview: (
         <>
           <p>Pixelated Adventures - 我在探索交互课程中设计的桌面实体互动游戏，为人们分享旅行回忆提供了一种新颖的方式。我从研究纪念品选择的挑战开始，深入探讨传统叙事的不足，并探索创新方法，通过互动性和吸引力来增强这些体验。</p>
-          <div className="featured-photos-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
             {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
               <img
                 key={num}
                 src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/${num}.png`}
                 alt={`Pixelated Adventures featured ${num}`}
                 className="featured-photo-placeholder"
-                style={{ objectFit: 'cover', aspectRatio: '3/2' }}
+                style={{ objectFit: 'cover' }}
               />
             ))}
           </div>
@@ -500,7 +495,7 @@ const workData = {
       overview: (
         <>
           <p>E.C.H.O.是一个社区机器人，与居民互动、收集他们的故事并记录下来。通过引入ECHO，我们想要探讨机器人在未来社区中的角色。</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
             {[2, 3, 4, 5, 6, 7].map(num => {
               let ext = 'png';
               if (num === 2 || num === 4) ext = 'jpeg';
@@ -511,12 +506,7 @@ const workData = {
                   src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/${num}.${ext}`}
                   alt={`E.C.H.O. 精选照片 ${num}`}
                   className="featured-photo-placeholder"
-                  style={{
-                    height: '300px',
-                    width: 'auto',
-                    aspectRatio: 'auto',
-                    maxWidth: '100%'
-                  }}
+                  style={{ objectFit: 'cover' }}
                 />
               );
             })}

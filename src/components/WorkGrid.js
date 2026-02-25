@@ -12,7 +12,7 @@ const works = {
       description: "World's #1 Chinese Couchers Community",
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
-      category: 'Group. User Interface. User Experience. Events',
+      category: 'Group. UI. UX. Events',
       evaluation: 'Connect people. Explore life. Unlock possibilities.',
       rating: 6
     },
@@ -22,7 +22,7 @@ const works = {
       description: 'A collaborative system that enables humans and robots to paint together through multi-turn interactions.',
       year: 2025,
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
-      category: 'Group. Human-Computer Interaction. Programming',
+      category: 'Group. HCI. Programming',
       evaluation: 'The project with the highest workload and longest duration. What a TUD graduation project......Owes me a software engineering degree.',
       rating: 6
     },
@@ -32,7 +32,7 @@ const works = {
       description: 'A board game design offering a novel way for people to share their travel memories.',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
-      category: 'Individual. User Experience. Product',
+      category: 'Individual. UX. Product',
       evaluation: 'The electronic version is launched. An addictive social game.',
       rating: 6
     },
@@ -52,7 +52,7 @@ const works = {
       description: 'Redesign the Atag Induction Hob for enhanced usability, targeting a dependable and convenient cooking experience at home.',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
-      category: 'Group. User Interface. User Experience. Redesign',
+      category: 'Group. UI. UX. Redesign',
       evaluation: 'Very harmonious group collaboration, UX research is very organized.',
       rating: 6
     },
@@ -102,7 +102,7 @@ const works = {
       description: 'An inclusive banded pill box designed for elderly people with Alzheimer\'s to help them with daily medication needs, raising awareness of the importance of inclusive design.',
       year: 2022,
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
-      category: 'Group. Well-being. User Experience. User Interface',
+      category: 'Group. Well-being. UX. UI',
       evaluation: 'Is there anything I cannot do?',
       rating: 6
     },
@@ -194,7 +194,7 @@ const works = {
       description: "World's #1 Chinese Couchers Community",
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
-      category: '团队. 用户界面. 用户体验. 活动',
+      category: '团队. UI. UX. 活动',
       evaluation: 'Connect people. Explore life. Unlock possibilities.',
       rating: 6
     },
@@ -204,17 +204,17 @@ const works = {
       description: '一个让人和机器人能够通过 multi-turn 交互一起绘画的协同系统',
       year: 2025,
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
-      category: '团队. 人机交互. 编程',
+      category: '团队. HCI. 编程',
       evaluation: '工作量最大周期最长的一个项目，不愧是TUD的毕设，欠我一个软件工程师学位',
       rating: 6
     },
     {
       id: 1,
-      title: 'Pixelated Adventures',
+      title: '像素大冒险',
       description: '一款桌面实体互动游戏，为人们分享旅行回忆提供了一种新颖的方式。',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`,
-      category: '个人项目. 用户体验. 产品',
+      category: '个人项目. UX. 产品',
       evaluation: '最终落地电子版，玩不厌的社交游戏',
       rating: 6
     },
@@ -230,21 +230,21 @@ const works = {
     },
     {
       id: 7,
-      title: 'Atag Induction Hob',
+      title: 'Atag 电磁灶设计',
       description: '重新设计Atag感应炉，提升可用性，旨在提供可靠且便捷的家庭烹饪体验。',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
-      category: '团队. 用户界面. 用户体验. 重新设计',
+      category: '团队. UI. UX. 重新设计',
       evaluation: '很和谐的小组合作，UX研究非常有条理',
       rating: 6
     },
     {
       id: 14,
-      title: 'Intimate Relationship',
+      title: '沉浸式艺术：《吻》',
       description: '使用图形处理技术探索克林姆特《吻》的沉浸式体验。',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
-      category: '个人项目. 数字艺术. 程序设计建模',
+      category: '个人项目. 数字艺术. 建模',
       evaluation: '可以做得再复杂有趣一点',
       rating: 5
     },
@@ -280,11 +280,11 @@ const works = {
     },
     {
       id: 6,
-      title: 'Happy Little Pill',
+      title: '快乐小药盒',
       description: '为患有阿尔茨海默症的老年人设计的包容性带状药盒，帮助他们满足日常用药需求，提高对包容性设计重要性的认识。',
       year: 2022,
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
-      category: '团队. 健康福祉. 用户体验. 用户界面',
+      category: '团队. 健康福祉. UX. UI',
       evaluation: '还有什么我不会的？',
       rating: 6
     },
@@ -320,7 +320,7 @@ const works = {
     },
     {
       id: 16,
-      title: 'Calorie Calculator',
+      title: '卡路里计算器',
       description: '为减重人群做一点小贡献。',
       year: 2020,
       image: `${process.env.PUBLIC_URL}/work/2020/1CalorieCalculator/1.png`,

@@ -2452,14 +2452,38 @@ main>*:not(.hero) {
     height: 200px;
   }
 
+  .work-card .card-title {
+    font-size: 1.35rem;
+  }
+
+
   .work-year-title {
     font-size: 1.5rem;
   }
 
   .page-content {
-    margin-top: 6rem;
-    padding-top: 2rem;
+    margin-top: 5rem;
+    padding-top: 1rem;
   }
+
+  .work-detail.page-content {
+    margin-top: 4rem;
+  }
+
+  .work-detail-banner {
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .work-detail-banner img {
+    height: 300px;
+  }
+
+  .work-detail-banner.is-single img {
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
 
   .page-content h1 {
     font-size: 1.75rem;
@@ -2487,6 +2511,25 @@ main>*:not(.hero) {
     padding-top: 1.5rem;
   }
 
+  .work-detail-header {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .work-detail-banner+.work-detail-header {
+    padding-top: 0;
+  }
+
+  .work-detail-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .work-description {
+    font-size: 0.95rem;
+  }
+
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -2505,6 +2548,12 @@ main>*:not(.hero) {
   .category-tabs {
     flex-wrap: wrap;
   }
+
+  .featured-photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
 
   .process-timeline {
     gap: 1.5rem;
@@ -2575,8 +2624,59 @@ main>*:not(.hero) {
   }
 
   .work-card-content {
-    padding: 1.5rem;
+    padding: 1rem 0;
   }
+
+  .work-card .card-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .work-card .card-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .work-grid {
+    gap: 2rem 0;
+  }
+
+  .work-card-image-wrapper {
+    height: 180px;
+    margin-bottom: 1rem;
+  }
+
+  .work-card-overlay-text p {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+
+  .star-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .category-abbr {
+    font-size: 0.7rem;
+  }
+
+  .work-detail.page-content {
+    margin-top: 3.5rem;
+  }
+
+  .work-detail-banner {
+    margin-top: -0.5rem;
+  }
+
+  .work-detail-banner img {
+    height: 220px;
+  }
+
+  .work-detail-banner.is-single img {
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
 
   .project-content,
   .side-project-content {
@@ -2605,6 +2705,7 @@ main>*:not(.hero) {
     padding: 1.5rem;
   }
 }
+
 
 /* 雨水光标：可点击/可选中/悬浮用填满 */
 a,
