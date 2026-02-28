@@ -27,6 +27,24 @@ const sideData = {
           { type: 'image', url: '/side/blender/7.jpg', title: 'Modelling Practice 7' }
         ],
         description: 'A collection of 3D modeling experiments in Blender.'
+      },
+      {
+        id: 'gamedesign',
+        title: 'Game Design',
+        category: 'design',
+        coverImage: '/side/GameDesign/1.png',
+        images: [
+          { type: 'image', url: '/side/GameDesign/1.png', title: 'Screenshot 1' },
+          { type: 'image', url: '/side/GameDesign/2.png', title: 'Screenshot 2' },
+          { type: 'image', url: '/side/GameDesign/3.png', title: 'Screenshot 3' },
+          { type: 'image', url: '/side/GameDesign/4.png', title: 'Screenshot 4' },
+          { type: 'image', url: '/side/GameDesign/5.png', title: 'Screenshot 5' }
+        ],
+        description: 'A glimpse into game design explorations.',
+        link: {
+          text: 'Play the game: ',
+          url: 'https://qinlin619.github.io/FlavorBlocks/'
+        }
       }
     ]
   },
@@ -55,6 +73,24 @@ const sideData = {
           { type: 'image', url: '/side/blender/7.jpg', title: '建模练习 7' }
         ],
         description: '在 Blender 中进行的一系列 3D 建模实验。'
+      },
+      {
+        id: 'gamedesign',
+        title: '游戏设计',
+        category: 'design',
+        coverImage: '/side/GameDesign/1.png',
+        images: [
+          { type: 'image', url: '/side/GameDesign/1.png', title: '截图 1' },
+          { type: 'image', url: '/side/GameDesign/2.png', title: '截图 2' },
+          { type: 'image', url: '/side/GameDesign/3.png', title: '截图 3' },
+          { type: 'image', url: '/side/GameDesign/4.png', title: '截图 4' },
+          { type: 'image', url: '/side/GameDesign/5.png', title: '截图 5' }
+        ],
+        description: '游戏设计初步探索。',
+        link: {
+          text: '欢迎点击试玩 ',
+          url: 'https://qinlin619.github.io/FlavorBlocks/'
+        }
       }
     ]
   }
@@ -62,16 +98,10 @@ const sideData = {
 
 function Side() {
   const { language } = useLanguage();
-  const [activeTab, setActiveTab] = useState('all');
   const [imageLoaded, setImageLoaded] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
   const data = sideData[language] || sideData.en;
-  const categories = ['all', 'design', 'tech'];
-
-  const filteredProjects = activeTab === 'all'
-    ? data.projects
-    : data.projects.filter(p => p.category === activeTab);
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -106,20 +136,8 @@ function Side() {
         </p>
       </div>
 
-      <div className="category-tabs">
-        {categories.map(category => (
-          <button
-            key={category}
-            className={`tab-button ${activeTab === category ? 'active' : ''}`}
-            onClick={() => setActiveTab(category)}
-          >
-            {data.categories[category]}
-          </button>
-        ))}
-      </div>
-
       <div className="side-projects-grid">
-        {filteredProjects.map((project) => (
+        {data.projects.map((project) => (
           <div
             key={project.id}
             className="side-project-card"
@@ -150,6 +168,18 @@ function Side() {
             <div className="side-modal-header">
               <h2>{selectedProject.title}</h2>
               <p>{selectedProject.description}</p>
+              {selectedProject.link && (
+                <p style={{ marginTop: '1rem' }}>
+                  <a
+                    href={selectedProject.link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: '#000', textDecoration: 'underline' }}
+                  >
+                    {selectedProject.link.text}{selectedProject.link.url}
+                  </a>
+                </p>
+              )}
             </div>
             <div className="side-modal-gallery">
               {selectedProject.images.map((item, index) => (
@@ -179,10 +209,10 @@ function Side() {
           right: 0;
           bottom: 0;
           background: rgba(255, 255, 255, 0.98);
-          z-index: 200000;
+          z-index: 99999;
           display: flex;
           justify-content: center;
-          padding: 4rem 2rem;
+          padding: 8rem 2rem 4rem;
           overflow-y: auto;
           animation: fadeIn 0.3s ease;
         }
@@ -197,15 +227,30 @@ function Side() {
         }
         .side-modal-close {
           position: fixed;
-          top: 2rem;
+          top: 6rem;
           right: 2rem;
-          background: none;
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           border: none;
-          font-size: 3rem;
+          font-size: 2.5rem;
           cursor: pointer;
           color: #000;
-          z-index: 10;
+          z-index: 200001;
           line-height: 1;
+        }
+        @media (max-width: 768px) {
+          .side-modal-close {
+            top: 5rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            font-size: 2rem;
+          }
         }
         .side-modal-header {
           text-align: center;
