@@ -11,6 +11,13 @@ const cvData = {
       phone: '+31 617785667'
     },
     intro: 'As a designer, I have a passion for gaming and aspire to gamify my designs, aiming to make each of my projects both entertaining and meaningful. I am eager to create engaging websites that enhance user experience or captivate customers\' attention. Moreover, I have a keen interest in emerging technologies, such as artificial intelligence, and hope to continuously learn and integrate new skills into my work. My future design endeavors strive to be more human-centered, sustainable, and technologically innovative.',
+    honorsAwards: [
+      {
+        dates: '2026',
+        title: 'Mobile World Congress (MWC) Barcelona 2026',
+        achievement: 'Awarded Bronze Place'
+      }
+    ],
     workHistory: [
       {
         dates: '2024-4 - Present',
@@ -120,6 +127,7 @@ const cvData = {
     ],
     sections: {
       personalInfo: 'Personal Information',
+      honorsAwards: 'Honors & Awards',
       workHistory: 'Work History',
       education: 'Education',
       skills: 'Skills',
@@ -139,6 +147,13 @@ const cvData = {
       phone: '+31 617785667'
     },
     intro: '作为一名设计师，我对游戏充满热情，并希望将游戏化融入我的设计中，旨在让我的每个项目既有趣又有意义。我渴望创建能够增强用户体验或吸引客户注意的引人入胜的网站。此外，我对新兴技术（如人工智能）有浓厚的兴趣，希望不断学习并将新技能融入我的工作中。我未来的设计努力将更加以人为本、可持续和技术创新。',
+    honorsAwards: [
+      {
+        dates: '2026',
+        title: '世界移动通信大会 (MWC) 巴塞罗那 2026',
+        achievement: '荣获铜奖'
+      }
+    ],
     workHistory: [
       {
         dates: '2024-4 - 至今',
@@ -243,6 +258,7 @@ const cvData = {
     ],
     sections: {
       personalInfo: '个人信息',
+      honorsAwards: '荣誉与奖项',
       workHistory: '工作经历',
       education: '教育背景',
       skills: '技能',
@@ -296,16 +312,39 @@ function CV() {
 
   return (
     <div className="page-content cv-page">
-      <div className="cv-header">
+      <div className="cv-top-header">
         <h1>{data.name}</h1>
+        <div className="cv-header-links">
+          <div className="cv-header-link-item">
+            <span className="cv-header-link-label">{data.sections.contact}:</span>
+            <a
+              href="#"
+              className="cv-header-email-link"
+              onClick={handleEmailClick}
+            >
+              {data.personalInfo.email}
+            </a>
+          </div>
+          <div className="cv-header-link-item">
+            <span className="cv-header-link-label">{data.sections.cv}:</span>
+            <a href="/CV_Qinlin_Liu.pdf" className="cv-header-download-link" download>
+              {data.sections.viewDownload}
+            </a>
+          </div>
+        </div>
       </div>
 
       <section className="cv-section">
-        <h2>{data.sections.personalInfo}</h2>
-        <p>
-          <strong>Email:</strong> {data.personalInfo.email}<br />
-          <strong>Phone:</strong> {data.personalInfo.phone}
-        </p>
+        <h2>{data.sections.honorsAwards}</h2>
+        {data.honorsAwards.map((award, index) => (
+          <div key={index} className="cv-item">
+            <div className="cv-item-header">
+              <strong>{award.title}</strong>
+              <span className="cv-dates">{award.dates}</span>
+            </div>
+            <p className="cv-company">{award.achievement}</p>
+          </div>
+        ))}
       </section>
 
       <section className="cv-section">
@@ -373,24 +412,6 @@ function CV() {
         </ul>
       </section>
 
-      <div className="cv-footer">
-        <div className="cv-footer-section">
-          <h3 className="cv-footer-title">{data.sections.contact}</h3>
-          <p className="cv-footer-content">
-            <a
-              href="#"
-              className="cv-footer-email-link"
-              onClick={handleEmailClick}
-            >
-              {data.personalInfo.email}
-            </a>
-          </p>
-        </div>
-        <div className="cv-footer-section">
-          <h3 className="cv-footer-title">{data.sections.cv}</h3>
-          <a href="/CV_Qinlin_Liu.pdf" className="cv-footer-link" download>{data.sections.viewDownload}</a>
-        </div>
-      </div>
       {showCopyToast && (
         <div className="copy-toast">
           {copyToastMessage}
