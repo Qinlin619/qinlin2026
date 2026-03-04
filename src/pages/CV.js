@@ -35,7 +35,7 @@ const cvData = {
         ]
       },
       {
-        dates: '2024-8 - 2025-11-14',
+        dates: '2024-8 - 2025-12',
         role: 'Green Team IDE Organiser',
         company: 'Delft University of Technology',
         description: 'Serve as a brand ambassador, event organizer, and produce various types of visual content.'
@@ -171,7 +171,7 @@ const cvData = {
         ]
       },
       {
-        dates: '2024-8 - 2025-11-14',
+        dates: '2024-8 - 2025-12',
         role: 'Green Team IDE 组织者',
         company: '代尔夫特理工大学',
         description: '担任品牌大使、活动组织者，并制作各种类型的视觉内容。'
