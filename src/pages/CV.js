@@ -327,7 +327,7 @@ function CV() {
           </div>
           <div className="cv-header-link-item">
             <span className="cv-header-link-label">{data.sections.cv}:</span>
-            <a href="/CV_Qinlin_Liu.pdf" className="cv-header-download-link" download>
+            <a href={`${process.env.PUBLIC_URL}/CV_Qinlin_Liu.pdf`} className="cv-header-download-link" download>
               {data.sections.viewDownload}
             </a>
           </div>
