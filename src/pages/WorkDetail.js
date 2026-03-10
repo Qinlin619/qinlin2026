@@ -175,6 +175,17 @@ const workData = {
       overview: (
         <>
           <p>Created as a specialized guide for the Museum of Liverpool, the Lambanana Tour project aimed to gamify the museum experience for children. The illustrated map and interactive souvenir set encourage young visitors to explore specific exhibits and engage with Liverpool's rich history in a playful, memorable way.</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {[1, 2, 3, 4, 5, 6].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/${num}.png`}
+                alt={`Lambanana Tour featured ${num}`}
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
@@ -569,6 +580,17 @@ const workData = {
       overview: (
         <>
           <p>该项目是为利物浦博物馆专门设计的导览系统，旨在平衡儿童的娱乐性与教育性。通过插画地图和互动纪念品，鼓励年轻观众探索特定展品，以一种游戏化且难忘的方式了解利物浦丰富的历史。</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {[1, 2, 3, 4, 5, 6].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/${num}.png`}
+                alt={`Lambanana Tour 精选照片 ${num}`}
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
