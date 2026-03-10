@@ -392,6 +392,7 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/6.JPEG`
       ],
+      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/111.mp4`,
       overview: (
         <>
           <p>With the rapid advancement of generative AI, digital image generation has become highly automated. While efficiency increases, bodily engagement and sensory interaction diminish, leaving people more detached and often relegated to passive oversight. This shift has motivated the development of painting robots that reintroduce physical action and shared control between humans and machines. However, most existing systems prioritize single-turn output quality and overlook process-oriented aspects such as rhythm, control, and interaction. To bridge this gap, we propose CoBrush, which combines generative AI with robotic arms to enable human painters and AI to interact on a physical canvas. A user study demonstrates that CoBrush improved users’ sense of control by predicting and decomposing the painting process, enhanced creative engagement with human-like gestures and brushstroke expressions, and provided greater artistic satisfaction via an interactive, embodied co-creation experience.</p>
@@ -785,6 +786,7 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/6.JPEG`
       ],
+      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/111.mp4`,
       overview: (
         <>
           <p>随着生成式人工智能的飞速发展，数字图像生成已经高度自动化。虽然效率有所提高，但身体参与感和感官交互却在减少，使人们感到疏离，往往只能处于被动监督的状态。这种转变促使了绘画机器人的发展，它们重新引入了身体动作以及人机之间的共享控制。然而，大多数现有系统优先考虑单次输出的质量，而忽视了节奏、控制和交互等面向过程的方面。为了弥补这一差距，我们提出了 CoBrush，它将生成式 AI 与机械臂相结合，使人类画家 and AI 能够物理画布上进行交互。一项用户研究表明，CoBrush 通过预测和分解绘画过程，提高了用户的控制感；通过类人姿态 and 笔触表达，增强了创作参与感；并通过交互式、具身化的共同创作体验，提供了更高的艺术满意度。</p>
