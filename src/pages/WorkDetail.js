@@ -49,12 +49,9 @@ const workData = {
               Brand Manual (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0`}
-              width="100%"
-              height="100%"
-              style={{ border: 'none' }}
+              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0&view=FitH`}
               title="EuroStay Brand Manual PDF"
             />
           </div>
@@ -100,9 +97,9 @@ const workData = {
               Full Project (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -180,9 +177,9 @@ const workData = {
               Source Code (GitHub)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -233,9 +230,9 @@ const workData = {
               Project Details (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -273,9 +270,9 @@ const workData = {
               Project Details (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -313,9 +310,9 @@ const workData = {
               Project Details (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -353,9 +350,9 @@ const workData = {
               Project Details (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -428,9 +425,9 @@ const workData = {
               Project Poster (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -536,9 +533,9 @@ const workData = {
               品牌手册 (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -587,9 +584,9 @@ const workData = {
               查看完整项目 (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -667,9 +664,9 @@ const workData = {
               项目代码库 (GitHub)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -720,9 +717,9 @@ const workData = {
               作品详情 (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -760,9 +757,9 @@ const workData = {
               作品详情 (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -800,9 +797,9 @@ const workData = {
               作品详情 (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -840,9 +837,9 @@ const workData = {
               作品详情 (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
@@ -915,9 +912,9 @@ const workData = {
               项目海报 (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+          <div className="work-pdf-embed-container">
             <iframe
-              src={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf#toolbar=0`}
+              src={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf#toolbar=0&view=FitH`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}

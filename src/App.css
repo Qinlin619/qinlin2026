@@ -1326,6 +1326,22 @@ main>*:not(.hero) {
   transform: translateY(0);
 }
 
+.work-pdf-embed-container {
+  margin-top: 2rem;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  position: relative;
+  background: #f9f9f9;
+}
+
+.work-pdf-embed-container iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
 .work-detail-loading {
   display: flex;
   flex-direction: column;
@@ -2606,6 +2622,18 @@ main>*:not(.hero) {
     gap: 1rem;
   }
 
+  .work-pdf-embed-container {
+    height: 500px;
+    border-radius: 8px;
+  }
+
+  /* 使用 Scale 方式让 PDF 内容缩小适应屏幕 */
+  .work-pdf-embed-container iframe {
+    width: 160%;
+    height: 160%;
+    transform: scale(0.625);
+    transform-origin: top left;
+  }
 
   .process-timeline {
     gap: 1.5rem;
