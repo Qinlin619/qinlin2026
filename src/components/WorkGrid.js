@@ -409,19 +409,20 @@ function WorkGrid() {
   const worksList = works[language] || works.en;
   const worksByYear = groupByYear(worksList);
   const years = Object.keys(worksByYear).sort((a, b) => Number(b) - Number(a));
+  const allWorks = years.flatMap(year => worksByYear[year]);
 
   return (
     <section className="work-section">
-      {years.map((year) => (
-        <div key={year} id={`work-year-${year}`} className="work-year-group">
-          <h2 className="work-year-title">{getYearLabel(year)}</h2>
-          <div className="work-grid">
-            {worksByYear[year].map((work) => (
-              <WorkCard key={work.id} work={work} />
-            ))}
+      <div className="work-grid flat-grid">
+        {allWorks.map((work) => (
+          <div key={work.id} className="work-card-wrapper" style={{ position: 'relative' }}>
+            <div className="work-year-indicator">
+              {work.year}
+            </div>
+            <WorkCard work={work} />
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 }

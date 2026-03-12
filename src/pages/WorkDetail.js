@@ -39,6 +39,25 @@ const workData = {
           <p>
             By visiting this website, you can see all our detailed work. Within the team, I was responsible for the APP's UI/UX design, event planning, user engagement, and partial website construction.
           </p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              Brand Manual (PDF)
+            </a>
+          </div>
+          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+            <iframe
+              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0`}
+              width="100%"
+              height="100%"
+              style={{ border: 'none' }}
+              title="EuroStay Brand Manual PDF"
+            />
+          </div>
         </>
       ),
       overviewExtra: '',
@@ -507,6 +526,25 @@ const workData = {
           <p>
             点击这个网站你可以看到所有我们详细的工作，我在团队里负责APP的UIUX设计,活动策划,对接用户和部分网站搭建的工作
           </p>
+          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <a
+              href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              品牌手册 (PDF)
+            </a>
+          </div>
+          <div className="work-pdf-embed-container" style={{ marginTop: '2rem', width: '100%', height: '800px', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+            <iframe
+              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0`}
+              width="100%"
+              height="100%"
+              style={{ border: 'none' }}
+              title="EuroStay 品牌手册 PDF"
+            />
+          </div>
         </>
       ),
       overviewExtra: '',

@@ -468,7 +468,21 @@ main>*:not(.hero) {
 .work-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem 2rem;
+  gap: 4rem 2rem;
+}
+
+.work-year-indicator {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #000;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: block;
+  opacity: 0.4;
+}
+
+.work-card-wrapper {
+  margin-bottom: 1rem;
 }
 
 .work-card {
@@ -497,7 +511,7 @@ main>*:not(.hero) {
 .work-card-image-wrapper {
   position: relative;
   width: 100%;
-  height: 240px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #f5f5f5;
   margin-bottom: 1.5rem;
