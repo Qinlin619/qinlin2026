@@ -53,7 +53,8 @@ const sideData = {
           { type: 'image', url: '/side/GameDesign-Color&Color/3.png', title: 'Screenshot 3' },
           { type: 'image', url: '/side/GameDesign-Color&Color/4.png', title: 'Screenshot 4' }
         ],
-        description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.'
+        description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
+        link: { text: 'Play Game: ', url: 'https://qinlin619.github.io/Color-Color/' }
       }
     ]
   },
@@ -108,7 +109,8 @@ const sideData = {
           { type: 'image', url: '/side/GameDesign-Color&Color/3.png', title: '截图 3' },
           { type: 'image', url: '/side/GameDesign-Color&Color/4.png', title: '截图 4' }
         ],
-        description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match'
+        description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match',
+        link: { text: '游玩链接：', url: 'https://qinlin619.github.io/Color-Color/' }
       }
     ]
   }
