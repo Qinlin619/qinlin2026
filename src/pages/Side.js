@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const sideData = {
   en: {
-    title: 'Life',
+    title: 'Design',
     intro: 'Collecting some weird little things I usually make',
     categories: {
       all: 'All',
@@ -29,27 +29,36 @@ const sideData = {
         description: 'A collection of 3D modeling experiments in Blender.'
       },
       {
-        id: 'gamedesign',
-        title: 'Game Design',
+        id: 'flavorblocks',
+        title: 'Flavorblocks',
         category: 'design',
-        coverImage: '/side/GameDesign/1.png',
+        coverImage: '/side/GameDesign-Flavorblocks/1.png',
         images: [
-          { type: 'image', url: '/side/GameDesign/1.png', title: 'Screenshot 1' },
-          { type: 'image', url: '/side/GameDesign/2.png', title: 'Screenshot 2' },
-          { type: 'image', url: '/side/GameDesign/3.png', title: 'Screenshot 3' },
-          { type: 'image', url: '/side/GameDesign/4.png', title: 'Screenshot 4' },
-          { type: 'image', url: '/side/GameDesign/5.png', title: 'Screenshot 5' }
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/1.png', title: 'Screenshot 1' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/2.png', title: 'Screenshot 2' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/3.png', title: 'Screenshot 3' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/4.png', title: 'Screenshot 4' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/5.png', title: 'Screenshot 5' }
         ],
-        description: 'A glimpse into game design explorations.',
-        link: {
-          text: 'Play the game: ',
-          url: 'https://qinlin619.github.io/FlavorBlocks/'
-        }
+        description: 'A small game designed for my parents to pass the time.'
+      },
+      {
+        id: 'color-color',
+        title: 'Color&Color',
+        category: 'design',
+        coverImage: '/side/GameDesign-Color&Color/1.png',
+        images: [
+          { type: 'image', url: '/side/GameDesign-Color&Color/1.png', title: 'Screenshot 1' },
+          { type: 'image', url: '/side/GameDesign-Color&Color/2.png', title: 'Screenshot 2' },
+          { type: 'image', url: '/side/GameDesign-Color&Color/3.png', title: 'Screenshot 3' },
+          { type: 'image', url: '/side/GameDesign-Color&Color/4.png', title: 'Screenshot 4' }
+        ],
+        description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.'
       }
     ]
   },
   zh: {
-    title: '生活',
+    title: '设计',
     intro: '收集一些自己平时做的奇奇怪怪的小东西',
     categories: {
       all: '全部',
@@ -75,22 +84,31 @@ const sideData = {
         description: '在 Blender 中进行的一系列 3D 建模实验。'
       },
       {
-        id: 'gamedesign',
-        title: '游戏设计',
+        id: 'flavorblocks',
+        title: 'Flavorblocks',
         category: 'design',
-        coverImage: '/side/GameDesign/1.png',
+        coverImage: '/side/GameDesign-Flavorblocks/1.png',
         images: [
-          { type: 'image', url: '/side/GameDesign/1.png', title: '截图 1' },
-          { type: 'image', url: '/side/GameDesign/2.png', title: '截图 2' },
-          { type: 'image', url: '/side/GameDesign/3.png', title: '截图 3' },
-          { type: 'image', url: '/side/GameDesign/4.png', title: '截图 4' },
-          { type: 'image', url: '/side/GameDesign/5.png', title: '截图 5' }
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/1.png', title: '截图 1' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/2.png', title: '截图 2' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/3.png', title: '截图 3' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/4.png', title: '截图 4' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/5.png', title: '截图 5' }
         ],
-        description: '游戏设计初步探索。',
-        link: {
-          text: '欢迎点击试玩 ',
-          url: 'https://qinlin619.github.io/FlavorBlocks/'
-        }
+        description: '想为爸爸妈妈设计一些打磨时间的小游戏'
+      },
+      {
+        id: 'color-color',
+        title: 'Color&Color',
+        category: 'design',
+        coverImage: '/side/GameDesign-Color&Color/1.png',
+        images: [
+          { type: 'image', url: '/side/GameDesign-Color&Color/1.png', title: '截图 1' },
+          { type: 'image', url: '/side/GameDesign-Color&Color/2.png', title: '截图 2' },
+          { type: 'image', url: '/side/GameDesign-Color&Color/3.png', title: '截图 3' },
+          { type: 'image', url: '/side/GameDesign-Color&Color/4.png', title: '截图 4' }
+        ],
+        description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match'
       }
     ]
   }
@@ -98,7 +116,7 @@ const sideData = {
 
 function Side() {
   const { language } = useLanguage();
-  const [imageLoaded, setImageLoaded] = useState(false);
+
   const [selectedProject, setSelectedProject] = useState(null);
 
   const data = sideData[language] || sideData.en;
@@ -115,19 +133,7 @@ function Side() {
 
   return (
     <div className="page-content side-page">
-      <div className="side-cover">
-        <img
-          src={`${process.env.PUBLIC_URL}/about/2.jpg`}
-          alt="Side Projects"
-          className={`side-cover-image ${imageLoaded ? 'loaded' : ''}`}
-          loading="eager"
-          onLoad={() => setImageLoaded(true)}
-          onError={(e) => {
-            console.error('Image failed to load:', e.target.src);
-            setImageLoaded(true);
-          }}
-        />
-      </div>
+
 
       <div className="side-header" style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h1 style={{ fontSize: '3.5rem', fontWeight: '300', marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>{data.title}</h1>
@@ -144,16 +150,22 @@ function Side() {
             onClick={() => openModal(project)}
             style={{ cursor: 'pointer' }}
           >
-            <div className="side-project-image-wrapper">
-              <img
-                src={`${process.env.PUBLIC_URL}${project.coverImage}`}
-                alt={project.title}
-                className="side-project-image"
-              />
-              <div className="side-project-overlay">
-                <div className="side-project-content">
-                  <h2 className="side-project-title" style={{ fontSize: '2rem', fontWeight: '500' }}>{project.title}</h2>
-                  <p className="side-project-desc" style={{ marginTop: '0.5rem' }}>{project.description}</p>
+              <div className="side-project-image-wrapper">
+                <img
+                  src={`${process.env.PUBLIC_URL}${project.coverImage}`}
+                  alt={project.title}
+                  className="side-project-image"
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'cover',
+                    objectPosition: project.id === 'blender' ? 'top' : 'center'
+                  }}
+                />
+              <div className="side-project-overlay" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="side-project-content" style={{ padding: '2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <h2 className="side-project-title" style={{ fontSize: '2.2rem', fontWeight: '300', textAlign: 'center', margin: 0, padding: 0, color: '#fff' }}>{project.title}</h2>
+                  <p className="side-project-desc" style={{ marginTop: '0.8rem', textAlign: 'center', margin: '0.8rem 0 0 0', padding: 0, fontWeight: '300', opacity: 0.9, color: 'rgba(255,255,255,0.8)' }}>{project.description}</p>
                 </div>
               </div>
             </div>

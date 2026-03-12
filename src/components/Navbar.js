@@ -6,13 +6,13 @@ import { getYears, getYearLabel } from './WorkGrid';
 const navText = {
   en: {
     work: 'WORK',
-    side: 'LIFE',
+    side: 'DESIGN',
     about: 'ABOUT',
     cv: 'CV'
   },
   zh: {
     work: '作品',
-    side: '生活',
+    side: '设计',
     about: '关于',
     cv: '简历'
   },

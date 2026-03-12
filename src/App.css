@@ -1201,9 +1201,8 @@ main>*:not(.hero) {
 }
 
 .side-project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  border-color: #000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: #444;
 }
 
 .side-project-image-wrapper {
@@ -1218,8 +1217,9 @@ main>*:not(.hero) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   margin: 0 !important;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .side-project-card:hover .side-project-image {
