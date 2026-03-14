@@ -2623,22 +2623,18 @@ main>*:not(.hero) {
   }
 
   .work-pdf-embed-container {
-    height: 500px;
+    height: 500px; /* 或者使用 60vh 等自适应高度 */
     border-radius: 0;
-    overflow-y: auto; /* 允许纵向滚动 */
-    overflow-x: hidden;
+    overflow: auto;
     -webkit-overflow-scrolling: touch; /* 优化 iOS 滑动流畅度 */
-    background: #eee;
+    background: #fff;
   }
 
-  /* 核心修复：让 iframe 非常长，缩放后依然撑开容器产生滚动 */
   .work-pdf-embed-container iframe {
-    width: 160%;
-    height: 1000%; /* 预设极大高度以容纳多页 PDF */
-    min-height: 5000px;
-    transform: scale(0.625);
-    transform-origin: top left;
-    pointer-events: none; /* 防止 iframe 拦截滑动事件，让父容器处理滑动 */
+    width: 100%;
+    height: 100%;
+    transform: none;
+    pointer-events: auto; /* 允许用户在 iframe 内滑动和点击 */
   }
 
   .process-timeline {

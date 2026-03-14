@@ -412,16 +412,25 @@ function WorkGrid() {
   const allWorks = years.flatMap(year => worksByYear[year]);
 
   return (
-    <section className="work-section">
+    <section className="work-section" style={{ position: 'relative' }}>
       <div className="work-grid flat-grid">
-        {allWorks.map((work) => (
-          <div key={work.id} className="work-card-wrapper" style={{ position: 'relative' }}>
-            <div className="work-year-indicator">
-              {work.year}
+        {allWorks.map((work, index) => {
+          const isFirstOfYear = index === 0 || allWorks[index - 1].year !== work.year;
+          
+          return (
+            <div 
+              key={work.id} 
+              id={isFirstOfYear ? `work-year-${work.year}` : undefined}
+              className="work-card-wrapper" 
+              style={{ position: 'relative', scrollMarginTop: isFirstOfYear ? '8rem' : undefined }}
+            >
+              <div className="work-year-indicator">
+                {work.year}
+              </div>
+              <WorkCard work={work} />
             </div>
-            <WorkCard work={work} />
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
