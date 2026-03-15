@@ -9,7 +9,7 @@ const works = {
     {
       id: 8,
       title: 'EuroStay',
-      description: "World's #1 Chinese Couchers Community",
+      description: "World's #1 Chinese backpacker community in Europe",
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
       category: 'Group. UI. UX. Events',
@@ -190,8 +190,8 @@ const works = {
   zh: [
     {
       id: 8,
-      title: 'EuroStay',
-      description: "World's #1 Chinese Couchers Community",
+      title: '欧洲换宿EuroStay',
+      description: '世界第一的在欧华人背包客群体',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
       category: '团队. UI. UX. 活动',
@@ -416,12 +416,12 @@ function WorkGrid() {
       <div className="work-grid flat-grid">
         {allWorks.map((work, index) => {
           const isFirstOfYear = index === 0 || allWorks[index - 1].year !== work.year;
-          
+
           return (
-            <div 
-              key={work.id} 
+            <div
+              key={work.id}
               id={isFirstOfYear ? `work-year-${work.year}` : undefined}
-              className="work-card-wrapper" 
+              className="work-card-wrapper"
               style={{ position: 'relative', scrollMarginTop: isFirstOfYear ? '8rem' : undefined }}
             >
               <div className="work-year-indicator">
