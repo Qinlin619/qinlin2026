@@ -191,17 +191,17 @@ const works = {
     {
       id: 8,
       title: '欧洲换宿EuroStay',
-      description: '世界第一的在欧华人背包客群体',
+      description: '世界第一的欧洲华人背包客社区',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
       category: '团队. UI. UX. 活动',
-      evaluation: 'Connect people. Explore life. Unlock possibilities.',
+      evaluation: '链接，探索，解锁生活的可能性',
       rating: 6
     },
     {
       id: 11,
       title: 'Cobrush',
-      description: '一个让人和机器人能够通过 multi-turn 交互一起绘画的协同系统',
+      description: '一个让人和机械臂能够通过多轮交互一起绘画的协同系统',
       year: 2025,
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
       category: '团队. HCI. 编程',
@@ -215,7 +215,7 @@ const works = {
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`,
       category: '个人项目. UX. 产品',
-      evaluation: '最终落地电子版，玩不厌的社交游戏',
+      evaluation: '最终落地电子版，玩不厌的社交破冰游戏',
       rating: 6
     },
     {
