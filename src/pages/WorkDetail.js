@@ -497,6 +497,69 @@ const workData = {
       process: ['Research & Concept', 'Interaction Design', 'Prototyping', 'Robot Integration', 'User Testing'],
       insights: ['Human-Robot Collaboration', 'Creative AI', 'Multi-turn Interaction'],
       results: 'The system successfully enables co-creative painting sessions between humans and robots, opening possibilities for collaborative art and assistive creativity.'
+    },
+    261: {
+      title: 'Flavorblocks',
+      description: 'A small game designed for my parents to pass the time.',
+      year: 2026,
+      overview: (
+        <>
+          <p>A small game designed for my parents to pass the time.</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {[1, 2, 3, 4, 5].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`}
+                alt={`Flavorblocks screenshot ${num}`}
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
+            <a
+              href="https://qinlin619.github.io/FlavorBlocks/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              Play Game: Flavorblocks
+            </a>
+          </div>
+        </>
+      )
+    },
+    262: {
+      title: 'Color&Color',
+      description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
+      year: 2026,
+      category: 'Individual. Game Design',
+      overview: (
+        <>
+          <p>A simple "match" game featuring socks, planned to evolve into various derivative matching games.</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {[1, 2, 3, 4].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/${num}.png`}
+                alt={`Color&Color screenshot ${num}`}
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
+            <a
+              href="https://qinlin619.github.io/Color-Color/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              Play Game: Color&Color
+            </a>
+          </div>
+        </>
+      )
     }
   },
   zh: {
@@ -984,6 +1047,69 @@ const workData = {
       process: ['研究与概念', '交互设计', '原型制作', '机器人集成', '用户测试'],
       insights: ['人机协同创作', '创意 AI', '多轮交互'],
       results: '系统成功实现了人与机器人的共同绘画会话，为协同艺术与辅助创作提供了可能。'
+    },
+    261: {
+      title: 'Flavorblocks',
+      description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
+      year: 2026,
+      overview: (
+        <>
+          <p>想为爸爸妈妈设计一些打磨时间的小游戏。</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {[1, 2, 3, 4, 5].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`}
+                alt={`Flavorblocks 截图 ${num}`}
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
+            <a
+              href="https://qinlin619.github.io/FlavorBlocks/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              游玩链接：Flavorblocks
+            </a>
+          </div>
+        </>
+      )
+    },
+    262: {
+      title: 'Color&Color',
+      description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
+      year: 2026,
+      category: '个人项目. 游戏设计',
+      overview: (
+        <>
+          <p>想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。</p>
+          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+            {[1, 2, 3, 4].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/${num}.png`}
+                alt={`Color&Color 截图 ${num}`}
+                className="featured-photo-placeholder"
+                style={{ objectFit: 'cover' }}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
+            <a
+              href="https://qinlin619.github.io/Color-Color/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              游玩链接：Color&Color
+            </a>
+          </div>
+        </>
+      )
     }
   }
 };

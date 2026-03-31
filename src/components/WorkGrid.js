@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import WorkCard from './WorkCard';
 
@@ -14,6 +14,26 @@ const works = {
       image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
       category: 'Group. UI. UX. Events',
       evaluation: 'Connect people. Explore life. Unlock possibilities.',
+      rating: 6
+    },
+    {
+      id: 261,
+      title: 'Flavorblocks',
+      description: 'A small game designed for my parents to pass the time.',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/1.png`,
+      category: 'Individual. Game Design',
+      evaluation: 'Designed for my parents to pass the time. Taste life.',
+      rating: 6
+    },
+    {
+      id: 262,
+      title: 'Color&Color',
+      description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/1.png`,
+      category: 'Individual. Game Design',
+      evaluation: 'A simple "match" game featuring socks. Fun and colorful!',
       rating: 6
     },
     {
@@ -74,6 +94,16 @@ const works = {
       image: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`,
       category: 'Individual. Child Play. Museum',
       evaluation: 'Most museums are boring; I hope to gamify all museums.',
+      rating: 6
+    },
+    {
+      id: 263,
+      title: 'Blender',
+      description: 'A collection of 3D modeling experiments in Blender.',
+      year: 2023,
+      image: `${process.env.PUBLIC_URL}/side/blender/5.png`,
+      category: 'Individual. 3D Modelling. Design',
+      evaluation: 'Blender is a powerful tool. I love the process of creating 3D worlds.',
       rating: 6
     },
     {
@@ -199,6 +229,26 @@ const works = {
       rating: 6
     },
     {
+      id: 261,
+      title: 'Flavorblocks',
+      description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/1.png`,
+      category: '个人项目. 游戏设计',
+      evaluation: '为爸爸妈妈设计的小游戏，很有趣。',
+      rating: 6
+    },
+    {
+      id: 262,
+      title: 'Color&Color',
+      description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/1.png`,
+      category: '个人项目. 游戏设计',
+      evaluation: '很有意思的小项目。',
+      rating: 6
+    },
+    {
       id: 11,
       title: 'Cobrush',
       description: '一个让人和机械臂能够通过多轮交互一起绘画的协同系统',
@@ -256,6 +306,16 @@ const works = {
       image: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`,
       category: '个人项目. 儿童游戏. 博物馆',
       evaluation: '大多数的博物馆都很无聊，希望能游戏化所有博物馆',
+      rating: 6
+    },
+    {
+      id: 263,
+      title: 'Blender',
+      description: '在 Blender 中进行的一系列 3D 建模实验。',
+      year: 2023,
+      image: `${process.env.PUBLIC_URL}/side/blender/5.png`,
+      category: '个人项目. 3D 建模. 设计',
+      evaluation: 'Blender 是一个非常强大的工具，我喜欢创造 3D 世界的过程。',
       rating: 6
     },
     {
@@ -406,16 +466,91 @@ export const getWorksListByYear = (lang) => {
 
 function WorkGrid() {
   const { language } = useLanguage();
+  const [selectedGame, setSelectedGame] = useState(null);
+
   const worksList = works[language] || works.en;
   const worksByYear = groupByYear(worksList);
   const years = Object.keys(worksByYear).sort((a, b) => Number(b) - Number(a));
   const allWorks = years.flatMap(year => worksByYear[year]);
+
+  const gameModalsData = {
+    261: {
+      en: {
+        title: 'Flavorblocks',
+        description: 'A small game designed for my parents to pass the time.',
+        link: { text: 'Play Game: ', url: 'https://qinlin619.github.io/FlavorBlocks/' },
+        images: [1, 2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `Screenshot ${n}` }))
+      },
+      zh: {
+        title: 'Flavorblocks',
+        description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
+        link: { text: '游玩链接：', url: 'https://qinlin619.github.io/FlavorBlocks/' },
+        images: [1, 2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `截图 ${n}` }))
+      }
+    },
+    262: {
+      en: {
+        title: 'Color&Color',
+        description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
+        link: { text: 'Play Game: ', url: 'https://qinlin619.github.io/Color-Color/' },
+        images: [1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color&Color/${n}.png`, title: `Screenshot ${n}` }))
+      },
+      zh: {
+        title: 'Color&Color',
+        description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
+        link: { text: '游玩链接：', url: 'https://qinlin619.github.io/Color-Color/' },
+        images: [1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color&Color/${n}.png`, title: `截图 ${n}` }))
+      }
+    },
+    263: {
+      en: {
+        title: 'Blender',
+        description: 'A collection of 3D modeling experiments in Blender.',
+        images: [
+          { type: 'image', url: '/side/blender/1.png', title: 'Modelling Practice 1' },
+          { type: 'image', url: '/side/blender/2.png', title: 'Modelling Practice 2' },
+          { type: 'image', url: '/side/blender/3.jpg', title: 'Modelling Practice 3' },
+          { type: 'image', url: '/side/blender/4.png', title: 'Modelling Practice 4' },
+          { type: 'image', url: '/side/blender/5.png', title: 'Modelling Practice 5' },
+          { type: 'image', url: '/side/blender/6.png', title: 'Modelling Practice 6' },
+          { type: 'image', url: '/side/blender/7.jpg', title: 'Modelling Practice 7' }
+        ]
+      },
+      zh: {
+        title: 'Blender',
+        description: '在 Blender 中进行的一系列 3D 建模实验。',
+        images: [
+          { type: 'image', url: '/side/blender/1.png', title: '建模练习 1' },
+          { type: 'image', url: '/side/blender/2.png', title: '建模练习 2' },
+          { type: 'image', url: '/side/blender/3.jpg', title: '建模练习 3' },
+          { type: 'image', url: '/side/blender/4.png', title: '建模练习 4' },
+          { type: 'image', url: '/side/blender/5.png', title: '建模练习 5' },
+          { type: 'image', url: '/side/blender/6.png', title: '建模练习 6' },
+          { type: 'image', url: '/side/blender/7.jpg', title: '建模练习 7' }
+        ]
+      }
+    }
+  };
+
+  const openGameModal = (work) => {
+    const data = gameModalsData[work.id]?.[language] || gameModalsData[work.id]?.en;
+    if (data) {
+      setSelectedGame(data);
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeGameModal = () => {
+    setSelectedGame(null);
+    document.body.style.overflow = 'auto';
+  };
 
   return (
     <section className="work-section" style={{ position: 'relative' }}>
       <div className="work-grid flat-grid">
         {allWorks.map((work, index) => {
           const isFirstOfYear = index === 0 || allWorks[index - 1].year !== work.year;
+          const isGame = work.id === 261 || work.id === 262 || work.id === 263;
 
           return (
             <div
@@ -427,11 +562,50 @@ function WorkGrid() {
               <div className="work-year-indicator">
                 {work.year}
               </div>
-              <WorkCard work={work} />
+              <WorkCard 
+                work={work} 
+                onCardClick={isGame ? openGameModal : undefined}
+              />
             </div>
           );
         })}
       </div>
+
+      {selectedGame && (
+        <div className="side-modal-overlay" onClick={closeGameModal}>
+          <div className="side-modal-content" onClick={e => e.stopPropagation()}>
+            <button className="side-modal-close" onClick={closeGameModal}>&times;</button>
+            <div className="side-modal-header">
+              <h2>{selectedGame.title}</h2>
+              <p>{selectedGame.description}</p>
+              {selectedGame.link && (
+                <p style={{ marginTop: '1rem' }}>
+                  <a
+                    href={selectedGame.link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: '#000', textDecoration: 'underline' }}
+                  >
+                    {selectedGame.link.text}{selectedGame.link.url}
+                  </a>
+                </p>
+              )}
+            </div>
+            <div className="side-modal-gallery">
+              {selectedGame.images.map((item, index) => (
+                <div key={index} className="side-modal-item">
+                  {item.type === 'image' ? (
+                    <img src={`${process.env.PUBLIC_URL}${item.url}`} alt={item.title} />
+                  ) : (
+                    <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
+                  )}
+                  <p className="side-modal-item-title">{item.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

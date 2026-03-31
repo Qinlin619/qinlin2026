@@ -1,0 +1,83 @@
+.aesthetic-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #ffffff; /* Fallback white background */
+}
+
+.gradient-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: move-sphere 20s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.sphere-1 {
+  width: 50vw;
+  height: 50vw;
+  background: linear-gradient(135deg, #ffcc33 0%, #ff99cc 100%);
+  top: -10%;
+  left: -5%;
+  animation-duration: 25s;
+}
+
+.sphere-2 {
+  width: 40vw;
+  height: 40vw;
+  background: linear-gradient(135deg, #33ccff 0%, #33ff99 100%);
+  bottom: -10%;
+  right: -5%;
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.sphere-3 {
+  width: 35vw;
+  height: 35vw;
+  background: linear-gradient(135deg, #cc99ff 0%, #ff99cc 100%);
+  top: 40%;
+  right: 15%;
+  animation-duration: 22s;
+  animation-delay: -10s;
+}
+
+.sphere-4 {
+  width: 30vw;
+  height: 30vw;
+  background: linear-gradient(135deg, #ff66cc 0%, #ffccff 100%);
+  bottom: 20%;
+  left: 10%;
+  animation-duration: 28s;
+  animation-delay: -15s;
+}
+
+.glass-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(100px);
+  z-index: 2;
+}
+
+@keyframes move-sphere {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(10vw, 5vh) scale(1.1);
+  }
+  66% {
+    transform: translate(-5vw, 15vh) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}

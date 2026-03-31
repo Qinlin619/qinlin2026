@@ -2,21 +2,26 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import CategoryIcons from './CategoryIcons';
 
-function WorkCard({ work }) {
+function WorkCard({ work, onCardClick }) {
   const location = useLocation();
   const isActive = location.pathname === `/work/${work.id}`;
 
-  const saveScrollAndNavigate = () => {
-    try {
-      sessionStorage.setItem('workListScrollY', String(window.scrollY));
-    } catch (_) { }
+  const handleClick = (e) => {
+    if (onCardClick) {
+      e.preventDefault();
+      onCardClick(work);
+    } else {
+      try {
+        sessionStorage.setItem('workListScrollY', String(window.scrollY));
+      } catch (_) { }
+    }
   };
 
   return (
     <Link
       to={`/work/${work.id}`}
       className={`work-card ${isActive ? 'work-card-active' : ''}`}
-      onClick={saveScrollAndNavigate}
+      onClick={handleClick}
     >
       <div className="work-card-image-wrapper">
         <img
