@@ -317,7 +317,7 @@ main>*:not(.hero) {
 .hero {
   position: relative;
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   min-height: 600px;
   display: flex;
   align-items: center;
@@ -335,8 +335,8 @@ main>*:not(.hero) {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50vh;
-  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.8) 70%, #fff 100%);
+  height: 40vh;
+  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,1) 100%);
   z-index: 5;
   pointer-events: none;
 }
@@ -356,6 +356,7 @@ main>*:not(.hero) {
   text-align: center;
   z-index: 10;
   animation: contentReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: -5vh; /* Slightly center more upwards for balance */
 }
 
 @keyframes contentReveal {
@@ -376,11 +377,102 @@ main>*:not(.hero) {
   letter-spacing: -0.06em;
   margin-bottom: 0.2rem;
   line-height: 0.9;
-  background: linear-gradient(180deg, #111, #444);
+  
+  /* Multi-layered background: [Standard Gradient] + [Shimmery Reflection] */
+  background: 
+    linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.7) 50%, transparent 60%) 100% 0 / 200% 100% no-repeat,
+    linear-gradient(180deg, #111, #444);
+    
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-align: center;
+  
+  /* Shimmer Animation: Right-to-Left, 6s interval */
+  animation: titleShine 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
+@keyframes titleShine {
+  0% { background-position: 100% 0, 0 0; }
+  35% { background-position: -100% 0, 0 0; }
+  100% { background-position: -100% 0, 0 0; } /* Pause after right-to-left sweep */
+}
+
+.custom-i-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: inherit;
+}
+
+.custom-i-letter {
+  display: inline-block;
+  background: linear-gradient(to bottom, transparent 31%, #111 31%, #444 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: inherit;
+}
+
+.dot-scale-wrapper {
+  position: absolute;
+  top: 10%; 
+  left: 62%;
+  transform: translateX(-50%) scale(calc(1 + var(--dot-level, 0) * 0.25));
+  transform-origin: bottom center; 
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.i-interactive-dot {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  transition: filter 0.3s ease;
+  animation: 
+    iDotEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards,
+    iDotIdle 3s ease-in-out infinite alternate;
+  animation-delay: var(--dot-delay, 0s), calc(var(--dot-delay, 0s) + 0.8s);
+}
+
+.dot-scale-wrapper:hover .i-interactive-dot {
+  transform: translateY(-0.8rem) scale(1.6) rotate(15deg);
+  filter: brightness(1.1);
+  animation-play-state: paused; 
+}
+
+@keyframes iDotEntrance {
+  0% { 
+    transform: translateY(-3rem) rotate(-180deg) scale(0);
+    opacity: 0;
+  }
+  100% { 
+    transform: translateY(0) rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes iDotIdle {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-0.25rem) scale(1.05); } 
+}
+
+.i-interactive-dot::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+}
+
+
+
+
+
+
 
 .hero-subtitle-caps {
   font-size: 1.1rem;
@@ -388,22 +480,23 @@ main>*:not(.hero) {
   color: #444;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem; /* Increased from 1rem */
   margin-top: 0.2rem;
 }
 
 
-.hero-motto-cursive {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #444;
-  opacity: 0.9;
-  line-height: 1.5;
-  max-width: 700px;
-  margin: 0 auto;
+.hero-motto {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 300;
+  color: #555;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+  line-height: 1.8;
+  max-width: 750px;
+  margin: 2.5rem auto 0;
 }
+
 
 .highlight {
   font-family: 'Outfit', sans-serif;
@@ -428,7 +521,7 @@ main>*:not(.hero) {
 
 /* Work 网格 */
 .work-section {
-  padding: 1rem 0 6rem;
+  padding: 6rem 0 6rem;
 }
 
 .work-year-filter-row {
@@ -542,7 +635,7 @@ main>*:not(.hero) {
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4rem 2rem;
+  gap: 5rem 2rem;
 }
 
 .work-year-indicator {
@@ -550,7 +643,7 @@ main>*:not(.hero) {
   font-weight: 500;
   color: #000;
   letter-spacing: 0.1em;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   display: block;
   opacity: 0.4;
 }
@@ -920,7 +1013,7 @@ main>*:not(.hero) {
   line-height: 1.7;
   color: #333;
   margin: 0;
-  text-align: left;
+  text-align: justify;
 }
 
 .cv-list {
@@ -928,19 +1021,26 @@ main>*:not(.hero) {
   padding: 0;
   margin: 0;
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
 }
 
 .cv-list li {
-  padding: 0.5rem 0;
+  padding: 0;
   font-size: 1rem;
   line-height: 1.6;
   color: #333;
   font-weight: 300;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: none;
+  position: relative;
 }
 
-.cv-list li:last-child {
-  border-bottom: none;
+.cv-list li:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  right: -0.85rem;
+  color: #ccc;
 }
 
 /* CV Footer */

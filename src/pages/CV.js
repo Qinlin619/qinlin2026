@@ -20,18 +20,32 @@ const cvData = {
     ],
     workHistory: [
       {
-        dates: '2024-4 - Present',
-        role: 'Co-Founder',
+        dates: '2024.06 - Present',
+        role: 'Co-Founder & UI/UX Lead',
         company: 'EuroStay',
-        description: 'Lead UI/UX design initiatives and manage event operations. Create user-centered design solutions, conduct user research, and design intuitive interfaces. Plan and execute events, coordinate logistics, and ensure seamless user experiences across digital and physical touchpoints.'
+        description: [
+          '0-to-1 Product Framework: Architected and built the complete app framework and web ecosystem from scratch, scaling to 10,000+ active users within months.',
+          'User Research & Conversion: Iterated the UI/UX architecture based on extensive user research and A/B testing, resulting in a 80% increase in member conversion rates.',
+          'Agile Design-to-Dev: Translated complex business logic into high-fidelity wireframes, rapid prototypes, and component-based design systems, ensuring seamless handoff to engineering.'
+        ]
       },
       {
-        dates: '2025-10 - 2026-01',
-        role: 'Research Assistant',
-        company: 'Hong Kong University of Science and Technology, Division of Arts and Machine Creativity',
+        dates: '2024.08 - 2025.02',
+        role: 'UX Design Intern',
+        company: 'Signify Netherlands B.V. (Philips Hue & WiZ)',
         description: [
-          'System Development: Developed CoBrush, a human-robot collaborative painting system based on the 7-DOF Franka robotic arm.',
-          'Installation Exhibition: Responsible for the execution and management of large-scale public events, ensuring smooth and real-time collaborative creation and performance during the Hong Kong Artificial Intelligence Arts Festival and the "2025 Winter Concert" organized by the Hong Kong University of Science and Technology Philharmonic Orchestra.'
+          'Data-Driven Global Updates: Spearheaded global UI updates for the WiZ brand website, analyzing 50,000+ user data points to optimize landing page hierarchy and increase visual credibility.',
+          'Design System Expansion: Expanded and maintained scalable component-based UI design systems in Figma, delivering templates that accelerated cross-functional workflows by 30%.',
+          'Performance Marketing & Assets: Synthesized market user data to create high-conversion motion designs and high-fidelity UI assets, bridging premium brand storytelling with measurable engagement.'
+        ]
+      },
+      {
+        dates: '2025.10 - 2026.01',
+        role: 'AI Interface Designer & System Developer',
+        company: 'Hong Kong University of Science and Technology (HKUST)',
+        description: [
+          'Human-AI Interaction: Led the UI/UX design for "CoBrush," an advanced AI human-robot collaborative system, focusing on making complex AI logic intuitive for human operators.',
+          'Interactive Frontend for AI: Developed the operational logic and real-time data-to-UI mapping for AI-driven workspaces, ensuring high-performance and smooth user flow optimization.'
         ]
       },
       {
@@ -39,17 +53,6 @@ const cvData = {
         role: 'Green Team IDE Organiser',
         company: 'Delft University of Technology',
         description: 'Serve as a brand ambassador, event organizer, and produce various types of visual content.'
-      },
-      {
-        dates: '2024-8 - 2025-2',
-        role: 'Philips Hue & WiZ Visual Merchandising/Design Intern',
-        company: 'Signify Netherlands B.V.',
-        description: [
-          'Design user-centered digital experiences for brands such as Philips Hue and WiZ across web and in-store touchpoints, translating brand values into intuitive UX and refined UI.',
-          'Analyze UX research reports, user feedback, and marketing performance data to identify insights and inform experience optimization and design decisions.',
-          'Contribute to the development and maintenance of a global design system by aligning interaction patterns, visual language, and usability standards across regions.',
-          'Create, iterate, and refine UI assets, motion, and visual content for multiple digital platforms.'
-        ]
       },
       {
         dates: '2024-10 - 2024-12',
@@ -61,13 +64,13 @@ const cvData = {
         dates: '2023-12 - 2024-2',
         role: 'Student Assistant',
         company: 'Delft University of Technology',
-        description: 'Assist with data analysis, classification, and documentation at the Delft Health Initiative, supporting the structuring of health-related datasets and information systems to enable clearer insights and more efficient knowledge sharing.'
+        description: 'Assist with data analysis, classification, and documentation at the Delft Health Initiative.'
       },
       {
         dates: '2023-10 - 2023-10',
         role: 'Student Assistant',
         company: 'Dutch Design Week',
-        description: 'Guided visitors and explained seven AI-focused design projects at a TU Delft exhibition with 100,000+ total attendees.'
+        description: 'Guided visitors and explained seven AI-focused design projects at a TU Delft exhibition.'
       },
       {
         dates: '2022-3 - 2023-10, 2024-6 - 2024-10',
@@ -81,49 +84,42 @@ const cvData = {
     ],
     education: [
       {
-        dates: '2023-9 - 2025-11',
-        degree: 'Design for Interaction, Master of Science',
-        university: 'Delft University of Technology'
+        dates: '2023.09 - 2025.11',
+        degree: 'Design for Interaction, Master of Science | GPA: 8.2/10',
+        university: 'Delft University of Technology (TU Delft)'
       },
       {
-        dates: '2020-9 - 2022-7',
-        degree: 'Industrial Design, Bachelor of Engineering',
+        dates: '2020.09 - 2022.07',
+        degree: 'Industrial Design, Bachelor of Engineering | GPA: 3.64/4.0',
         university: 'University of Liverpool'
       },
       {
-        dates: '2018-9 - 2020-7',
+        dates: '2018.09 - 2020.07',
         degree: 'Industrial Design, Bachelor of Engineering',
         university: 'Xi\'an Jiaotong-Liverpool University'
       }
     ],
     skills: [
-      'Prompt Engineering',
-      'UI/UX Design',
-      'Human-Computer Interaction',
-      'Programming',
-      'Data Analysis',
-      'Communication Skill',
-      'MS office',
-      'Adobe family',
-      '3D Modeling',
-      'Video Editing'
+      'UX/UI Design: Product Strategy, User-Centered Design, Wireframing, Rapid Prototyping, Design Systems, Responsive Interfaces, Usability Testing, Gamification',
+      'Visual & Marketing: Digital Marketing Assets, Campaign Visuals, Brand Identity, Motion Design, Presentation Templates',
+      'Tools & Tech: Figma (Expert), Adobe Creative Suite, Framer, Webflow, HTML/CSS, React.js (Concepts), 3D Modeling'
     ],
     languages: [
-      { name: 'Mandarin', level: 'C2' },
-      { name: 'Cantonese', level: 'C1' },
-      { name: 'English', level: 'C1' },
-      { name: 'Shaodong Dialect (Hunan)', level: 'C1' },
-      { name: 'Dutch', level: 'A1' },
-      { name: 'Japanese', level: 'A1' },
-      { name: 'Spanish', level: 'A1' }
+      { name: 'Mandarin', level: 'Native / C2' },
+      { name: 'Cantonese', level: 'Fluent / C1' },
+      { name: 'English', level: 'Fluent / C1' },
+      { name: 'Shaodong Dialect (Hunan)', level: 'Native' },
+      { name: 'Spanish', level: 'Intermediate / A2' },
+      { name: 'Dutch', level: 'Beginner / A1' },
+      { name: 'Japanese', level: 'Beginner / A1' }
     ],
     hobbies: [
       'Drawing',
       'Musical Instruments',
-      'Game design',
       'Movies',
       'Reading',
-      'Travel'
+      'Travel',
+      'Gaming (600+ titles on Steam/Epic/Mobile/Web; passionate about unique interactions and visually stunning puzzle games)'
     ],
     sections: {
       personalInfo: 'Personal Information',
@@ -156,18 +152,32 @@ const cvData = {
     ],
     workHistory: [
       {
-        dates: '2024-4 - 至今',
-        role: '联合创始人',
+        dates: '2024.06 - 至今',
+        role: '联合创始人 & UI/UX 设计主管',
         company: 'EuroStay',
-        description: '负责UI/UX设计工作和活动运营管理。创建以用户为中心的设计方案，进行用户研究，设计直观的界面。策划和执行活动，协调活动流程，确保数字和实体触点的无缝用户体验。'
+        description: [
+          '0到1产品架构：从零开始构建了完整的应用框架和网页生态系统，在数月内扩大至 10,000+ 活跃用户。',
+          '用户研究与转化：基于广泛的用户研究和 A/B 测试迭代 UI/UX 架构，使会员转化率提高了 80%。',
+          '敏捷设计到开发：将复杂的业务逻辑转化为高保真原型和基于组件的设计系统，确保与工程团队的无缝对接。'
+        ]
       },
       {
-        dates: '2025-10 - 2026-01',
-        role: '研究助理',
-        company: '香港科技大学，艺术与机器创造学部 (Division of Arts and Machine Creativity)',
+        dates: '2024.08 - 2025.02',
+        role: 'UX 设计实习生',
+        company: 'Signify Netherlands B.V. (Philips Hue & WiZ)',
         description: [
-          '系统开发：基于 7 自由度 Franka 机械臂开发了人机协作绘画系统 CoBrush。',
-          '装置展览：负责大型公共活动的执行与管理，确保在香港人工智能艺术节以及香港科技大学管弦乐团主办的“2025冬季音乐会”期间，协作创作与表演的流畅性与实时性。'
+          '数据驱动的全球更新：领导了 WiZ 品牌网站的全球 UI 更新，分析了 50,000+ 用户数据点以优化落地页层级。',
+          '设计系统扩展：在 Figma 中维护和扩展了可扩展的 UI 设计系统，使跨职能工作流程效率提升 30%。',
+          '性能营销与资产：综合市场用户数据创建高转化率的动态设计和高保真 UI 资产。'
+        ]
+      },
+      {
+        dates: '2025.10 - 2026.01',
+        role: 'AI 界面设计师 & 系统开发',
+        company: '香港科技大学 (HKUST)',
+        description: [
+          '人机 AI 交互：主导了 "CoBrush" 系统的 UI/UX 设计，专注于使复杂的 AI 逻辑对人类操作者变得直观。',
+          '面向 AI 的交互式前端：开发了 AI 驱动工作空间的运行逻辑和实时数据到 UI 的映射。'
         ]
       },
       {
@@ -175,12 +185,6 @@ const cvData = {
         role: 'Green Team IDE 组织者',
         company: '代尔夫特理工大学',
         description: '担任品牌大使、活动组织者，并制作各种类型的视觉内容。'
-      },
-      {
-        dates: '2024-8 - 2025-2',
-        role: 'Philips Hue & WiZ 视觉营销/设计实习生',
-        company: 'Signify Netherlands B.V.',
-        description: '为Philips Hue和WiZ等品牌创建创新的设计和内容，包括在线和店内营销材料。确保全球一致的品牌体验。编辑用于各种用途的图像和视频，并通过结构化的项目管理帮助团队成员实现他们的想法。'
       },
       {
         dates: '2024-10 - 2024-12',
@@ -212,49 +216,55 @@ const cvData = {
     ],
     education: [
       {
-        dates: '2023-9 - 2025-11',
-        degree: '交互设计，理学硕士',
-        university: '代尔夫特理工大学'
+        dates: '2023.09 - 2025.11',
+        degree: '交互设计，理学硕士 | GPA: 8.2/10',
+        university: '代尔夫特理工大学 (TU Delft)'
       },
       {
-        dates: '2020-9 - 2022-7',
-        degree: '工业设计，工程学士',
+        dates: '2020.09 - 2022.07',
+        degree: '工业设计，工程学士 | GPA: 3.64/4.0',
         university: '利物浦大学'
       },
       {
-        dates: '2018-9 - 2020-7',
+        dates: '2018.09 - 2020.07',
         degree: '工业设计，工程学士',
         university: '西交利物浦大学'
       }
     ],
     skills: [
-      '很会prompt',
-      'UI/UX设计',
-      '人机交互',
-      '编程',
-      '数据分析',
-      '沟通技能',
-      'MS office',
-      'Adobe系列',
-      '建模',
-      '剪辑'
+      'UX/UI 设计: 产品策略, 以用户为中心的设计, 线框图, 快速原型, 设计系统, 响应式界面, 可用性测试, 游戏化设计',
+      '视觉与营销: 数字营销资产, 活动视觉, 品牌识别, 动效设计, 演示模板',
+      '工具与技术: Figma (专家), Adobe Creative Suite, Framer, Webflow, HTML/CSS, React.js (概念), 3D 建模'
     ],
     languages: [
-      { name: '普通话', level: 'C2' },
-      { name: '粤语', level: 'C1' },
-      { name: '英语', level: 'C1' },
-      { name: '湖南邵东话', level: 'C1' },
-      { name: '荷兰语', level: 'A1' },
-      { name: '日语', level: 'A1' },
-      { name: '西班牙语', level: 'A1' }
+      { name: '普通话', level: '母语 / C2' },
+      { name: '粤语', level: '精通 / C1' },
+      { name: '英语', level: '精通 / C1' },
+      { name: '湖南邵东话', level: '母语' },
+      { name: '西班牙语', level: '中级 / A2' },
+      { name: '荷兰语', level: '初级 / A1' },
+      { name: '日语', level: '初级 / A1' }
+    ],
+    projects: [
+      {
+        dates: '2025',
+        title: 'Atag 电磁灶再设计',
+        company: 'UX/UI 设计师',
+        link: 'https://qinlin619.github.io/qinlin2026/work/7',
+        description: [
+          '以用户为中心的再设计：领导了端到端的用户研究、快速原型设计和可用性测试，将用户需求与技术功能相连接。',
+          '交互策略：重新设计了数字界面和物理触点以减轻认知负荷，强调人机工程学和直观的安全特性。',
+          '文档与交付物：生成了从洞察到执行的完整设计报告和具有视觉冲击力的海报。'
+        ]
+      }
     ],
     hobbies: [
       '绘画',
       '乐器',
-      '游戏设计',
       '电影',
       '看书',
-      '旅行'
+      '旅行',
+      '玩游戏 (Steam/Epic/手机/网页游戏共 600+；热爱体验各种交互与画风精良的解谜游戏)'
     ],
     sections: {
       personalInfo: '个人信息',
@@ -262,7 +272,7 @@ const cvData = {
       workHistory: '工作经历',
       education: '教育背景',
       skills: '技能',
-      languages: '语言',
+      languages: '语言评价',
       hobbies: '兴趣爱好',
       contact: 'CONTACT',
       cv: 'CV',
@@ -348,6 +358,19 @@ function CV() {
       </section>
 
       <section className="cv-section">
+        <h2>{data.sections.education}</h2>
+        {data.education.map((edu, index) => (
+          <div key={index} className="cv-item">
+            <div className="cv-item-header">
+              <strong>{edu.degree}</strong>
+              <span className="cv-dates">{edu.dates}</span>
+            </div>
+            <p className="cv-company">{edu.university}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="cv-section">
         <h2>{data.sections.workHistory}</h2>
         {data.workHistory.map((work, index) => (
           <div key={index} className="cv-item">
@@ -368,19 +391,6 @@ function CV() {
             ) : (
               <p>{work.description}</p>
             )}
-          </div>
-        ))}
-      </section>
-
-      <section className="cv-section">
-        <h2>{data.sections.education}</h2>
-        {data.education.map((edu, index) => (
-          <div key={index} className="cv-item">
-            <div className="cv-item-header">
-              <strong>{edu.degree}</strong>
-              <span className="cv-dates">{edu.dates}</span>
-            </div>
-            <p className="cv-company">{edu.university}</p>
           </div>
         ))}
       </section>
