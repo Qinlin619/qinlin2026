@@ -5,13 +5,13 @@ import AestheticBackground from './AestheticBackground';
 const heroText = {
   en: {
     title: 'Qinlin Liu',
-    subtitle: 'Interaction Designer',
-    motto: 'Designing <span class="highlight">intuitive interfaces</span> and <span class="highlight">delightful interactions</span> with a professional yet <span class="highlight">playful touch</span>.'
+    subtitle: 'End-to-end Product Designer',
+    motto: 'Bridging the gap between <span class="highlight">user research</span> and <span class="highlight">final polish</span>, crafting <span class="highlight">scalable design systems</span> and <span class="highlight">intuitive interfaces</span> with a <span class="highlight">playful touch</span>.'
   },
   zh: {
     title: 'Qinlin Liu',
-    subtitle: '交互设计师',
-    motto: '致力于打造 <span class="highlight">直观的界面</span> 与 <span class="highlight">有趣的交互</span>，在专业实用的基础上注入 <span class="highlight">灵动趣味</span>。'
+    subtitle: '全栈产品设计师',
+    motto: '连接 <span class="highlight">用户研究</span> 与 <span class="highlight">最终打磨</span>，致力于打造 <span class="highlight">可扩展设计系统</span> 与 <span class="highlight">直观界面</span>，并注入 <span class="highlight">灵动趣味</span>。'
   },
 };
 
