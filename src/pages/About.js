@@ -1,5 +1,6 @@
 import React, { memo, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import PageRain from '../components/PageRain';
 
 const aboutData = {
   en: {
@@ -23,8 +24,9 @@ function About() {
   const t = aboutData[language] || aboutData.en;
 
   return (
-    <div className="page-content about-page">
-      <div className="about-cover">
+    <div className="page-content about-page" style={{ position: 'relative' }}>
+      <PageRain top="0" count={200} />
+      <div className="about-cover" style={{ position: 'relative', zIndex: 10 }}>
         <img
           src={`${process.env.PUBLIC_URL}/about/1.jpg`}
           alt="Qinlin Liu"
@@ -37,10 +39,10 @@ function About() {
           }}
         />
       </div>
-      <h1>{t.title}</h1>
-      <p>{t.bio}</p>
-      <h2>{t.planTitle}</h2>
-      <p>{t.plan}</p>
+      <h1 style={{ position: 'relative', zIndex: 10 }}>{t.title}</h1>
+      <p style={{ position: 'relative', zIndex: 10 }}>{t.bio}</p>
+      <h2 style={{ position: 'relative', zIndex: 10 }}>{t.planTitle}</h2>
+      <p style={{ position: 'relative', zIndex: 10 }}>{t.plan}</p>
     </div>
   );
 }

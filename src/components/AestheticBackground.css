@@ -5,8 +5,8 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 1;
-  background-color: #ffffff; /* Fallback white background */
+  z-index: 0;
+  background-color: transparent; 
   
   /* Defaults for CSS variables */
   --mouse-x: 0;

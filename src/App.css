@@ -325,7 +325,7 @@ main>*:not(.hero) {
   overflow: hidden;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  background: #fff; /* Base background */
+  background: transparent; /* Permitting background rain to show through */
 }
 
 /* 融合效果：底部淡出到白色 */
@@ -512,11 +512,44 @@ main>*:not(.hero) {
   white-space: nowrap;
 }
 
+
+.scroll-indicator.scroll-rain {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 120px;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.scroll-drop {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--drop-color);
+  left: var(--drop-left);
+  opacity: 0;
+  animation: scrollRainFall var(--drop-duration) linear infinite;
+  animation-delay: var(--drop-delay);
+}
+
+@keyframes scrollRainFall {
+  0% { transform: translateY(-40px); opacity: 0; }
+  15% { opacity: 0.9; }
+  85% { opacity: 0.9; }
+  100% { transform: translateY(40px); opacity: 0; }
+}
+
 /* Work Container */
 .work-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 10;
 }
 
 /* Work 网格 */
@@ -2155,6 +2188,8 @@ main>*:not(.hero) {
   color: #999;
   border-top: 1px solid #e5e5e5;
   margin-top: 4rem;
+  position: relative;
+  z-index: 10;
 }
 
 .footer-like-row {

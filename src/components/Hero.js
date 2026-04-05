@@ -15,7 +15,15 @@ const heroText = {
   },
 };
 
-const dotColors = ['#ff99cc', '#33ccff', '#ffcc33'];
+const dotColors = [
+  '#ff99cc', // Pink
+  '#33ccff', // Blue
+  '#ffcc33', // Yellow
+  '#b3a2ff', // Soft Purple
+  '#70e1ff', // Soft Cyan
+  '#ffb347', // Soft Orange
+  '#4df0cf'  // Soft Teal
+];
 
 function Hero() {
   const { language } = useLanguage();

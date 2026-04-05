@@ -8,16 +8,18 @@ import Footer from './components/Footer';
 import WorkDetail from './pages/WorkDetail';
 import About from './pages/About';
 import CV from './pages/CV';
+import PageRain from './components/PageRain';
 import RippleEffect from './components/RippleEffect';
 
 function HomePage() {
   return (
-    <>
+    <div style={{ position: 'relative' }}>
+      <PageRain top="70vh" />
       <Hero />
       <div className="work-container">
         <WorkGrid />
       </div>
-    </>
+    </div>
   );
 }
 

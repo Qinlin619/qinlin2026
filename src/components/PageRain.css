@@ -1,0 +1,65 @@
+.page-rain-container {
+  position: absolute;
+  top: var(--rain-top, 70vh);
+  left: 50%;
+  width: 100vw;
+  height: calc(100% - var(--rain-top, 70vh));
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1; 
+  overflow: hidden;
+}
+
+.rain-drop {
+  position: absolute;
+  width: var(--drop-size, 6px);
+  height: var(--drop-size, 6px);
+  border-radius: 50%;
+  background-color: var(--drop-color);
+  left: var(--drop-left);
+  top: var(--drop-top);
+  opacity: 0;
+  animation: rainDropFall var(--drop-duration) linear infinite;
+  animation-delay: var(--drop-delay);
+  will-change: transform, opacity;
+}
+
+.rain-splash {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 6px;
+  border-radius: 50%;
+  border-top: 1.5px solid var(--drop-color);
+  opacity: 0;
+  animation: rainSplashAnimate var(--drop-duration) linear infinite;
+  animation-delay: var(--drop-delay);
+  will-change: transform, opacity;
+}
+
+.rain-drop.is-splashing {
+  opacity: 0 !important;
+  transform: scale(3);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.rain-drop.is-splashing .rain-splash {
+  opacity: 1;
+  transform: translateX(-50%) scale(3);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+@keyframes rainDropFall {
+  0% { transform: translateY(-40px); opacity: 0; }
+  15% { opacity: var(--drop-opacity); }
+  85% { transform: translateY(40px); opacity: var(--drop-opacity); }
+  100% { transform: translateY(40px); opacity: 0; }
+}
+
+@keyframes rainSplashAnimate {
+  0%, 84% { opacity: 0; transform: translateX(-50%) scale(0); }
+  85% { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(2.5); }
+}
