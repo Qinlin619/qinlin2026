@@ -36,9 +36,7 @@ const workData = {
               www.eurostay.co
             </a>
           </p>
-          <p>
-            By visiting this website, you can see all our detailed work. Within the team, I was responsible for the APP's UI/UX design, event planning, user engagement, and partial website construction.
-          </p>
+
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
@@ -64,6 +62,7 @@ const workData = {
       insights: [],
       results: ''
     },
+
     1: {
       title: 'Pixelated Adventures',
       description: 'A board game design offering a novel way for people to share their travel memories.',
@@ -583,9 +582,7 @@ const workData = {
               www.eurostay.co
             </a>
           </p>
-          <p>
-            点击这个网站你可以看到所有我们详细的工作，我在团队里负责APP的UIUX设计,活动策划,对接用户和部分网站搭建的工作
-          </p>
+
           <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
@@ -614,6 +611,7 @@ const workData = {
       insights: [],
       results: ''
     },
+
     1: {
       title: 'Pixelated Adventures',
       description: '一款桌面实体互动游戏，为人们分享旅行回忆提供了一种新颖的方式。',

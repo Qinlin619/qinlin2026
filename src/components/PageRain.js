@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './PageRain.css';
 
-const dotColors = [
+export const dotColors = [
   '#ff99cc', // Pink
   '#33ccff', // Blue
   '#f9ff86ff', // Yellow
@@ -24,7 +24,7 @@ const PageRain = ({ top, count = 500 }) => {
             '--drop-left': `${Math.random() * 100}%`,
             '--drop-top': `${Math.random() * 100}%`,
             '--drop-size': `${4 + Math.random() * 5}px`, // Random size between 4px and 9px
-            '--drop-duration': `${3 + Math.random() * 4}s`,
+            '--drop-duration': `${1.5 + Math.random() * 2}s`,
             '--drop-opacity': 0.4 + Math.random() * 0.5
           }}
         >
