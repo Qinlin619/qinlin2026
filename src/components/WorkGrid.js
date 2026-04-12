@@ -471,7 +471,30 @@ function WorkGrid() {
   const [selectedGame, setSelectedGame] = useState(null);
 
   const worksList = works[language] || works.en;
-  const worksByYear = groupByYear(worksList);
+  
+  // Extract unique tags
+  const getTags = (list) => {
+    const tags = list.flatMap(work => 
+      work.category.split('.')
+        .map(t => t.trim())
+        .filter(t => t && t !== 'Group' && t !== 'Individual' && t !== '个人项目' && t !== '团队' && t !== '团队项目' && t !== '单人项目')
+    );
+    return ['All', ...Array.from(new Set(tags))].sort((a, b) => {
+      if (a === 'All') return -1;
+      if (b === 'All') return 1;
+      return a.localeCompare(b);
+    });
+  };
+
+  const [selectedTag, setSelectedTag] = useState('All');
+  const tags = getTags(worksList);
+
+  // Filter works based on selected tag
+  const filteredWorksList = selectedTag === 'All' 
+    ? worksList 
+    : worksList.filter(work => work.category.includes(selectedTag));
+
+  const worksByYear = groupByYear(filteredWorksList);
   const years = Object.keys(worksByYear).sort((a, b) => Number(b) - Number(a));
   const allWorks = years.flatMap(year => worksByYear[year]);
 
@@ -549,6 +572,20 @@ function WorkGrid() {
 
   return (
     <section className="work-section" style={{ position: 'relative' }}>
+      <div className="work-filter-container">
+        <div className="work-tags-row">
+          {tags.map(tag => (
+            <button
+              key={tag}
+              className={`work-tag-btn ${selectedTag === tag ? 'active' : ''}`}
+              onClick={() => setSelectedTag(tag)}
+            >
+              {tag === 'All' ? (language === 'zh' ? '全部项目' : 'All Projects') : tag}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="work-grid flat-grid">
         {allWorks.map((work, index) => {
           const isFirstOfYear = index === 0 || allWorks[index - 1].year !== work.year;

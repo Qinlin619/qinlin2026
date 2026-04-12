@@ -931,18 +931,41 @@ main>*:not(.hero) {
 
 /* CV Page Styles */
 .cv-page {
-  max-width: 800px !important;
+  max-width: 850px !important;
   margin: 0 auto;
   padding-top: 0 !important;
+}
+
+.cv-intro-section {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv-intro-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  font-weight: 300;
+  text-align: justify;
+  margin-bottom: 0.5rem !important;
+}
+
+.cv-location-text {
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .cv-top-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 4rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
   padding-top: 10rem;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 2px solid #000;
   padding-bottom: 1.5rem;
 }
 
@@ -983,11 +1006,19 @@ main>*:not(.hero) {
   opacity: 0.7;
 }
 
-.cv-role {
-  font-size: 1.125rem;
+.cv-name-role {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cv-role-text {
+  font-size: 1.25rem;
   color: #666;
   font-weight: 300;
   margin: 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .cv-section {
@@ -1034,11 +1065,34 @@ main>*:not(.hero) {
 }
 
 .cv-company {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 0.75rem;
-  font-weight: 300;
+  font-size: 1.1rem;
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: 400;
   font-style: italic;
+  opacity: 0.8;
+}
+
+.cv-item-summary {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1rem !important;
+  font-weight: 500;
+}
+
+.cv-item-list {
+  list-style: disc;
+  margin-left: 1.2rem !important;
+  margin-bottom: 1.5rem !important;
+  padding-left: 0 !important;
+}
+
+.cv-item-list li {
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0.6rem !important;
+  text-align: justify;
 }
 
 .cv-item p {
