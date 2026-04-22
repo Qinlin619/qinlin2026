@@ -12,6 +12,8 @@ export const dotColors = [
 ];
 
 const PageRain = ({ top, count = 500 }) => {
+  return null; // Temporarily hidden as per user request
+  /*
   return (
     <div className="page-rain-container" style={{ '--rain-top': top }}>
       {[...Array(count)].map((_, i) => (
@@ -33,6 +35,7 @@ const PageRain = ({ top, count = 500 }) => {
       ))}
     </div>
   );
+  */
 };
 
 export default PageRain;

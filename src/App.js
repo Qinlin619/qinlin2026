@@ -10,12 +10,20 @@ import About from './pages/About';
 import CV from './pages/CV';
 import PageRain, { dotColors } from './components/PageRain';
 import RippleEffect from './components/RippleEffect';
+import HeroShowcase from './components/HeroShowcase';
+import AestheticBackground from './components/AestheticBackground';
 
 function HomePage() {
   return (
-    <div style={{ position: 'relative' }}>
+    <div className="homepage-hero-flow">
       <PageRain top="70vh" />
-      <Hero />
+      <div className="hero-sticky-container">
+        <div className="hero-sticky-wrapper">
+          <AestheticBackground />
+          <Hero />
+          <HeroShowcase />
+        </div>
+      </div>
       <div className="work-container">
         <WorkGrid />
       </div>

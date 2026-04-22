@@ -80,7 +80,7 @@ main>*:not(.hero) {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 1.5rem 4rem;
+  padding: 0.8rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -91,7 +91,7 @@ main>*:not(.hero) {
 
 @media (max-width: 1024px) {
   .navbar {
-    padding: 1rem 2rem;
+    padding: 0.6rem 2rem;
   }
 }
 
@@ -157,7 +157,7 @@ main>*:not(.hero) {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
 }
 
 .nav-links a:hover {
@@ -313,50 +313,58 @@ main>*:not(.hero) {
   transform: none;
 }
 
-/* Hero 区域 */
-.hero {
+/* 首页英雄区域流动交互 */
+.hero-sticky-container {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  height: 100vh; /* No more empty depth! 100% viewport only. */
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  background: transparent; /* Permitting background rain to show through */
+  --scroll-p: 0;
 }
 
-/* 融合效果：底部淡出到白色 */
-.hero::after {
+.hero-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 底部渐变过渡：消除硬切断，平滑过渡到作品列表 */
+.hero-sticky-wrapper::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 40vh;
-  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,1) 100%);
-  z-index: 5;
+  height: 25vh; /* 渐变范围 */
+  background: linear-gradient(to bottom, transparent, #fff);
+  z-index: 15; /* 确保在海报上方，但在导航栏下方 */
   pointer-events: none;
 }
 
-.hero-content {
+/* Hero 区域：保持静止可见 */
+.hero {
   position: relative;
-  z-index: 10;
   width: 100%;
-  max-width: 800px;
-  padding: 0 2rem;
+  height: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 10;
+  padding-bottom: 0;
 }
 
 .hero-text-wrapper {
   text-align: center;
   z-index: 10;
   animation: contentReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-top: -5vh; /* Slightly center more upwards for balance */
 }
 
 @keyframes contentReveal {
@@ -2665,6 +2673,64 @@ main>*:not(.hero) {
   100% {
     opacity: 0;
     transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* Work Filter Tags */
+.work-filter-container {
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.work-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.work-tag-btn {
+  background: #f8f8f8;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.6rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  border-radius: 20px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.work-tag-btn:hover {
+  background: #fff;
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.work-tag-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .work-filter-container {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .work-tag-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
   }
 }
 

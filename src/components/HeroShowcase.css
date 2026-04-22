@@ -1,0 +1,103 @@
+.hero-showcase-content-only {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  /* 海报位置上提，紧贴文字下方 */
+  transform: translateY(4rem); 
+}
+
+.showcase-track {
+  display: flex;
+  gap: 4rem;
+  padding: 0 15vw;
+  will-change: transform;
+  /* 增加顺滑的阻尼感 */
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.showcase-poster {
+  width: 400px;
+  height: 300px;
+  flex-shrink: 0;
+  perspective: 1000px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.poster-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: #f0f0f0;
+}
+
+.showcase-poster:hover .poster-inner {
+  transform: translateY(-15px) rotateY(-5deg) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.poster-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.showcase-poster:hover img {
+  transform: scale(1.1);
+}
+
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.7) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.showcase-poster:hover .poster-overlay {
+  opacity: 1;
+}
+
+.poster-year {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.poster-title {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+
+@media (max-width: 768px) {
+  .showcase-poster {
+    width: 280px;
+    height: 160px;
+  }
+
+  .poster-title {
+    font-size: 1.1rem;
+  }
+
+  .hero-showcase {
+    margin-top: 2rem;
+  }
+}

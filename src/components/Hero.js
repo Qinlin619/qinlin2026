@@ -79,7 +79,6 @@ function Hero() {
         '--level-3': dotLevels[2]
       }}
     >
-      <AestheticBackground />
       <div className="hero-content">
         <div className="hero-text-wrapper">
           <h1 className="hero-title-main">
