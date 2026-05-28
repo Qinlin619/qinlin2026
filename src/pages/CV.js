@@ -272,7 +272,7 @@ function CV() {
           <div className="cv-header-link-item">
             <span className="cv-header-link-label">{data.sections.contact}:</span>
             <a
-              href="#"
+              href="mailto:qinlinliu619@gmail.com"
               className="cv-header-email-link"
               onClick={handleEmailClick}
             >

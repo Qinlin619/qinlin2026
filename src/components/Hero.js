@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import AestheticBackground from './AestheticBackground';
 
 const heroText = {
   en: {

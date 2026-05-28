@@ -59,7 +59,7 @@ function AppContent() {
       }
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  }, [location.pathname, location.hash, location.state]);
+  }, [location]);
 
   // Random color cursor effect
   useEffect(() => {

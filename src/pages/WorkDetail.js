@@ -1675,7 +1675,7 @@ function WorkDetail() {
   const worksList = useMemo(() => getWorksListByYear(language), [language]);
   const otherProjects = useMemo(() => {
     return worksList.filter((w) => w.id !== numericId);
-  }, [language, numericId, worksList]);
+  }, [numericId, worksList]);
 
   const workFromList = useMemo(() => {
     if (work) return null;
