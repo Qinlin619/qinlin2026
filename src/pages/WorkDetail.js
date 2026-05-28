@@ -14,30 +14,378 @@ function getYoutubeEmbedUrl(url) {
   return null;
 }
 
+function PrototypeEmbed() {
+  const containerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const targetWidth = 414; // Width of device-frame + fake padding/shadows
+        if (containerWidth < targetWidth) {
+          setScale(containerWidth / targetWidth);
+        } else {
+          setScale(1);
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    let resizeObserver;
+    if (window.ResizeObserver && containerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize();
+      });
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '2rem 0',
+        height: `${868 * scale}px`,
+        overflow: 'visible',
+        position: 'relative'
+      }}
+    >
+      <div
+        className="app-showcase-hover-container"
+        style={{
+          width: '414px',
+          height: '868px',
+          transform: `scale(${scale})`,
+          transformOrigin: 'center center',
+          position: 'absolute'
+        }}
+      >
+        <div className="app-showcase-device-lift" style={{ width: '100%', height: '100%' }}>
+          <iframe
+            src={`${process.env.PUBLIC_URL}/work/2026/TripUp/tripup_prototype.html`}
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              borderRadius: '40px',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.15)'
+            }}
+            title="TripUp Interactive Prototype"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AppPromotionalShowcase() {
+  const { language } = useLanguage();
+  
+  const en = {
+    badge: "Interactive App Demo",
+    title: "Experience TripUp in Real-Time",
+    desc: "We translated high-fidelity designs into a fully interactive, clickable prototype. Interact with the live demo to explore the core user flows:",
+    features: [
+      { icon: "📍", title: "Itinerary Co-Creation", detail: "Seamless multi-screen group travel planning" },
+      { icon: "📊", title: "Dynamic Voting Polls", detail: "Decide destinations and dinners instantly" },
+      { icon: "💸", title: "Expense Settlements", detail: "Split bills without the friction" },
+      { icon: "📱", title: "Simulated iOS Dynamics", detail: "Interactive Dynamic Island notifications" }
+    ],
+    tip: "💡 Tip: Click on 'Lisbon Final Night' card to enter the trip detail, then use tabs at the bottom."
+  };
+
+  const zh = {
+    badge: "交互式 App 演示",
+    title: "随时随地，开启团队无忧旅行",
+    desc: "我们将高保真设计转化为完全可点击的交互式原型。在右侧的手机框架中，您可以亲自模拟和操作以下核心流程：",
+    features: [
+      { icon: "📍", title: "多人协同行程规划", detail: "无缝的群组协作旅行设计" },
+      { icon: "📊", title: "即时民主投票决策", detail: "快速确定行程安排与聚餐去处" },
+      { icon: "💸", title: "无摩擦团队费用分账", detail: "清晰直观地计算和分摊旅途开销" },
+      { icon: "📱", title: "模拟 iOS 灵动岛交互", detail: "顶端状态弹窗与即时反馈" }
+    ],
+    tip: "💡 提示：点击屏幕上的「Lisbon Final Night」卡片开始流程，点击底部标签切换页面。"
+  };
+
+  const t = language === 'zh' ? zh : en;
+
+  return (
+    <div className="app-showcase-card">
+      <div className="app-showcase-grid">
+        <div className="app-showcase-left">
+          <div className="app-showcase-badge">
+            <span className="app-showcase-badge-dot" />
+            {t.badge}
+          </div>
+          <h3 className="app-showcase-title">{t.title}</h3>
+          <p className="app-showcase-desc">{t.desc}</p>
+          
+          <div className="app-showcase-features">
+            {t.features.map((f, idx) => (
+              <div key={idx} className="app-showcase-feature-item">
+                <span className="app-showcase-feature-icon">{f.icon}</span>
+                <div className="app-showcase-feature-text">
+                  <span className="app-showcase-feature-title">{f.title}</span>
+                  <span className="app-showcase-feature-detail">{f.detail}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <p className="app-showcase-tip">{t.tip}</p>
+        </div>
+        
+        <div className="app-showcase-right">
+          <PrototypeEmbed />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EuroStayPrototypeEmbed() {
+  const containerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const targetWidth = 414; // Width of device-frame + fake padding/shadows
+        if (containerWidth < targetWidth) {
+          setScale(containerWidth / targetWidth);
+        } else {
+          setScale(1);
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    let resizeObserver;
+    if (window.ResizeObserver && containerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize();
+      });
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '2rem 0',
+        height: `${868 * scale}px`,
+        overflow: 'visible',
+        position: 'relative'
+      }}
+    >
+      <div
+        className="app-showcase-hover-container"
+        style={{
+          width: '414px',
+          height: '868px',
+          transform: `scale(${scale})`,
+          transformOrigin: 'center center',
+          position: 'absolute'
+        }}
+      >
+        <div className="app-showcase-device-lift" style={{ width: '100%', height: '100%' }}>
+          <iframe
+            src={`${process.env.PUBLIC_URL}/work/2026/eurostay/eurostay_prototype.html`}
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              borderRadius: '40px',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.15)'
+            }}
+            title="EuroStay Interactive Prototype"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EuroStayPromotionalShowcase() {
+  const { language } = useLanguage();
+  
+  const en = {
+    badge: "Interactive App Demo",
+    title: "Experience EuroStay 2026 In Real-Time",
+    desc: "We translated high-fidelity designs into a fully interactive, clickable prototype. Interact with the live demo to explore the host matching and stay application flow:",
+    features: [
+      { icon: "✨", title: "Onboarding Flow", detail: "Fast guide to finding your perfect host swap" },
+      { icon: "🔍", title: "Location Search & Filters", detail: "Filter listings by country, city, and host types" },
+      { icon: "🏡", title: "Host Profile & Booking Form", detail: "Detailed host profiles with instant exchange requests" },
+      { icon: "💬", title: "Simulated iOS Notifications & Chats", detail: "Dynamic island success popups and direct messaging" }
+    ],
+    tip: "💡 Tip: Click anywhere on the mobile screen to cycle through the interactive EuroStay flow (8 screens total)."
+  };
+
+  const zh = {
+    badge: "交互式 App 演示",
+    title: "随时随地，开启你的换宿旅程",
+    desc: "我们将高保真设计转化为完全可点击的交互式原型。在右侧的手机框架中，您可以亲自模拟和操作以下核心流程：",
+    features: [
+      { icon: "✨", title: "新手探索向导", detail: "快速了解如何寻找完美的互助换宿对象" },
+      { icon: "🔍", title: "地理位置搜索与过滤", detail: "按国家、城市以及换宿条件精准检索" },
+      { icon: "🏡", title: "Host 详情页与入住申请表", detail: "详尽的主机档案和即时提交的换宿表单" },
+      { icon: "💬", title: "模拟 iOS 灵动岛与消息列表", detail: "表单提交成功时的灵动岛反馈以及聊天收件箱" }
+    ],
+    tip: "💡 提示：点击右侧手机屏幕的任意位置，即可按顺序切换浏览完整的 EuroStay 功能流程（共 8 张页面循环跳转）。"
+  };
+
+  const t = language === 'zh' ? zh : en;
+
+  return (
+    <div className="app-showcase-card">
+      <div className="app-showcase-grid">
+        <div className="app-showcase-left">
+          <div className="app-showcase-badge">
+            <span className="app-showcase-badge-dot" />
+            {t.badge}
+          </div>
+          <h3 className="app-showcase-title">{t.title}</h3>
+          <p className="app-showcase-desc">{t.desc}</p>
+          
+          <div className="app-showcase-features">
+            {t.features.map((f, idx) => (
+              <div key={idx} className="app-showcase-feature-item">
+                <span className="app-showcase-feature-icon">{f.icon}</span>
+                <div className="app-showcase-feature-text">
+                  <span className="app-showcase-feature-title">{f.title}</span>
+                  <span className="app-showcase-feature-detail">{f.detail}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <p className="app-showcase-tip">{t.tip}</p>
+        </div>
+        
+        <div className="app-showcase-right">
+          <EuroStayPrototypeEmbed />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const workData = {
   en: {
-    8: {
+    9: {
       title: 'EuroStay',
-      description: '',
+      description: "World's #1 Chinese backpacker community in Europe",
       year: 2026,
-      category: 'Group. User Interface. User Experience. Events',
-      heroImage: '',
+      category: 'Branding. UI/UX. Community. Mobile App',
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
       images: [],
+      hideBanner: true,
       overview: (
-        <>
-          <p>
-            Project Link:{' '}
+        <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <EuroStayPromotionalShowcase />
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Challenge</h3>
+            <p>How can we transform a traditional forum-based community into a modern, mobile-first ecosystem that feels both premium and accessible? The challenge was to modernize a decade-old legacy platform while maintaining the deep trust and connection established within the existing Chinese backpacker community in Europe.</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Vision & Solution</h3>
+            <p>EuroStay 2026 serves as the definitive bridge between travelers and hosts. We reimagined the digital experience to foster deeper connections and seamless travel planning, combining a modern aesthetic with the core values of authentic cultural exchange and safety.</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Process & Insights</h3>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li><strong>Community-Centric Architecture:</strong> Analyzing over a decade of community interactions to identify core user needs—safety, authenticity, and ease of discovery.</li>
+              <li><strong>Modernizing Legacy:</strong> Moving from a fragmented thread-based system to a streamlined, interactive app experience designed for <em>Maximum Simplicity</em>.</li>
+              <li><strong>Trust & Verification:</strong> Implementing a premium design language that conveys reliability, coupled with a robust verification framework to ensure a safe ecosystem for all members.</li>
+            </ul>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Brand Identity</h3>
+            <p style={{ marginBottom: '1rem' }}>We developed a vibrant yet professional color palette inspired by European sunsets and the spirit of exploration. The new visual language represents the bridge between travelers and the diverse cultures they explore.</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+               <img src={`${process.env.PUBLIC_URL}/work/2026/top.png`} alt="EuroStay Brand Identity 1" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+               <img src={`${process.env.PUBLIC_URL}/work/2026/topE.png`} alt="EuroStay Brand Identity 2" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+            </div>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: App Experience & High-Fidelity</h3>
+            <p style={{ marginBottom: '1rem' }}>The mobile app focuses on real-time community interaction and verified host discovery. We used glassmorphism to create a sense of depth and modernity, ensuring the interface feels premium and alive.</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/1.png`} alt="EuroStay High Fidelity UI" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+          
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Core Values</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Connection</h4>
+                <p style={{ fontSize: '0.9rem' }}>Bridging travelers and hosts globally to explore life's infinite possibilities.</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Kindness</h4>
+                <p style={{ fontSize: '0.9rem' }}>Encouraging mutual aid and genuine, sincere human interaction.</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Exploration</h4>
+                <p style={{ fontSize: '0.9rem' }}>Supporting the curiosity to discover new cultures and ways of living.</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Experience</h4>
+                <p style={{ fontSize: '0.9rem' }}>Prioritizing authentic, local life experiences over traditional tourism.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Stories</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <blockquote style={{ padding: '1.5rem', borderLeft: '4px solid #000', backgroundColor: '#fff', fontStyle: 'italic' }}>
+                "Sincere emotional exchange, the beginning of a beautiful journey."
+              </blockquote>
+              <blockquote style={{ padding: '1.5rem', borderLeft: '4px solid #000', backgroundColor: '#fff', fontStyle: 'italic' }}>
+                "Cats grow on your head when you sleep! — An unforgettable exchange experience."
+              </blockquote>
+            </div>
+          </section>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid #e2e8f0', paddingTop: '2rem' }}>
             <a
               href="https://www.eurostay.co"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline', wordBreak: 'break-all' }}
+              className="work-pdf-link"
             >
-              www.eurostay.co
+              Visit EuroStay Website
             </a>
-          </p>
-
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
               target="_blank"
@@ -47,20 +395,72 @@ const workData = {
               Brand Manual (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container">
-            <iframe
-              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0&view=FitH`}
-              title="EuroStay Brand Manual PDF"
-            />
-          </div>
-        </>
+        </div>
       ),
       overviewExtra: '',
-      role: '',
-      roleDesc: '',
-      process: [],
-      insights: [],
-      results: ''
+      role: 'Creative Director & UI/UX Lead',
+      roleDesc: 'Responsible for leading the complete brand overhaul and digital product strategy, ensuring a cohesive and premium experience across all touchpoints.',
+      process: ['Community Research', 'Brand Strategy', 'UI/UX Redesign', 'Identity Verification System', 'Interactive Prototypes'],
+      insights: ['Trust-Based Social Dynamics', 'Mobile-First Community Discovery', 'Premium Visual Storytelling'],
+      results: 'A comprehensive reimagining of the EuroStay ecosystem that has revitalized the community for a new generation of travelers.'
+    },
+    10: {
+      title: 'TripUp',
+      description: 'Streamlining the group travel experience through collaborative planning and real-time social dynamics.',
+      year: 2026,
+      category: 'Group. User Interface. User Experience. Mobile App',
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
+      images: [],
+      hideBanner: true,
+      overview: (
+        <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <AppPromotionalShowcase />
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Challenge</h3>
+            <p>Friend trips are great. Organizing a friend trip? Less great. Deciding where to go, exploring options, and keeping everyone in the loop can get frustrating, fast. The challenge was to transform the fragmented group travel planning process into a unified, seamless experience.</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Vision & Solution</h3>
+            <p>TripUp serves as an all-in-one platform for organizing seamless group travel. Whether it’s a weekend getaway or a music festival abroad, users can collaboratively build itineraries, vote on decisions, and settle expenses—reducing planning friction and amplifying the fun.</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Process & Insights</h3>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li><strong>The Organizer vs Participants:</strong> Built around the dynamic of a proactive organizer and involved participants. The architecture is designed for <em>Maximum Simplicity</em>.</li>
+              <li><strong>Spontaneous Decisions:</strong> Most choices happen mid-trip. The app must support quick interactions and a collective voice. The contextual goal is <em>Rapid Decisions via diverse displays</em>.</li>
+              <li><strong>Frictionless Finance:</strong> Users prefer quick polls over chats and need easy ways to manage and settle group expenses. The priority is <em>Interactive Status Sync and Payment</em>.</li>
+            </ul>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Scenario Logic Flow</h3>
+            <p style={{ marginBottom: '1rem' }}>Visualizing the end-to-end user journey, from initiating a quick group dinner poll to concluding with a frictionless expense settlement. It translates abstract user needs into actionable interface events.</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Flow.png`} alt="TripUp Scenario Logic Flow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Wireflow & Architecture</h3>
+            <p style={{ marginBottom: '1rem' }}>Mapping out the navigation and interaction architecture to ensure a low-friction journey across all key features.</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Wireflow.png`} alt="TripUp Wireflow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Visual System & High-Fidelity</h3>
+            <p style={{ marginBottom: '1rem' }}>Developing a vibrant, premium visual identity using modern typography. The final high-fidelity screens showcase real-time social dynamics, collaborative planning, and seamless expense splitting.</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Designsystem.png`} alt="TripUp Design System" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0', marginBottom: '1.5rem' }} />
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Highfi.png`} alt="TripUp High Fidelity UI" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+        </div>
+      ),
+      overviewExtra: '',
+      role: 'UX/UI Designer',
+      roleDesc: 'Responsible for end-to-end redesign, translating abstract user needs into concrete, actionable interface events to map out a seamless and intuitive functional flow.',
+      process: ['User Behavioral Intelligence', 'Scenario Logic Flow', 'Wireflow & Navigation', 'Design System', 'High-Fidelity Screens'],
+      insights: ['Contextual Goal Setting', 'Rapid Decisions via Diverse Displays', 'Interactive Status Sync and Payment'],
+      results: 'A comprehensive mobile app redesign that streamlines the group travel experience.'
     },
 
     1: {
@@ -562,28 +962,94 @@ const workData = {
     }
   },
   zh: {
-    8: {
-      title: 'EuroStay',
-      description: '',
+    9: {
+      title: '欧洲换宿EuroStay',
+      description: '世界第一的欧洲华人背包客社区',
       year: 2026,
-      category: '团队. 用户界面. 用户体验. 活动',
-      heroImage: '',
+      category: '品牌设计. UI/UX. 社区. 移动应用',
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
       images: [],
+      hideBanner: true,
       overview: (
-        <>
-          <p>
-            附上链接：{' '}
+        <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <EuroStayPromotionalShowcase />
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>挑战 (The Challenge)</h3>
+            <p>我们如何将传统的基于论坛的社区转变为一个现代的、移动优先的生态系统，既让年轻旅行者感到高端，又具有亲和力？挑战在于在保持现有欧洲华人背包客社区多年建立的深厚信任和连接的同时，对这个已有十年历史的传统平台进行现代化改造。</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>愿景与解决方案 (The Vision & Solution)</h3>
+            <p>EuroStay 2026 是旅行者和主机之间的核心桥梁。我们重新构思了数字体验，以促进更深层次的连接和无缝的旅行规划，将现代美学与真实文化交流和安全的核心价值相结合。</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>思考过程与洞察 (Process & Insights)</h3>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li><strong>以社区为核心的架构：</strong> 分析了十多年的社区互动，以确定核心用户需求——安全、真实和易于发现。</li>
+              <li><strong>现代化传统平台：</strong> 从碎片化的基于帖子的系统转变为流线型的、交互式的应用体验，旨在实现<em>极致的简约 (Maximum Simplicity)</em>。</li>
+              <li><strong>信任与验证：</strong> 采用了传达可靠性的高级设计语言，结合强大的验证框架，为所有成员确保一个安全的生态系统。</li>
+            </ul>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：品牌识别 (Brand Identity)</h3>
+            <p style={{ marginBottom: '1rem' }}>我们开发了一套既充满活力又专业的色调，灵感来自欧洲的日落和探索精神。新的视觉语言代表了旅行者与他们探索的多元文化之间的桥梁。</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+               <img src={`${process.env.PUBLIC_URL}/work/2026/top.png`} alt="EuroStay 品牌识别 1" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+               <img src={`${process.env.PUBLIC_URL}/work/2026/topE.png`} alt="EuroStay 品牌识别 2" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+            </div>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：应用体验与高保真 (App Experience & High-Fidelity)</h3>
+            <p style={{ marginBottom: '1rem' }}>移动应用程序专注于实时社区互动和经过验证的主机发现。我们使用了毛玻璃效果（Glassmorphism）来营造深度感和现代感，确保界面感觉高级且充满活力。</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/1.png`} alt="EuroStay 高保真界面" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+          
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>核心价值 (Core Values)</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>连接与分享</h4>
+                <p style={{ fontSize: '0.9rem' }}>连接世界各地的旅行者，探索生活的无限可能性。</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>传递善意</h4>
+                <p style={{ fontSize: '0.9rem' }}>鼓励互助和真诚的人际互动，让善意在旅途中传递。</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>探索与好奇</h4>
+                <p style={{ fontSize: '0.9rem' }}>支持发现新文化和新生活方式的好奇心。</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>深度体验</h4>
+                <p style={{ fontSize: '0.9rem' }}>优先考虑真实的当地生活体验，而非传统的走马观花。</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>社区故事 (The Stories)</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <blockquote style={{ padding: '1.5rem', borderLeft: '4px solid #000', backgroundColor: '#fff', fontStyle: 'italic' }}>
+                “真诚的情感交换，美好旅程的开始。”
+              </blockquote>
+              <blockquote style={{ padding: '1.5rem', borderLeft: '4px solid #000', backgroundColor: '#fff', fontStyle: 'italic' }}>
+                “睡觉时头上会长猫耶！—— 一段令人难忘的换宿经历。”
+              </blockquote>
+            </div>
+          </section>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid #e2e8f0', paddingTop: '2rem' }}>
             <a
               href="https://www.eurostay.co"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline', wordBreak: 'break-all' }}
+              className="work-pdf-link"
             >
-              www.eurostay.co
+              访问 EuroStay 官网
             </a>
-          </p>
-
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <a
               href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
               target="_blank"
@@ -593,23 +1059,72 @@ const workData = {
               品牌手册 (PDF)
             </a>
           </div>
-          <div className="work-pdf-embed-container">
-            <iframe
-              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0&view=FitH`}
-              width="100%"
-              height="100%"
-              style={{ border: 'none' }}
-              title="EuroStay 品牌手册 PDF"
-            />
-          </div>
-        </>
+        </div>
       ),
       overviewExtra: '',
-      role: '',
-      roleDesc: '',
-      process: [],
-      insights: [],
-      results: ''
+      role: '创意总监 & UI/UX 主导',
+      roleDesc: '负责领导整个品牌重塑和数字产品战略，确保所有触点上都有一致且高端的体验。',
+      process: ['社区研究', '品牌战略', 'UI/UX 重构', '身份验证系统', '交互原型'],
+      insights: ['基于信任的社交动态', '移动优先的社区发现', '高端视觉叙事'],
+      results: '对 EuroStay 生态系统的全面重构，使社区为新一代旅行者焕发了活力。'
+    },
+    10: {
+      title: 'TripUp',
+      description: '通过协作规划和实时社交动态，简化团队旅行体验的移动应用重构。',
+      year: 2026,
+      category: '团队. 用户界面. 用户体验. 移动应用',
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
+      images: [],
+      hideBanner: true,
+      overview: (
+        <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <AppPromotionalShowcase />
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>挑战 (The Challenge)</h3>
+            <p>和朋友一起旅行固然美好，但组织一场朋友旅行却往往没那么顺利。决定去哪里、探索各种选项，并让每个人都保持信息同步——这些过程很容易让人感到挫败。我们的挑战在于将碎片化的群组旅行规划过程转变为一个统一、无缝的体验。</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>愿景与解决方案 (The Vision & Solution)</h3>
+            <p>TripUp 是一个用于组织无缝团队旅行的一站式平台。无论是周末度假还是国外的音乐节，用户都可以协同制定行程、进行决策投票以及结算费用——这大大减少了规划过程中的摩擦，让旅行更加有趣。</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>思考过程与洞察 (Process & Insights)</h3>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li><strong>组织者 vs 参与者：</strong> 围绕积极的组织者和热情的参与者之间的动态进行构建。整体架构旨在实现<em>极致的简约 (Maximum Simplicity)</em>。</li>
+              <li><strong>自发性决策：</strong> 大多数选择都是在旅途中即兴作出的。应用必须支持快速互动和集体发声。我们的情境目标是<em>通过多样化展示实现快速决策 (Rapid Decisions)</em>。</li>
+              <li><strong>无摩擦的财务管理：</strong> 用户更喜欢快速投票而不是冗长的聊天，并且需要简单的方法来管理和结算群组费用。我们的首要任务是<em>交互式状态同步与支付 (Interactive Status Sync and Payment)</em>。</li>
+            </ul>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>场景逻辑流 (Scenario Logic Flow)</h3>
+            <p style={{ marginBottom: '1rem' }}>可视化端到端的用户旅程，从发起一个快速的群组晚餐投票到最终完成无摩擦的费用结算。它将抽象的用户需求转化为具体的、可操作的界面事件。</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Flow.png`} alt="TripUp Scenario Logic Flow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：线框流与架构 (Wireflow & Architecture)</h3>
+            <p style={{ marginBottom: '1rem' }}>梳理导航和交互架构，以确保所有关键功能都能提供低阻力的用户体验。</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Wireflow.png`} alt="TripUp Wireflow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：视觉系统与高保真 (Visual System & High-Fidelity)</h3>
+            <p style={{ marginBottom: '1rem' }}>使用现代排版开发出充满活力、具有高级感的视觉系统。最终的高保真屏幕展示了实时的社交动态、协作规划以及无缝的费用分摊体验。</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Designsystem.png`} alt="TripUp Design System" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0', marginBottom: '1.5rem' }} />
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Highfi.png`} alt="TripUp High Fidelity UI" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+        </div>
+      ),
+      overviewExtra: '',
+      role: 'UX/UI 设计师',
+      roleDesc: '负责端到端的应用重构，将抽象的用户需求转化为具体、可操作的界面事件，从而规划出无缝、直观的功能流程。',
+      process: ['用户行为分析', '场景逻辑流', '线框图与导航', '设计系统', '高保真界面'],
+      insights: ['情景目标设定', '通过多样化展示快速决策', '交互式状态同步与支付'],
+      results: '一次全面的移动应用重构，显著简化了团队旅行的体验。'
     },
 
     1: {
@@ -1147,26 +1662,27 @@ const sectionLabels = {
   }
 };
 
+const PREMIUM_PROJECTS = [];
+
 function WorkDetail() {
   const { id } = useParams();
   const { language } = useLanguage();
-  const work = workData[language]?.[parseInt(id, 10)] || workData.en[parseInt(id, 10)];
+  const numericId = parseInt(id, 10);
+  const work = workData[language]?.[numericId] || workData.en[numericId];
   const labels = sectionLabels[language] || sectionLabels.en;
-  const [activeImage, setActiveImage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   const worksList = useMemo(() => getWorksListByYear(language), [language]);
   const otherProjects = useMemo(() => {
-    const currentId = parseInt(id, 10);
-    return worksList.filter((w) => w.id !== currentId);
-  }, [language, id, worksList]);
+    return worksList.filter((w) => w.id !== numericId);
+  }, [language, numericId, worksList]);
 
   const workFromList = useMemo(() => {
     if (work) return null;
-    return worksList.find((w) => w.id === parseInt(id, 10)) || null;
-  }, [work, worksList, id]);
+    return worksList.find((w) => w.id === numericId) || null;
+  }, [work, worksList, numericId]);
 
-  const currentIndex = useMemo(() => worksList.findIndex((w) => w.id === parseInt(id, 10)), [worksList, id]);
+  const currentIndex = useMemo(() => worksList.findIndex((w) => w.id === numericId), [worksList, numericId]);
   const prevProject = currentIndex > 0 ? worksList[currentIndex - 1] : null;
   const nextProject = currentIndex >= 0 && currentIndex < worksList.length - 1 ? worksList[currentIndex + 1] : null;
 
@@ -1181,10 +1697,13 @@ function WorkDetail() {
 
   useEffect(() => {
     setIsVisible(true);
+    window.scrollTo(0, 0);
   }, [id, language]);
 
+  const isPremium = PREMIUM_PROJECTS.includes(numericId);
+
   const moreSection = (
-    <section className="work-detail-more work-detail-more-desktop" aria-label={labels.moreProjects}>
+    <section className={`work-detail-more ${isPremium ? 'premium-more' : 'work-detail-more-desktop'}`} aria-label={labels.moreProjects}>
       <h2 className="work-detail-more-title">{labels.moreProjects}</h2>
       <div className="work-detail-more-row">
         <button type="button" className="work-detail-more-arrow work-detail-more-arrow-left" aria-label="Previous" onClick={() => scrollBy(-ARROW_SCROLL)} />
@@ -1247,7 +1766,88 @@ function WorkDetail() {
     );
   }
 
-  const bannerImages = work.images && work.images.length > 0 ? work.images : (work.heroImage ? [work.heroImage] : []);
+  // Premium Layout inspired by manana.today
+  if (isPremium) {
+    return (
+      <div className={`premium-detail ${isVisible ? 'visible' : ''}`}>
+        <div className="premium-hero">
+          <div className="premium-hero-inner">
+            <img src={work.heroImage} alt={work.title} className="premium-hero-img" />
+          </div>
+        </div>
+
+        <header className="premium-header">
+          <Link to="/" className="work-detail-back" style={{ position: 'relative', top: 'auto', left: 'auto', marginBottom: '2rem', display: 'inline-block' }}>{labels.back}</Link>
+          <h1 className="premium-title">{work.title}</h1>
+          
+          <div className="premium-meta-grid">
+            <div className="premium-meta-item">
+              <h4>Role</h4>
+              <p>{work.role}</p>
+            </div>
+            <div className="premium-meta-item">
+              <h4>Client</h4>
+              <p>{work.client}</p>
+            </div>
+            <div className="premium-meta-item">
+              <h4>Deadline</h4>
+              <p>{work.deadline}</p>
+            </div>
+            <div className="premium-meta-item">
+              <h4>Category</h4>
+              <div>
+                {work.category.split('.').map((cat, i) => (
+                  <span key={i} className="premium-label">{cat.trim()}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section className="premium-content-section">
+          <div className="premium-grid-2">
+            <div>
+              <h3 className="premium-section-title">Introduction</h3>
+              <p className="premium-text-block">{work.intro}</p>
+            </div>
+            <div>
+              <h3 className="premium-section-title">The Challenge</h3>
+              <p className="premium-text-block">{work.challenge}</p>
+            </div>
+          </div>
+        </section>
+
+        {work.sections && work.sections.map((section, idx) => (
+          <section key={idx} className="premium-content-section">
+            <h3 className="premium-section-title">{section.title}</h3>
+            <p className="premium-text-block" style={{ marginBottom: '3rem' }}>{section.text}</p>
+            <div className="premium-grid-2">
+              {section.images && section.images.map((img, i) => (
+                <div key={i} className="premium-img-wrap">
+                  <img src={img} alt={`${section.title} ${i}`} />
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        <nav className="premium-footer-nav">
+          {prevProject ? (
+            <Link to={`/work/${prevProject.id}`} className="premium-footer-link">
+              ← Prev
+            </Link>
+          ) : <div />}
+          {nextProject ? (
+            <Link to={`/work/${nextProject.id}`} className="premium-footer-link">
+              Next →
+            </Link>
+          ) : <div />}
+        </nav>
+      </div>
+    );
+  }
+
+  const bannerImages = work.hideBanner ? [] : (work.images && work.images.length > 0 ? work.images : (work.heroImage ? [work.heroImage] : []));
 
   return (
     <>

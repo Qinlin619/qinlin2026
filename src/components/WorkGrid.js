@@ -45,48 +45,42 @@ function WorkGrid() {
 
   const worksList = works[language] || works.en;
   
-  // Extract unique tags
-  const getTags = (list) => {
-    const rawTags = list.flatMap(work => 
-      work.category.split('.')
-        .map(t => {
-          const trimmed = t.trim();
-          if (trimmed === 'UI' || trimmed === 'UX') return 'UI/UX';
-          return trimmed;
-        })
-        .filter(t => t && t !== 'Group' && t !== 'Individual' && t !== '个人项目' && t !== '团队' && t !== '团队项目' && t !== '单人项目')
-    );
+  const tags = ['All', 'UI/UX', 'Game Dev', 'AI'];
+  const [selectedTag, setSelectedTag] = useState('All');
+
+  const matchesTag = (work, tag) => {
+    if (tag === 'All') return true;
     
-    // Count frequencies
-    const counts = rawTags.reduce((acc, tag) => {
-      acc[tag] = (acc[tag] || 0) + 1;
-      return acc;
-    }, {});
-
-    // Only keep tags with count >= 2
-    const filteredTags = Object.keys(counts).filter(tag => counts[tag] >= 2);
-
-    return ['All', ...filteredTags].sort((a, b) => {
-      if (a === 'All') return -1;
-      if (b === 'All') return 1;
-      if (a === 'UI/UX') return -1;
-      if (b === 'UI/UX') return 1;
-      return a.localeCompare(b);
-    });
+    const categoryLower = (work.category || '').toLowerCase();
+    
+    if (tag === 'UI/UX') {
+      return categoryLower.includes('ui') || 
+             categoryLower.includes('ux') || 
+             categoryLower.includes('hci') || 
+             categoryLower.includes('redesign') ||
+             [8, 9, 10, 11, 1, 7, 6].includes(work.id);
+    }
+    
+    if (tag === 'Game Dev') {
+      return categoryLower.includes('game') || 
+             categoryLower.includes('play') || 
+             categoryLower.includes('blender') || 
+             categoryLower.includes('modelling') ||
+             [261, 262, 263, 14, 3, 5, 22].includes(work.id);
+    }
+    
+    if (tag === 'AI') {
+      return categoryLower.includes('artificial') || 
+             categoryLower.includes('ai') || 
+             categoryLower.includes('robot') || 
+             [2, 11].includes(work.id);
+    }
+    
+    return false;
   };
 
-  const [selectedTag, setSelectedTag] = useState('All');
-  const tags = getTags(worksList);
-
   // Filter works based on selected tag
-  const filteredWorksList = selectedTag === 'All' 
-    ? worksList 
-    : worksList.filter(work => {
-        if (selectedTag === 'UI/UX') {
-          return work.category.includes('UI') || work.category.includes('UX');
-        }
-        return work.category.includes(selectedTag);
-      });
+  const filteredWorksList = worksList.filter(work => matchesTag(work, selectedTag));
 
   const worksByYear = groupByYear(filteredWorksList);
   const years = Object.keys(worksByYear).sort((a, b) => Number(b) - Number(a));

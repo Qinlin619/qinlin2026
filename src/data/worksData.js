@@ -1,14 +1,24 @@
 export const worksData = {
   en: [
     {
-      id: 8,
+      id: 10,
+      title: 'TripUp',
+      description: 'Streamlining the group travel experience through collaborative planning and real-time social dynamics.',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
+      category: 'Group. UI/UX. Mobile App',
+      evaluation: 'An all-in-one platform for organizing seamless group travel.',
+      rating: 8
+    },
+    {
+      id: 9,
       title: 'EuroStay',
       description: "World's #1 Chinese backpacker community in Europe",
       year: 2026,
-      image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
-      category: 'Group. UI. UX. Events',
-      evaluation: 'Connect people. Explore life. Unlock possibilities.',
-      rating: 6
+      image: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
+      category: 'Group. Branding. UI/UX. Community',
+      evaluation: 'A vision of modern travel and connection.',
+      rating: 7
     },
 
     {
@@ -131,26 +141,7 @@ export const worksData = {
       evaluation: 'Is there anything I cannot do?',
       rating: 6
     },
-    {
-      id: 15,
-      title: 'Bottle Opener',
-      description: 'Exploring the fusion of Art Deco and compact kitchenware.',
-      year: 2021,
-      image: `${process.env.PUBLIC_URL}/work/2021/1Bottle Opener/1.png`,
-      category: 'Individual. Product Design',
-      evaluation: 'I really like this design approach, with a specific design style as a reference.',
-      rating: 5
-    },
-    {
-      id: 21,
-      title: 'Pizza Box',
-      description: 'Product packaging design.',
-      year: 2021,
-      image: `${process.env.PUBLIC_URL}/work/2021/2PizzaBox/1.png`,
-      category: 'Individual. Product Packaging Design',
-      evaluation: 'Although UX research was difficult during the pandemic, I love my unconventional thinking and hands-on ability at that time.',
-      rating: 4
-    },
+
     {
       id: 22,
       title: 'Bike Refurbishment',
@@ -161,67 +152,28 @@ export const worksData = {
       evaluation: 'A super memorable and perfect group collaboration. Team formation was wonderful. Our first real-world project together.',
       rating: 6
     },
-    {
-      id: 16,
-      title: 'Calorie Calculator',
-      description: 'A web tool to support people on their weight-loss journey.',
-      year: 2020,
-      image: `${process.env.PUBLIC_URL}/work/2020/1CalorieCalculator/1.png`,
-      category: 'Individual. Web Design',
-      evaluation: 'A very casual website design, just for calculating calories... Surprised this project was allowed to get marks, though I do like that gradient color.',
-      rating: 2
-    },
-    {
-      id: 20,
-      title: 'Chair Modelling',
-      description: 'Unleash imagination and practice modelling skills.',
-      year: 2020,
-      image: `${process.env.PUBLIC_URL}/work/2020/2Chair/1.jpg`,
-      category: 'Individual. Modelling',
-      evaluation: 'I love modelling and Creo, but remember: NEVER save your work while in the sketch interface......',
-      rating: 6
-    },
-    {
-      id: 17,
-      title: 'Hammer',
-      description: 'Engineering drawings and model making.',
-      year: 2019,
-      image: `${process.env.PUBLIC_URL}/work/2019/1Hammer/1(1).jpg`,
-      category: 'Individual. Industrial Design',
-      evaluation: 'Yay! First place in engineering drawings and second in model making! So happy to become a teaching case with my best friend. Even happier to see another friend\'s 5/100 marks hammer hhh.',
-      rating: 6
-    },
-    {
-      id: 18,
-      title: 'Superman',
-      description: 'Load-bearing cardboard chair challenge.',
-      year: 2019,
-      image: `${process.env.PUBLIC_URL}/work/2019/2Superman/1.jpg`,
-      category: 'Group. Industrial Design',
-      evaluation: 'Underestimated the load-bearing capacity of two cardboards, but did a deep dive into structural design.',
-      rating: 5
-    },
-    {
-      id: 19,
-      title: 'Banana Skateboard',
-      description: 'Physical measurement and 3D modeling of a chosen vehicle (skateboard).',
-      year: 2019,
-      image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
-      category: 'Individual. Modelling. Industrial Design',
-      evaluation: 'I will remember the time spent painstakingly measuring with a ruler and hand-crafting the skateboard model. The curves of the bearings are so beautiful.',
-      rating: 5.5
-    },
+
   ],
   zh: [
     {
-      id: 8,
+      id: 10,
+      title: 'TripUp',
+      description: '通过协作规划和实时社交动态，简化团队旅行体验的移动应用重构。',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
+      category: '团队. UI/UX. 移动应用',
+      evaluation: '组织无缝团队旅行的一站式平台。',
+      rating: 8
+    },
+    {
+      id: 9,
       title: '欧洲换宿EuroStay',
       description: '世界第一的欧洲华人背包客社区',
       year: 2026,
-      image: `${process.env.PUBLIC_URL}/work/2026/1.png`,
-      category: '团队. UI. UX. 活动',
-      evaluation: '链接，探索，解锁生活的可能性',
-      rating: 6
+      image: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
+      category: '团队. 品牌设计. UI/UX. 社区',
+      evaluation: '现代旅行与连接的愿景。',
+      rating: 7
     },
 
     {
@@ -344,26 +296,7 @@ export const worksData = {
       evaluation: '还有什么我不会的？',
       rating: 6
     },
-    {
-      id: 15,
-      title: '开瓶器',
-      description: '探索经典艺术风格与小型厨具的结合',
-      year: 2021,
-      image: `${process.env.PUBLIC_URL}/work/2021/1Bottle Opener/1.png`,
-      category: '个人项目. 产品设计',
-      evaluation: '很喜欢这种设计思路，有一个设计风格作参考',
-      rating: 5
-    },
-    {
-      id: 21,
-      title: '披萨盒',
-      description: '产品包装设计。',
-      year: 2021,
-      image: `${process.env.PUBLIC_URL}/work/2021/2PizzaBox/1.png`,
-      category: '个人项目. 产品包装设计',
-      evaluation: '虽然疫情期间用研不方便做，但是喜欢当时自己的跳脱思维和动手能力',
-      rating: 4
-    },
+
     {
       id: 22,
       title: '单车改造',
@@ -374,55 +307,6 @@ export const worksData = {
       evaluation: '超级难忘完美的一次小组合作，自由组队实在是太美妙了，一起完成的人生中第一个落地项目',
       rating: 6
     },
-    {
-      id: 16,
-      title: '卡路里计算器',
-      description: '为减重人群做一点小贡献。',
-      year: 2020,
-      image: `${process.env.PUBLIC_URL}/work/2020/1CalorieCalculator/1.png`,
-      category: '个人项目. 网页设计',
-      evaluation: '很随意的一个网站设计，居然计算卡路里......这种作品居然被允许得分，虽然我喜欢这个渐变色',
-      rating: 2
-    },
-    {
-      id: 20,
-      title: '椅子建模',
-      description: '释放想象力，练习建模能力',
-      year: 2020,
-      image: `${process.env.PUBLIC_URL}/work/2020/2Chair/1.jpg`,
-      category: '个人项目. 建模',
-      evaluation: '喜欢建模，喜欢Creo但是记得一定不要在草稿界面保存作品......',
-      rating: 6
-    },
-    {
-      id: 17,
-      title: 'Hammer',
-      description: '画工程图和制作模型',
-      year: 2019,
-      image: `${process.env.PUBLIC_URL}/work/2019/1Hammer/1(1).jpg`,
-      category: '单人项目. 工业设计',
-      evaluation: '耶图纸得分第一模型得分第二！跟好朋友一起成为教学案例非常开心，看到另一个好朋友5/100分的锤子我更开心了hhh',
-      rating: 6
-    },
-    {
-      id: 18,
-      title: 'Superman',
-      description: '承重纸板椅子挑战',
-      year: 2019,
-      image: `${process.env.PUBLIC_URL}/work/2019/2Superman/1.jpg`,
-      category: '团队. 工业设计',
-      evaluation: '低估了两个纸板的承重能力，但是狠狠地研究了一下承重结构',
-      rating: 5
-    },
-    {
-      id: 19,
-      title: '香蕉滑板',
-      description: '选一个交通工具进行实物测量和建模',
-      year: 2019,
-      image: `${process.env.PUBLIC_URL}/work/2019/3BananaBorad/1.png`,
-      category: '个人项目. 建模. 工业设计',
-      evaluation: '会记得用尺子辛辛苦苦测量，手搓轮滑模型的时光，原来轴承的曲面那么美',
-      rating: 5.5
-    },
+
   ],
 };
