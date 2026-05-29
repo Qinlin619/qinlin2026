@@ -26,8 +26,8 @@ export const worksData = {
       title: 'Flavorblocks',
       description: 'A small game designed for my parents to pass the time.',
       year: 2026,
-      image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/1.png`,
-      category: 'Individual. Game Design',
+      image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
+      category: 'Individual. Game Dev & Design',
       evaluation: 'Designed for my parents to pass the time. Taste life.',
       rating: 6
     },
@@ -36,8 +36,8 @@ export const worksData = {
       title: 'Color&Color',
       description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
       year: 2026,
-      image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/1.png`,
-      category: 'Individual. Game Design',
+      image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/Frame 3 (1).png`,
+      category: 'Individual. Game Dev & Design',
       evaluation: 'A simple "match" game featuring socks. Fun and colorful!',
       rating: 6
     },
@@ -181,8 +181,8 @@ export const worksData = {
       title: 'Flavorblocks',
       description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
       year: 2026,
-      image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/1.png`,
-      category: '个人项目. 游戏设计',
+      image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
+      category: '个人项目. 游戏开发与设计',
       evaluation: '为爸爸妈妈设计的小游戏，很有趣。',
       rating: 6
     },
@@ -191,8 +191,8 @@ export const worksData = {
       title: 'Color&Color',
       description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
       year: 2026,
-      image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/1.png`,
-      category: '个人项目. 游戏设计',
+      image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/Frame 3 (1).png`,
+      category: '个人项目. 游戏开发与设计',
       evaluation: '很有意思的小项目。',
       rating: 6
     },

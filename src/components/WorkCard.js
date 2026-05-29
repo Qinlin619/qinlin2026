@@ -24,11 +24,35 @@ function WorkCard({ work, onCardClick }) {
       onClick={handleClick}
     >
       <div className="work-card-image-wrapper">
-        <img
-          src={work.image}
-          alt={work.title}
-          className="work-card-image"
-        />
+        {work.id === 261 || work.id === 262 ? (
+          <div className="card-browser-mockup">
+            <div className="browser-header-bar compact">
+              <div className="browser-dots">
+                <span className="browser-dot red" />
+                <span className="browser-dot yellow" />
+                <span className="browser-dot green" />
+              </div>
+              <div className="browser-url-bar compact">
+                {work.id === 261
+                  ? 'https://qinlin619.github.io/FlavorBlocks/'
+                  : 'https://qinlin619.github.io/Color-Color/'}
+              </div>
+            </div>
+            <div className="browser-screen compact">
+              <img
+                src={work.image}
+                alt={work.title}
+                className="work-card-image"
+              />
+            </div>
+          </div>
+        ) : (
+          <img
+            src={work.image}
+            alt={work.title}
+            className="work-card-image"
+          />
+        )}
         {work.evaluation && (
           <div className="work-card-overlay">
             <div className="work-card-overlay-text">

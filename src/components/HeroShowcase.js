@@ -11,9 +11,9 @@ const HeroShowcase = () => {
   const trackRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Get all top-rated works for the years 2022 to 2026
+  // Get all top-rated works for the years 2022 to 2026 (excluding side/mini-game projects)
   const selectedWorks = works
-    .filter(w => w.year >= 2022 && w.year <= 2026)
+    .filter(w => w.year >= 2022 && w.year <= 2026 && w.id !== 261 && w.id !== 262 && w.id !== 263)
     .sort((a, b) => {
       // Primary sort by year (descending)
       if (b.year !== a.year) return b.year - a.year;

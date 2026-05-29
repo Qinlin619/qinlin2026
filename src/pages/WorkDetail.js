@@ -95,28 +95,28 @@ function AppPromotionalShowcase() {
   
   const en = {
     badge: "Interactive App Demo",
-    title: "Experience TripUp in Real-Time",
-    desc: "We translated high-fidelity designs into a fully interactive, clickable prototype. Interact with the live demo to explore the core user flows:",
+    title: "Experience TripUp",
+    desc: "Interact with the live prototype to explore collaborative travel planning:",
     features: [
-      { icon: "📍", title: "Itinerary Co-Creation", detail: "Seamless multi-screen group travel planning" },
-      { icon: "📊", title: "Dynamic Voting Polls", detail: "Decide destinations and dinners instantly" },
-      { icon: "💸", title: "Expense Settlements", detail: "Split bills without the friction" },
-      { icon: "📱", title: "Simulated iOS Dynamics", detail: "Interactive Dynamic Island notifications" }
+      { icon: "📍", title: "Itinerary Co-Creation", detail: "Seamless group travel planning" },
+      { icon: "📊", title: "Voting Polls", detail: "Quick decision voting on trip details" },
+      { icon: "💸", title: "Expense Splitter", detail: "Frictionless group bill splitting" },
+      { icon: "📱", title: "iOS Dynamics", detail: "Interactive Dynamic Island popups" }
     ],
-    tip: "💡 Tip: Click on 'Lisbon Final Night' card to enter the trip detail, then use tabs at the bottom."
+    tip: "💡 Tip: Click on 'Lisbon' card to enter, then use bottom tabs."
   };
 
   const zh = {
     badge: "交互式 App 演示",
-    title: "随时随地，开启团队无忧旅行",
-    desc: "我们将高保真设计转化为完全可点击的交互式原型。在右侧的手机框架中，您可以亲自模拟和操作以下核心流程：",
+    title: "体验 TripUp 互动原型",
+    desc: "在右侧模拟并操作团队协同旅行流程：",
     features: [
-      { icon: "📍", title: "多人协同行程规划", detail: "无缝的群组协作旅行设计" },
-      { icon: "📊", title: "即时民主投票决策", detail: "快速确定行程安排与聚餐去处" },
-      { icon: "💸", title: "无摩擦团队费用分账", detail: "清晰直观地计算和分摊旅途开销" },
-      { icon: "📱", title: "模拟 iOS 灵动岛交互", detail: "顶端状态弹窗与即时反馈" }
+      { icon: "📍", title: "协同规划", detail: "多人协同设计旅行日程" },
+      { icon: "📊", title: "即时投票", detail: "快速决定行程和聚餐去处" },
+      { icon: "💸", title: "费用分账", detail: "清晰直观地分摊和结算开销" },
+      { icon: "📱", title: "灵动岛交互", detail: "状态弹窗与消息即时反馈" }
     ],
-    tip: "💡 提示：点击屏幕上的「Lisbon Final Night」卡片开始流程，点击底部标签切换页面。"
+    tip: "💡 提示：点击「Lisbon」卡片进入详情页，切换底部标签浏览。"
   };
 
   const t = language === 'zh' ? zh : en;
@@ -236,28 +236,28 @@ function EuroStayPromotionalShowcase() {
   
   const en = {
     badge: "Interactive App Demo",
-    title: "Experience EuroStay 2026 In Real-Time",
-    desc: "We translated high-fidelity designs into a fully interactive, clickable prototype. Interact with the live demo to explore the host matching and stay application flow:",
+    title: "Experience EuroStay",
+    desc: "Interact with the live prototype to explore host matching and community flows:",
     features: [
       { icon: "✨", title: "Onboarding Flow", detail: "Fast guide to finding your perfect host swap" },
-      { icon: "🔍", title: "Location Search & Filters", detail: "Filter listings by country, city, and host types" },
-      { icon: "🏡", title: "Host Profile & Booking Form", detail: "Detailed host profiles with instant exchange requests" },
-      { icon: "💬", title: "Simulated iOS Notifications & Chats", detail: "Dynamic island success popups and direct messaging" }
+      { icon: "🔍", title: "Search & Filters", detail: "Filter listings by type & location" },
+      { icon: "🏡", title: "Profile & Booking", detail: "View host profiles & submit requests" },
+      { icon: "💬", title: "Notifications & Chats", detail: "Simulated messages and iOS popups" }
     ],
-    tip: "💡 Tip: Click anywhere on the mobile screen to cycle through the interactive EuroStay flow (8 screens total)."
+    tip: "💡 Tip: Click anywhere on the mobile screen to cycle through the screens."
   };
 
   const zh = {
     badge: "交互式 App 演示",
-    title: "随时随地，开启你的换宿旅程",
-    desc: "我们将高保真设计转化为完全可点击的交互式原型。在右侧的手机框架中，您可以亲自模拟和操作以下核心流程：",
+    title: "体验 EuroStay 互动原型",
+    desc: "在右侧模拟并操作核心换宿流程：",
     features: [
-      { icon: "✨", title: "新手探索向导", detail: "快速了解如何寻找完美的互助换宿对象" },
-      { icon: "🔍", title: "地理位置搜索与过滤", detail: "按国家、城市以及换宿条件精准检索" },
-      { icon: "🏡", title: "Host 详情页与入住申请表", detail: "详尽的主机档案和即时提交的换宿表单" },
-      { icon: "💬", title: "模拟 iOS 灵动岛与消息列表", detail: "表单提交成功时的灵动岛反馈以及聊天收件箱" }
+      { icon: "✨", title: "新手向导", detail: "快速了解互助换宿机制" },
+      { icon: "🔍", title: "搜索与筛选", detail: "按国家与类型筛选房源" },
+      { icon: "🏡", title: "主机与申请", detail: "浏览主机档案并提交申请表单" },
+      { icon: "💬", title: "通知与消息", detail: "灵动岛即时反馈与聊天通知" }
     ],
-    tip: "💡 提示：点击右侧手机屏幕的任意位置，即可按顺序切换浏览完整的 EuroStay 功能流程（共 8 张页面循环跳转）。"
+    tip: "💡 提示：点击手机屏幕任意位置可依次切换页面。"
   };
 
   const t = language === 'zh' ? zh : en;
@@ -776,6 +776,7 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
       ],
+      hideBanner: true,
       overview: (
         <>
           <p>The project focuses on redesigning the interface and physical interaction of the Atag induction hob to reduce cognitive load and improve user safety. We analyzed user pain points in modern kitchens and proposed a more intuitive layout and feedback system.</p>
@@ -905,11 +906,14 @@ const workData = {
         <>
           <p>A small game designed for my parents to pass the time.</p>
           <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
-            {[1, 2, 3, 4, 5].map(num => (
+            {[
+              `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
+              ...[2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`)
+            ].map((src, idx) => (
               <img
-                key={num}
-                src={`${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`}
-                alt={`Flavorblocks screenshot ${num}`}
+                key={idx}
+                src={src}
+                alt={`Flavorblocks screenshot ${idx + 1}`}
                 className="featured-photo-placeholder"
                 style={{ objectFit: 'cover' }}
               />
@@ -921,8 +925,10 @@ const workData = {
               target="_blank"
               rel="noopener noreferrer"
               className="work-pdf-link"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
             >
-              Play Game: Flavorblocks
+              <span>Play Game: Flavorblocks</span>
+              <span style={{ fontSize: '0.85em', textDecoration: 'none' }}>➔</span>
             </a>
           </div>
         </>
@@ -932,7 +938,7 @@ const workData = {
       title: 'Color&Color',
       description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
       year: 2026,
-      category: 'Individual. Game Design',
+      category: 'Individual. Game Dev & Design',
       overview: (
         <>
           <p>A simple "match" game featuring socks, planned to evolve into various derivative matching games.</p>
@@ -1440,6 +1446,7 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
       ],
+      hideBanner: true,
       overview: (
         <>
           <p>该项目专注于重新设计 Atag 感应炉的界面和物理交互，以降低用户的认知负荷并提高安全性。我们分析了现代厨房中的用户痛点，并提出了更直观的布局和反馈系统。</p>
@@ -1569,11 +1576,14 @@ const workData = {
         <>
           <p>想为爸爸妈妈设计一些打磨时间的小游戏。</p>
           <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
-            {[1, 2, 3, 4, 5].map(num => (
+            {[
+              `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
+              ...[2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`)
+            ].map((src, idx) => (
               <img
-                key={num}
-                src={`${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`}
-                alt={`Flavorblocks 截图 ${num}`}
+                key={idx}
+                src={src}
+                alt={`Flavorblocks 截图 ${idx + 1}`}
                 className="featured-photo-placeholder"
                 style={{ objectFit: 'cover' }}
               />
@@ -1585,8 +1595,10 @@ const workData = {
               target="_blank"
               rel="noopener noreferrer"
               className="work-pdf-link"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
             >
-              游玩链接：Flavorblocks
+              <span>游玩链接：Flavorblocks</span>
+              <span style={{ fontSize: '0.85em', textDecoration: 'none' }}>➔</span>
             </a>
           </div>
         </>
@@ -1596,7 +1608,7 @@ const workData = {
       title: 'Color&Color',
       description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
       year: 2026,
-      category: '个人项目. 游戏设计',
+      category: '个人项目. 游戏开发与设计',
       overview: (
         <>
           <p>想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。</p>
@@ -1731,21 +1743,29 @@ function WorkDetail() {
   );
 
   const prevNextSection = (prevProject || nextProject) ? (
-    <nav className="work-detail-prev-next" aria-label="Previous / Next project">
+    <nav className="work-detail-prev-next-nav" aria-label="Previous / Next project">
       <div className="work-detail-prev-next-inner">
         {prevProject ? (
-          <Link to={`/work/${prevProject.id}`} className="work-detail-prev-next-link work-detail-prev-next-prev">
-            ← {labels.prevProject}
+          <Link to={`/work/${prevProject.id}`} className="work-prev-next-btn work-prev-btn">
+            <span className="arrow-left" />
+            <div className="btn-text">
+              <span className="btn-label">{labels.prevProject}</span>
+              <span className="btn-title">{prevProject.title}</span>
+            </div>
           </Link>
         ) : (
-          <span className="work-detail-prev-next-link work-detail-prev-next-prev work-detail-prev-next-placeholder" aria-hidden />
+          <div className="work-prev-next-btn work-prev-btn disabled" />
         )}
         {nextProject ? (
-          <Link to={`/work/${nextProject.id}`} className="work-detail-prev-next-link work-detail-prev-next-next">
-            {labels.nextProject} →
+          <Link to={`/work/${nextProject.id}`} className="work-prev-next-btn work-next-btn">
+            <div className="btn-text">
+              <span className="btn-label">{labels.nextProject}</span>
+              <span className="btn-title">{nextProject.title}</span>
+            </div>
+            <span className="arrow-right" />
           </Link>
         ) : (
-          <span className="work-detail-prev-next-link work-detail-prev-next-next work-detail-prev-next-placeholder" aria-hidden />
+          <div className="work-prev-next-btn work-next-btn disabled" />
         )}
       </div>
     </nav>
@@ -1872,24 +1892,49 @@ function WorkDetail() {
         </header>
         {(work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) ? (
           <div className="work-detail-video-wrap">
-            <div className="work-detail-video">
-              <iframe
-                title={work.title}
-                src={getYoutubeEmbedUrl(work.youtubeUrl)}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <div className="video-browser-mockup">
+              <div className="browser-header-bar">
+                <div className="browser-dots">
+                  <span className="browser-dot red" />
+                  <span className="browser-dot yellow" />
+                  <span className="browser-dot green" />
+                </div>
+                <div className="browser-url-bar">{work.youtubeUrl}</div>
+              </div>
+              <div className="work-detail-video">
+                <iframe
+                  title={work.title}
+                  src={getYoutubeEmbedUrl(work.youtubeUrl)}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
         ) : (work.videoUrl && (
           <div className="work-detail-video-wrap">
-            <div className="work-detail-video">
-              <video
-                src={work.videoUrl}
-                controls
-                style={{ width: '100%', height: '100%', display: 'block' }}
-              />
+            <div className="video-browser-mockup">
+              <div className="browser-header-bar">
+                <div className="browser-dots">
+                  <span className="browser-dot red" />
+                  <span className="browser-dot yellow" />
+                  <span className="browser-dot green" />
+                </div>
+                <div className="browser-url-bar">
+                  {numericId === 7 && 'https://qinlin619.github.io/Atag-Induction-Hob/'}
+                  {numericId === 2 && 'https://qinlin619.github.io/E.C.H.O/'}
+                  {numericId === 11 && 'https://qinlin619.github.io/CoBrush/'}
+                  {![2, 7, 11].includes(numericId) && 'https://qinlin619.github.io/Portfolio/'}
+                </div>
+              </div>
+              <div className="work-detail-video">
+                <video
+                  src={work.videoUrl}
+                  controls
+                  style={{ width: '100%', height: '100%', display: 'block' }}
+                />
+              </div>
             </div>
           </div>
         ))}
@@ -1924,9 +1969,9 @@ function WorkDetail() {
 
 
         </div>
+        {prevNextSection}
       </div>
       {moreSection}
-      {prevNextSection}
     </>
   );
 }

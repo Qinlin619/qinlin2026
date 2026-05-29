@@ -92,13 +92,19 @@ function WorkGrid() {
         title: 'Flavorblocks',
         description: 'A small game designed for my parents to pass the time.',
         link: { text: 'Play Game: ', url: 'https://qinlin619.github.io/FlavorBlocks/' },
-        images: [1, 2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `Screenshot ${n}` }))
+        images: [
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/image copy.png', title: 'Screenshot 1' },
+          ...[2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `Screenshot ${n}` }))
+        ]
       },
       zh: {
         title: 'Flavorblocks',
         description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
         link: { text: '游玩链接：', url: 'https://qinlin619.github.io/FlavorBlocks/' },
-        images: [1, 2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `截图 ${n}` }))
+        images: [
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/image copy.png', title: '截图 1' },
+          ...[2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `截图 ${n}` }))
+        ]
       }
     },
     262: {
@@ -211,9 +217,16 @@ function WorkGrid() {
                     href={selectedGame.link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#000', textDecoration: 'underline' }}
+                    style={{ 
+                      color: '#000', 
+                      textDecoration: 'underline',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}
                   >
-                    {selectedGame.link.text}{selectedGame.link.url}
+                    <span>{selectedGame.link.text}{selectedGame.link.url}</span>
+                    <span style={{ fontSize: '0.85em', display: 'inline-block', textDecoration: 'none' }}>➔</span>
                   </a>
                 </p>
               )}
