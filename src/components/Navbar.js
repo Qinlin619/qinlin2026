@@ -59,16 +59,14 @@ function Navbar() {
   }, [navigate, closeMenu]);
 
   const linkProps = [
-    { to: '/about', active: activeStates.about, label: texts.about },
-    { to: '/', active: activeStates.work, label: texts.work, isWork: true },
-    { to: '/cv', active: activeStates.cv, label: texts.cv }
+    { to: '/', active: activeStates.work, label: texts.work, isWork: true }
   ];
 
   return (
     <>
       <nav className={`navbar ${menuOpen ? 'navbar-mobile-open' : ''}`}>
         <div className="nav-logo">
-          <Link to="/about" onClick={closeMenu}>
+          <Link to="/" onClick={closeMenu}>
             <span className="logo-icon">☂</span>
           </Link>
         </div>

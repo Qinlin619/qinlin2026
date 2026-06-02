@@ -8,7 +8,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
       category: 'Group. UI/UX. Mobile App',
       evaluation: 'An all-in-one platform for organizing seamless group travel.',
-      rating: 8
+      rating: 8,
+      color: '#9be3eb'
     },
     {
       id: 9,
@@ -18,7 +19,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
       category: 'Group. Branding. UI/UX. Community',
       evaluation: 'A vision of modern travel and connection.',
-      rating: 7
+      rating: 7,
+      color: '#fbeeb5'
     },
 
     {
@@ -29,7 +31,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
       category: 'Individual. Game Dev & Design',
       evaluation: 'Designed for my parents to pass the time. Taste life.',
-      rating: 6
+      rating: 6,
+      color: '#b0b7e6'
     },
     {
       id: 262,
@@ -39,7 +42,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/Frame 3 (1).png`,
       category: 'Individual. Game Dev & Design',
       evaluation: 'A simple "match" game featuring socks. Fun and colorful!',
-      rating: 6
+      rating: 6,
+      color: '#e59866'
     },
     {
       id: 11,
@@ -49,7 +53,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
       category: 'Group. HCI. Programming',
       evaluation: 'The project with the highest workload and longest duration. What a TUD graduation project......Owes me a software engineering degree.',
-      rating: 6
+      rating: 6,
+      color: '#f2a1ad'
     },
     {
       id: 1,
@@ -59,7 +64,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/1.png`,
       category: 'Individual. UX. Product',
       evaluation: 'The electronic version is launched. An addictive social game.',
-      rating: 6
+      rating: 6,
+      color: '#b58c67'
     },
     {
       id: 2,
@@ -69,7 +75,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       category: 'Group. Programming. Artificial Intelligence. Product',
       evaluation: 'A very challenging project, but we completed it very well!',
-      rating: 5.5
+      rating: 5.5,
+      color: '#7a97e8'
     },
     {
       id: 7,
@@ -79,7 +86,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
       category: 'Group. UI. UX. Redesign',
       evaluation: 'Very harmonious group collaboration, UX research is very organized.',
-      rating: 6
+      rating: 6,
+      color: '#f27b50'
     },
     {
       id: 14,
@@ -89,7 +97,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
       category: 'Individual. Digital Artwork. Programming Modelling',
       evaluation: 'Could be made more complex and interesting',
-      rating: 5
+      rating: 5,
+      color: '#ebd07d'
     },
     {
       id: 3,
@@ -99,7 +108,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`,
       category: 'Individual. Child Play. Museum',
       evaluation: 'Most museums are boring; I hope to gamify all museums.',
-      rating: 6
+      rating: 6,
+      color: '#cbb39e'
     },
     {
       id: 263,
@@ -109,7 +119,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/side/blender/5.png`,
       category: 'Individual. 3D Modelling. Design',
       evaluation: 'Blender is a powerful tool. I love the process of creating 3D worlds.',
-      rating: 6
+      rating: 6,
+      color: '#f6a29a'
     },
     {
       id: 4,
@@ -119,7 +130,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`,
       category: 'Individual. Well-being. Zoo. Installation',
       evaluation: "Oh~ Come and play with these lovely creatures for a while.",
-      rating: 6
+      rating: 6,
+      color: '#86af6c'
     },
     {
       id: 5,
@@ -129,7 +141,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`,
       category: 'Group. Well-being. Child Play. Programming',
       evaluation: 'I took this more seriously than my undergraduate graduation project; awarded myself a mechanical engineering degree.',
-      rating: 6
+      rating: 6,
+      color: '#bcd86a'
     },
     {
       id: 6,
@@ -139,9 +152,9 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
       category: 'Group. Well-being. UX. UI',
       evaluation: 'Is there anything I cannot do?',
-      rating: 6
+      rating: 6,
+      color: '#d6687e'
     },
-
     {
       id: 22,
       title: 'Bike Refurbishment',
@@ -150,20 +163,21 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2021/3Bike/1.png`,
       category: 'Group. Product Design. Child Play',
       evaluation: 'A super memorable and perfect group collaboration. Team formation was wonderful. Our first real-world project together.',
-      rating: 6
-    },
-
+      rating: 6,
+      color: '#8fd3f4'
+    }
   ],
   zh: [
     {
       id: 10,
       title: 'TripUp',
-      description: '通过协作规划和实时社交动态，简化团队旅行体验的移动应用重构。',
+      description: '通过协作规划 and 实时社交动态，简化团队旅行体验的移动应用重构。',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
       category: '团队. UI/UX. 移动应用',
       evaluation: '组织无缝团队旅行的一站式平台。',
-      rating: 8
+      rating: 8,
+      color: '#9be3eb'
     },
     {
       id: 9,
@@ -173,9 +187,9 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
       category: '团队. 品牌设计. UI/UX. 社区',
       evaluation: '现代旅行与连接的愿景。',
-      rating: 7
+      rating: 7,
+      color: '#fbeeb5'
     },
-
     {
       id: 261,
       title: 'Flavorblocks',
@@ -184,7 +198,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
       category: '个人项目. 游戏开发与设计',
       evaluation: '为爸爸妈妈设计的小游戏，很有趣。',
-      rating: 6
+      rating: 6,
+      color: '#b0b7e6'
     },
     {
       id: 262,
@@ -194,7 +209,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/Frame 3 (1).png`,
       category: '个人项目. 游戏开发与设计',
       evaluation: '很有意思的小项目。',
-      rating: 6
+      rating: 6,
+      color: '#e59866'
     },
     {
       id: 11,
@@ -204,7 +220,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
       category: '团队. HCI. 编程',
       evaluation: '工作量最大周期最长的一个项目，不愧是TUD的毕设，欠我一个软件工程师学位',
-      rating: 6
+      rating: 6,
+      color: '#f2a1ad'
     },
     {
       id: 1,
@@ -214,7 +231,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`,
       category: '个人项目. UX. 产品',
       evaluation: '最终落地电子版，玩不厌的社交破冰游戏',
-      rating: 6
+      rating: 6,
+      color: '#b58c67'
     },
     {
       id: 2,
@@ -224,7 +242,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/1.png`,
       category: '团队. 程序设计. 人工智能. 产品',
       evaluation: '很具挑战的项目，但我们完成得很好！',
-      rating: 5.5
+      rating: 5.5,
+      color: '#7a97e8'
     },
     {
       id: 7,
@@ -234,7 +253,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
       category: '团队. UI. UX. 重新设计',
       evaluation: '很和谐的小组合作，UX研究非常有条理',
-      rating: 6
+      rating: 6,
+      color: '#f27b50'
     },
     {
       id: 14,
@@ -244,27 +264,30 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2024/4IntimateRelationship/1.png`,
       category: '个人项目. 数字艺术. 建模',
       evaluation: '可以做得再复杂有趣一点',
-      rating: 5
+      rating: 5,
+      color: '#ebd07d'
     },
     {
       id: 3,
       title: 'Lambanana Tour',
-      description: '为利物浦博物馆设计的导览地图和纪念品，鼓励儿童在参观博物馆时更加积极和知识丰富。',
+      description: '为利物浦博物馆设计的导览地图 and 纪念品，鼓励儿童在参观博物馆时更加积极和知识丰富。',
       year: 2023,
       image: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`,
       category: '个人项目. 儿童游戏. 博物馆',
       evaluation: '大多数的博物馆都很无聊，希望能游戏化所有博物馆',
-      rating: 6
+      rating: 6,
+      color: '#cbb39e'
     },
     {
-      id: 263,
+      id: 260,
       title: 'Blender',
       description: '在 Blender 中进行的一系列 3D 建模实验。',
       year: 2023,
       image: `${process.env.PUBLIC_URL}/side/blender/5.png`,
       category: '个人项目. 3D 建模. 设计',
       evaluation: 'Blender 是一个非常强大的工具，我喜欢创造 3D 世界的过程。',
-      rating: 6
+      rating: 6,
+      color: '#f6a29a'
     },
     {
       id: 4,
@@ -274,17 +297,19 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`,
       category: '个人项目. 健康福祉. 动物园. 装置',
       evaluation: '哦~快来跟这些可爱的生物们玩一会儿',
-      rating: 6
+      rating: 6,
+      color: '#86af6c'
     },
     {
       id: 5,
       title: 'Doozi',
-      description: '为残疾儿童设计的轮椅配件套装，包含多技能学习骨牌推车和互动音乐拼图地毯。',
+      description: '为残疾儿童设计的轮椅配件套装，包含多技能学习骨牌推车 and 互动音乐拼图地毯。',
       year: 2022,
       image: `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`,
       category: '团队. 健康福祉. 儿童游戏. 编程',
       evaluation: '这个做得比本科毕设还认真，奖励自己一个机械工程学位',
-      rating: 6
+      rating: 6,
+      color: '#bcd86a'
     },
     {
       id: 6,
@@ -294,9 +319,9 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`,
       category: '团队. 健康福祉. UX. UI',
       evaluation: '还有什么我不会的？',
-      rating: 6
+      rating: 6,
+      color: '#d6687e'
     },
-
     {
       id: 22,
       title: '单车改造',
@@ -305,8 +330,8 @@ export const worksData = {
       image: `${process.env.PUBLIC_URL}/work/2021/3Bike/1.png`,
       category: '团队. 产品设计. 儿童游戏',
       evaluation: '超级难忘完美的一次小组合作，自由组队实在是太美妙了，一起完成的人生中第一个落地项目',
-      rating: 6
-    },
-
-  ],
+      rating: 6,
+      color: '#8fd3f4'
+    }
+  ]
 };

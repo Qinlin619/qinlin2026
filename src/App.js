@@ -6,8 +6,8 @@ import Hero from './components/Hero';
 import WorkGrid from './components/WorkGrid';
 import Footer from './components/Footer';
 import WorkDetail from './pages/WorkDetail';
-import About from './pages/About';
-import CV from './pages/CV';
+// import About from './pages/About';
+// import CV from './pages/CV';
 import PageRain, { dotColors } from './components/PageRain';
 import RippleEffect from './components/RippleEffect';
 import HeroShowcase from './components/HeroShowcase';
@@ -86,8 +86,8 @@ function AppContent() {
           <Routes location={location}>
             <Route index element={<HomePage />} />
             <Route path="/work/:id" element={<WorkDetail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/cv" element={<CV />} />
+{/* <Route path="/about" element={<About />} /> */}
+            {/* <Route path="/cv" element={<CV />} /> */}
           </Routes>
         </div>
       </main>

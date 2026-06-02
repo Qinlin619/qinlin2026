@@ -93,7 +93,7 @@ function WorkGrid() {
         description: 'A small game designed for my parents to pass the time.',
         link: { text: 'Play Game: ', url: 'https://qinlin619.github.io/FlavorBlocks/' },
         images: [
-          { type: 'image', url: '/side/GameDesign-Flavorblocks/image copy.png', title: 'Screenshot 1' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/1.png', title: 'Screenshot 1' },
           ...[2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `Screenshot ${n}` }))
         ]
       },
@@ -102,7 +102,7 @@ function WorkGrid() {
         description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
         link: { text: '游玩链接：', url: 'https://qinlin619.github.io/FlavorBlocks/' },
         images: [
-          { type: 'image', url: '/side/GameDesign-Flavorblocks/image copy.png', title: '截图 1' },
+          { type: 'image', url: '/side/GameDesign-Flavorblocks/1.png', title: '截图 1' },
           ...[2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `截图 ${n}` }))
         ]
       }

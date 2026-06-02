@@ -906,10 +906,7 @@ const workData = {
         <>
           <p>A small game designed for my parents to pass the time.</p>
           <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
-            {[
-              `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
-              ...[2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`)
-            ].map((src, idx) => (
+            {[1, 2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`).map((src, idx) => (
               <img
                 key={idx}
                 src={src}
@@ -1576,10 +1573,7 @@ const workData = {
         <>
           <p>想为爸爸妈妈设计一些打磨时间的小游戏。</p>
           <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
-            {[
-              `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
-              ...[2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`)
-            ].map((src, idx) => (
+            {[1, 2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`).map((src, idx) => (
               <img
                 key={idx}
                 src={src}

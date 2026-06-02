@@ -22,6 +22,7 @@ function WorkCard({ work, onCardClick }) {
       to={`/work/${work.id}`}
       className={`work-card ${isActive ? 'work-card-active' : ''}`}
       onClick={handleClick}
+      style={{ '--project-color': work.color || '#f5f5f5' }}
     >
       <div className="work-card-image-wrapper">
         {work.id === 261 || work.id === 262 ? (
@@ -81,6 +82,7 @@ function WorkCard({ work, onCardClick }) {
         )}
         <h2 className="card-title">{work.title}</h2>
         <p className="card-desc">{work.description}</p>
+        <div className="work-card-arrow">↗</div>
       </div>
     </Link>
   );
