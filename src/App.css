@@ -4038,6 +4038,33 @@ a.active,
   transform: none !important; /* Avoid hover zoom effect inside browser mockup */
 }
 
+/* Card Banner styles for Scheme 1 */
+.work-detail-card-banner {
+  max-width: 100%;
+  margin: 0 0 3.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.work-detail-card-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+}
+
+.work-detail-card-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 
 
 

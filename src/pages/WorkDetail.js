@@ -410,8 +410,8 @@ const workData = {
       year: 2026,
       category: 'Group. User Interface. User Experience. Mobile App',
       heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
-      images: [],
       hideBanner: true,
+      isCardBanner: true,
       overview: (
         <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           <AppPromotionalShowcase />
@@ -1077,8 +1077,8 @@ const workData = {
       year: 2026,
       category: '团队. 用户界面. 用户体验. 移动应用',
       heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
-      images: [],
       hideBanner: true,
+      isCardBanner: true,
       overview: (
         <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           <AppPromotionalShowcase />
@@ -1884,6 +1884,11 @@ function WorkDetail() {
           <h1 className="work-detail-title">{work.title}</h1>
           <p className="work-description">{work.description}</p>
         </header>
+        {work.isCardBanner && work.heroImage && (
+          <div className="work-detail-card-banner">
+            <img src={work.heroImage} alt={work.title} />
+          </div>
+        )}
         {(work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) ? (
           <div className="work-detail-video-wrap">
             <div className="video-browser-mockup">
