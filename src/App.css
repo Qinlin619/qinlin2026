@@ -1630,6 +1630,7 @@ main>*:not(.hero) {
 .work-detail {
   max-width: 1200px;
   margin: 0;
+  padding-top: 0; /* Remove top padding to align banner with navbar */
   padding-bottom: 0;
   opacity: 0;
   transform: translateY(20px);
@@ -1970,6 +1971,7 @@ main>*:not(.hero) {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  margin-top: -3.5rem; /* Pull banner up to touch the navbar */
   margin-bottom: 2rem;
   overflow: hidden;
   border-radius: 0;
@@ -2019,7 +2021,7 @@ main>*:not(.hero) {
 }
 
 .work-detail-banner+.work-detail-header {
-  padding-top: 0;
+  padding-top: 2.5rem;
 }
 
 .work-detail-video-wrap {
@@ -2110,7 +2112,7 @@ main>*:not(.hero) {
 
 .work-detail-title {
   font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: -0.02em;
   margin: 0 0 1rem;
   color: #000;
@@ -3809,35 +3811,51 @@ a.active,
 }
 
 .app-showcase-features {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   width: 100%;
   margin-bottom: 2rem;
-}
-
-@media (max-width: 640px) {
-  .app-showcase-features {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
 }
 
 .app-showcase-feature-item {
   display: flex;
   gap: 1rem;
-  align-items: flex-start;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 12px;
+  padding: 0.9rem 1.25rem;
+  background: #ffffff;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.app-showcase-feature-item:hover {
+  border-color: #9be3eb;
+  background: rgba(155, 227, 235, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(155, 227, 235, 0.15);
+}
+
+.app-showcase-feature-item:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .app-showcase-feature-icon {
-  font-size: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #72a5d6;
+  background: #f0f6fa;
+  border: 1px solid rgba(114, 165, 214, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: rgba(15, 23, 42, 0.04);
-  border-radius: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .app-showcase-feature-text {
@@ -4064,6 +4082,73 @@ a.active,
   display: block;
   object-fit: cover;
 }
+
+/* Banner Fade Out at bottom */
+.work-detail-banner.banner-fade-out {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 90%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 90%);
+  margin-bottom: -1rem; /* Pull header closer for smoother blend */
+}
+
+/* Elegant divider line with gradient fades */
+.case-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e2e8f0 10%, #e2e8f0 90%, transparent);
+  margin: 4rem 0;
+  width: 100%;
+}
+
+/* Premium Blue Outcome Box styling */
+.outcome-wrapper {
+  background-color: #9be3eb; /* TripUp hover color */
+  color: #1f2937; /* Dark slate text for high contrast on light background */
+  padding: 3rem 4rem;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.outcome-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #111827 !important; /* Dark title for accessibility */
+}
+
+.outcome-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.outcome-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.outcome-list li {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #374151; /* Charcoal color for list items */
+  font-weight: 500;
+}
+
+.outcome-summary {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 500;
+  border-top: 1px solid rgba(31, 41, 55, 0.2); /* Darker border for divider */
+  padding-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+
 
 
 

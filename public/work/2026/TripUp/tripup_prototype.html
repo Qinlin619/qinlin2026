@@ -1564,6 +1564,53 @@
         document.getElementById('expense-input-amount').innerText = currentInputAmount;
     }
 
+    // Dynamic Island Simulation
+    function triggerDynamicIsland(title, desc) {
+        const island = document.getElementById('island');
+        const content = document.getElementById('island-content');
+        if (!island || !content) return;
+        
+        content.innerHTML = `
+            <div style="display:flex; align-items:center; justify-content:space-between; width:100%; padding: 0 4px; color: white;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-bell" style="color:#00B09B; font-size:14px;"></i>
+                    <div style="display:flex; flex-direction:column; align-items:flex-start;">
+                        <span style="font-weight:700; font-size:11px; color:#ffffff; line-height:1.2;">${title}</span>
+                        <span style="color:#94a3b8; font-size:9px; line-height:1.1;">${desc}</span>
+                    </div>
+                </div>
+                <span style="font-size:10px; font-weight:700; color:#00B09B; margin-left: auto;">Just now</span>
+            </div>
+        `;
+        
+        island.classList.add('expanded');
+        
+        setTimeout(() => {
+            island.classList.remove('expanded');
+        }, 3500);
+    }
+
+    // PostMessage API for steps clicking
+    window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'NAVIGATE_TO_STEP') {
+            const step = parseInt(event.data.step, 10);
+            if (step === 1) {
+                navTo('screen-trip');
+                switchTab('itinerary');
+            } else if (step === 2) {
+                navTo('screen-voting');
+            } else if (step === 3) {
+                navTo('screen-trip');
+                switchTab('expenses');
+            } else if (step === 4) {
+                navTo('screen-trip');
+                setTimeout(() => {
+                    triggerDynamicIsland('TripUp Update', 'Ari log new dinner expense €150.00');
+                }, 400);
+            }
+        }
+    });
+
 </script>
 </body>
 </html>

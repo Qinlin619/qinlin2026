@@ -103,7 +103,7 @@ function AppPromotionalShowcase() {
       { icon: "💸", title: "Expense Splitter", detail: "Frictionless group bill splitting" },
       { icon: "📱", title: "iOS Dynamics", detail: "Interactive Dynamic Island popups" }
     ],
-    tip: "💡 Tip: Click on 'Lisbon' card to enter, then use bottom tabs."
+    tip: "💡 Tip: Click on any step above to automatically navigate the prototype."
   };
 
   const zh = {
@@ -116,10 +116,17 @@ function AppPromotionalShowcase() {
       { icon: "💸", title: "费用分账", detail: "清晰直观地分摊和结算开销" },
       { icon: "📱", title: "灵动岛交互", detail: "状态弹窗与消息即时反馈" }
     ],
-    tip: "💡 提示：点击「Lisbon」卡片进入详情页，切换底部标签浏览。"
+    tip: "💡 提示：点击上方任意步骤，右侧原型会自动跳转到对应页面。"
   };
 
   const t = language === 'zh' ? zh : en;
+
+  const handleFeatureClick = (stepIndex) => {
+    const iframe = document.querySelector('iframe[title="TripUp Interactive Prototype"]');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ type: 'NAVIGATE_TO_STEP', step: stepIndex }, '*');
+    }
+  };
 
   return (
     <div className="app-showcase-card">
@@ -134,10 +141,16 @@ function AppPromotionalShowcase() {
           
           <div className="app-showcase-features">
             {t.features.map((f, idx) => (
-              <div key={idx} className="app-showcase-feature-item">
-                <span className="app-showcase-feature-icon">{f.icon}</span>
+              <div 
+                key={idx} 
+                className="app-showcase-feature-item"
+                onClick={() => handleFeatureClick(idx + 1)}
+              >
+                <span className="app-showcase-feature-icon">
+                  <span className="feature-number">{idx + 1}</span>
+                </span>
                 <div className="app-showcase-feature-text">
-                  <span className="app-showcase-feature-title">{f.title}</span>
+                  <span className="app-showcase-feature-title">{f.icon} &nbsp;{f.title}</span>
                   <span className="app-showcase-feature-detail">{f.detail}</span>
                 </div>
               </div>
@@ -409,9 +422,9 @@ const workData = {
       description: 'Streamlining the group travel experience through collaborative planning and real-time social dynamics.',
       year: 2026,
       category: 'Group. User Interface. User Experience. Mobile App',
-      heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
-      hideBanner: true,
-      isCardBanner: true,
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/banner.png`,
+      fadeBanner: false,
+      hideHeaderTitle: true,
       overview: (
         <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           <AppPromotionalShowcase />
@@ -435,12 +448,14 @@ const workData = {
             </ul>
           </section>
 
+          <hr className="case-divider" />
           <section className="case-section">
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Scenario Logic Flow</h3>
             <p style={{ marginBottom: '1rem' }}>Visualizing the end-to-end user journey, from initiating a quick group dinner poll to concluding with a frictionless expense settlement. It translates abstract user needs into actionable interface events.</p>
             <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Flow.png`} alt="TripUp Scenario Logic Flow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
           </section>
 
+          <hr className="case-divider" />
           <section className="case-section">
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Wireflow & Architecture</h3>
             <p style={{ marginBottom: '1rem' }}>Mapping out the navigation and interaction architecture to ensure a low-friction journey across all key features.</p>
@@ -460,6 +475,18 @@ const workData = {
       roleDesc: 'Responsible for end-to-end redesign, translating abstract user needs into concrete, actionable interface events to map out a seamless and intuitive functional flow.',
       process: ['User Behavioral Intelligence', 'Scenario Logic Flow', 'Wireflow & Navigation', 'Design System', 'High-Fidelity Screens'],
       insights: ['Contextual Goal Setting', 'Rapid Decisions via Diverse Displays', 'Interactive Status Sync and Payment'],
+      outcome: (
+        <div className="outcome-wrapper">
+          <h3 className="outcome-title">Outcome: Planning That Feels Like Part of the Journey</h3>
+          <p className="outcome-intro">This interactive application transformed fragmented travel planning into a seamless, collaborative social experience:</p>
+          <ul className="outcome-list">
+            <li>Groups made faster, collective decisions without endless chat threads</li>
+            <li>Organizers reduced planning friction and coordinated effortlessly</li>
+            <li>Travelers stayed synced in real-time through context-aware status updates</li>
+          </ul>
+          <p className="outcome-summary">The work demonstrated how intuitive UX/UI and micro-interactions (like Dynamic Island integration) can turn a stressful logistics task into an exciting, shared pre-trip ritual—delivering value by maximizing active user participation and satisfaction in group coordination.</p>
+        </div>
+      ),
       results: 'A comprehensive mobile app redesign that streamlines the group travel experience.'
     },
 
@@ -1076,9 +1103,9 @@ const workData = {
       description: '通过协作规划和实时社交动态，简化团队旅行体验的移动应用重构。',
       year: 2026,
       category: '团队. 用户界面. 用户体验. 移动应用',
-      heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
-      hideBanner: true,
-      isCardBanner: true,
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/banner.png`,
+      fadeBanner: false,
+      hideHeaderTitle: true,
       overview: (
         <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           <AppPromotionalShowcase />
@@ -1102,12 +1129,14 @@ const workData = {
             </ul>
           </section>
 
+          <hr className="case-divider" />
           <section className="case-section">
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>场景逻辑流 (Scenario Logic Flow)</h3>
             <p style={{ marginBottom: '1rem' }}>可视化端到端的用户旅程，从发起一个快速的群组晚餐投票到最终完成无摩擦的费用结算。它将抽象的用户需求转化为具体的、可操作的界面事件。</p>
             <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Flow.png`} alt="TripUp Scenario Logic Flow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
           </section>
 
+          <hr className="case-divider" />
           <section className="case-section">
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：线框流与架构 (Wireflow & Architecture)</h3>
             <p style={{ marginBottom: '1rem' }}>梳理导航和交互架构，以确保所有关键功能都能提供低阻力的用户体验。</p>
@@ -1127,6 +1156,18 @@ const workData = {
       roleDesc: '负责端到端的应用重构，将抽象的用户需求转化为具体、可操作的界面事件，从而规划出无缝、直观的功能流程。',
       process: ['用户行为分析', '场景逻辑流', '线框图与导航', '设计系统', '高保真界面'],
       insights: ['情景目标设定', '通过多样化展示快速决策', '交互式状态同步与支付'],
+      outcome: (
+        <div className="outcome-wrapper">
+          <h3 className="outcome-title">成果：让规划本身成为旅程的起点</h3>
+          <p className="outcome-intro">这款交互式应用将零碎复杂的团队旅行规划转变为无缝、协同的社交体验：</p>
+          <ul className="outcome-list">
+            <li>团队无需冗长的聊天就能快速达成集体决策</li>
+            <li>组织者显著减少了协调摩擦，轻松完成行程安排</li>
+            <li>旅行者通过即时上下文状态同步在旅途中保持完美同频</li>
+          </ul>
+          <p className="outcome-summary">本项目展示了直观的 UX/UI 设计与微交互（例如灵动岛的整合）如何将繁琐的物流协调转变为令人兴奋的行前共享仪式——通过最大化团队协作中的用户参与度和满意度来创造深层价值。</p>
+        </div>
+      ),
       results: '一次全面的移动应用重构，显著简化了团队旅行的体验。'
     },
 
@@ -1867,7 +1908,7 @@ function WorkDetail() {
     <>
       <div className={`page-content work-detail ${isVisible ? 'visible' : ''}`}>
         {bannerImages.length > 0 && (
-          <div className={`work-detail-banner ${bannerImages.length === 1 ? 'is-single' : ''}`} aria-hidden>
+          <div className={`work-detail-banner ${bannerImages.length === 1 ? 'is-single' : ''} ${work.fadeBanner ? 'banner-fade-out' : ''}`} aria-hidden>
             {bannerImages.map((src, i) => (
               <img key={i} src={src} alt="" />
             ))}
@@ -1881,14 +1922,13 @@ function WorkDetail() {
               <CategoryIcons category={work.category} className="work-category-tags" />
             )}
           </div>
-          <h1 className="work-detail-title">{work.title}</h1>
-          <p className="work-description">{work.description}</p>
+          {!work.hideHeaderTitle && (
+            <>
+              <h1 className="work-detail-title">{work.title}</h1>
+              <p className="work-description">{work.description}</p>
+            </>
+          )}
         </header>
-        {work.isCardBanner && work.heroImage && (
-          <div className="work-detail-card-banner">
-            <img src={work.heroImage} alt={work.title} />
-          </div>
-        )}
         {(work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) ? (
           <div className="work-detail-video-wrap">
             <div className="video-browser-mockup">
@@ -1938,13 +1978,6 @@ function WorkDetail() {
           </div>
         ))}
         <div className="work-content">
-          <section className="work-section-block">
-            {parseInt(id, 10) !== 8 && <h2>{labels.overview}</h2>}
-            <div className="text-content">
-              {typeof work.overview === 'string' ? <p>{work.overview}</p> : work.overview}
-              {work.overviewExtra && <p>{work.overviewExtra}</p>}
-            </div>
-          </section>
           {work.role && (
             <section className="work-section-block">
               <h2>{labels.role}</h2>
@@ -1954,16 +1987,29 @@ function WorkDetail() {
               </div>
             </section>
           )}
+          <section className="work-section-block">
+            {parseInt(id, 10) !== 8 && <h2>{labels.overview}</h2>}
+            <div className="text-content">
+              {typeof work.overview === 'string' ? <p>{work.overview}</p> : work.overview}
+              {work.overviewExtra && <p>{work.overviewExtra}</p>}
+            </div>
+          </section>
 
-          {work.insights && work.insights.length > 0 && (
+          {work.outcome ? (
             <section className="work-section-block">
-              <h2>{labels.insights}</h2>
-              <div className="insights-grid">
-                {work.insights.map((item, idx) => (
-                  <div key={idx} className="insight-card">{item}</div>
-                ))}
-              </div>
+              {work.outcome}
             </section>
+          ) : (
+            work.insights && work.insights.length > 0 && (
+              <section className="work-section-block">
+                <h2>{labels.insights}</h2>
+                <div className="insights-grid">
+                  {work.insights.map((item, idx) => (
+                    <div key={idx} className="insight-card">{item}</div>
+                  ))}
+                </div>
+              </section>
+            )
           )}
 
 
