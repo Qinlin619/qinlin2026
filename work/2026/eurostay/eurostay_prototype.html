@@ -340,6 +340,22 @@
             transitionInProgress = false;
         }, 300);
     }
+
+    // PostMessage API for steps clicking
+    window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'NAVIGATE_TO_STEP') {
+            const step = parseInt(event.data.step, 10);
+            if (step === 1) {
+                performTransition(1);
+            } else if (step === 2) {
+                performTransition(2);
+            } else if (step === 3) {
+                performTransition(5);
+            } else if (step === 4) {
+                performTransition(8);
+            }
+        }
+    });
 </script>
 </body>
 </html>
