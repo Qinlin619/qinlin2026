@@ -1966,15 +1966,11 @@ main>*:not(.hero) {
 
 .work-detail-banner {
   display: flex;
-  width: 100vw;
-  max-width: none;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: -3.5rem; /* Pull banner up to touch the navbar */
+  width: 100%;
+  margin-top: 0;
   margin-bottom: 2rem;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 12px;
 }
 
 .work-detail-banner img {
@@ -1991,8 +1987,7 @@ main>*:not(.hero) {
 
 .work-detail-banner.is-single img {
   width: 100%;
-  height: 480px;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
@@ -2003,7 +1998,7 @@ main>*:not(.hero) {
 
 .work-detail-back {
   display: inline-block;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   font-size: 0.95rem;
   font-weight: 400;
   color: #000;
@@ -2123,7 +2118,15 @@ main>*:not(.hero) {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.work-header-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 /* Flatten category tags into work-meta for consistent spacing */
@@ -3053,8 +3056,10 @@ main>*:not(.hero) {
   }
 
   .work-detail-banner {
-    margin-top: -1rem;
+    width: 100%;
+    margin-top: 0;
     margin-bottom: 1.5rem;
+    border-radius: 12px;
   }
 
   .work-detail-banner img {
@@ -3063,7 +3068,7 @@ main>*:not(.hero) {
 
   .work-detail-banner.is-single img {
     height: auto;
-    aspect-ratio: 16/9;
+    aspect-ratio: auto;
   }
 
 
@@ -3261,7 +3266,9 @@ main>*:not(.hero) {
   }
 
   .work-detail-banner {
-    margin-top: -0.5rem;
+    width: 100%;
+    margin-top: 0;
+    border-radius: 8px;
   }
 
   .work-detail-banner img {
@@ -3270,7 +3277,7 @@ main>*:not(.hero) {
 
   .work-detail-banner.is-single img {
     height: auto;
-    aspect-ratio: 16/9;
+    aspect-ratio: auto;
   }
 
 

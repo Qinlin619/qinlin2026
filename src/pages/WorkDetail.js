@@ -257,7 +257,7 @@ function EuroStayPromotionalShowcase() {
       { icon: "🏡", title: "Profile & Booking", detail: "View host profiles & submit requests" },
       { icon: "💬", title: "Notifications & Chats", detail: "Simulated messages and iOS popups" }
     ],
-    tip: "💡 Tip: Click anywhere on the mobile screen to cycle through the screens."
+    tip: "💡 Tip: Click on any step above, or click on the mobile screen to navigate."
   };
 
   const zh = {
@@ -270,10 +270,17 @@ function EuroStayPromotionalShowcase() {
       { icon: "🏡", title: "主机与申请", detail: "浏览主机档案并提交申请表单" },
       { icon: "💬", title: "通知与消息", detail: "灵动岛即时反馈与聊天通知" }
     ],
-    tip: "💡 提示：点击手机屏幕任意位置可依次切换页面。"
+    tip: "💡 提示：点击上方任意步骤，或直接点击手机屏幕进行切换。"
   };
 
   const t = language === 'zh' ? zh : en;
+
+  const handleFeatureClick = (stepIndex) => {
+    const iframe = document.querySelector('iframe[title="EuroStay Interactive Prototype"]');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ type: 'NAVIGATE_TO_STEP', step: stepIndex }, '*');
+    }
+  };
 
   return (
     <div className="app-showcase-card">
@@ -288,7 +295,12 @@ function EuroStayPromotionalShowcase() {
           
           <div className="app-showcase-features">
             {t.features.map((f, idx) => (
-              <div key={idx} className="app-showcase-feature-item">
+              <div 
+                key={idx} 
+                className="app-showcase-feature-item"
+                onClick={() => handleFeatureClick(idx + 1)}
+                style={{ cursor: 'pointer' }}
+              >
                 <span className="app-showcase-feature-icon">{f.icon}</span>
                 <div className="app-showcase-feature-text">
                   <span className="app-showcase-feature-title">{f.title}</span>
@@ -316,9 +328,14 @@ const workData = {
       description: "World's #1 Chinese backpacker community in Europe",
       year: 2026,
       category: 'Branding. UI/UX. Community. Mobile App',
-      heroImage: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/eurostay/banner.png`,
       images: [],
-      hideBanner: true,
+      fadeBanner: false,
+      hideHeaderTitle: true,
+      siteUrl: 'https://www.eurostay.co',
+      siteText: 'Visit EuroStay Website',
+      pdfUrl: `${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`,
+      pdfText: 'Brand Manual (PDF)',
       overview: (
         <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           <EuroStayPromotionalShowcase />
@@ -342,18 +359,15 @@ const workData = {
           </section>
 
           <section className="case-section">
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Brand Identity</h3>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Brand Identity & Design System</h3>
             <p style={{ marginBottom: '1rem' }}>We developed a vibrant yet professional color palette inspired by European sunsets and the spirit of exploration. The new visual language represents the bridge between travelers and the diverse cultures they explore.</p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-               <img src={`${process.env.PUBLIC_URL}/work/2026/top.png`} alt="EuroStay Brand Identity 1" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
-               <img src={`${process.env.PUBLIC_URL}/work/2026/topE.png`} alt="EuroStay Brand Identity 2" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
-            </div>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/eurostay/designsystem.png`} alt="EuroStay Brand Identity & Design System" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
           </section>
 
           <section className="case-section">
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: App Experience & High-Fidelity</h3>
             <p style={{ marginBottom: '1rem' }}>The mobile app focuses on real-time community interaction and verified host discovery. We used glassmorphism to create a sense of depth and modernity, ensuring the interface feels premium and alive.</p>
-            <img src={`${process.env.PUBLIC_URL}/work/2026/1.png`} alt="EuroStay High Fidelity UI" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+            <img src={`${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`} alt="EuroStay High Fidelity UI" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
           </section>
           
           <section className="case-section">
@@ -390,24 +404,6 @@ const workData = {
             </div>
           </section>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid #e2e8f0', paddingTop: '2rem' }}>
-            <a
-              href="https://www.eurostay.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Visit EuroStay Website
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Brand Manual (PDF)
-            </a>
-          </div>
         </div>
       ),
       overviewExtra: '',
@@ -997,9 +993,14 @@ const workData = {
       description: '世界第一的欧洲华人背包客社区',
       year: 2026,
       category: '品牌设计. UI/UX. 社区. 移动应用',
-      heroImage: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/eurostay/banner.png`,
       images: [],
-      hideBanner: true,
+      fadeBanner: false,
+      hideHeaderTitle: true,
+      siteUrl: 'https://www.eurostay.co',
+      siteText: '访问 EuroStay 官网',
+      pdfUrl: `${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`,
+      pdfText: '品牌手册 (PDF)',
       overview: (
         <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           <EuroStayPromotionalShowcase />
@@ -1071,24 +1072,6 @@ const workData = {
             </div>
           </section>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid #e2e8f0', paddingTop: '2rem' }}>
-            <a
-              href="https://www.eurostay.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              访问 EuroStay 官网
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              品牌手册 (PDF)
-            </a>
-          </div>
         </div>
       ),
       overviewExtra: '',
@@ -1922,6 +1905,20 @@ function WorkDetail() {
               <CategoryIcons category={work.category} className="work-category-tags" />
             )}
           </div>
+          {(work.siteUrl || work.pdfUrl) && (
+            <div className="work-header-links">
+              {work.siteUrl && (
+                <a href={work.siteUrl} target="_blank" rel="noopener noreferrer" className="work-pdf-link">
+                  {work.siteText || (language === 'zh' ? '访问官网' : 'Visit Website')}
+                </a>
+              )}
+              {work.pdfUrl && (
+                <a href={work.pdfUrl} target="_blank" rel="noopener noreferrer" className="work-pdf-link">
+                  {work.pdfText || (language === 'zh' ? '查看 PDF' : 'View PDF')}
+                </a>
+              )}
+            </div>
+          )}
           {!work.hideHeaderTitle && (
             <>
               <h1 className="work-detail-title">{work.title}</h1>
