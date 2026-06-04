@@ -332,10 +332,10 @@ const workData = {
       images: [],
       fadeBanner: false,
       hideHeaderTitle: true,
-      siteUrl: 'https://www.eurostay.co',
-      siteText: 'Visit EuroStay Website',
-      pdfUrl: `${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`,
-      pdfText: 'Brand Manual (PDF)',
+      links: [
+        { url: 'https://www.eurostay.co', text: 'Visit EuroStay Website' },
+        { url: `${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`, text: 'Brand Manual (PDF)' }
+      ],
       overview: (
         <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           <EuroStayPromotionalShowcase />
@@ -495,6 +495,9 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`, text: 'Full Project (PDF)' }
+      ],
       overview: (
         <>
           <p>Pixelated Adventures - a board game design on my Exploring Interaction course, offering a novel way for people to share their travel memories. I began by examining the challenges of souvenir selection, delving deeper into the inadequacies of traditional storytelling, and exploring innovative methods to enhance these experiences with interactivity and appeal.</p>
@@ -508,16 +511,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Full Project (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -546,6 +539,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/6.jpg`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`, text: 'Project Poster (PDF)' },
+        { url: 'https://www.youtube.com/watch?v=nBapYYWg-BI', text: 'Exhibition Video (YouTube)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`, text: 'Final Project Video (MP4)' },
+        { url: 'https://github.com/Qinlin619/E.C.H.O.git', text: 'Source Code (GitHub)' }
+      ],
       overview: (
         <>
           <p>E.C.H.O. is a robot in the community that interacts with residents, collects their stories, and records them. With the introduction of ECHO we wanted to ask questions considering the role of the robot (or robots) in the neighbourhoods of the future.</p>
@@ -564,40 +563,6 @@ const workData = {
                 />
               );
             })}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Poster (PDF)
-            </a>
-            <a
-              href="https://www.youtube.com/watch?v=nBapYYWg-BI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Exhibition Video (YouTube)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Final Project Video (MP4)
-            </a>
-            <a
-              href="https://github.com/Qinlin619/E.C.H.O.git"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Source Code (GitHub)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -628,6 +593,9 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`, text: 'Project Details (PDF)' }
+      ],
       overview: (
         <>
           <p>Created as a specialized guide for the Museum of Liverpool, the Lambanana Tour project aimed to gamify the museum experience for children. The illustrated map and interactive souvenir set encourage young visitors to explore specific exhibits and engage with Liverpool's rich history in a playful, memorable way.</p>
@@ -641,16 +609,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Details (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -679,19 +637,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`, text: 'Project Details (PDF)' }
+      ],
       overview: (
         <>
           <p>Lemur Go is a telepresence installation designed to bridge the gap between people and zoo animals during periods of isolation. The system allows remote users to interact with lemurs through digital interfaces, providing mental stimulation for the animals and a unique conservation-focused experience for the users.</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Details (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf#toolbar=0&view=FitH`}
@@ -719,19 +670,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`, text: 'Project Details (PDF)' }
+      ],
       overview: (
         <>
           <p>Doozi is an innovative set of wheelchair accessories designed specifically for children with physical disabilities. The project includes a robotic domino-laying cart that helps children practice motor skills and spatial reasoning, and a musical puzzle carpet that provides tactile and auditory feedback. Our goal was to transform the wheelchair from just a mobility aid into a platform for play and social integration.</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Details (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf#toolbar=0&view=FitH`}
@@ -759,19 +703,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`, text: 'Project Details (PDF)' }
+      ],
       overview: (
         <>
           <p>Happy Little Pill is an inclusive medication management system specifically designed for elderly individuals living with Alzheimer's. The product utilizes tactile and visual cues (color-coding and embossed patterns) to help users identify their medication schedule independently, reducing the anxiety and risk associated with daily pill intake.</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Details (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf#toolbar=0&view=FitH`}
@@ -800,6 +737,12 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
       ],
       hideBanner: true,
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`, text: 'Phase 1 Report (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`, text: 'Phase 2 Report (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`, text: 'Phase 3 Final Report (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`, text: 'Project Poster (PDF)' }
+      ],
       overview: (
         <>
           <p>The project focuses on redesigning the interface and physical interaction of the Atag induction hob to reduce cognitive load and improve user safety. We analyzed user pain points in modern kitchens and proposed a more intuitive layout and feedback system.</p>
@@ -813,40 +756,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Phase 1 Report (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Phase 2 Report (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Phase 3 Final Report (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Poster (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -997,10 +906,10 @@ const workData = {
       images: [],
       fadeBanner: false,
       hideHeaderTitle: true,
-      siteUrl: 'https://www.eurostay.co',
-      siteText: '访问 EuroStay 官网',
-      pdfUrl: `${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`,
-      pdfText: '品牌手册 (PDF)',
+      links: [
+        { url: 'https://www.eurostay.co', text: '访问 EuroStay 官网' },
+        { url: `${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`, text: '品牌手册 (PDF)' }
+      ],
       overview: (
         <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           <EuroStayPromotionalShowcase />
@@ -1163,6 +1072,9 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`, text: '查看完整项目 (PDF)' }
+      ],
       overview: (
         <>
           <p>Pixelated Adventures - 我在探索交互课程中设计的桌面实体互动游戏，为人们分享旅行回忆提供了一种新颖的方式。我从研究纪念品选择的挑战开始，深入探讨传统叙事的不足，并探索创新方法，通过互动性和吸引力来增强这些体验。</p>
@@ -1176,16 +1088,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              查看完整项目 (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -1214,6 +1116,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/6.jpg`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`, text: '项目海报 (PDF)' },
+        { url: 'https://www.youtube.com/watch?v=nBapYYWg-BI', text: '展览视频 (YouTube)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`, text: '最终成品视频 (MP4)' },
+        { url: 'https://github.com/Qinlin619/E.C.H.O.git', text: '项目代码库 (GitHub)' }
+      ],
       overview: (
         <>
           <p>E.C.H.O.是一个社区机器人，与居民互动、收集他们的故事并记录下来。通过引入ECHO，我们想要探讨机器人在未来社区中的角色。</p>
@@ -1232,40 +1140,6 @@ const workData = {
                 />
               );
             })}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              项目海报 (PDF)
-            </a>
-            <a
-              href="https://www.youtube.com/watch?v=nBapYYWg-BI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              展览视频 (YouTube)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              最终成品视频 (MP4)
-            </a>
-            <a
-              href="https://github.com/Qinlin619/E.C.H.O.git"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              项目代码库 (GitHub)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -1296,6 +1170,9 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`, text: '作品详情 (PDF)' }
+      ],
       overview: (
         <>
           <p>该项目是为利物浦博物馆专门设计的导览系统，旨在平衡儿童的娱乐性与教育性。通过插画地图和互动纪念品，鼓励年轻观众探索特定展品，以一种游戏化且难忘的方式了解利物浦丰富的历史。</p>
@@ -1309,16 +1186,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              作品详情 (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -1347,19 +1214,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`, text: '作品详情 (PDF)' }
+      ],
       overview: (
         <>
           <p>Lemur Go 是一项远程呈现装置，旨在疫情隔离期间搭建人与动物园动物之间的桥梁。该系统允许远程用户通过数字界面与狐猴进行交互，为动物提供心理刺激，同时也为用户提供独特的以保护为导向的体验。</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              作品详情 (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf#toolbar=0&view=FitH`}
@@ -1387,19 +1247,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`, text: '作品详情 (PDF)' }
+      ],
       overview: (
         <>
           <p>Doozi 是一套专门为肢体残疾儿童设计的创新轮椅配件。该项目包括一个能自动摆放多米诺骨牌的机器人小车（帮助儿童锻炼运动技能和空间推理能力），以及一个提供触觉 and 听觉反馈的音乐解谜地毯。我们的目标是将轮椅从单纯的移动辅助工具转变为一个促进玩耍和社交融合的平台。</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              作品详情 (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf#toolbar=0&view=FitH`}
@@ -1427,19 +1280,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`, text: '作品详情 (PDF)' }
+      ],
       overview: (
         <>
           <p>Happy Little Pill 是一款专为阿兹海默症老年患者设计的包容性药物管理系统。该产品利用触觉和视觉提示（色彩编码和浮雕图案）帮助用户独立识别服药时间表，减少日常服药带来的焦虑 and 风险。</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              作品详情 (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf#toolbar=0&view=FitH`}
@@ -1468,6 +1314,12 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
       ],
       hideBanner: true,
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`, text: '第一阶段报告 Phase 1 (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`, text: '第二阶段报告 Phase 2 (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`, text: '第三阶段最终报告 Phase 3 (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`, text: '项目海报 (PDF)' }
+      ],
       overview: (
         <>
           <p>该项目专注于重新设计 Atag 感应炉的界面和物理交互，以降低用户的认知负荷并提高安全性。我们分析了现代厨房中的用户痛点，并提出了更直观的布局和反馈系统。</p>
@@ -1481,40 +1333,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              第一阶段报告 Phase 1 (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              第二阶段报告 Phase 2 (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              第三阶段最终报告 Phase 3 (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              项目海报 (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -1905,18 +1723,13 @@ function WorkDetail() {
               <CategoryIcons category={work.category} className="work-category-tags" />
             )}
           </div>
-          {(work.siteUrl || work.pdfUrl) && (
+          {work.links && work.links.length > 0 && (
             <div className="work-header-links">
-              {work.siteUrl && (
-                <a href={work.siteUrl} target="_blank" rel="noopener noreferrer" className="work-pdf-link">
-                  {work.siteText || (language === 'zh' ? '访问官网' : 'Visit Website')}
+              {work.links.map((link, idx) => (
+                <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="work-pdf-link">
+                  {link.text}
                 </a>
-              )}
-              {work.pdfUrl && (
-                <a href={work.pdfUrl} target="_blank" rel="noopener noreferrer" className="work-pdf-link">
-                  {work.pdfText || (language === 'zh' ? '查看 PDF' : 'View PDF')}
-                </a>
-              )}
+              ))}
             </div>
           )}
           {!work.hideHeaderTitle && (

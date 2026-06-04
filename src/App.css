@@ -2124,9 +2124,28 @@ main>*:not(.hero) {
 .work-header-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
+}
+
+.work-header-links .work-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #000000;
+  text-decoration: none;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  transition: all 0.2s ease;
+}
+
+.work-header-links .work-pdf-link:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 /* Flatten category tags into work-meta for consistent spacing */
