@@ -732,11 +732,10 @@ const workData = {
       description: 'Redesign the Atag Induction Hob for enhanced usability, targeting a dependable and convenient cooking experience at home.',
       year: 2024,
       category: 'Group. User Interface. User Experience. Redesign',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`,
-      images: [
-        `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
-      ],
-      hideBanner: true,
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/banner.png`,
+      images: [],
+      hideBanner: false,
+      hideHeaderTitle: true,
       links: [
         { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`, text: 'Phase 1 Report (PDF)' },
         { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`, text: 'Phase 2 Report (PDF)' },
@@ -1309,11 +1308,10 @@ const workData = {
       description: '重新设计Atag感应炉，提升可用性，旨在提供可靠且便捷的家庭烹饪体验。',
       year: 2024,
       category: '团队. 用户界面. 用户体验. 重新设计',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`,
-      images: [
-        `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
-      ],
-      hideBanner: true,
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/banner.png`,
+      images: [],
+      hideBanner: false,
+      hideHeaderTitle: true,
       links: [
         { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`, text: '第一阶段报告 Phase 1 (PDF)' },
         { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`, text: '第二阶段报告 Phase 2 (PDF)' },
@@ -1739,54 +1737,6 @@ function WorkDetail() {
             </>
           )}
         </header>
-        {(work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) ? (
-          <div className="work-detail-video-wrap">
-            <div className="video-browser-mockup">
-              <div className="browser-header-bar">
-                <div className="browser-dots">
-                  <span className="browser-dot red" />
-                  <span className="browser-dot yellow" />
-                  <span className="browser-dot green" />
-                </div>
-                <div className="browser-url-bar">{work.youtubeUrl}</div>
-              </div>
-              <div className="work-detail-video">
-                <iframe
-                  title={work.title}
-                  src={getYoutubeEmbedUrl(work.youtubeUrl)}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        ) : (work.videoUrl && (
-          <div className="work-detail-video-wrap">
-            <div className="video-browser-mockup">
-              <div className="browser-header-bar">
-                <div className="browser-dots">
-                  <span className="browser-dot red" />
-                  <span className="browser-dot yellow" />
-                  <span className="browser-dot green" />
-                </div>
-                <div className="browser-url-bar">
-                  {numericId === 7 && 'https://qinlin619.github.io/Atag-Induction-Hob/'}
-                  {numericId === 2 && 'https://qinlin619.github.io/E.C.H.O/'}
-                  {numericId === 11 && 'https://qinlin619.github.io/CoBrush/'}
-                  {![2, 7, 11].includes(numericId) && 'https://qinlin619.github.io/Portfolio/'}
-                </div>
-              </div>
-              <div className="work-detail-video">
-                <video
-                  src={work.videoUrl}
-                  controls
-                  style={{ width: '100%', height: '100%', display: 'block' }}
-                />
-              </div>
-            </div>
-          </div>
-        ))}
         <div className="work-content">
           {work.role && (
             <section className="work-section-block">
@@ -1797,8 +1747,49 @@ function WorkDetail() {
               </div>
             </section>
           )}
+
           <section className="work-section-block">
             {parseInt(id, 10) !== 8 && <h2>{labels.overview}</h2>}
+            {((work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) || work.videoUrl) && (
+              <div className="work-detail-video-wrap" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+                <div className="video-browser-mockup">
+                  <div className="browser-header-bar">
+                    <div className="browser-dots">
+                      <span className="browser-dot red" />
+                      <span className="browser-dot yellow" />
+                      <span className="browser-dot green" />
+                    </div>
+                    <div className="browser-url-bar">
+                      {work.youtubeUrl ? work.youtubeUrl : (
+                        <>
+                          {numericId === 7 && 'https://qinlin619.github.io/Atag-Induction-Hob/'}
+                          {numericId === 2 && 'https://qinlin619.github.io/E.C.H.O/'}
+                          {numericId === 11 && 'https://qinlin619.github.io/CoBrush/'}
+                          {![2, 7, 11].includes(numericId) && 'https://qinlin619.github.io/Portfolio/'}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                  <div className="work-detail-video">
+                    {work.youtubeUrl ? (
+                      <iframe
+                        title={work.title}
+                        src={getYoutubeEmbedUrl(work.youtubeUrl)}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <video
+                        src={work.videoUrl}
+                        controls
+                        style={{ width: '100%', height: '100%', display: 'block' }}
+                      />
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
             <div className="text-content">
               {typeof work.overview === 'string' ? <p>{work.overview}</p> : work.overview}
               {work.overviewExtra && <p>{work.overviewExtra}</p>}
