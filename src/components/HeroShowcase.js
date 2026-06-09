@@ -13,7 +13,7 @@ const HeroShowcase = () => {
 
   // Get all top-rated works for the years 2022 to 2026 (excluding side/mini-game projects)
   const selectedWorks = works
-    .filter(w => w.year >= 2022 && w.year <= 2026 && w.id !== 261 && w.id !== 262 && w.id !== 263)
+    .filter(w => w.year >= 2022 && w.year <= 2026 && w.id !== 261 && w.id !== 262 && w.id !== 263 && w.id !== 267)
     .sort((a, b) => {
       // Primary sort by year (descending)
       if (b.year !== a.year) return b.year - a.year;
@@ -57,6 +57,13 @@ const HeroShowcase = () => {
     };
   }, [scrollProgress]);
 
+  const scrollToProject = (id) => {
+    const element = document.getElementById(`project-${id}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div ref={containerRef} className="hero-showcase-content-only">
       <div 
@@ -70,10 +77,11 @@ const HeroShowcase = () => {
           }}
         >
           {selectedWorks.map((work, index) => (
-            <Link 
+            <div 
               key={`${work.id}-${index}`} 
-              to={`/work/${work.id}`}
+              onClick={() => scrollToProject(work.id)}
               className="showcase-poster"
+              style={{ cursor: 'pointer' }}
             >
               <div className="poster-inner">
                 <img src={work.image} alt={work.title} loading="lazy" />
@@ -82,7 +90,7 @@ const HeroShowcase = () => {
                   <h3 className="poster-title">{work.title}</h3>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
       </div>
     </div>

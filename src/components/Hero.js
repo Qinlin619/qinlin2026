@@ -5,12 +5,12 @@ const heroText = {
   en: {
     title: 'Qinlin Liu',
     subtitle: 'End-to-end Product Designer',
-    motto: 'Bridging the gap between <span class="highlight">user research</span> and <span class="highlight">final polish</span>, crafting <span class="highlight">scalable design systems</span> and <span class="highlight">intuitive interfaces</span> with a <span class="highlight">playful touch</span>.'
+    motto: 'A <span class="highlight">creative</span> and <span class="highlight">technical</span> interaction designer, <br/> blending <span class="highlight">innovative ideas</span> with <span class="highlight">robust execution</span>.'
   },
   zh: {
     title: 'Qinlin Liu',
     subtitle: '全栈产品设计师',
-    motto: '连接 <span class="highlight">用户研究</span> 与 <span class="highlight">最终打磨</span>，致力于打造 <span class="highlight">可扩展设计系统</span> 与 <span class="highlight">直观界面</span>，并注入 <span class="highlight">灵动趣味</span>。'
+    motto: '集 <span class="highlight">创意</span> 与 <span class="highlight">技术</span> 于一身的交互设计师，让 <span class="highlight">创新思维</span> <span class="highlight">完美落地</span>。'
   },
 };
 

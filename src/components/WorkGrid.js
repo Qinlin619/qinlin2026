@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import WorkCard from './WorkCard';
 import { worksData as works } from '../data/worksData';
+import { designModalsData } from '../data/designModalsData';
 
 export const getYearLabel = (year) => String(year);
 
@@ -39,13 +40,25 @@ export const getWorksListByYear = (lang) => {
   });
 };
 
-function WorkGrid() {
+export default function WorkGrid() {
   const { language } = useLanguage();
   const [selectedGame, setSelectedGame] = useState(null);
+  const [masonryCols, setMasonryCols] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) setMasonryCols(1);
+      else if (window.innerWidth <= 1024) setMasonryCols(2);
+      else setMasonryCols(3);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const worksList = works[language] || works.en;
   
-  const tags = ['All', 'UI/UX', 'Game Dev', 'AI'];
+  const tags = ['All', 'UI/UX', 'Game Dev', 'AI', 'Frontend', '2D Design', '3D Design'];
   const [selectedTag, setSelectedTag] = useState('All');
 
   const matchesTag = (work, tag) => {
@@ -74,6 +87,23 @@ function WorkGrid() {
              categoryLower.includes('ai') || 
              categoryLower.includes('robot') || 
              [2, 11].includes(work.id);
+    }
+    
+    if (tag === 'Frontend') {
+      return categoryLower.includes('frontend') || 
+             categoryLower.includes('前端');
+    }
+
+    if (tag === '2D Design') {
+      return categoryLower.includes('2d') || 
+             categoryLower.includes('illustration') || 
+             categoryLower.includes('graphic');
+    }
+    
+    if (tag === '3D Design') {
+      return categoryLower.includes('3d') || 
+             categoryLower.includes('blender') ||
+             categoryLower.includes('modelling');
     }
     
     return false;
@@ -123,38 +153,67 @@ function WorkGrid() {
     },
     263: {
       en: {
-        title: 'Blender',
+        title: '3D Design',
         description: 'A collection of 3D modeling experiments in Blender.',
         images: [
-          { type: 'image', url: '/side/blender/1.png', title: 'Modelling Practice 1' },
-          { type: 'image', url: '/side/blender/2.png', title: 'Modelling Practice 2' },
-          { type: 'image', url: '/side/blender/3.jpg', title: 'Modelling Practice 3' },
-          { type: 'image', url: '/side/blender/4.png', title: 'Modelling Practice 4' },
-          { type: 'image', url: '/side/blender/5.png', title: 'Modelling Practice 5' },
-          { type: 'image', url: '/side/blender/6.png', title: 'Modelling Practice 6' },
-          { type: 'image', url: '/side/blender/7.jpg', title: 'Modelling Practice 7' }
+          { type: 'image', url: '/side/3d design/1.png', title: 'Modelling Practice 1' },
+          { type: 'image', url: '/side/3d design/2.png', title: 'Modelling Practice 2' },
+          { type: 'image', url: '/side/3d design/3.jpg', title: 'Modelling Practice 3' },
+          { type: 'image', url: '/side/3d design/4.png', title: 'Modelling Practice 4' },
+          { type: 'image', url: '/side/3d design/5.png', title: 'Modelling Practice 5' },
+          { type: 'image', url: '/side/3d design/6.png', title: 'Modelling Practice 6' },
+          { type: 'image', url: '/side/3d design/7.jpg', title: 'Modelling Practice 7' },
+          { type: 'image', url: '/side/3d design/8.png', title: 'Modelling Practice 8' },
+          { type: 'image', url: '/side/3d design/9.png', title: 'Modelling Practice 9' },
+          { type: 'image', url: '/side/3d design/avatar/a1.png', title: 'Avatar Render 1', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a2.png', title: 'Avatar Render 2', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a3.png', title: 'Avatar Render 3', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a4.png', title: 'Avatar Render 4', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a5.png', title: 'Avatar Render 5', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a6.png', title: 'Avatar Render 6', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b1.png', title: 'Rigging 1', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b2.png', title: 'Rigging 2', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b3.png', title: 'Rigging 3', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b4.png', title: 'Rigging 4', isAvatar: true },
+          { isEmpty: true, isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b5.png', title: 'Rigging 5', isAvatar: true }
         ]
       },
       zh: {
-        title: 'Blender',
+        title: '3D Design',
         description: '在 Blender 中进行的一系列 3D 建模实验。',
         images: [
-          { type: 'image', url: '/side/blender/1.png', title: '建模练习 1' },
-          { type: 'image', url: '/side/blender/2.png', title: '建模练习 2' },
-          { type: 'image', url: '/side/blender/3.jpg', title: '建模练习 3' },
-          { type: 'image', url: '/side/blender/4.png', title: '建模练习 4' },
-          { type: 'image', url: '/side/blender/5.png', title: '建模练习 5' },
-          { type: 'image', url: '/side/blender/6.png', title: '建模练习 6' },
-          { type: 'image', url: '/side/blender/7.jpg', title: '建模练习 7' }
+          { type: 'image', url: '/side/3d design/1.png', title: '建模练习 1' },
+          { type: 'image', url: '/side/3d design/2.png', title: '建模练习 2' },
+          { type: 'image', url: '/side/3d design/3.jpg', title: '建模练习 3' },
+          { type: 'image', url: '/side/3d design/4.png', title: '建模练习 4' },
+          { type: 'image', url: '/side/3d design/5.png', title: '建模练习 5' },
+          { type: 'image', url: '/side/3d design/6.png', title: '建模练习 6' },
+          { type: 'image', url: '/side/3d design/7.jpg', title: '建模练习 7' },
+          { type: 'image', url: '/side/3d design/8.png', title: '建模练习 8' },
+          { type: 'image', url: '/side/3d design/9.png', title: '建模练习 9' },
+          { type: 'image', url: '/side/3d design/avatar/a1.png', title: '角色渲染 1', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a2.png', title: '角色渲染 2', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a3.png', title: '角色渲染 3', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a4.png', title: '角色渲染 4', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a5.png', title: '角色渲染 5', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/a6.png', title: '角色渲染 6', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b1.png', title: '视图/绑定 1', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b2.png', title: '视图/绑定 2', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b3.png', title: '视图/绑定 3', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b4.png', title: '视图/绑定 4', isAvatar: true },
+          { isEmpty: true, isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/b5.png', title: '视图/绑定 5', isAvatar: true }
         ]
       }
     }
   };
 
   const openGameModal = (work) => {
-    const data = gameModalsData[work.id]?.[language] || gameModalsData[work.id]?.en;
+    const allModals = { ...gameModalsData, ...designModalsData };
+    const data = allModals[work.id]?.[language] || allModals[work.id]?.en;
     if (data) {
-      setSelectedGame(data);
+      setSelectedGame({ ...data, id: work.id });
       document.body.style.overflow = 'hidden';
     }
   };
@@ -165,7 +224,7 @@ function WorkGrid() {
   };
 
   return (
-    <section className="work-section" style={{ position: 'relative' }}>
+    <section className="work-section" style={{ position: 'relative', zIndex: selectedGame ? 99999 : 1 }}>
       <div className="work-filter-container">
         <div className="work-tags-row">
           {tags.map(tag => (
@@ -174,7 +233,10 @@ function WorkGrid() {
               className={`work-tag-btn ${selectedTag === tag ? 'active' : ''}`}
               onClick={() => setSelectedTag(tag)}
             >
-              {tag === 'All' ? (language === 'zh' ? '全部项目' : 'All Projects') : tag}
+              {tag === 'All' ? (language === 'zh' ? '全部项目' : 'All Projects') : 
+               tag === '2D Design' ? (language === 'zh' ? '2D设计' : '2D DESIGN') :
+               tag === '3D Design' ? (language === 'zh' ? '3D设计' : '3D DESIGN') : 
+               tag.toUpperCase()}
             </button>
           ))}
         </div>
@@ -183,16 +245,19 @@ function WorkGrid() {
       <div className="work-grid flat-grid">
         {allWorks.map((work, index) => {
           const isFirstOfYear = index === 0 || allWorks[index - 1].year !== work.year;
-          const isGame = work.id === 261 || work.id === 262 || work.id === 263;
+          const isGame = [261, 262, 263, 264, 265, 266, 267].includes(work.id);
 
           return (
             <div
               key={work.id}
-              id={isFirstOfYear ? `work-year-${work.year}` : undefined}
+              id={`project-${work.id}`}
               className="work-card-wrapper"
-              style={{ position: 'relative', scrollMarginTop: isFirstOfYear ? '8rem' : undefined }}
+              style={{ position: 'relative', scrollMarginTop: '8rem' }}
             >
-              <div className="work-year-indicator">
+              <div 
+                id={isFirstOfYear ? `work-year-${work.year}` : undefined}
+                className="work-year-indicator"
+              >
                 {work.year}
               </div>
               <WorkCard 
@@ -231,23 +296,123 @@ function WorkGrid() {
                 </p>
               )}
             </div>
-            <div className="side-modal-gallery">
-              {selectedGame.images.map((item, index) => (
-                <div key={index} className="side-modal-item">
-                  {item.type === 'image' ? (
-                    <img src={`${process.env.PUBLIC_URL}${item.url}`} alt={item.title} />
-                  ) : (
-                    <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
-                  )}
-                  <p className="side-modal-item-title">{item.title}</p>
+            {selectedGame.id === 266 ? (
+              <div className="side-modal-gallery gallery-illustrations">
+                {Array.from({ length: masonryCols }).map((_, colIndex) => (
+                  <div key={colIndex} className="masonry-column">
+                    {selectedGame.images
+                      .filter(img => !img.url.includes('头像.png'))
+                      .filter((_, idx) => idx % masonryCols === colIndex)
+                      .map((item, index) => (
+                        <div key={index} className="ins-frame">
+                          <div className="ins-header">
+                            <img className="ins-avatar" src={`${process.env.PUBLIC_URL}/side/2d design/画画排版/头像.png`} alt="Avatar" />
+                          </div>
+                          <div className="ins-image-container">
+                            {item.type === 'image' ? (
+                              <img src={`${process.env.PUBLIC_URL}${item.url}`} alt={item.title} />
+                            ) : (
+                              <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
+                            )}
+                          </div>
+                          <div className="ins-actions">
+                            <svg className="ins-icon ins-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg className="ins-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            </svg>
+                            <svg className="ins-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <line x1="22" y1="2" x2="11" y2="13" />
+                              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                ))}
+              </div>
+            ) : selectedGame.id === 263 ? (
+              <div className="gallery-3d-container">
+                <div className="gallery-3d-section">
+                  <h3 className="gallery-section-title">{language === 'zh' ? '日常建模练习' : 'Daily Modeling Practice'}</h3>
+                  <div className="side-modal-gallery gallery-3d-design">
+                    {Array.from({ length: masonryCols }).map((_, colIndex) => (
+                      <div key={colIndex} className="masonry-column">
+                        {selectedGame.images
+                          .filter(item => !item.isAvatar)
+                          .filter((_, idx) => idx % masonryCols === colIndex)
+                          .map((item, index) => (
+                            <div key={`practice-${index}`} className="side-modal-item">
+                              {item.type === 'image' ? (
+                                <img src={`${process.env.PUBLIC_URL}${item.url}`} alt={item.title} />
+                              ) : (
+                                <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
+                              )}
+                            </div>
+                          ))}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
+
+                <div className="gallery-3d-section" style={{ marginTop: '3rem' }}>
+                  <h3 className="gallery-section-title">{language === 'zh' ? '角色建模与绑定' : 'Character Modeling & Rigging'}</h3>
+                  <div className="side-modal-gallery gallery-3d-design">
+                    {Array.from({ length: masonryCols }).map((_, colIndex) => (
+                      <div key={colIndex} className="masonry-column">
+                        {selectedGame.images
+                          .filter(item => item.isAvatar)
+                          .filter((_, idx) => idx % masonryCols === colIndex)
+                          .map((item, index) => (
+                            item.isEmpty ? null : (
+                              <div key={`avatar-${index}`} className="side-modal-item">
+                                {item.type === 'image' ? (
+                                  <img src={`${process.env.PUBLIC_URL}${item.url}`} alt={item.title} />
+                                ) : (
+                                  <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
+                                )}
+                              </div>
+                            )
+                          ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className={`side-modal-gallery ${selectedGame.id === 267 ? 'gallery-brand-derivatives' : ''}`}>
+                {(() => {
+                  let items = [...selectedGame.images];
+                  if (selectedGame.id === 267) {
+                    items.sort((a, b) => {
+                      const aIsSmall = /\/(?:0[1-6])\.png$/i.test(a.url);
+                      const bIsSmall = /\/(?:0[1-6])\.png$/i.test(b.url);
+                      if (aIsSmall && !bIsSmall) return 1;
+                      if (!aIsSmall && bIsSmall) return -1;
+                      return 0;
+                    });
+                  }
+                  return items.map((item, index) => {
+                    const isLargeBrandItem = selectedGame.id === 267 && /\/(?:10|[1-9])\.jpg$/i.test(item.url);
+                    const isSmallBrandItem = selectedGame.id === 267 && /\/(?:0[1-6])\.png$/i.test(item.url);
+                    
+                    return (
+                      <div key={index} className={`side-modal-item ${isLargeBrandItem ? 'brand-item-large' : ''} ${isSmallBrandItem ? 'brand-item-small' : ''}`}>
+                        {item.type === 'image' ? (
+                          <img src={`${process.env.PUBLIC_URL}${item.url}`} alt={item.title} />
+                        ) : (
+                          <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
+                        )}
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            )}
           </div>
         </div>
       )}
     </section>
   );
 }
-
-export default WorkGrid;

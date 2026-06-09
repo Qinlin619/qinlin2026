@@ -47,6 +47,20 @@ function WorkCard({ work, onCardClick }) {
               />
             </div>
           </div>
+        ) : work.foregroundImage ? (
+          <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+            <img
+              src={work.image}
+              alt={work.title}
+              className="work-card-image"
+              style={{ filter: 'blur(10px) brightness(0.95)' }}
+            />
+            <img
+              src={work.foregroundImage}
+              alt={`${work.title} overlay`}
+              className="composite-foreground"
+            />
+          </div>
         ) : (
           <img
             src={work.image}

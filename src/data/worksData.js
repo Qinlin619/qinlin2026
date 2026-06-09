@@ -6,7 +6,7 @@ export const worksData = {
       description: 'Streamlining the group travel experience through collaborative planning and real-time social dynamics.',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
-      category: 'Group. UI/UX. Mobile App',
+      category: 'Group. UI/UX. Mobile App. Frontend',
       evaluation: 'An all-in-one platform for organizing seamless group travel.',
       rating: 8,
       color: '#9be3eb'
@@ -17,7 +17,7 @@ export const worksData = {
       description: "World's #1 Chinese backpacker community in Europe",
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
-      category: 'Group. Branding. UI/UX. Community',
+      category: 'Group. Branding. UI/UX. Community. Frontend',
       evaluation: 'A vision of modern travel and connection.',
       rating: 7,
       color: '#fbeeb5'
@@ -29,7 +29,7 @@ export const worksData = {
       description: 'A small game designed for my parents to pass the time.',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
-      category: 'Individual. Game Dev & Design',
+      category: 'Individual. Game Dev & Design. Frontend',
       evaluation: 'Designed for my parents to pass the time. Taste life.',
       rating: 6,
       color: '#b0b7e6'
@@ -40,7 +40,7 @@ export const worksData = {
       description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/Frame 3 (1).png`,
-      category: 'Individual. Game Dev & Design',
+      category: 'Individual. Game Dev & Design. Frontend',
       evaluation: 'A simple "match" game featuring socks. Fun and colorful!',
       rating: 6,
       color: '#e59866'
@@ -49,11 +49,11 @@ export const worksData = {
       id: 11,
       title: 'Cobrush',
       description: 'A collaborative system that enables humans and robots to paint together through multi-turn interactions.',
-      year: 2025,
+      year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
-      category: 'Group. HCI. Programming',
+      category: 'Group. HCI. Programming. Frontend',
       evaluation: 'The project with the highest workload and longest duration. What a TUD graduation project......Owes me a software engineering degree.',
-      rating: 6,
+      rating: 6.5,
       color: '#f2a1ad'
     },
     {
@@ -84,7 +84,7 @@ export const worksData = {
       description: 'Redesign the Atag Induction Hob for enhanced usability, targeting a dependable and convenient cooking experience at home.',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
-      category: 'Group. UI. UX. Redesign',
+      category: 'Group. UI. UX. Redesign. Frontend',
       evaluation: 'Very harmonious group collaboration, UX research is very organized.',
       rating: 6,
       color: '#f27b50'
@@ -113,10 +113,10 @@ export const worksData = {
     },
     {
       id: 263,
-      title: 'Blender',
+      title: '3D Design',
       description: 'A collection of 3D modeling experiments in Blender.',
       year: 2023,
-      image: `${process.env.PUBLIC_URL}/side/blender/5.png`,
+      image: `${process.env.PUBLIC_URL}/side/3d design/5.png`,
       category: 'Individual. 3D Modelling. Design',
       evaluation: 'Blender is a powerful tool. I love the process of creating 3D worlds.',
       rating: 6,
@@ -165,6 +165,50 @@ export const worksData = {
       evaluation: 'A super memorable and perfect group collaboration. Team formation was wonderful. Our first real-world project together.',
       rating: 6,
       color: '#8fd3f4'
+    },
+    {
+      id: 266,
+      title: 'Illustrations',
+      description: 'Various illustration and layout designs.',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/side/2d design/画画排版/1.png`,
+      category: 'Individual. 2D Design. Illustration',
+      evaluation: 'Layout experiments.',
+      rating: 6,
+      color: '#f2a1ad'
+    },
+    {
+      id: 264,
+      title: 'EuroStay IP Character Design (28)',
+      description: 'Animated & static sticker design for EuroStay.',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/side/2d design/EuroStay/IMG_3923.GIF`,
+      category: 'Individual. 2D Design. Illustration',
+      evaluation: 'A set of cute stickers.',
+      rating: 6,
+      color: '#fbeeb5'
+    },
+    {
+      id: 265,
+      title: 'IP Character Design (63)',
+      description: 'A collection of fun IP character sticker packs.',
+      year: 2025,
+      image: `${process.env.PUBLIC_URL}/side/2d design/表情包设计/IMG_3924.GIF`,
+      category: 'Individual. 2D Design. Illustration',
+      evaluation: 'Very cute emojis.',
+      rating: 6,
+      color: '#9be3eb'
+    },
+    {
+      id: 267,
+      title: 'Brand Derivatives',
+      description: 'Brand derivative designs and illustrations.',
+      year: 2024,
+      image: `${process.env.PUBLIC_URL}/side/2d design/品牌衍生设计/1.jpg`,
+      category: 'Individual. 2D Design. Illustration',
+      evaluation: 'Brand designs.',
+      rating: 6,
+      color: '#cbb39e'
     }
   ],
   zh: [
@@ -174,7 +218,7 @@ export const worksData = {
       description: '通过协作规划 and 实时社交动态，简化团队旅行体验的移动应用重构。',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/TripUp/2.png`,
-      category: '团队. UI/UX. 移动应用',
+      category: '团队. UI/UX. 移动应用. 前端',
       evaluation: '组织无缝团队旅行的一站式平台。',
       rating: 8,
       color: '#9be3eb'
@@ -185,7 +229,7 @@ export const worksData = {
       description: '世界第一的欧洲华人背包客社区',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`,
-      category: '团队. 品牌设计. UI/UX. 社区',
+      category: '团队. 品牌设计. UI/UX. 社区. 前端',
       evaluation: '现代旅行与连接的愿景。',
       rating: 7,
       color: '#fbeeb5'
@@ -196,7 +240,7 @@ export const worksData = {
       description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/image copy.png`,
-      category: '个人项目. 游戏开发与设计',
+      category: '个人项目. 游戏开发与设计. 前端',
       evaluation: '为爸爸妈妈设计的小游戏，很有趣。',
       rating: 6,
       color: '#b0b7e6'
@@ -207,7 +251,7 @@ export const worksData = {
       description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
       year: 2026,
       image: `${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/Frame 3 (1).png`,
-      category: '个人项目. 游戏开发与设计',
+      category: '个人项目. 游戏开发与设计. 前端',
       evaluation: '很有意思的小项目。',
       rating: 6,
       color: '#e59866'
@@ -216,11 +260,11 @@ export const worksData = {
       id: 11,
       title: 'Cobrush',
       description: '一个让人和机械臂能够通过多轮交互一起绘画的协同系统',
-      year: 2025,
+      year: 2026,
       image: `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
-      category: '团队. HCI. 编程',
+      category: '团队. HCI. 编程. 前端',
       evaluation: '工作量最大周期最长的一个项目，不愧是TUD的毕设，欠我一个软件工程师学位',
-      rating: 6,
+      rating: 6.5,
       color: '#f2a1ad'
     },
     {
@@ -251,7 +295,7 @@ export const worksData = {
       description: '重新设计Atag感应炉，提升可用性，旨在提供可靠且便捷的家庭烹饪体验。',
       year: 2024,
       image: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/1.png`,
-      category: '团队. UI. UX. 重新设计',
+      category: '团队. UI. UX. 重新设计. 前端',
       evaluation: '很和谐的小组合作，UX研究非常有条理',
       rating: 6,
       color: '#f27b50'
@@ -279,11 +323,11 @@ export const worksData = {
       color: '#cbb39e'
     },
     {
-      id: 260,
-      title: 'Blender',
+      id: 263,
+      title: '3D Design',
       description: '在 Blender 中进行的一系列 3D 建模实验。',
       year: 2023,
-      image: `${process.env.PUBLIC_URL}/side/blender/5.png`,
+      image: `${process.env.PUBLIC_URL}/side/3d design/5.png`,
       category: '个人项目. 3D 建模. 设计',
       evaluation: 'Blender 是一个非常强大的工具，我喜欢创造 3D 世界的过程。',
       rating: 6,
@@ -332,6 +376,50 @@ export const worksData = {
       evaluation: '超级难忘完美的一次小组合作，自由组队实在是太美妙了，一起完成的人生中第一个落地项目',
       rating: 6,
       color: '#8fd3f4'
+    },
+    {
+      id: 266,
+      title: 'Illustrations',
+      description: '一系列插画作品。',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/side/2d design/画画排版/1.png`,
+      category: '个人项目. 2D设计. 插画',
+      evaluation: '排版实验。',
+      rating: 6,
+      color: '#f2a1ad'
+    },
+    {
+      id: 264,
+      title: 'EuroStay IP形象设计 (28)',
+      description: '为欧壳壳设计的动图与静态表情包。',
+      year: 2026,
+      image: `${process.env.PUBLIC_URL}/side/2d design/EuroStay/IMG_3923.GIF`,
+      category: '个人项目. 2D设计. 插画',
+      evaluation: '一组可爱的表情包。',
+      rating: 6,
+      color: '#fbeeb5'
+    },
+    {
+      id: 265,
+      title: 'IP形象设计 (63)',
+      description: '包含两只兔子、贪吃蛇等多个IP形象表情包系列。',
+      year: 2025,
+      image: `${process.env.PUBLIC_URL}/side/2d design/表情包设计/IMG_3924.GIF`,
+      category: '个人项目. 2D设计. 插画',
+      evaluation: '非常有趣的表情设计。',
+      rating: 6,
+      color: '#9be3eb'
+    },
+    {
+      id: 267,
+      title: '品牌衍生设计',
+      description: '品牌衍生设计与相关插画。',
+      year: 2024,
+      image: `${process.env.PUBLIC_URL}/side/2d design/品牌衍生设计/1.jpg`,
+      category: '个人项目. 2D设计. 插画',
+      evaluation: '品牌设计。',
+      rating: 6,
+      color: '#cbb39e'
     }
   ]
 };
