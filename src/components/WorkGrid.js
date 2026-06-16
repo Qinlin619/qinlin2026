@@ -142,13 +142,13 @@ export default function WorkGrid() {
         title: 'Color&Color',
         description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
         link: { text: 'Play Game: ', url: 'https://qinlin619.github.io/Color-Color/' },
-        images: [1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color&Color/${n}.png`, title: `Screenshot ${n}` }))
+        images: [1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color%26Color/${n}.png`, title: `Screenshot ${n}` }))
       },
       zh: {
         title: 'Color&Color',
         description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
         link: { text: '游玩链接：', url: 'https://qinlin619.github.io/Color-Color/' },
-        images: [1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color&Color/${n}.png`, title: `截图 ${n}` }))
+        images: [1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color%26Color/${n}.png`, title: `截图 ${n}` }))
       }
     },
     263: {
@@ -381,7 +381,10 @@ export default function WorkGrid() {
                 </div>
               </div>
             ) : (
-              <div className={`side-modal-gallery ${selectedGame.id === 267 ? 'gallery-brand-derivatives' : ''}`}>
+              <div 
+                className={`side-modal-gallery ${selectedGame.id === 267 ? 'gallery-brand-derivatives' : ''}`}
+                style={(selectedGame.id === 261 || selectedGame.id === 262) ? { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' } : {}}
+              >
                 {(() => {
                   let items = [...selectedGame.images];
                   if (selectedGame.id === 267) {
@@ -398,9 +401,17 @@ export default function WorkGrid() {
                     const isSmallBrandItem = selectedGame.id === 267 && /\/(?:0[1-6])\.png$/i.test(item.url);
                     
                     return (
-                      <div key={index} className={`side-modal-item ${isLargeBrandItem ? 'brand-item-large' : ''} ${isSmallBrandItem ? 'brand-item-small' : ''}`}>
+                      <div 
+                        key={index} 
+                        className={`side-modal-item ${isLargeBrandItem ? 'brand-item-large' : ''} ${isSmallBrandItem ? 'brand-item-small' : ''}`}
+                        style={(selectedGame.id === 261 || selectedGame.id === 262) ? { width: '100%', maxWidth: '800px' } : {}}
+                      >
                         {item.type === 'image' ? (
-                          <img src={`${process.env.PUBLIC_URL}${item.url}`} alt={item.title} />
+                          <img 
+                            src={`${process.env.PUBLIC_URL}${item.url}`} 
+                            alt={item.title} 
+                            style={(selectedGame.id === 261 || selectedGame.id === 262) ? { width: '100%', height: 'auto', objectFit: 'contain' } : {}}
+                          />
                         ) : (
                           <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
                         )}

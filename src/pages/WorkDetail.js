@@ -836,14 +836,13 @@ const workData = {
       overview: (
         <>
           <p>A small game designed for my parents to pass the time.</p>
-          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
             {[1, 2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`).map((src, idx) => (
               <img
                 key={idx}
                 src={src}
                 alt={`Flavorblocks screenshot ${idx + 1}`}
-                className="featured-photo-placeholder"
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', maxWidth: '800px', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
               />
             ))}
           </div>
@@ -870,14 +869,13 @@ const workData = {
       overview: (
         <>
           <p>A simple "match" game featuring socks, planned to evolve into various derivative matching games.</p>
-          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
             {[1, 2, 3, 4].map(num => (
               <img
                 key={num}
                 src={`${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/${num}.png`}
                 alt={`Color&Color screenshot ${num}`}
-                className="featured-photo-placeholder"
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', maxWidth: '800px', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
               />
             ))}
           </div>
@@ -1412,14 +1410,13 @@ const workData = {
       overview: (
         <>
           <p>想为爸爸妈妈设计一些打磨时间的小游戏。</p>
-          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
             {[1, 2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`).map((src, idx) => (
               <img
                 key={idx}
                 src={src}
                 alt={`Flavorblocks 截图 ${idx + 1}`}
-                className="featured-photo-placeholder"
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', maxWidth: '800px', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
               />
             ))}
           </div>
@@ -1446,14 +1443,13 @@ const workData = {
       overview: (
         <>
           <p>想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。</p>
-          <div className="featured-photos-grid" style={{ marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
             {[1, 2, 3, 4].map(num => (
               <img
                 key={num}
                 src={`${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/${num}.png`}
                 alt={`Color&Color 截图 ${num}`}
-                className="featured-photo-placeholder"
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', maxWidth: '800px', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
               />
             ))}
           </div>
