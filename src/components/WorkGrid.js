@@ -58,12 +58,31 @@ export default function WorkGrid() {
 
   const worksList = works[language] || works.en;
   
-  const tags = ['All', 'UI/UX', 'Game Dev', 'AI', 'Frontend', '2D Design', '3D Design'];
+  const tags = ['All', 'Selected', 'Game Design', '3D/2D Design'];
   const [selectedTag, setSelectedTag] = useState('All');
 
   const matchesTag = (work, tag) => {
     if (tag === 'All') return true;
+    if (tag === 'Selected') {
+      const selectedTitles = ['tripup', 'eurostay', 'atag', 'cobrush', 'e.c.h.o.', 'lambanana', 'lemur', 'doozi', 'happy little pill', '快乐小药盒'];
+      const titleLower = (work.title || '').toLowerCase();
+      if (titleLower.includes('eurostay') && titleLower.includes('ip')) return false;
+      return selectedTitles.some(t => titleLower.includes(t));
+    }
     
+    if (tag === 'Game Design') {
+      const gameTitles = ['flavorblocks', 'color&color', '像素大冒险', 'pixelated adventures'];
+      const titleLower = (work.title || '').toLowerCase();
+      return gameTitles.some(t => titleLower.includes(t));
+    }
+
+    if (tag === '3D/2D Design') {
+      // Matches any project that is not categorized into 'Selected' or 'Game Design'
+      const isSelected = matchesTag(work, 'Selected');
+      const isGameDesign = matchesTag(work, 'Game Design');
+      return !isSelected && !isGameDesign;
+    }
+
     const categoryLower = (work.category || '').toLowerCase();
     
     if (tag === 'UI/UX') {
@@ -114,7 +133,15 @@ export default function WorkGrid() {
 
   const worksByYear = groupByYear(filteredWorksList);
   const years = Object.keys(worksByYear).sort((a, b) => Number(b) - Number(a));
-  const allWorks = years.flatMap(year => worksByYear[year]);
+  let allWorks = years.flatMap(year => worksByYear[year]);
+
+  if (selectedTag === '3D/2D Design') {
+    const index3d = allWorks.findIndex(w => w.id === 263);
+    if (index3d > -1) {
+      const [item3d] = allWorks.splice(index3d, 1);
+      allWorks.unshift(item3d);
+    }
+  }
 
   const gameModalsData = {
     261: {
@@ -123,6 +150,7 @@ export default function WorkGrid() {
         description: 'A small game designed for my parents to pass the time.',
         link: { text: 'Play Game: ', url: 'https://qinlin619.github.io/FlavorBlocks/' },
         images: [
+          { type: 'video', url: '/side/GameDesign-Flavorblocks/demo.mov', title: 'Gameplay Demo' },
           { type: 'image', url: '/side/GameDesign-Flavorblocks/1.png', title: 'Screenshot 1' },
           ...[2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `Screenshot ${n}` }))
         ]
@@ -132,6 +160,7 @@ export default function WorkGrid() {
         description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
         link: { text: '游玩链接：', url: 'https://qinlin619.github.io/FlavorBlocks/' },
         images: [
+          { type: 'video', url: '/side/GameDesign-Flavorblocks/demo.mov', title: '游戏演示' },
           { type: 'image', url: '/side/GameDesign-Flavorblocks/1.png', title: '截图 1' },
           ...[2, 3, 4, 5].map(n => ({ type: 'image', url: `/side/GameDesign-Flavorblocks/${n}.png`, title: `截图 ${n}` }))
         ]
@@ -142,13 +171,19 @@ export default function WorkGrid() {
         title: 'Color&Color',
         description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
         link: { text: 'Play Game: ', url: 'https://qinlin619.github.io/Color-Color/' },
-        images: [1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color%26Color/${n}.png`, title: `Screenshot ${n}` }))
+        images: [
+          { type: 'video', url: '/side/GameDesign-Color%26Color/demo.mp4', title: 'Gameplay Demo' },
+          ...[1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color%26Color/${n}.png`, title: `Screenshot ${n}` }))
+        ]
       },
       zh: {
         title: 'Color&Color',
         description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
         link: { text: '游玩链接：', url: 'https://qinlin619.github.io/Color-Color/' },
-        images: [1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color%26Color/${n}.png`, title: `截图 ${n}` }))
+        images: [
+          { type: 'video', url: '/side/GameDesign-Color%26Color/demo.mp4', title: '游戏演示' },
+          ...[1, 2, 3, 4].map(n => ({ type: 'image', url: `/side/GameDesign-Color%26Color/${n}.png`, title: `截图 ${n}` }))
+        ]
       }
     },
     263: {
@@ -176,7 +211,16 @@ export default function WorkGrid() {
           { type: 'image', url: '/side/3d design/avatar/b3.png', title: 'Rigging 3', isAvatar: true },
           { type: 'image', url: '/side/3d design/avatar/b4.png', title: 'Rigging 4', isAvatar: true },
           { isEmpty: true, isAvatar: true },
-          { type: 'image', url: '/side/3d design/avatar/b5.png', title: 'Rigging 5', isAvatar: true }
+          { type: 'image', url: '/side/3d design/avatar/b5.png', title: 'Rigging 5', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260629231346.png', title: 'Character Render 7', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260630051820.png', title: 'Character Render 8', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260630052011.png', title: 'Character Render 9', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260630052047.png', title: 'Character Render 10', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705025648.png', title: 'Character Render 11', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705025701.png', title: 'Character Render 12', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705025803.png', title: 'Character Render 13', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705035226.png', title: 'Character Render 14', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705035321.png', title: 'Character Render 15', isAvatar: true }
         ]
       },
       zh: {
@@ -203,7 +247,16 @@ export default function WorkGrid() {
           { type: 'image', url: '/side/3d design/avatar/b3.png', title: '视图/绑定 3', isAvatar: true },
           { type: 'image', url: '/side/3d design/avatar/b4.png', title: '视图/绑定 4', isAvatar: true },
           { isEmpty: true, isAvatar: true },
-          { type: 'image', url: '/side/3d design/avatar/b5.png', title: '视图/绑定 5', isAvatar: true }
+          { type: 'image', url: '/side/3d design/avatar/b5.png', title: '视图/绑定 5', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260629231346.png', title: '角色渲染 7', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260630051820.png', title: '角色渲染 8', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260630052011.png', title: '角色渲染 9', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260630052047.png', title: '角色渲染 10', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705025648.png', title: '角色渲染 11', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705025701.png', title: '角色渲染 12', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705025803.png', title: '角色渲染 13', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705035226.png', title: '角色渲染 14', isAvatar: true },
+          { type: 'image', url: '/side/3d design/avatar/图片_20260705035321.png', title: '角色渲染 15', isAvatar: true }
         ]
       }
     }
@@ -234,6 +287,8 @@ export default function WorkGrid() {
               onClick={() => setSelectedTag(tag)}
             >
               {tag === 'All' ? (language === 'zh' ? '全部项目' : 'All Projects') : 
+               tag === 'Selected' ? (language === 'zh' ? '精选项目' : 'Selected') :
+               tag === 'Game Design' ? (language === 'zh' ? '游戏设计' : 'GAME DESIGN') :
                tag === '2D Design' ? (language === 'zh' ? '2D设计' : '2D DESIGN') :
                tag === '3D Design' ? (language === 'zh' ? '3D设计' : '3D DESIGN') : 
                tag.toUpperCase()}
@@ -316,13 +371,13 @@ export default function WorkGrid() {
                             )}
                           </div>
                           <div className="ins-actions">
-                            <svg className="ins-icon ins-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <svg className="ins-icon ins-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
                               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                             </svg>
-                            <svg className="ins-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <svg className="ins-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
                               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                             </svg>
-                            <svg className="ins-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <svg className="ins-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
                               <line x1="22" y1="2" x2="11" y2="13" />
                               <polygon points="22 2 15 22 11 13 2 9 22 2" />
                             </svg>
@@ -404,7 +459,7 @@ export default function WorkGrid() {
                       <div 
                         key={index} 
                         className={`side-modal-item ${isLargeBrandItem ? 'brand-item-large' : ''} ${isSmallBrandItem ? 'brand-item-small' : ''}`}
-                        style={(selectedGame.id === 261 || selectedGame.id === 262) ? { width: '100%', maxWidth: '800px' } : {}}
+                        style={(selectedGame.id === 261 || selectedGame.id === 262) ? { width: '100%', maxWidth: '640px' } : {}}
                       >
                         {item.type === 'image' ? (
                           <img 
@@ -413,7 +468,31 @@ export default function WorkGrid() {
                             style={(selectedGame.id === 261 || selectedGame.id === 262) ? { width: '100%', height: 'auto', objectFit: 'contain' } : {}}
                           />
                         ) : (
-                          <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
+                          (selectedGame.id === 261 || selectedGame.id === 262) ? (
+                            <div className="video-browser-mockup" style={{ width: '100%', maxWidth: '640px' }}>
+                              <div className="browser-header-bar">
+                                <div className="browser-dots">
+                                  <span className="browser-dot red" />
+                                  <span className="browser-dot yellow" />
+                                  <span className="browser-dot green" />
+                                </div>
+                                <div className="browser-url-bar">
+                                  {selectedGame.id === 261
+                                    ? 'https://qinlin619.github.io/FlavorBlocks/'
+                                    : 'https://qinlin619.github.io/Color-Color/'}
+                                </div>
+                              </div>
+                              <div className="work-detail-video" style={{ aspectRatio: 'auto', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <video 
+                                  src={`${process.env.PUBLIC_URL}${item.url}`} 
+                                  controls 
+                                  style={{ width: '100%', display: 'block', maxHeight: '75vh' }}
+                                />
+                              </div>
+                            </div>
+                          ) : (
+                            <video src={`${process.env.PUBLIC_URL}${item.url}`} controls />
+                          )
                         )}
                       </div>
                     );

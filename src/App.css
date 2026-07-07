@@ -831,17 +831,24 @@ main>*:not(.hero) {
   color: #999;
   font-weight: 400;
   letter-spacing: 0.05em;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  border: 1.5px solid rgba(153, 153, 153, 0.5);
+  border-radius: 100px;
+  padding: 2px 10px;
+  display: inline-block;
+  background-color: transparent;
 }
 
 .work-card:hover .category-icon-wrapper,
 .work-card:hover .category-abbr {
   color: #222;
+  border-color: rgba(34, 34, 34, 0.3);
 }
 
 .work-card-active .category-icon-wrapper,
 .work-card-active .category-abbr {
   color: #ccc;
+  border-color: rgba(204, 204, 204, 0.3);
 }
 
 .work-card-content {
@@ -2016,8 +2023,9 @@ main>*:not(.hero) {
   padding-top: 10rem;
 }
 
-.work-detail-banner+.work-detail-header {
-  padding-top: 2.5rem;
+.work-detail-banner+.work-detail-header,
+.work-banner-below-links+.work-detail-header {
+  padding-top: 0.5rem;
 }
 
 .work-detail-video-wrap {
@@ -2130,27 +2138,44 @@ main>*:not(.hero) {
   margin-bottom: 1.5rem; /* Unify vertical line spacing */
 }
 
+.work-banner-below-links {
+  display: flex;
+  flex-wrap: nowrap; /* Keep buttons on a single row stretching across banner */
+  gap: 1rem;
+  margin-top: -1.6rem; /* Pull closer to the banner */
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.work-banner-below-links .work-pdf-link,
 .work-header-links .work-pdf-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 1.85rem; /* Make it even flatter */
-  padding: 0 0.8rem;
+  height: 3.6rem; /* Slightly taller */
+  padding: 0 1.2rem;
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.8rem;
-  font-weight: 400; /* Unified font-weight with back-to-work */
+  font-size: 0.88rem;
+  font-weight: 600;
   color: #000000;
-  text-decoration: none;
-  border: 1px solid #000000;
-  border-radius: 4px; /* Maintain clean 4px border-radius */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  border: 1px solid #000000; /* Thinner border */
+  border-radius: 6px;
   transition: all 0.2s ease;
   box-sizing: border-box;
 }
 
+.work-banner-below-links .work-pdf-link {
+  flex: 1; /* Stretch to fill banner width equally */
+}
+
+.work-banner-below-links .work-pdf-link:hover,
 .work-header-links .work-pdf-link:hover {
   background: #000000;
   color: #ffffff;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 /* Flatten category tags into work-meta for consistent spacing */
@@ -2894,33 +2919,32 @@ main>*:not(.hero) {
 }
 
 .work-tag-btn {
-  background: #f8f8f8;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 0.6rem 1.4rem;
-  font-size: 0.875rem;
-  font-weight: 300;
-  border-radius: 20px;
-  color: #666;
+  background: transparent;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 30px;
+  color: #333;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.03em;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .work-tag-btn:hover {
-  background: #fff;
+  background: #f5f5f5;
   color: #000;
   border-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .work-tag-btn.active {
   background: #000;
   color: #fff;
   border-color: #000;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  font-weight: 400;
+  font-weight: 500;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
@@ -3127,7 +3151,8 @@ main>*:not(.hero) {
     margin-bottom: 2rem;
   }
 
-  .work-detail-banner+.work-detail-header {
+  .work-detail-banner+.work-detail-header,
+  .work-banner-below-links+.work-detail-header {
     padding-top: 0;
   }
 
@@ -4126,20 +4151,11 @@ img[src$=".gif" i] {
 .ins-icon {
   width: 24px;
   height: 24px;
-  cursor: pointer;
+  cursor: default; /* No pointer cursor to indicate no interaction */
   color: #262626;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: none;
 }
-
-.ins-icon:hover {
-  transform: scale(1.15);
-  opacity: 0.8;
-}
-
-.ins-icon.ins-heart:active, .ins-icon.ins-heart:hover {
-  color: #ed4956;
-  fill: #ed4956;
-}
+/* Disable hover and active styles */
 
 /* Browser header bar */
 .browser-header-bar {
@@ -4230,6 +4246,9 @@ img[src$=".gif" i] {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border-radius: 12px;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .card-browser-mockup .browser-header-bar.compact {
@@ -4260,6 +4279,15 @@ img[src$=".gif" i] {
   object-fit: contain !important; /* Don't scale/crop, keep natural dimensions */
   display: block !important;
   transform: none !important; /* Avoid hover zoom effect inside browser mockup */
+}
+
+/* Reset border-radius and shadow inside mockup */
+.card-browser-mockup img,
+.card-browser-mockup video {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden;
 }
 
 /* Card Banner styles for Scheme 1 */
@@ -4353,6 +4381,328 @@ img[src$=".gif" i] {
   padding-top: 1.5rem;
   margin-bottom: 0;
 }
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: 1.5px solid #000;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  color: #000;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  margin-right: 0.5rem;
+}
+
+.theme-toggle:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Dark Mode styles */
+.dark-mode {
+  background-color: #000000;
+  color: #f1f5f9;
+}
+
+.dark-mode body {
+  background-color: #000000;
+  color: #f1f5f9;
+}
+
+/* Override variables for cursor in dark mode */
+.dark-mode:root {
+  --cursor-rain-outline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Cg transform='rotate(-18 16 16)'%3E%3Cpath d='M16 2 C11 10 7 18 7 22 c0 4 5 8 9 8 c4 0 8 -3 9 -8 c0-4-4-12-9-20 z' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E") 16 2;
+  --cursor-rain-filled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Cg transform='rotate(-18 16 16)'%3E%3Cpath d='M16 2 C11 10 7 18 7 22 c0 4 5 8 9 8 c4 0 8 -3 9 -8 c0-4-4-12-9-20 z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E") 16 2;
+}
+
+/* Dark mode text and headings */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode .logo-icon {
+  color: #fff;
+}
+
+.dark-mode p,
+.dark-mode span,
+.dark-mode li {
+  color: #cbd5e1;
+}
+
+/* Navbar dark mode */
+.dark-mode .navbar {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark-mode .nav-links a {
+  color: #94a3b8;
+}
+
+.dark-mode .nav-links a:hover,
+.dark-mode .nav-links a.active {
+  color: #fff;
+}
+
+.dark-mode .language-toggle,
+.dark-mode .theme-toggle {
+  border-color: #fff;
+  color: #fff;
+}
+
+.dark-mode .language-toggle:hover,
+.dark-mode .theme-toggle:hover {
+  background: #fff;
+  color: #000000;
+}
+
+/* Hero / Header */
+.dark-mode .hero-title {
+  color: #fff;
+}
+
+.dark-mode .hero-desc {
+  color: #94a3b8;
+}
+
+/* Work section grid and indicator */
+.dark-mode .work-year-indicator {
+  color: rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Work cards in dark mode */
+.dark-mode .work-card {
+  background: #0d0d0d;
+  border-color: rgba(255, 255, 255, 0.04);
+  border-radius: 36px 36px 0 0;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              border-radius 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dark-mode .work-card:hover {
+  border-radius: 36px;
+}
+
+.dark-mode .work-card .card-title {
+  color: #fff;
+}
+
+.dark-mode .work-card .card-desc {
+  color: #94a3b8;
+}
+
+.dark-mode .work-card-content {
+  background-color: #0d0d0d;
+}
+
+.dark-mode .work-card:hover .work-card-content {
+  background-color: var(--project-color);
+}
+
+/* When hover project card, title and desc turn dark/black for contrast if the project-color is light */
+.dark-mode .work-card:hover .card-title,
+.dark-mode .work-card:hover .card-desc {
+  color: #111;
+}
+
+.dark-mode .category-abbr {
+  color: #94a3b8;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .work-card:hover .category-abbr {
+  color: #111;
+  border-color: rgba(17, 17, 17, 0.3);
+}
+
+/* Tag buttons */
+.dark-mode .work-tag-btn {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+}
+
+.dark-mode .work-tag-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.dark-mode .work-tag-btn.active {
+  background: #fff;
+  color: #0b0f19;
+  border-color: #fff;
+}
+
+/* Footer */
+.dark-mode footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  background: #000000;
+}
+
+/* Modals */
+.dark-mode .side-modal-content {
+  background: #050505;
+  color: #f1f5f9;
+}
+
+.dark-mode .side-modal-close {
+  color: #fff;
+}
+
+.dark-mode .side-modal-header h2 {
+  color: #fff;
+}
+
+.dark-mode .side-modal-header p {
+  color: #94a3b8;
+}
+
+/* Achievements block in dark mode */
+.dark-mode .project-achievements {
+  background: #0d0d0d !important;
+  border-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.dark-mode .project-achievements h3 {
+  color: #fff !important;
+}
+
+.dark-mode .project-achievements strong {
+  color: #fff;
+}
+
+/* Fix general background issue in dark mode for detail pages */
+.dark-mode .work-detail {
+  background-color: #000000;
+  color: #f1f5f9;
+}
+
+.dark-mode .work-detail-header h1 {
+  color: #fff;
+}
+
+.dark-mode .work-detail-header p {
+  color: #cbd5e1;
+}
+
+.dark-mode .insights-grid .insight-card {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.dark-mode .work-meta span {
+  color: #94a3b8;
+}
+
+/* Dark mode glass background overlays to dim the bright colorful background spheres */
+.dark-mode .glass-overlay {
+  background: rgba(11, 15, 25, 0.82) !important;
+}
+
+/* Fade out at the bottom of hero in dark mode */
+.dark-mode .hero-sticky-wrapper::after {
+  background: linear-gradient(to bottom, transparent, #000000) !important;
+}
+
+/* Dark mode main title & custom-i-letter white/light-gray gradients */
+.dark-mode .hero-title-main {
+  background: 
+    linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.7) 50%, transparent 60%) 100% 0 / 200% 100% no-repeat,
+    linear-gradient(180deg, #ffffff, #94a3b8) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.dark-mode .custom-i-letter {
+  background: linear-gradient(to bottom, transparent 31%, #ffffff 31%, #94a3b8 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.dark-mode .work-banner-below-links .work-pdf-link,
+.dark-mode .work-header-links .work-pdf-link {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.dark-mode .work-banner-below-links .work-pdf-link:hover,
+.dark-mode .work-header-links .work-pdf-link:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.15);
+}
+
+.dark-mode .hero-subtitle-caps {
+  color: #94a3b8 !important;
+}
+
+.dark-mode .hero-motto {
+  color: #cbd5e1 !important;
+}
+
+/* Make mouse-following light halo more intense and beautiful in dark mode */
+.dark-mode .sphere-interactive {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(179, 162, 255, 0.25) 50%, transparent 100%) !important;
+  opacity: 0.95 !important;
+  filter: blur(60px) !important;
+}
+
+/* App Store Link in Case Studies */
+.eurostay-appstore-text-link {
+  font-size: 0.95rem;
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+  display: inline-block;
+}
+
+.eurostay-appstore-text-link:hover {
+  opacity: 0.8;
+}
+
+.dark-mode .eurostay-appstore-text-link {
+  color: #ffffff;
+}
+
+.eurostay-appstore-large-image {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
+}
+
+.eurostay-appstore-large-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.eurostay-appstore-large-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
 
 
 

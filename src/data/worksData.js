@@ -155,6 +155,7 @@ export const worksData = {
       rating: 6,
       color: '#d6687e'
     },
+    /*
     {
       id: 22,
       title: 'Bike Refurbishment',
@@ -166,6 +167,7 @@ export const worksData = {
       rating: 6,
       color: '#8fd3f4'
     },
+    */
     {
       id: 266,
       title: 'Illustrations',
@@ -366,6 +368,7 @@ export const worksData = {
       rating: 6,
       color: '#d6687e'
     },
+    /*
     {
       id: 22,
       title: '单车改造',
@@ -377,6 +380,7 @@ export const worksData = {
       rating: 6,
       color: '#8fd3f4'
     },
+    */
     {
       id: 266,
       title: 'Illustrations',

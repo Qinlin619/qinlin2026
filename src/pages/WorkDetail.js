@@ -366,8 +366,23 @@ const workData = {
 
           <section className="case-section">
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: App Experience & High-Fidelity</h3>
-            <p style={{ marginBottom: '1rem' }}>The mobile app focuses on real-time community interaction and verified host discovery. We used glassmorphism to create a sense of depth and modernity, ensuring the interface feels premium and alive.</p>
-            <img src={`${process.env.PUBLIC_URL}/work/2026/eurostay/1.png`} alt="EuroStay High Fidelity UI" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+            <p style={{ marginBottom: '1rem' }}>The project is currently under active development. Due to confidentiality and its unreleased status, we are unable to disclose high-fidelity detailed interface designs at this stage.</p>
+            
+            <div style={{ marginBottom: '1.5rem' }}>
+              <a href="https://apps.apple.com/es/app/eurostay/id6746250674" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-text-link">
+                Interested? You can download and try it out ➔
+              </a>
+            </div>
+
+            <a href="https://apps.apple.com/es/app/eurostay/id6746250674" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-large-image">
+              <img src={`${process.env.PUBLIC_URL}/work/2026/eurostay/appstore.png`} alt="EuroStay on the App Store" />
+            </a>
+
+            <div style={{ marginTop: '1.5rem' }}>
+              <a href="https://www.eurostay.co" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-text-link">
+                Or visit our official website to explore online ➔
+              </a>
+            </div>
           </section>
           
           <section className="case-section">
@@ -813,11 +828,27 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/6.JPEG`
       ],
-      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/111.mp4`,
+      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/demo.mp4`,
+      links: [
+        { url: 'https://drive.google.com/file/d/1BobzI21AxCLVOF8Xc_KllsoJ6xXeGM8-/view?usp=drivesdk', text: 'Watch Original Video (850MB)' }
+      ],
+      achievements: (
+        <div className="project-achievements" style={{ padding: '1.5rem', background: '#f8fafc', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)' }}>
+          <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.1rem', fontWeight: 600, color: '#000' }}>Achievements & Publications</h3>
+          <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.95rem', lineHeight: '1.5' }}>
+            <li>
+              <strong>Academic Publication:</strong> Dantong Qin, Yike Guo, <strong>Qinlin Liu</strong>, Alessandro Bozzon, Pan Wang*. "A Hierarchical Planning Framework for Human–Robot Co-Painting", 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (Accepted)
+            </li>
+            <li>
+              <strong>Artistic Exhibition:</strong> Visual art piece "An Eye Neither of Us Saw Coming" selected and exhibited at AIART Gallery 2026 (Accepted)
+            </li>
+          </ul>
+        </div>
+      ),
       overview: (
         <>
           <p>With the rapid advancement of generative AI, digital image generation has become highly automated. While efficiency increases, bodily engagement and sensory interaction diminish, leaving people more detached and often relegated to passive oversight. This shift has motivated the development of painting robots that reintroduce physical action and shared control between humans and machines. However, most existing systems prioritize single-turn output quality and overlook process-oriented aspects such as rhythm, control, and interaction. To bridge this gap, we propose CoBrush, which combines generative AI with robotic arms to enable human painters and AI to interact on a physical canvas. A user study demonstrates that CoBrush improved users’ sense of control by predicting and decomposing the painting process, enhanced creative engagement with human-like gestures and brushstroke expressions, and provided greater artistic satisfaction via an interactive, embodied co-creation experience.</p>
-          <div style={{ marginTop: '1rem', color: '#666', fontStyle: 'italic' }}>
+          <div style={{ marginTop: '1.5rem', color: '#666', fontStyle: 'italic', fontSize: '0.9rem' }}>
             Submission is currently under discussion. Full project report is not available for display at this moment.
           </div>
         </>
@@ -929,19 +960,27 @@ const workData = {
             </ul>
           </section>
 
-          <section className="case-section">
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：品牌识别 (Brand Identity)</h3>
-            <p style={{ marginBottom: '1rem' }}>我们开发了一套既充满活力又专业的色调，灵感来自欧洲的日落和探索精神。新的视觉语言代表了旅行者与他们探索的多元文化之间的桥梁。</p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-               <img src={`${process.env.PUBLIC_URL}/work/2026/top.png`} alt="EuroStay 品牌识别 1" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
-               <img src={`${process.env.PUBLIC_URL}/work/2026/topE.png`} alt="EuroStay 品牌识别 2" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
-            </div>
-          </section>
+
 
           <section className="case-section">
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：应用体验与高保真 (App Experience & High-Fidelity)</h3>
-            <p style={{ marginBottom: '1rem' }}>移动应用程序专注于实时社区互动和经过验证的主机发现。我们使用了毛玻璃效果（Glassmorphism）来营造深度感和现代感，确保界面感觉高级且充满活力。</p>
-            <img src={`${process.env.PUBLIC_URL}/work/2026/1.png`} alt="EuroStay 高保真界面" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+            <p style={{ marginBottom: '1rem' }}>该项目目前仍处于开发与迭代阶段。应保密与未发布协议要求，现阶段暂不方便展示过多高保真（Hi-Fi）界面设计细节图。</p>
+            
+            <div style={{ marginBottom: '1.5rem' }}>
+              <a href="https://apps.apple.com/es/app/eurostay/id6746250674" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-text-link">
+                感兴趣可以去下载试试看 ➔
+              </a>
+            </div>
+
+            <a href="https://apps.apple.com/es/app/eurostay/id6746250674" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-large-image">
+              <img src={`${process.env.PUBLIC_URL}/work/2026/eurostay/appstore.png`} alt="EuroStay App Store" />
+            </a>
+
+            <div style={{ marginTop: '1.5rem' }}>
+              <a href="https://www.eurostay.co" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-text-link">
+                您也可以访问我们的官方网站，在线探索完整的社区平台 ➔
+              </a>
+            </div>
           </section>
           
           <section className="case-section">
@@ -1387,10 +1426,26 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/6.JPEG`
       ],
-      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/111.mp4`,
+      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/demo.mp4`,
+      links: [
+        { url: 'https://drive.google.com/file/d/1BobzI21AxCLVOF8Xc_KllsoJ6xXeGM8-/view?usp=drivesdk', text: '查看原画视频 (850MB)' }
+      ],
+      achievements: (
+        <div className="project-achievements" style={{ padding: '1.5rem', background: '#f8fafc', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)' }}>
+          <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.1rem', fontWeight: 600, color: '#000' }}>学术成果与展览</h3>
+          <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.95rem', lineHeight: '1.5' }}>
+            <li>
+              <strong>学术发表：</strong> Dantong Qin, Yike Guo, <strong>Qinlin Liu</strong>, Alessandro Bozzon, Pan Wang*. "A Hierarchical Planning Framework for Human–Robot Co-Painting", 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (Accepted)
+            </li>
+            <li>
+              <strong>艺术展览：</strong> 视觉艺术作品 "An Eye Neither of Us Saw Coming" 入选并展出毕于 AIART Gallery 2026 (Accepted)
+            </li>
+          </ul>
+        </div>
+      ),
       overview: (
         <>
-          <p>随着生成式人工智能的飞速发展，数字图像生成已经高度自动化。虽然效率有所提高，但身体参与感和感官交互却在减少，使人们感到疏离，往往只能处于被动监督的状态。这种转变促使了绘画机器人的发展，它们重新引入了身体动作以及人机之间的共享控制。然而，大多数现有系统优先考虑单次输出的质量，而忽视了节奏、控制和交互等面向过程的方面。为了弥补这一差距，我们提出了 CoBrush，它将生成式 AI 与机械臂相结合，使人类画家 and AI 能够物理画布上进行交互。一项用户研究表明，CoBrush 通过预测和分解绘画过程，提高了用户的控制感；通过类人姿态 and 笔触表达，增强了创作参与感；并通过交互式、具身化的共同创作体验，提供了更高的艺术满意度。</p>
+          <p>随着生成式人工智能的飞速发展，数字图像生成已经高度自动化。虽然效率有所提高，但身体参与感和感官交互却在减少，使人们感到疏离，往往只能处于被动监督的状态。这种转变促使了绘画机器人的发展，它们重新引入了身体动作以及人机之间的共享控制。然而，大多数现有系统优先考虑单次输出的质量，而忽视了节奏、控制和交互等面向过程的方面。为了弥补这一差距，我们提出了 CoBrush，它将生成式 AI 与机械臂相结合，使人类画家 and AI 能够物理画布上进行交互。一项用户研究表明，CoBrush 通过预测和分解绘画过程，提高了用户的控制感；通过类人姿态 and 笔触表达，增强了创作参与感；并通过交互式、具身化的共同创作体验，提供了更高极的艺术满意度。</p>
           <div style={{ marginTop: '1rem', color: '#666', fontStyle: 'italic' }}>
             作品正在商议投稿中，不方便进行展示，请见谅
           </div>
@@ -1709,6 +1764,15 @@ function WorkDetail() {
             ))}
           </div>
         )}
+        {work.links && work.links.length > 0 && (
+          <div className="work-banner-below-links">
+            {work.links.map((link, idx) => (
+              <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="work-pdf-link">
+                {link.text} ➔
+              </a>
+            ))}
+          </div>
+        )}
         <header className="work-detail-header">
           <Link to="/" className="work-detail-back">{labels.back}</Link>
           <div className="work-meta">
@@ -1717,15 +1781,6 @@ function WorkDetail() {
               <CategoryIcons category={work.category} className="work-category-tags" />
             )}
           </div>
-          {work.links && work.links.length > 0 && (
-            <div className="work-header-links">
-              {work.links.map((link, idx) => (
-                <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="work-pdf-link">
-                  {link.text}
-                </a>
-              ))}
-            </div>
-          )}
           {!work.hideHeaderTitle && (
             <>
               <h1 className="work-detail-title">{work.title}</h1>
@@ -1746,6 +1801,11 @@ function WorkDetail() {
 
           <section className="work-section-block">
             {parseInt(id, 10) !== 8 && <h2>{labels.overview}</h2>}
+            {work.achievements && (
+              <div className="work-achievements-wrapper" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+                {work.achievements}
+              </div>
+            )}
             {((work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) || work.videoUrl) && (
               <div className="work-detail-video-wrap" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
                 <div className="video-browser-mockup">

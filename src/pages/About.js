@@ -24,25 +24,9 @@ function About() {
   const t = aboutData[language] || aboutData.en;
 
   return (
-    <div className="page-content about-page" style={{ position: 'relative' }}>
-      <PageRain top="0" count={200} />
-      <div className="about-cover" style={{ position: 'relative', zIndex: 10 }}>
-        <img
-          src={`${process.env.PUBLIC_URL}/about/1.jpg`}
-          alt="Qinlin Liu"
-          className={`about-cover-image ${imageLoaded ? 'loaded' : ''}`}
-          loading="eager"
-          onLoad={() => setImageLoaded(true)}
-          onError={(e) => {
-            console.error('Image failed to load:', e.target.src);
-            setImageLoaded(true);
-          }}
-        />
-      </div>
-      <h1 style={{ position: 'relative', zIndex: 10 }}>{t.title}</h1>
-      <p style={{ position: 'relative', zIndex: 10 }}>{t.bio}</p>
-      <h2 style={{ position: 'relative', zIndex: 10 }}>{t.planTitle}</h2>
-      <p style={{ position: 'relative', zIndex: 10 }}>{t.plan}</p>
+    <div className="page-content about-page" style={{ minHeight: '100vh', padding: '120px 5%' }}>
+      <h1>{t.title}</h1>
+      <p>{language === 'en' ? 'Coming soon...' : '敬请期待...'}</p>
     </div>
   );
 }
