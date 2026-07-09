@@ -837,10 +837,10 @@ const workData = {
           <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.1rem', fontWeight: 600, color: '#000' }}>Achievements & Publications</h3>
           <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.95rem', lineHeight: '1.5' }}>
             <li>
-              <strong>Academic Publication:</strong> Dantong Qin, Yike Guo, <strong>Qinlin Liu</strong>, Alessandro Bozzon, Pan Wang*. "A Hierarchical Planning Framework for Human–Robot Co-Painting", 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (Accepted)
+              <strong>Academic Publication (Graduation Thesis Project):</strong> 3rd Author, "A Hierarchical Planning Framework for Human–Robot Co-Painting", 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (Accepted)
             </li>
             <li>
-              <strong>Artistic Exhibition:</strong> Visual art piece "An Eye Neither of Us Saw Coming" selected and exhibited at AIART Gallery 2026 (Accepted)
+              <strong>Artistic Exhibition:</strong> Visual art piece "The Eye - Human robot collaborating painting" selected and exhibited at AIART Gallery 2026 (Accepted)
             </li>
           </ul>
         </div>
@@ -1435,10 +1435,10 @@ const workData = {
           <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.1rem', fontWeight: 600, color: '#000' }}>学术成果与展览</h3>
           <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.95rem', lineHeight: '1.5' }}>
             <li>
-              <strong>学术发表：</strong> Dantong Qin, Yike Guo, <strong>Qinlin Liu</strong>, Alessandro Bozzon, Pan Wang*. "A Hierarchical Planning Framework for Human–Robot Co-Painting", 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (Accepted)
+              <strong>学术发表（毕业设计项目）：</strong> 第三作者，"A Hierarchical Planning Framework for Human–Robot Co-Painting", 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (Accepted)
             </li>
             <li>
-              <strong>艺术展览：</strong> 视觉艺术作品 "An Eye Neither of Us Saw Coming" 入选并展出毕于 AIART Gallery 2026 (Accepted)
+              <strong>艺术展览：</strong> 视觉艺术作品 "The Eye - Human robot collaborating painting" 入选并展出毕于 AIART Gallery 2026 (Accepted)
             </li>
           </ul>
         </div>
