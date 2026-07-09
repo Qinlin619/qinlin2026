@@ -1,0 +1,142 @@
+.aesthetic-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  background-color: transparent; 
+  
+  /* Defaults for CSS variables */
+  --mouse-x: 0;
+  --mouse-y: 0;
+  
+  /* Subtle color shift based on mouse position */
+  filter: hue-rotate(calc(var(--mouse-x) * 10deg));
+  transition: filter 0.5s ease-out;
+}
+
+
+.gradient-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: move-sphere 20s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: transform 0.8s ease-out, margin 0.8s ease-out; /* Smoother transitions */
+  pointer-events: none;
+}
+
+
+.sphere-1 {
+  width: 50vw;
+  height: 50vw;
+  background: linear-gradient(135deg, #ffcc33 0%, #ff99cc 100%);
+  top: -10%;
+  left: -5%;
+  animation-duration: 25s;
+  /* Add parallax based on mouse position (subtle, inverse direction for depth) */
+  margin-left: calc(var(--mouse-x) * -20px);
+  margin-top: calc(var(--mouse-y) * -20px);
+  filter: blur(80px) hue-rotate(calc(var(--level-1, 0) * 60deg));
+  transition: all 1s ease-out;
+}
+
+.sphere-2 {
+  width: 40vw;
+  height: 40vw;
+  background: linear-gradient(135deg, #33ccff 0%, #33ff99 100%);
+  bottom: -10%;
+  right: -5%;
+  animation-duration: 30s;
+  animation-delay: -5s;
+  /* Opposite direction parallax */
+  margin-left: calc(var(--mouse-x) * 30px);
+  margin-top: calc(var(--mouse-y) * 30px);
+  filter: blur(80px) hue-rotate(calc(var(--level-2, 0) * 60deg));
+  transition: all 1s ease-out;
+}
+
+.sphere-3 {
+  width: 35vw;
+  height: 35vw;
+  background: linear-gradient(135deg, #cc99ff 0%, #ff99cc 100%);
+  top: 40%;
+  right: 15%;
+  animation-duration: 22s;
+  animation-delay: -10s;
+  margin-left: calc(var(--mouse-x) * -40px);
+  margin-top: calc(var(--mouse-y) * -40px);
+  filter: blur(80px) hue-rotate(calc(var(--level-3, 0) * 60deg));
+  transition: all 1s ease-out;
+}
+
+.sphere-4 {
+  width: 30vw;
+  height: 30vw;
+  background: linear-gradient(135deg, #ff66cc 0%, #ffccff 100%);
+  bottom: 20%;
+  left: 10%;
+  animation-duration: 28s;
+  animation-delay: -15s;
+  margin-left: calc(var(--mouse-x) * 50px);
+  margin-top: calc(var(--mouse-y) * 50px);
+}
+
+.sphere-interactive {
+  width: 25vw;
+  height: 25vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(200, 220, 255, 0.1) 70%, transparent 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + var(--mouse-x) * 100vw), calc(-50% + var(--mouse-y) * 100vh));
+  animation: none;
+  opacity: 0.7;
+  z-index: 3;
+  filter: blur(50px);
+}
+
+.glass-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(80px); /* Slightly less blur to see the movement better */
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes move-sphere {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5vw, 2vh) scale(1.05); }
+  66% { transform: translate(-2vw, 8vh) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Starry sky canvas in dark mode */
+.aesthetic-bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1.5;
+  display: block;
+}
+
+.aesthetic-bg-container.is-dark {
+  background-color: #000000;
+}
+
+/* Remove glass blur in dark mode so stars are sharp */
+.aesthetic-bg-container.is-dark .glass-overlay {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+

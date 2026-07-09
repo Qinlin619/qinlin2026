@@ -23,8 +23,8 @@ export const LanguageProvider = ({ children }) => {
 
   const getLanguageLabel = useMemo(() => {
     return () => {
-      if (language === 'en') return 'EN';
-      return '简';
+      if (language === 'en') return '简';
+      return 'EN';
     };
   }, [language]);
 

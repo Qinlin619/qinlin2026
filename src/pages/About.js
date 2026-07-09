@@ -1,5 +1,6 @@
 import React, { memo, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import PageRain from '../components/PageRain';
 
 const aboutData = {
   en: {
@@ -23,24 +24,9 @@ function About() {
   const t = aboutData[language] || aboutData.en;
 
   return (
-    <div className="page-content about-page">
-      <div className="about-cover">
-        <img
-          src={`${process.env.PUBLIC_URL}/about/1.jpg`}
-          alt="Qinlin Liu"
-          className={`about-cover-image ${imageLoaded ? 'loaded' : ''}`}
-          loading="eager"
-          onLoad={() => setImageLoaded(true)}
-          onError={(e) => {
-            console.error('Image failed to load:', e.target.src);
-            setImageLoaded(true);
-          }}
-        />
-      </div>
+    <div className="page-content about-page" style={{ minHeight: '100vh', padding: '120px 5%' }}>
       <h1>{t.title}</h1>
-      <p>{t.bio}</p>
-      <h2>{t.planTitle}</h2>
-      <p>{t.plan}</p>
+      <p>{language === 'en' ? 'Coming soon...' : '敬请期待...'}</p>
     </div>
   );
 }

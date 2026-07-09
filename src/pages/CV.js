@@ -5,132 +5,106 @@ const cvData = {
   en: {
     title: 'CV',
     name: 'Qinlin Liu',
-    role: '',
+    role: 'UX Designer',
     personalInfo: {
       email: 'qinlinliu619@gmail.com',
-      phone: '+31 617785667'
+      phone: '+31 617785667',
+      location: 'Barcelona, Spain'
     },
-    intro: 'As a designer, I have a passion for gaming and aspire to gamify my designs, aiming to make each of my projects both entertaining and meaningful. I am eager to create engaging websites that enhance user experience or captivate customers\' attention. Moreover, I have a keen interest in emerging technologies, such as artificial intelligence, and hope to continuously learn and integrate new skills into my work. My future design endeavors strive to be more human-centered, sustainable, and technologically innovative.',
+    intro: 'Specialized in creating high-engagement products, with deep expertise in user research, design systems, data analysis, and gamified applications. Full-stack transition background with strong technical efficiency, enabling cross-platform development and seamless alignment with engineering teams.',
     honorsAwards: [
       {
         dates: '2026',
-        title: 'Mobile World Congress (MWC) Barcelona 2026',
-        achievement: 'Awarded Bronze Place'
+        title: 'MWC Nokia Hackathon - Bronze',
+        achievement: 'Designed a disaster escape product using Nokia API & AI under 24 hours.'
       }
     ],
     workHistory: [
       {
-        dates: '2024-4 - Present',
-        role: 'Co-Founder',
+        dates: '06/2024 – Present',
+        role: 'Co-Founder & UI/UX Lead',
         company: 'EuroStay',
-        description: 'Lead UI/UX design initiatives and manage event operations. Create user-centered design solutions, conduct user research, and design intuitive interfaces. Plan and execute events, coordinate logistics, and ensure seamless user experiences across digital and physical touchpoints.'
-      },
-      {
-        dates: '2025-10 - 2026-01',
-        role: 'Research Assistant',
-        company: 'Hong Kong University of Science and Technology, Division of Arts and Machine Creativity',
+        summary: 'Led product design and operations for a social platform targeting European backpackers, collaborating closely with development and marketing teams.',
         description: [
-          'System Development: Developed CoBrush, a human-robot collaborative painting system based on the 7-DOF Franka robotic arm.',
-          'Installation Exhibition: Responsible for the execution and management of large-scale public events, ensuring smooth and real-time collaborative creation and performance during the Hong Kong Artificial Intelligence Arts Festival and the "2025 Winter Concert" organized by the Hong Kong University of Science and Technology Philharmonic Orchestra.'
+          'Architecture: Led 0-to-1 architecture design and launch, defining core membership business logic. Achieved 20,000+ active users within 3 months of the July 2025 launch through precise cold-start strategies.',
+          'Conversion: Analyzed funnel drop-offs and addressed payment friction through multiple usability tests (including 4 surveys with 3,000+ participants and 300+ interviews). Increased conversion by 80% by streamlining validation and payment paths.',
+          'Growth Strategy: Managed Rednote content acquisition, producing 3 videos with 1M+ views and 10+ with 10k+ likes. Achieved 3M+ brand impressions and significantly increased public-to-private traffic conversion.',
+          'Community: Managed 40+ private domain communities (500 members each). Tracked real-time user feedback to drive continuous UI/UX logic iterations.'
         ]
       },
       {
-        dates: '2024-8 - 2025-12',
-        role: 'Green Team IDE Organiser',
-        company: 'Delft University of Technology',
-        description: 'Serve as a brand ambassador, event organizer, and produce various types of visual content.'
-      },
-      {
-        dates: '2024-8 - 2025-2',
-        role: 'Philips Hue & WiZ Visual Merchandising/Design Intern',
-        company: 'Signify Netherlands B.V.',
+        dates: '08/2024 – 02/2025',
+        role: 'Philips Hue & WiZ UX Designer',
+        company: 'Signify (Philips Lighting)',
+        summary: 'Participated in global digital ecosystem construction for Signify\'s dual brands (Philips Hue & WiZ), covering B2C strategy, major campaigns, and website reconstruction.',
         description: [
-          'Design user-centered digital experiences for brands such as Philips Hue and WiZ across web and in-store touchpoints, translating brand values into intuitive UX and refined UI.',
-          'Analyze UX research reports, user feedback, and marketing performance data to identify insights and inform experience optimization and design decisions.',
-          'Contribute to the development and maintenance of a global design system by aligning interaction patterns, visual language, and usability standards across regions.',
-          'Create, iterate, and refine UI assets, motion, and visual content for multiple digital platforms.'
+          'Amazon Strategy: Analyzed 50,000+ user reviews to identify key purchase drivers. Led the A+ page architecture restructure for 200+ products, translating insights into high-conversion visual assets.',
+          'Global Campaigns: Redesigned the marketing visual system for the entire product line based on drop-off points. Highlighted "smart linkage" selling points, boosting cross-functional efficiency by 30%.',
+          'Website Reconstruction: Optimized the conversion funnel for the WiZ global site. Established a Figma-based modular Design System to ensure brand consistency across multi-continental sites.'
         ]
       },
       {
-        dates: '2024-10 - 2024-12',
-        role: 'Business Assistant (International & Offline Operations)',
-        company: 'Suzhou Biyi Network Technology Co.',
-        description: 'Supported overseas partnership coordination, contributing to collaborations with four offline retail stores and one supply chain partner.'
-      },
-      {
-        dates: '2023-12 - 2024-2',
-        role: 'Student Assistant',
-        company: 'Delft University of Technology',
-        description: 'Assist with data analysis, classification, and documentation at the Delft Health Initiative, supporting the structuring of health-related datasets and information systems to enable clearer insights and more efficient knowledge sharing.'
-      },
-      {
-        dates: '2023-10 - 2023-10',
-        role: 'Student Assistant',
-        company: 'Dutch Design Week',
-        description: 'Guided visitors and explained seven AI-focused design projects at a TU Delft exhibition with 100,000+ total attendees.'
-      },
-      {
-        dates: '2022-3 - 2023-10, 2024-6 - 2024-10',
-        role: 'Product Designer (E-commerce & IP Design)',
-        company: 'Suzhou Biyi Network Technology Co.',
+        dates: '10/2025 – 01/2026',
+        role: 'Human-AI Interaction System Researcher',
+        company: 'HKUST',
+        summary: 'Led user research and full-stack development for the "CoBrush" human-machine collaborative painting system.',
         description: [
-          'Designed product packaging, promotional graphics, and Taobao e-commerce assets aligned with brand and campaign requirements.',
-          'Developed product merchandise and IP-based visual designs, ensuring consistency across online and physical touchpoints.'
+          'Research & Data: Conducted 300+ hours of qualitative and quantitative research with 45+ participants. Analyzed cognitive load to rapidly iterate system design via code, increasing user satisfaction by 65%.',
+          'Full-Stack: Developed the Franka robot arm interactive console using AI-assisted programming. Decoupled complex human-AI logic and explored high-frequency real-time data visualization.'
+        ]
+      }
+    ],
+    projects: [
+      {
+        dates: '2025',
+        title: 'Smart Induction Hob System Redesign',
+        company: 'ATAG',
+        summary: 'Designed the next-gen interaction system for ATAG, a top Dutch kitchen brand; optimized touch experience hierarchy through prototype validation.',
+        description: [
+          'Implemented Figma workflows that reduced first-time user learning time by 80%, increased task accuracy by 60%, and boosted hidden feature usage by 75%.'
         ]
       }
     ],
     education: [
       {
-        dates: '2023-9 - 2025-11',
-        degree: 'Design for Interaction, Master of Science',
-        university: 'Delft University of Technology'
+        dates: '09/2023 – 08/2025',
+        degree: 'M.Sc. Design for Interaction | GPA: 8.2/10.0 (Thesis: 9.5/10)',
+        university: 'TU Delft, Netherlands'
       },
       {
-        dates: '2020-9 - 2022-7',
-        degree: 'Industrial Design, Bachelor of Engineering',
-        university: 'University of Liverpool'
-      },
-      {
-        dates: '2018-9 - 2020-7',
-        degree: 'Industrial Design, Bachelor of Engineering',
-        university: 'Xi\'an Jiaotong-Liverpool University'
+        dates: '2020 – 2022',
+        degree: 'B.Eng. Industrial Design | GPA: 3.64/4.0',
+        university: 'University of Liverpool, United Kingdom'
       }
     ],
     skills: [
-      'Prompt Engineering',
-      'UI/UX Design',
-      'Human-Computer Interaction',
-      'Programming',
-      'Data Analysis',
-      'Communication Skill',
-      'MS office',
-      'Adobe family',
-      '3D Modeling',
-      'Video Editing'
+      'Design & Strategy: Service Blueprinting, UCD, Design Systems, Wireframing, Rapid Prototyping, Brand Narrative',
+      'Research & Validation: Qualitative & Quantitative Research, User Interviews, Journey Mapping, Usability Testing, A/B Testing, Data Analysis',
+      'Technical & AI: Figma, AI Workflow, HTML/CSS, React.js, Framer, Adobe Creative Suite'
     ],
     languages: [
-      { name: 'Mandarin', level: 'C2' },
-      { name: 'Cantonese', level: 'C1' },
-      { name: 'English', level: 'C1' },
-      { name: 'Shaodong Dialect (Hunan)', level: 'C1' },
-      { name: 'Dutch', level: 'A1' },
-      { name: 'Japanese', level: 'A1' },
-      { name: 'Spanish', level: 'A1' }
+      { name: 'Mandarin', level: 'Native' },
+      { name: 'English', level: 'Proficient' },
+      { name: 'Cantonese', level: 'Proficient' },
+      { name: 'Spanish', level: 'Intermediate' },
+      { name: 'Dutch', level: 'Beginner' },
+      { name: 'Japanese', level: 'Beginner' }
     ],
     hobbies: [
       'Drawing',
       'Musical Instruments',
-      'Game design',
       'Movies',
       'Reading',
-      'Travel'
+      'Travel',
+      'Gaming (600+ titles on Steam/Epic/Mobile/Web; passionate about unique interactions and visually stunning puzzle games)'
     ],
     sections: {
       personalInfo: 'Personal Information',
       honorsAwards: 'Honors & Awards',
-      workHistory: 'Work History',
+      workHistory: 'Professional Experience',
+      projects: 'Selected Project',
       education: 'Education',
-      skills: 'Skills',
+      skills: 'Core Skills',
       languages: 'Languages',
       hobbies: 'Hobby/Interest',
       contact: 'CONTACT',
@@ -144,132 +118,110 @@ const cvData = {
     role: '用户体验设计师',
     personalInfo: {
       email: 'qinlinliu619@gmail.com',
-      phone: '+31 617785667'
+      phone: '+31 617785667',
+      location: '西班牙, 巴塞罗那'
     },
-    intro: '作为一名设计师，我对游戏充满热情，并希望将游戏化融入我的设计中，旨在让我的每个项目既有趣又有意义。我渴望创建能够增强用户体验或吸引客户注意的引人入胜的网站。此外，我对新兴技术（如人工智能）有浓厚的兴趣，希望不断学习并将新技能融入我的工作中。我未来的设计努力将更加以人为本、可持续和技术创新。',
+    intro: '专注于创建高参与度产品，在用户研究、设计系统、数据分析和游戏化应用方面拥有深厚专业知识。具备全栈转型背景，技术效率高，能够实现跨平台开发并与工程团队无缝对接。',
     honorsAwards: [
       {
         dates: '2026',
-        title: '世界移动通信大会 (MWC) 巴塞罗那 2026',
-        achievement: '荣获铜奖'
+        title: 'MWC 诺基亚黑客松 - 铜奖',
+        achievement: '在24小时内利用诺基亚 API 和人工智能设计了一款灾难逃生产品。'
       }
     ],
     workHistory: [
       {
-        dates: '2024-4 - 至今',
-        role: '联合创始人',
+        dates: '2024.06 - 至今',
+        role: '联合创始人 & UI/UX 设计主管',
         company: 'EuroStay',
-        description: '负责UI/UX设计工作和活动运营管理。创建以用户为中心的设计方案，进行用户研究，设计直观的界面。策划和执行活动，协调活动流程，确保数字和实体触点的无缝用户体验。'
-      },
-      {
-        dates: '2025-10 - 2026-01',
-        role: '研究助理',
-        company: '香港科技大学，艺术与机器创造学部 (Division of Arts and Machine Creativity)',
+        summary: '领导了一款针对欧洲背包客的社交平台的产品设计和运营，与开发和营销团队紧密合作。',
         description: [
-          '系统开发：基于 7 自由度 Franka 机械臂开发了人机协作绘画系统 CoBrush。',
-          '装置展览：负责大型公共活动的执行与管理，确保在香港人工智能艺术节以及香港科技大学管弦乐团主办的“2025冬季音乐会”期间，协作创作与表演的流畅性与实时性。'
+          '架构设计：主导 0 到 1 的架构设计与发布，定义核心会员业务逻辑。通过精准的冷启动策略，在 2025 年 7 月上线后的 3 个月内实现了 20,000+ 活跃用户。',
+          '转化优化：分析漏斗流失点，通过多次可用性测试（包括 4 次调研、3,000+ 参与者和 300+ 访客访谈）解决支付摩擦。通过简化验证和支付路径，使转化率提高了 80%。',
+          '增长策略：负责小红书（Rednote）内容获客，制作了 3 个播放量破百万、10+ 点赞破万的视频。实现了 300万+ 的品牌曝光，显著提升了公域到私域的流量转化。',
+          '社群管理：管理 40+ 个私域社群（每个 500 人）。实时追踪用户反馈，驱动 UI/UX 逻辑的持续迭代。'
         ]
       },
       {
-        dates: '2024-8 - 2025-12',
-        role: 'Green Team IDE 组织者',
-        company: '代尔夫特理工大学',
-        description: '担任品牌大使、活动组织者，并制作各种类型的视觉内容。'
-      },
-      {
-        dates: '2024-8 - 2025-2',
-        role: 'Philips Hue & WiZ 视觉营销/设计实习生',
-        company: 'Signify Netherlands B.V.',
-        description: '为Philips Hue和WiZ等品牌创建创新的设计和内容，包括在线和店内营销材料。确保全球一致的品牌体验。编辑用于各种用途的图像和视频，并通过结构化的项目管理帮助团队成员实现他们的想法。'
-      },
-      {
-        dates: '2024-10 - 2024-12',
-        role: '商务助理（国际与线下运营）',
-        company: '苏州比翼网络科技有限公司',
-        description: '支持海外合作伙伴协调，促成与四家线下零售店和一家供应链合作伙伴的合作。'
-      },
-      {
-        dates: '2023-12 - 2024-2',
-        role: '学生助理',
-        company: '代尔夫特理工大学',
-        description: '协助代尔夫特健康倡议的一些文档工作'
-      },
-      {
-        dates: '2023-10 - 2023-10',
-        role: '学生助理',
-        company: '荷兰设计周',
-        description: '负责迎接和引导访客，提供活动信息并确保展览顺利进行'
-      },
-      {
-        dates: '2022-3 - 2023-10, 2024-6 - 2024-10',
-        role: '产品设计师（电商与IP设计）',
-        company: '苏州比翼网络科技有限公司',
+        dates: '2024.08 - 2025.02',
+        role: 'Philips Hue & WiZ 用户体验设计师',
+        company: 'Signify (飞利浦照明)',
+        summary: '参与了飞利浦全球数字生态系统建设（Philips Hue & WiZ 双品牌），涵盖 B2C 策略、大型营销活动以及网站重构。',
         description: [
-          '设计产品包装、促销图形和淘宝电商素材，符合品牌和活动要求。',
-          '开发产品周边和基于IP的视觉设计，确保线上和线下触点的一致性。'
+          '亚马逊策略：分析了 50,000+ 条用户评论以识别关键购买驱动因素。主导了 200+产品的 A+ 页面架构重组，将洞察转化为高转化率的视觉资产。',
+          '全球营销活动：基于流失点重新设计了全线产品的营销视觉系统。突出“智能联动”卖点，使跨职能协作效率提升了 30%。',
+          '网站重构：优化了 WiZ 全球站点的转化漏斗。建立了基于 Figma 的模块化设计系统，确保多洲站点的品牌一致性。'
+        ]
+      },
+      {
+        dates: '2025.10 - 2026.01',
+        role: '人机 AI 交互系统研究员',
+        company: '香港科技大学 (HKUST)',
+        summary: '主导了 "CoBrush" 人机协作绘画系统的用户研究和全栈开发。',
+        description: [
+          '研究与数据：对 45+ 名参与者进行了 300+ 小时的定性和定量研究。分析认知负荷，通过代码快速迭代系统设计，使用户满意度提升了 65%。',
+          '全栈开发：利用 AI 辅助编程开发了 Franka 机械臂交互控制台。解耦复杂的 AI 交互逻辑，并探索了高频实时数据可视化。'
+        ]
+      }
+    ],
+    projects: [
+      {
+        dates: '2025',
+        title: '智能电磁灶系统再设计',
+        company: 'ATAG',
+        summary: '为荷兰顶尖厨房品牌 ATAG 设计了下一代交互系统；通过原型验证优化了触控体验层级。',
+        description: [
+          '实施了 Figma 工作流，使首次用户学习时间减少了 80%，任务准确率提升了 60%，并使隐藏功能的使用率提升了 75%。'
         ]
       }
     ],
     education: [
       {
-        dates: '2023-9 - 2025-11',
-        degree: '交互设计，理学硕士',
-        university: '代尔夫特理工大学'
+        dates: '2023.09 - 2025.08',
+        degree: '交互设计，理学硕士 | GPA: 8.2/10.0 (论文: 9.5/10)',
+        university: '代尔夫特理工大学 (TU Delft), 荷兰'
       },
       {
-        dates: '2020-9 - 2022-7',
-        degree: '工业设计，工程学士',
-        university: '利物浦大学'
-      },
-      {
-        dates: '2018-9 - 2020-7',
-        degree: '工业设计，工程学士',
-        university: '西交利物浦大学'
+        dates: '2020 - 2022',
+        degree: '工业设计，工程学士 | GPA: 3.64/4.0',
+        university: '利物浦大学, 英国'
       }
     ],
     skills: [
-      '很会prompt',
-      'UI/UX设计',
-      '人机交互',
-      '编程',
-      '数据分析',
-      '沟通技能',
-      'MS office',
-      'Adobe系列',
-      '建模',
-      '剪辑'
+      '设计与策略: 服务蓝图, 以用户为中心的设计, 设计系统, 线框图, 快速原型, 品牌叙事',
+      '研究与验证: 定性与定量研究, 用户访谈, 旅程地图, 可用性测试, A/B 测试, 数据分析',
+      '技术与 AI: Figma, AI 工作流, HTML/CSS, React.js, Framer, Adobe Creative Suite'
     ],
     languages: [
-      { name: '普通话', level: 'C2' },
-      { name: '粤语', level: 'C1' },
-      { name: '英语', level: 'C1' },
-      { name: '湖南邵东话', level: 'C1' },
-      { name: '荷兰语', level: 'A1' },
-      { name: '日语', level: 'A1' },
-      { name: '西班牙语', level: 'A1' }
+      { name: '普通话', level: '母语' },
+      { name: '英语', level: '精通' },
+      { name: '粤语', level: '精通' },
+      { name: '西班牙语', level: '中级' },
+      { name: '荷兰语', level: '初级' },
+      { name: '日语', level: '初级' }
     ],
     hobbies: [
       '绘画',
       '乐器',
-      '游戏设计',
       '电影',
       '看书',
-      '旅行'
+      '旅行',
+      '玩游戏 (Steam/Epic/手机/网页游戏共 600+；热爱体验各种交互与画风精良的解谜游戏)'
     ],
     sections: {
       personalInfo: '个人信息',
       honorsAwards: '荣誉与奖项',
-      workHistory: '工作经历',
+      workHistory: '职业经历',
+      projects: '精选项目',
       education: '教育背景',
-      skills: '技能',
-      languages: '语言',
+      skills: '核心技能',
+      languages: '语言能力',
       hobbies: '兴趣爱好',
-      contact: 'CONTACT',
-      cv: 'CV',
+      contact: '联系方式',
+      cv: '简历',
       viewDownload: '下载'
     }
-  },
-
+  }
 };
 
 function CV() {
@@ -286,7 +238,6 @@ function CV() {
         setShowCopyToast(false);
       }, 2000);
     }).catch(() => {
-      // 如果复制失败，使用备用方法
       const textArea = document.createElement('textarea');
       textArea.value = text;
       document.body.appendChild(textArea);
@@ -313,12 +264,15 @@ function CV() {
   return (
     <div className="page-content cv-page">
       <div className="cv-top-header">
-        <h1>{data.name}</h1>
+        <div className="cv-name-role">
+          <h1>{data.name}</h1>
+          <p className="cv-role-text">{data.role}</p>
+        </div>
         <div className="cv-header-links">
           <div className="cv-header-link-item">
             <span className="cv-header-link-label">{data.sections.contact}:</span>
             <a
-              href="#"
+              href="mailto:qinlinliu619@gmail.com"
               className="cv-header-email-link"
               onClick={handleEmailClick}
             >
@@ -332,6 +286,11 @@ function CV() {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="cv-intro-section">
+        <p className="cv-intro-text">{data.intro}</p>
+        <p className="cv-location-text">📍 {data.personalInfo.location}</p>
       </div>
 
       <section className="cv-section">
@@ -356,21 +315,44 @@ function CV() {
               <span className="cv-dates">{work.dates}</span>
             </div>
             <p className="cv-company">{work.company}</p>
+            {work.summary && <p className="cv-item-summary"><em>{work.summary}</em></p>}
             {Array.isArray(work.description) ? (
-              <p>
+              <ul className="cv-item-list">
                 {work.description.map((item, idx) => (
-                  <React.Fragment key={idx}>
-                    - {item}
-                    {idx < work.description.length - 1 && <br />}
-                  </React.Fragment>
+                  <li key={idx}>{item}</li>
                 ))}
-              </p>
+              </ul>
             ) : (
               <p>{work.description}</p>
             )}
           </div>
         ))}
       </section>
+
+      {data.projects && data.projects.length > 0 && (
+        <section className="cv-section">
+          <h2>{data.sections.projects}</h2>
+          {data.projects.map((project, index) => (
+            <div key={index} className="cv-item">
+              <div className="cv-item-header">
+                <strong>{project.title}</strong>
+                <span className="cv-dates">{project.dates}</span>
+              </div>
+              <p className="cv-company">{project.company}</p>
+              {project.summary && <p className="cv-item-summary"><em>{project.summary}</em></p>}
+              {Array.isArray(project.description) ? (
+                <ul className="cv-item-list">
+                  {project.description.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>{project.description}</p>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
 
       <section className="cv-section">
         <h2>{data.sections.education}</h2>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripUp Redesign Portfolio</title>
+    <!-- Elite Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2193B0; 
+            --coral: #FF5F6D;
+            --teal: #00B09B;
+            --orange: #FFC371;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --bg: #ffffff;
+            /* Type Scale */
+            --size-title: 2.6rem;
+            --size-h3: 0.95rem;
+            --size-body: 0.92rem;
+            --size-insight: 1.35rem;
+            --size-footer: 0.65rem;
+            /* A4 Standards */
+            --width: 297mm;
+            --height: 210mm;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media screen {
+            body { padding: 40px 20px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+            .page { border: 1px solid #e2e8f0; }
+        }
+
+        .page {
+            width: var(--width);
+            height: var(--height);
+            background: var(--bg);
+            padding: 12mm 20mm 20mm 20mm;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            /* Force color preservation during print/PDF export */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page { page-break-after: always; break-after: page; }
+        }
+
+        /* Standard Header & Footer */
+        .page-header {
+            height: 10mm;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .page-num {
+            font-family: 'Outfit';
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            letter-spacing: 0.25em;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 12mm;
+            left: 20mm;
+            right: 20mm;
+            border-top: 1px solid var(--border);
+            padding-top: 4mm;
+            display: flex;
+            justify-content: space-between;
+            color: #cbd5e1;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            z-index: 10;
+        }
+
+        /* Standard Typography */
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+        
+        h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1.1; }
+        
+        .section-title { 
+            font-size: var(--size-title); 
+            font-weight: 800; 
+            margin-bottom: 8mm; 
+            letter-spacing: -0.02em; 
+            color: var(--text-main);
+        }
+
+        h3 { 
+            font-size: var(--size-h3); 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.15em; 
+            margin-bottom: 5mm; 
+        }
+
+        p { 
+            font-size: var(--size-body); 
+            line-height: 1.6; 
+            color: var(--text-muted); 
+            font-weight: 400;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        strong {
+            color: #000;
+            font-weight: 900;
+        }
+
+        .insight-title-large { 
+            font-size: var(--size-insight); 
+            font-weight: 800; 
+            line-height: 1.3; 
+            color: var(--text-main); 
+            letter-spacing: -0.03em; 
+        }
+
+        /* Slide 1: Cover */
+        .cover-wrap { flex: 1; display: flex; align-items: center; justify-content: space-between; position: relative; }
+        .cover-text { max-width: 60%; }
+        h1 { font-size: 5rem; line-height: 1; font-weight: 900; letter-spacing: -0.05em; }
+        .cover-wrap { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 20mm; }
+        .cover-text { max-width: 60%; }
+        h1 span { display: block; font-size: 2rem; font-weight: 500; color: var(--text-muted); margin-top: 5mm; letter-spacing: 0; }
+        .tagline { font-size: 1.1rem; color: var(--text-muted); margin-top: 10mm; font-weight: 300; line-height: 1.7; }
+        .svg-branding { width: 75mm; height: 75mm; animation: ringFloat 6s ease-in-out infinite; }
+        .highlight-accent { background: #fafcfd; padding: 6mm 8mm; border-left: 5px solid var(--teal); border-radius: 4px; font-weight: 500; font-size: 1rem; margin-top: 5mm;}
+
+        /* Slide 2: Asymmetric Narrative (Individual Identity) */
+        .challenge-wrap { display: flex; flex-direction: column; flex: 1; margin-top: 5mm; }
+        .challenge-hero-stage { width: 100%; height: 85mm; border-radius: 0; overflow: hidden; margin-bottom: 8mm; display: flex; align-items: center; justify-content: center; position: relative; }
+        .challenge-hero-stage img { width: 100%; height: 100%; object-fit: contain; }
+        
+        .challenge-footer-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 15mm; align-items: start; }
+        .challenge-intro-text { position: relative; }
+        .challenge-intro-text p { font-size: 1rem; line-height: 1.6; color: var(--text-main); font-weight: 500; }
+        .challenge-detail-text { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
+
+        /* Slide 3: Insights */
+        .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12mm; flex: 1; margin-top: 5mm; }
+        .insight-column { display: flex; flex-direction: column; position: relative; padding-right: 20px; z-index: 1; }
+        .index-bg { 
+            position: absolute; 
+            top: -12mm; 
+            left: -8mm; 
+            font-size: 7rem; /* Slightly larger for frame effect */
+            font-family: 'Outfit'; 
+            font-weight: 900; 
+            color: #f8fafc; 
+            opacity: 0.8; 
+            z-index: -1; /* Confirmed as last layer */
+            pointer-events: none;
+        }
+
+        .insight-row { margin-bottom: 4mm; position: relative; z-index: 1; }
+        .insight-row strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2mm; color: var(--text-main); font-weight: 800; }
+
+        .insight-conclusion { margin-top: auto; padding-top: 5mm; border-top: 1px solid var(--border); position: relative; z-index: 1; }
+        .insight-conclusion strong { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 3mm; color: var(--text-muted); font-weight: 600; }
+        .insight-title-large { font-size: 1.5rem; font-weight: 900; line-height: 1.25; color: var(--text-main); letter-spacing: -0.03em; }
+
+        .text-h-c { color: var(--coral); font-weight: 800; padding: 0 4px; background: rgba(255, 95, 109, 0.08); border-radius: 4px; }
+        .text-h-t { color: var(--teal); font-weight: 800; padding: 0 4px; background: rgba(0, 176, 155, 0.08); border-radius: 4px; }
+        .text-h-o { color: var(--orange); font-weight: 800; padding: 0 4px; background: rgba(255, 195, 113, 0.08); border-radius: 4px; }
+
+        /* Slide 4: User Flow Logic */
+        .userflow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8mm; margin-top: 5mm; position: relative; }
+        .flow-card { border: 1px solid var(--border); padding: 4mm; border-radius: 4px; background: #fff; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .flow-card .step-id { font-size: 0.6rem; font-weight: 900; opacity: 0.3; margin-bottom: 1mm; }
+        .flow-card h4 { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; margin-bottom: 2mm; color: var(--text-main); }
+        .flow-card p { font-size: 0.65rem; color: var(--text-muted); line-height: 1.4; margin: 0; text-align: left; }
+        
+        .flow-card.coral { border-top: 3px solid var(--coral); }
+        .flow-card.teal { border-top: 3px solid var(--teal); }
+        .flow-card.orange { border-top: 3px solid var(--orange); }
+        
+        .logic-connector { position: absolute; width: 8mm; height: 1px; background: var(--border); top: 50%; right: -8mm; }
+        .logic-connector::after { content: ''; position: absolute; right: 0; top: -1mm; border: 1.2mm solid transparent; border-left-color: var(--border); }
+        
+        .auto-tag { position: absolute; top: -2.5mm; right: 4mm; font-size: 0.55rem; font-weight: 900; background: var(--teal); color: #fff; padding: 0.5mm 2mm; border-radius: 10mm; text-transform: uppercase; letter-spacing: 0.1em; }
+        .auto-tag.finance { background: var(--orange); }
+
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Cover -->
+<section class="page">
+    <div class="page-header"></div>
+    <div class="cover-wrap">
+        <div class="cover-text">
+            <h1>TripUp<span>Mobile App Redesign</span></h1>
+            <p class="tagline">Streamlining the group travel experience<br>through collaborative planning and real-time social dynamics.</p>
+        </div>
+        <div class="visual-wrap">
+            <svg viewBox="0 0 100 100" class="svg-branding" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 50,10 A 40,40 0 0 1 84.6,26.6" fill="none" stroke="#FF5F6D" stroke-width="12" stroke-linecap="round" />
+                <path d="M 90,50 A 40,40 0 0 1 78.3,78.3" fill="none" stroke="#00B09B" stroke-width="12" stroke-linecap="round" />
+                <path d="M 50,90 A 40,40 0 0 1 15.4,73.4" fill="none" stroke="#FFC371" stroke-width="12" stroke-linecap="round" />
+                <path d="M 10,50 A 40,40 0 0 1 21.7,21.7" fill="none" stroke="#2193B0" stroke-width="12" stroke-linecap="round" />
+            </svg>
+        </div>
+    </div>
+    <footer>
+        <div>UX/UI Redesign Phase</div>
+        <div>2026 Portfolio Series</div>
+    </footer>
+</section>
+
+<!-- Page 2: Narrative -->
+<section class="page">
+    <div class="page-header"><span class="page-num">01</span></div>
+    <div class="content-main">
+        <h2 class="section-title">The Challenge & Vision</h2>
+        
+        <div class="challenge-wrap">
+            <!-- Large Hero Visual -->
+            <div class="challenge-hero-stage">
+                <img src="1.png" alt="Challenge Illustration">
+            </div>
+
+            <!-- Asymmetric Narrative Blocks -->
+            <div class="challenge-footer-grid">
+                <div class="challenge-intro-text">
+                    <p>Friend trips are great.<br>
+                    Organizing a friend trip? Less great.<br>
+                    Deciding where to go, explore, and keep everyone in the loop—can get frustrating, fast.</p>
+                </div>
+                <div class="challenge-detail-text">
+                    <p style="margin-bottom: 4mm;">That’s why <strong>TripUp</strong> was created: an all-in-one platform for organizing seamless group travel. whether it’s a weekend getaway or a music festival abroad.</p>
+                    <p><strong>Users can collaboratively build itineraries. vote on decisions. and settle expenses</strong>—reducing planning friction and amplifying the fun.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>Background & Context</div>
+        <div>Introduction & Mission</div>
+    </footer>
+</section>
+
+<!-- Slide 3: User Insights -->
+<section class="page">
+    <div class="page-header"><span class="page-num">02</span></div>
+    <div class="content-main">
+        <h2 class="section-title">User Insights</h2>
+        <div class="insight-grid">
+            <!-- 1. Profiles -->
+            <div class="insight-column">
+                <div class="index-bg">01</div>
+                <h3 style="color: var(--coral);">
+                    <svg style="width:20px; height:20px; margin-right:8px; vertical-align:middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <circle cx="12" cy="7" r="4"/><path d="M5 22v-2a7 7 0 0 1 14 0v2"/>
+                    </svg>
+                    Profiles
+                </h3>
+                <div class="insight-row">
+                    <strong>The Organizer</strong>
+                    <p>Typically the <span class="text-h-c">most proactive member</span>. They set up the trip. invite others. and keep things moving.</p>
+                </div>
+                <div class="insight-row">
+                    <strong>The Participants</strong>
+                    <p>Wants to be involved without being overwhelmed. They <span class="text-h-c">suggest ideas. vote</span> on decisions. and stay informed.</p>
+                </div>
+                <div class="insight-conclusion">
+                    <strong style="color: var(--coral);">The Foundation</strong>
+                    <div class="insight-title-large">Architecting for <span class="text-h-c">Maximum Simplicity</span>.</div>
+                </div>
+            </div>
+
+            <!-- 2. Behaviors -->
+            <div class="insight-column">
+                <div class="index-bg">02</div>
+                <h3 style="color: var(--teal);">
+                    <svg style="width:20px; height:20px; margin-right:8px; vertical-align:middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Patterns
+                </h3>
+                <div class="insight-row">
+                    <strong>Spontaneous Decisions</strong>
+                    <p>Most choices happen on the fly. especially mid-trip. The app must support <span class="text-h-t">quick interactions</span>.</p>
+                </div>
+                <div class="insight-row">
+                    <strong>Shared Ownership</strong>
+                    <p>Everyone wants input. Particularly on food and expenses. A <span class="text-h-t">collective voice</span> is essential.</p>
+                </div>
+                <div class="insight-row">
+                    <strong>Low Friction</strong>
+                    <p>If something takes more than a few taps. users switch to WhatsApp. <span class="text-h-t">Intuitive logic</span> is key.</p>
+                </div>
+                <div class="insight-conclusion">
+                    <strong style="color: var(--teal);">Contextual Goal</strong>
+                    <div class="insight-title-large"><span class="text-h-t">Rapid Decisions</span> via diverse displays.</div>
+                </div>
+            </div>
+
+            <!-- 3. Preferences -->
+            <div class="insight-column">
+                <div class="index-bg">03</div>
+                <h3 style="color: var(--orange);">
+                    <svg style="width:20px; height:20px; margin-right:8px; vertical-align:middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M12 2v20M2 12l10 10L22 12"/>
+                    </svg>
+                    Needs
+                </h3>
+                <div class="insight-row">
+                    <strong>Polls Over Chats</strong>
+                    <p>Users prefer <span class="text-h-o">quick polls</span> rather than chats. as long as the experience is intuitive.</p>
+                </div>
+                <div class="insight-row">
+                    <strong>Expense Tracking</strong>
+                    <p>Easy ways to <span class="text-h-o">manage and settle group expenses</span> via digital methods or in-app payments.</p>
+                </div>
+                <div class="insight-row">
+                    <strong>Real-time Feedback</strong>
+                    <p>When decisions are made. users expect <span class="text-h-o">instant updates</span> in the shared itinerary.</p>
+                </div>
+                <div class="insight-conclusion">
+                    <strong style="color: var(--orange);">User Priority</strong>
+                    <div class="insight-title-large">Interactive <span class="text-h-o">Status Sync</span> and Payment.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>Analysis & Logic</div>
+        <div>User Behavioral Intelligence</div>
+    </footer>
+</section>
+
+<!-- Slide 4: User Flow Architecture -->
+<section class="page">
+    <div class="page-header"><span class="page-num">03</span></div>
+    <div class="content-main" style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-bottom: 8mm;">
+        <h2 class="section-title" style="margin-bottom: 5mm;">Scenario Logic Flow</h2>
+        
+        <div class="content-area" style="display: flex; flex-direction: column; gap: 4mm; flex: 1; align-items: stretch; min-height: 0;">
+            <div class="text-container" style="flex: none;">
+                <p style="font-size: 1rem; line-height: 1.6; color: var(--text-muted); text-align: left;">
+                    This flowchart visualizes the end-to-end user journey, from initiating a quick group dinner poll to concluding with a frictionless expense settlement. By translating abstract user needs into concrete, actionable interface events, it maps out a seamless and intuitive functional flow.
+                </p>
+            </div>
+
+            <div class="image-container" style="flex: 1; height: 100%; min-height: 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; justify-content: center; align-items: center; padding: 0; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); overflow: hidden;">
+                <img src="flow.png" alt="Scenario Logic Flow Diagram" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>Interaction Architecture</div>
+        <div>Lisbon Scenario Step-by-Step Flow</div>
+    </footer>
+</section>
+
+<!-- Slide 5: Design System -->
+<section class="page">
+    <div class="page-header"><span class="page-num">04</span></div>
+    <div class="content-main" style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-bottom: 8mm;">
+        <h2 class="section-title" style="margin-bottom: 5mm;">Design System</h2>
+        <div class="content-area" style="display: flex; flex-direction: column; gap: 4mm; flex: 1; align-items: stretch; min-height: 0;">
+            <div class="image-container" style="flex: 1; height: 100%; min-height: 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; justify-content: center; align-items: center; padding: 0; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); overflow: hidden;">
+                <img src="Designsystem.png" alt="Design System" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>Visual Identity</div>
+        <div>Design System & Components</div>
+    </footer>
+</section>
+
+<!-- Slide 6: Wireflow -->
+<section class="page">
+    <div class="page-header"><span class="page-num">05</span></div>
+    <div class="content-main" style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-bottom: 8mm;">
+        <h2 class="section-title" style="margin-bottom: 5mm;">Wireflow</h2>
+        <div class="content-area" style="display: flex; flex-direction: column; gap: 4mm; flex: 1; align-items: stretch; min-height: 0;">
+            <div class="image-container" style="flex: 1; height: 100%; min-height: 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; justify-content: center; align-items: center; padding: 0; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); overflow: hidden;">
+                <img src="Wireflow.png" alt="Wireflow" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>Interaction Design</div>
+        <div>Wireflow & Navigation</div>
+    </footer>
+</section>
+
+<!-- Slide 7: High Fidelity Design -->
+<section class="page">
+    <div class="page-header"><span class="page-num">06</span></div>
+    <div class="content-main" style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-bottom: 8mm;">
+        <h2 class="section-title" style="margin-bottom: 5mm;">High-Fidelity UI</h2>
+        <div class="content-area" style="display: flex; flex-direction: column; gap: 4mm; flex: 1; align-items: stretch; min-height: 0;">
+            <div class="image-container" style="flex: 1; height: 100%; min-height: 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; justify-content: center; align-items: center; padding: 0; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); overflow: hidden;">
+                <img src="Highfi.png" alt="High Fidelity UI" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>Interface Design</div>
+        <div>High-Fidelity Screens</div>
+    </footer>
+</section>
+
+<!-- Slide 8: Thank You / Outro -->
+<section class="page" style="justify-content: center; align-items: center; text-align: center;">
+    <div class="page-header" style="position: absolute; top: 12mm; right: 20mm; width: calc(100% - 40mm);"><span class="page-num">07</span></div>
+    
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+        <svg viewBox="0 0 100 100" class="svg-branding" style="width: 60mm; height: 60mm; margin-bottom: 10mm;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50,10 A 40,40 0 0 1 84.6,26.6" fill="none" stroke="#FF5F6D" stroke-width="12" stroke-linecap="round" />
+            <path d="M 90,50 A 40,40 0 0 1 78.3,78.3" fill="none" stroke="#00B09B" stroke-width="12" stroke-linecap="round" />
+            <path d="M 50,90 A 40,40 0 0 1 15.4,73.4" fill="none" stroke="#FFC371" stroke-width="12" stroke-linecap="round" />
+            <path d="M 10,50 A 40,40 0 0 1 21.7,21.7" fill="none" stroke="#2193B0" stroke-width="12" stroke-linecap="round" />
+        </svg>
+        <h1 style="font-size: 4.5rem; margin-bottom: 4mm;">Thank You</h1>
+        <p style="font-size: 1.2rem; max-width: 600px; text-align: center; margin: 0 auto; color: var(--text-muted);">
+            Thank you for taking the time to review the TripUp Mobile App redesign project.
+        </p>
+    </div>
+
+    <footer>
+        <div>UX/UI Redesign Phase</div>
+        <div>2026 Portfolio Series</div>
+    </footer>
+</section>
+
+</body>
+</html>

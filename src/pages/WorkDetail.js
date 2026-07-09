@@ -14,56 +14,493 @@ function getYoutubeEmbedUrl(url) {
   return null;
 }
 
+function PrototypeEmbed() {
+  const containerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const targetWidth = 414; // Width of device-frame + fake padding/shadows
+        if (containerWidth < targetWidth) {
+          setScale(containerWidth / targetWidth);
+        } else {
+          setScale(1);
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    let resizeObserver;
+    if (window.ResizeObserver && containerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize();
+      });
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '2rem 0',
+        height: `${868 * scale}px`,
+        overflow: 'visible',
+        position: 'relative'
+      }}
+    >
+      <div
+        className="app-showcase-hover-container"
+        style={{
+          width: '414px',
+          height: '868px',
+          transform: `scale(${scale})`,
+          transformOrigin: 'center center',
+          position: 'absolute'
+        }}
+      >
+        <div className="app-showcase-device-lift" style={{ width: '100%', height: '100%' }}>
+          <iframe
+            src={`${process.env.PUBLIC_URL}/work/2026/TripUp/tripup_prototype.html`}
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              borderRadius: '40px',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.15)'
+            }}
+            title="TripUp Interactive Prototype"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AppPromotionalShowcase() {
+  const { language } = useLanguage();
+  
+  const en = {
+    badge: "Interactive App Demo",
+    title: "Experience TripUp",
+    desc: "Interact with the live prototype to explore collaborative travel planning:",
+    features: [
+      { icon: "📍", title: "Itinerary Co-Creation", detail: "Seamless group travel planning" },
+      { icon: "📊", title: "Voting Polls", detail: "Quick decision voting on trip details" },
+      { icon: "💸", title: "Expense Splitter", detail: "Frictionless group bill splitting" },
+      { icon: "📱", title: "iOS Dynamics", detail: "Interactive Dynamic Island popups" }
+    ],
+    tip: "💡 Tip: Click on any step above to automatically navigate the prototype."
+  };
+
+  const zh = {
+    badge: "交互式 App 演示",
+    title: "体验 TripUp 互动原型",
+    desc: "在右侧模拟并操作团队协同旅行流程：",
+    features: [
+      { icon: "📍", title: "协同规划", detail: "多人协同设计旅行日程" },
+      { icon: "📊", title: "即时投票", detail: "快速决定行程和聚餐去处" },
+      { icon: "💸", title: "费用分账", detail: "清晰直观地分摊和结算开销" },
+      { icon: "📱", title: "灵动岛交互", detail: "状态弹窗与消息即时反馈" }
+    ],
+    tip: "💡 提示：点击上方任意步骤，右侧原型会自动跳转到对应页面。"
+  };
+
+  const t = language === 'zh' ? zh : en;
+
+  const handleFeatureClick = (stepIndex) => {
+    const iframe = document.querySelector('iframe[title="TripUp Interactive Prototype"]');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ type: 'NAVIGATE_TO_STEP', step: stepIndex }, '*');
+    }
+  };
+
+  return (
+    <div className="app-showcase-card">
+      <div className="app-showcase-grid">
+        <div className="app-showcase-left">
+          <div className="app-showcase-badge">
+            <span className="app-showcase-badge-dot" />
+            {t.badge}
+          </div>
+          <h3 className="app-showcase-title">{t.title}</h3>
+          <p className="app-showcase-desc">{t.desc}</p>
+          
+          <div className="app-showcase-features">
+            {t.features.map((f, idx) => (
+              <div 
+                key={idx} 
+                className="app-showcase-feature-item"
+                onClick={() => handleFeatureClick(idx + 1)}
+              >
+                <span className="app-showcase-feature-icon">
+                  <span className="feature-number">{idx + 1}</span>
+                </span>
+                <div className="app-showcase-feature-text">
+                  <span className="app-showcase-feature-title">{f.icon} &nbsp;{f.title}</span>
+                  <span className="app-showcase-feature-detail">{f.detail}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <p className="app-showcase-tip">{t.tip}</p>
+        </div>
+        
+        <div className="app-showcase-right">
+          <PrototypeEmbed />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EuroStayPrototypeEmbed() {
+  const containerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const targetWidth = 414; // Width of device-frame + fake padding/shadows
+        if (containerWidth < targetWidth) {
+          setScale(containerWidth / targetWidth);
+        } else {
+          setScale(1);
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    let resizeObserver;
+    if (window.ResizeObserver && containerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize();
+      });
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '2rem 0',
+        height: `${868 * scale}px`,
+        overflow: 'visible',
+        position: 'relative'
+      }}
+    >
+      <div
+        className="app-showcase-hover-container"
+        style={{
+          width: '414px',
+          height: '868px',
+          transform: `scale(${scale})`,
+          transformOrigin: 'center center',
+          position: 'absolute'
+        }}
+      >
+        <div className="app-showcase-device-lift" style={{ width: '100%', height: '100%' }}>
+          <iframe
+            src={`${process.env.PUBLIC_URL}/work/2026/eurostay/eurostay_prototype.html`}
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              borderRadius: '40px',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.15)'
+            }}
+            title="EuroStay Interactive Prototype"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EuroStayPromotionalShowcase() {
+  const { language } = useLanguage();
+  
+  const en = {
+    badge: "Interactive App Demo",
+    title: "Experience EuroStay",
+    desc: "Interact with the live prototype to explore host matching and community flows:",
+    features: [
+      { icon: "✨", title: "Onboarding Flow", detail: "Fast guide to finding your perfect host swap" },
+      { icon: "🔍", title: "Search & Filters", detail: "Filter listings by type & location" },
+      { icon: "🏡", title: "Profile & Booking", detail: "View host profiles & submit requests" },
+      { icon: "💬", title: "Notifications & Chats", detail: "Simulated messages and iOS popups" }
+    ],
+    tip: "💡 Tip: Click on any step above, or click on the mobile screen to navigate."
+  };
+
+  const zh = {
+    badge: "交互式 App 演示",
+    title: "体验 EuroStay 互动原型",
+    desc: "在右侧模拟并操作核心换宿流程：",
+    features: [
+      { icon: "✨", title: "新手向导", detail: "快速了解互助换宿机制" },
+      { icon: "🔍", title: "搜索与筛选", detail: "按国家与类型筛选房源" },
+      { icon: "🏡", title: "主机与申请", detail: "浏览主机档案并提交申请表单" },
+      { icon: "💬", title: "通知与消息", detail: "灵动岛即时反馈与聊天通知" }
+    ],
+    tip: "💡 提示：点击上方任意步骤，或直接点击手机屏幕进行切换。"
+  };
+
+  const t = language === 'zh' ? zh : en;
+
+  const handleFeatureClick = (stepIndex) => {
+    const iframe = document.querySelector('iframe[title="EuroStay Interactive Prototype"]');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ type: 'NAVIGATE_TO_STEP', step: stepIndex }, '*');
+    }
+  };
+
+  return (
+    <div className="app-showcase-card">
+      <div className="app-showcase-grid">
+        <div className="app-showcase-left">
+          <div className="app-showcase-badge">
+            <span className="app-showcase-badge-dot" />
+            {t.badge}
+          </div>
+          <h3 className="app-showcase-title">{t.title}</h3>
+          <p className="app-showcase-desc">{t.desc}</p>
+          
+          <div className="app-showcase-features">
+            {t.features.map((f, idx) => (
+              <div 
+                key={idx} 
+                className="app-showcase-feature-item"
+                onClick={() => handleFeatureClick(idx + 1)}
+                style={{ cursor: 'pointer' }}
+              >
+                <span className="app-showcase-feature-icon">{f.icon}</span>
+                <div className="app-showcase-feature-text">
+                  <span className="app-showcase-feature-title">{f.title}</span>
+                  <span className="app-showcase-feature-detail">{f.detail}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <p className="app-showcase-tip">{t.tip}</p>
+        </div>
+        
+        <div className="app-showcase-right">
+          <EuroStayPrototypeEmbed />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const workData = {
   en: {
-    8: {
+    9: {
       title: 'EuroStay',
-      description: '',
+      description: "World's #1 Chinese backpacker community in Europe",
       year: 2026,
-      category: 'Group. User Interface. User Experience. Events',
-      heroImage: '',
+      category: 'Branding. UI/UX. Community. Mobile App',
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/eurostay/banner.png`,
       images: [],
+      fadeBanner: false,
+      hideHeaderTitle: true,
+      links: [
+        { url: 'https://www.eurostay.co', text: 'Visit EuroStay Website' },
+        { url: `${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`, text: 'Brand Manual (PDF)' }
+      ],
       overview: (
-        <>
-          <p>
-            Project Link:{' '}
-            <a
-              href="https://www.eurostay.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline', wordBreak: 'break-all' }}
-            >
-              www.eurostay.co
+        <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <EuroStayPromotionalShowcase />
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Challenge</h3>
+            <p>How can we transform a traditional forum-based community into a modern, mobile-first ecosystem that feels both premium and accessible? The challenge was to modernize a decade-old legacy platform while maintaining the deep trust and connection established within the existing Chinese backpacker community in Europe.</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Vision & Solution</h3>
+            <p>EuroStay 2026 serves as the definitive bridge between travelers and hosts. We reimagined the digital experience to foster deeper connections and seamless travel planning, combining a modern aesthetic with the core values of authentic cultural exchange and safety.</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Process & Insights</h3>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li><strong>Community-Centric Architecture:</strong> Analyzing over a decade of community interactions to identify core user needs—safety, authenticity, and ease of discovery.</li>
+              <li><strong>Modernizing Legacy:</strong> Moving from a fragmented thread-based system to a streamlined, interactive app experience designed for <em>Maximum Simplicity</em>.</li>
+              <li><strong>Trust & Verification:</strong> Implementing a premium design language that conveys reliability, coupled with a robust verification framework to ensure a safe ecosystem for all members.</li>
+            </ul>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Brand Identity & Design System</h3>
+            <p style={{ marginBottom: '1rem' }}>We developed a vibrant yet professional color palette inspired by European sunsets and the spirit of exploration. The new visual language represents the bridge between travelers and the diverse cultures they explore.</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/eurostay/designsystem.png`} alt="EuroStay Brand Identity & Design System" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: App Experience & High-Fidelity</h3>
+            <p style={{ marginBottom: '1rem' }}>The project is currently under active development. Due to confidentiality and its unreleased status, we are unable to disclose high-fidelity detailed interface designs at this stage.</p>
+            
+            <div style={{ marginBottom: '1.5rem' }}>
+              <a href="https://apps.apple.com/es/app/eurostay/id6746250674" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-text-link">
+                Interested? You can download and try it out ➔
+              </a>
+            </div>
+
+            <a href="https://apps.apple.com/es/app/eurostay/id6746250674" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-large-image">
+              <img src={`${process.env.PUBLIC_URL}/work/2026/eurostay/appstore.png`} alt="EuroStay on the App Store" />
             </a>
-          </p>
-          <p>
-            By visiting this website, you can see all our detailed work. Within the team, I was responsible for the APP's UI/UX design, event planning, user engagement, and partial website construction.
-          </p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Brand Manual (PDF)
-            </a>
-          </div>
-          <div className="work-pdf-embed-container">
-            <iframe
-              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0&view=FitH`}
-              title="EuroStay Brand Manual PDF"
-            />
-          </div>
-        </>
+
+            <div style={{ marginTop: '1.5rem' }}>
+              <a href="https://www.eurostay.co" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-text-link">
+                Or visit our official website to explore online ➔
+              </a>
+            </div>
+          </section>
+          
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Core Values</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Connection</h4>
+                <p style={{ fontSize: '0.9rem' }}>Bridging travelers and hosts globally to explore life's infinite possibilities.</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Kindness</h4>
+                <p style={{ fontSize: '0.9rem' }}>Encouraging mutual aid and genuine, sincere human interaction.</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Exploration</h4>
+                <p style={{ fontSize: '0.9rem' }}>Supporting the curiosity to discover new cultures and ways of living.</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Experience</h4>
+                <p style={{ fontSize: '0.9rem' }}>Prioritizing authentic, local life experiences over traditional tourism.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Stories</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <blockquote style={{ padding: '1.5rem', borderLeft: '4px solid #000', backgroundColor: '#fff', fontStyle: 'italic' }}>
+                "Sincere emotional exchange, the beginning of a beautiful journey."
+              </blockquote>
+              <blockquote style={{ padding: '1.5rem', borderLeft: '4px solid #000', backgroundColor: '#fff', fontStyle: 'italic' }}>
+                "Cats grow on your head when you sleep! — An unforgettable exchange experience."
+              </blockquote>
+            </div>
+          </section>
+
+        </div>
       ),
       overviewExtra: '',
-      role: '',
-      roleDesc: '',
-      process: [],
-      insights: [],
-      results: ''
+      role: 'Creative Director & UI/UX Lead',
+      roleDesc: 'Responsible for leading the complete brand overhaul and digital product strategy, ensuring a cohesive and premium experience across all touchpoints.',
+      process: ['Community Research', 'Brand Strategy', 'UI/UX Redesign', 'Identity Verification System', 'Interactive Prototypes'],
+      insights: ['Trust-Based Social Dynamics', 'Mobile-First Community Discovery', 'Premium Visual Storytelling'],
+      results: 'A comprehensive reimagining of the EuroStay ecosystem that has revitalized the community for a new generation of travelers.'
     },
+    10: {
+      title: 'TripUp',
+      description: 'Streamlining the group travel experience through collaborative planning and real-time social dynamics.',
+      year: 2026,
+      category: 'Group. User Interface. User Experience. Mobile App',
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/banner.png`,
+      fadeBanner: false,
+      hideHeaderTitle: true,
+      overview: (
+        <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <AppPromotionalShowcase />
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Challenge</h3>
+            <p>Friend trips are great. Organizing a friend trip? Less great. Deciding where to go, exploring options, and keeping everyone in the loop can get frustrating, fast. The challenge was to transform the fragmented group travel planning process into a unified, seamless experience.</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>The Vision & Solution</h3>
+            <p>TripUp serves as an all-in-one platform for organizing seamless group travel. Whether it’s a weekend getaway or a music festival abroad, users can collaboratively build itineraries, vote on decisions, and settle expenses—reducing planning friction and amplifying the fun.</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Process & Insights</h3>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li><strong>The Organizer vs Participants:</strong> Built around the dynamic of a proactive organizer and involved participants. The architecture is designed for <em>Maximum Simplicity</em>.</li>
+              <li><strong>Spontaneous Decisions:</strong> Most choices happen mid-trip. The app must support quick interactions and a collective voice. The contextual goal is <em>Rapid Decisions via diverse displays</em>.</li>
+              <li><strong>Frictionless Finance:</strong> Users prefer quick polls over chats and need easy ways to manage and settle group expenses. The priority is <em>Interactive Status Sync and Payment</em>.</li>
+            </ul>
+          </section>
+
+          <hr className="case-divider" />
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Scenario Logic Flow</h3>
+            <p style={{ marginBottom: '1rem' }}>Visualizing the end-to-end user journey, from initiating a quick group dinner poll to concluding with a frictionless expense settlement. It translates abstract user needs into actionable interface events.</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Flow.png`} alt="TripUp Scenario Logic Flow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <hr className="case-divider" />
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Wireflow & Architecture</h3>
+            <p style={{ marginBottom: '1rem' }}>Mapping out the navigation and interaction architecture to ensure a low-friction journey across all key features.</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Wireflow.png`} alt="TripUp Wireflow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Design: Visual System & High-Fidelity</h3>
+            <p style={{ marginBottom: '1rem' }}>Developing a vibrant, premium visual identity using modern typography. The final high-fidelity screens showcase real-time social dynamics, collaborative planning, and seamless expense splitting.</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Designsystem.png`} alt="TripUp Design System" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0', marginBottom: '1.5rem' }} />
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Highfi.png`} alt="TripUp High Fidelity UI" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+        </div>
+      ),
+      overviewExtra: '',
+      role: 'UX/UI Designer',
+      roleDesc: 'Responsible for end-to-end redesign, translating abstract user needs into concrete, actionable interface events to map out a seamless and intuitive functional flow.',
+      process: ['User Behavioral Intelligence', 'Scenario Logic Flow', 'Wireflow & Navigation', 'Design System', 'High-Fidelity Screens'],
+      insights: ['Contextual Goal Setting', 'Rapid Decisions via Diverse Displays', 'Interactive Status Sync and Payment'],
+      outcome: (
+        <div className="outcome-wrapper">
+          <h3 className="outcome-title">Outcome: Planning That Feels Like Part of the Journey</h3>
+          <p className="outcome-intro">This interactive application transformed fragmented travel planning into a seamless, collaborative social experience:</p>
+          <ul className="outcome-list">
+            <li>Groups made faster, collective decisions without endless chat threads</li>
+            <li>Organizers reduced planning friction and coordinated effortlessly</li>
+            <li>Travelers stayed synced in real-time through context-aware status updates</li>
+          </ul>
+          <p className="outcome-summary">The work demonstrated how intuitive UX/UI and micro-interactions (like Dynamic Island integration) can turn a stressful logistics task into an exciting, shared pre-trip ritual—delivering value by maximizing active user participation and satisfaction in group coordination.</p>
+        </div>
+      ),
+      results: 'A comprehensive mobile app redesign that streamlines the group travel experience.'
+    },
+
     1: {
       title: 'Pixelated Adventures',
       description: 'A board game design offering a novel way for people to share their travel memories.',
@@ -72,6 +509,9 @@ const workData = {
       heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`,
       images: [
         `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`
+      ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`, text: 'Full Project (PDF)' }
       ],
       overview: (
         <>
@@ -86,16 +526,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Full Project (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -124,6 +554,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/6.jpg`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`, text: 'Project Poster (PDF)' },
+        { url: 'https://www.youtube.com/watch?v=nBapYYWg-BI', text: 'Exhibition Video (YouTube)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`, text: 'Final Project Video (MP4)' },
+        { url: 'https://github.com/Qinlin619/E.C.H.O.git', text: 'Source Code (GitHub)' }
+      ],
       overview: (
         <>
           <p>E.C.H.O. is a robot in the community that interacts with residents, collects their stories, and records them. With the introduction of ECHO we wanted to ask questions considering the role of the robot (or robots) in the neighbourhoods of the future.</p>
@@ -142,40 +578,6 @@ const workData = {
                 />
               );
             })}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Poster (PDF)
-            </a>
-            <a
-              href="https://www.youtube.com/watch?v=nBapYYWg-BI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Exhibition Video (YouTube)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Final Project Video (MP4)
-            </a>
-            <a
-              href="https://github.com/Qinlin619/E.C.H.O.git"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Source Code (GitHub)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -206,6 +608,9 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`, text: 'Project Details (PDF)' }
+      ],
       overview: (
         <>
           <p>Created as a specialized guide for the Museum of Liverpool, the Lambanana Tour project aimed to gamify the museum experience for children. The illustrated map and interactive souvenir set encourage young visitors to explore specific exhibits and engage with Liverpool's rich history in a playful, memorable way.</p>
@@ -219,16 +624,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Details (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -257,19 +652,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`, text: 'Project Details (PDF)' }
+      ],
       overview: (
         <>
           <p>Lemur Go is a telepresence installation designed to bridge the gap between people and zoo animals during periods of isolation. The system allows remote users to interact with lemurs through digital interfaces, providing mental stimulation for the animals and a unique conservation-focused experience for the users.</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Details (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf#toolbar=0&view=FitH`}
@@ -297,19 +685,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`, text: 'Project Details (PDF)' }
+      ],
       overview: (
         <>
           <p>Doozi is an innovative set of wheelchair accessories designed specifically for children with physical disabilities. The project includes a robotic domino-laying cart that helps children practice motor skills and spatial reasoning, and a musical puzzle carpet that provides tactile and auditory feedback. Our goal was to transform the wheelchair from just a mobility aid into a platform for play and social integration.</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Details (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf#toolbar=0&view=FitH`}
@@ -337,19 +718,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`, text: 'Project Details (PDF)' }
+      ],
       overview: (
         <>
           <p>Happy Little Pill is an inclusive medication management system specifically designed for elderly individuals living with Alzheimer's. The product utilizes tactile and visual cues (color-coding and embossed patterns) to help users identify their medication schedule independently, reducing the anxiety and risk associated with daily pill intake.</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Details (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf#toolbar=0&view=FitH`}
@@ -373,9 +747,15 @@ const workData = {
       description: 'Redesign the Atag Induction Hob for enhanced usability, targeting a dependable and convenient cooking experience at home.',
       year: 2024,
       category: 'Group. User Interface. User Experience. Redesign',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`,
-      images: [
-        `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/banner.png`,
+      images: [],
+      hideBanner: false,
+      hideHeaderTitle: true,
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`, text: 'Phase 1 Report (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`, text: 'Phase 2 Report (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`, text: 'Phase 3 Final Report (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`, text: 'Project Poster (PDF)' }
       ],
       overview: (
         <>
@@ -390,40 +770,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Phase 1 Report (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Phase 2 Report (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Phase 3 Final Report (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              Project Poster (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -482,11 +828,27 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/6.JPEG`
       ],
-      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/111.mp4`,
+      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/demo.mp4`,
+      links: [
+        { url: 'https://drive.google.com/file/d/1BobzI21AxCLVOF8Xc_KllsoJ6xXeGM8-/view?usp=drivesdk', text: 'Watch Original Video (850MB)' }
+      ],
+      achievements: (
+        <div className="project-achievements" style={{ padding: '1.5rem', background: '#f8fafc', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)' }}>
+          <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.1rem', fontWeight: 600, color: '#000' }}>Achievements & Publications</h3>
+          <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.95rem', lineHeight: '1.5' }}>
+            <li>
+              <strong>Academic Publication (Graduation Thesis Project):</strong> 3rd Author, "A Hierarchical Planning Framework for Human–Robot Co-Painting", 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (Accepted)
+            </li>
+            <li>
+              <strong>Artistic Exhibition:</strong> Visual art piece "The Eye - Human robot collaborating painting" selected and exhibited at AIART Gallery 2026 (Accepted)
+            </li>
+          </ul>
+        </div>
+      ),
       overview: (
         <>
           <p>With the rapid advancement of generative AI, digital image generation has become highly automated. While efficiency increases, bodily engagement and sensory interaction diminish, leaving people more detached and often relegated to passive oversight. This shift has motivated the development of painting robots that reintroduce physical action and shared control between humans and machines. However, most existing systems prioritize single-turn output quality and overlook process-oriented aspects such as rhythm, control, and interaction. To bridge this gap, we propose CoBrush, which combines generative AI with robotic arms to enable human painters and AI to interact on a physical canvas. A user study demonstrates that CoBrush improved users’ sense of control by predicting and decomposing the painting process, enhanced creative engagement with human-like gestures and brushstroke expressions, and provided greater artistic satisfaction via an interactive, embodied co-creation experience.</p>
-          <div style={{ marginTop: '1rem', color: '#666', fontStyle: 'italic' }}>
+          <div style={{ marginTop: '1.5rem', color: '#666', fontStyle: 'italic', fontSize: '0.9rem' }}>
             Submission is currently under discussion. Full project report is not available for display at this moment.
           </div>
         </>
@@ -497,60 +859,246 @@ const workData = {
       process: ['Research & Concept', 'Interaction Design', 'Prototyping', 'Robot Integration', 'User Testing'],
       insights: ['Human-Robot Collaboration', 'Creative AI', 'Multi-turn Interaction'],
       results: 'The system successfully enables co-creative painting sessions between humans and robots, opening possibilities for collaborative art and assistive creativity.'
-    }
-  },
-  zh: {
-    8: {
-      title: 'EuroStay',
-      description: '',
+    },
+    261: {
+      title: 'Flavorblocks',
+      description: 'A small game designed for my parents to pass the time.',
       year: 2026,
-      category: '团队. 用户界面. 用户体验. 活动',
-      heroImage: '',
-      images: [],
       overview: (
         <>
-          <p>
-            附上链接：{' '}
+          <p>A small game designed for my parents to pass the time.</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
+            {[1, 2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`).map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`Flavorblocks screenshot ${idx + 1}`}
+                style={{ width: '100%', maxWidth: '800px', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
             <a
-              href="https://www.eurostay.co"
+              href="https://qinlin619.github.io/FlavorBlocks/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#000', textDecoration: 'underline', wordBreak: 'break-all' }}
+              className="work-pdf-link"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
             >
-              www.eurostay.co
+              <span>Play Game: Flavorblocks</span>
+              <span style={{ fontSize: '0.85em', textDecoration: 'none' }}>➔</span>
             </a>
-          </p>
-          <p>
-            点击这个网站你可以看到所有我们详细的工作，我在团队里负责APP的UIUX设计,活动策划,对接用户和部分网站搭建的工作
-          </p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+          </div>
+        </>
+      )
+    },
+    262: {
+      title: 'Color&Color',
+      description: 'A simple "match" game featuring socks, planned to evolve into various derivative matching games.',
+      year: 2026,
+      category: 'Individual. Game Dev & Design',
+      overview: (
+        <>
+          <p>A simple "match" game featuring socks, planned to evolve into various derivative matching games.</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
+            {[1, 2, 3, 4].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/${num}.png`}
+                alt={`Color&Color screenshot ${num}`}
+                style={{ width: '100%', maxWidth: '800px', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
             <a
-              href={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`}
+              href="https://qinlin619.github.io/Color-Color/"
               target="_blank"
               rel="noopener noreferrer"
               className="work-pdf-link"
             >
-              品牌手册 (PDF)
+              Play Game: Color&Color
             </a>
           </div>
-          <div className="work-pdf-embed-container">
-            <iframe
-              src={`${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf#toolbar=0&view=FitH`}
-              width="100%"
-              height="100%"
-              style={{ border: 'none' }}
-              title="EuroStay 品牌手册 PDF"
-            />
-          </div>
         </>
+      )
+    }
+  },
+  zh: {
+    9: {
+      title: '欧洲换宿EuroStay',
+      description: '世界第一的欧洲华人背包客社区',
+      year: 2026,
+      category: '品牌设计. UI/UX. 社区. 移动应用',
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/eurostay/banner.png`,
+      images: [],
+      fadeBanner: false,
+      hideHeaderTitle: true,
+      links: [
+        { url: 'https://www.eurostay.co', text: '访问 EuroStay 官网' },
+        { url: `${process.env.PUBLIC_URL}/work/2026/EuroStay.pdf`, text: '品牌手册 (PDF)' }
+      ],
+      overview: (
+        <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <EuroStayPromotionalShowcase />
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>挑战 (The Challenge)</h3>
+            <p>我们如何将传统的基于论坛的社区转变为一个现代的、移动优先的生态系统，既让年轻旅行者感到高端，又具有亲和力？挑战在于在保持现有欧洲华人背包客社区多年建立的深厚信任和连接的同时，对这个已有十年历史的传统平台进行现代化改造。</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>愿景与解决方案 (The Vision & Solution)</h3>
+            <p>EuroStay 2026 是旅行者和主机之间的核心桥梁。我们重新构思了数字体验，以促进更深层次的连接和无缝的旅行规划，将现代美学与真实文化交流和安全的核心价值相结合。</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>思考过程与洞察 (Process & Insights)</h3>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li><strong>以社区为核心的架构：</strong> 分析了十多年的社区互动，以确定核心用户需求——安全、真实和易于发现。</li>
+              <li><strong>现代化传统平台：</strong> 从碎片化的基于帖子的系统转变为流线型的、交互式的应用体验，旨在实现<em>极致的简约 (Maximum Simplicity)</em>。</li>
+              <li><strong>信任与验证：</strong> 采用了传达可靠性的高级设计语言，结合强大的验证框架，为所有成员确保一个安全的生态系统。</li>
+            </ul>
+          </section>
+
+
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：应用体验与高保真 (App Experience & High-Fidelity)</h3>
+            <p style={{ marginBottom: '1rem' }}>该项目目前仍处于开发与迭代阶段。应保密与未发布协议要求，现阶段暂不方便展示过多高保真（Hi-Fi）界面设计细节图。</p>
+            
+            <div style={{ marginBottom: '1.5rem' }}>
+              <a href="https://apps.apple.com/es/app/eurostay/id6746250674" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-text-link">
+                感兴趣可以去下载试试看 ➔
+              </a>
+            </div>
+
+            <a href="https://apps.apple.com/es/app/eurostay/id6746250674" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-large-image">
+              <img src={`${process.env.PUBLIC_URL}/work/2026/eurostay/appstore.png`} alt="EuroStay App Store" />
+            </a>
+
+            <div style={{ marginTop: '1.5rem' }}>
+              <a href="https://www.eurostay.co" target="_blank" rel="noopener noreferrer" className="eurostay-appstore-text-link">
+                您也可以访问我们的官方网站，在线探索完整的社区平台 ➔
+              </a>
+            </div>
+          </section>
+          
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>核心价值 (Core Values)</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>连接与分享</h4>
+                <p style={{ fontSize: '0.9rem' }}>连接世界各地的旅行者，探索生活的无限可能性。</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>传递善意</h4>
+                <p style={{ fontSize: '0.9rem' }}>鼓励互助和真诚的人际互动，让善意在旅途中传递。</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>探索与好奇</h4>
+                <p style={{ fontSize: '0.9rem' }}>支持发现新文化和新生活方式的好奇心。</p>
+              </div>
+              <div style={{ padding: '1.5rem', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>深度体验</h4>
+                <p style={{ fontSize: '0.9rem' }}>优先考虑真实的当地生活体验，而非传统的走马观花。</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>社区故事 (The Stories)</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <blockquote style={{ padding: '1.5rem', borderLeft: '4px solid #000', backgroundColor: '#fff', fontStyle: 'italic' }}>
+                “真诚的情感交换，美好旅程的开始。”
+              </blockquote>
+              <blockquote style={{ padding: '1.5rem', borderLeft: '4px solid #000', backgroundColor: '#fff', fontStyle: 'italic' }}>
+                “睡觉时头上会长猫耶！—— 一段令人难忘的换宿经历。”
+              </blockquote>
+            </div>
+          </section>
+
+        </div>
       ),
       overviewExtra: '',
-      role: '',
-      roleDesc: '',
-      process: [],
-      insights: [],
-      results: ''
+      role: '创意总监 & UI/UX 主导',
+      roleDesc: '负责领导整个品牌重塑和数字产品战略，确保所有触点上都有一致且高端的体验。',
+      process: ['社区研究', '品牌战略', 'UI/UX 重构', '身份验证系统', '交互原型'],
+      insights: ['基于信任的社交动态', '移动优先的社区发现', '高端视觉叙事'],
+      results: '对 EuroStay 生态系统的全面重构，使社区为新一代旅行者焕发了活力。'
     },
+    10: {
+      title: 'TripUp',
+      description: '通过协作规划和实时社交动态，简化团队旅行体验的移动应用重构。',
+      year: 2026,
+      category: '团队. 用户界面. 用户体验. 移动应用',
+      heroImage: `${process.env.PUBLIC_URL}/work/2026/TripUp/banner.png`,
+      fadeBanner: false,
+      hideHeaderTitle: true,
+      overview: (
+        <div className="ux-case-study" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <AppPromotionalShowcase />
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>挑战 (The Challenge)</h3>
+            <p>和朋友一起旅行固然美好，但组织一场朋友旅行却往往没那么顺利。决定去哪里、探索各种选项，并让每个人都保持信息同步——这些过程很容易让人感到挫败。我们的挑战在于将碎片化的群组旅行规划过程转变为一个统一、无缝的体验。</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>愿景与解决方案 (The Vision & Solution)</h3>
+            <p>TripUp 是一个用于组织无缝团队旅行的一站式平台。无论是周末度假还是国外的音乐节，用户都可以协同制定行程、进行决策投票以及结算费用——这大大减少了规划过程中的摩擦，让旅行更加有趣。</p>
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>思考过程与洞察 (Process & Insights)</h3>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li><strong>组织者 vs 参与者：</strong> 围绕积极的组织者和热情的参与者之间的动态进行构建。整体架构旨在实现<em>极致的简约 (Maximum Simplicity)</em>。</li>
+              <li><strong>自发性决策：</strong> 大多数选择都是在旅途中即兴作出的。应用必须支持快速互动和集体发声。我们的情境目标是<em>通过多样化展示实现快速决策 (Rapid Decisions)</em>。</li>
+              <li><strong>无摩擦的财务管理：</strong> 用户更喜欢快速投票而不是冗长的聊天，并且需要简单的方法来管理和结算群组费用。我们的首要任务是<em>交互式状态同步与支付 (Interactive Status Sync and Payment)</em>。</li>
+            </ul>
+          </section>
+
+          <hr className="case-divider" />
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>场景逻辑流 (Scenario Logic Flow)</h3>
+            <p style={{ marginBottom: '1rem' }}>可视化端到端的用户旅程，从发起一个快速的群组晚餐投票到最终完成无摩擦的费用结算。它将抽象的用户需求转化为具体的、可操作的界面事件。</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Flow.png`} alt="TripUp Scenario Logic Flow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <hr className="case-divider" />
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：线框流与架构 (Wireflow & Architecture)</h3>
+            <p style={{ marginBottom: '1rem' }}>梳理导航和交互架构，以确保所有关键功能都能提供低阻力的用户体验。</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Wireflow.png`} alt="TripUp Wireflow" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+
+          <section className="case-section">
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>设计：视觉系统与高保真 (Visual System & High-Fidelity)</h3>
+            <p style={{ marginBottom: '1rem' }}>使用现代排版开发出充满活力、具有高级感的视觉系统。最终的高保真屏幕展示了实时的社交动态、协作规划以及无缝的费用分摊体验。</p>
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Designsystem.png`} alt="TripUp Design System" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0', marginBottom: '1.5rem' }} />
+            <img src={`${process.env.PUBLIC_URL}/work/2026/TripUp/Highfi.png`} alt="TripUp High Fidelity UI" style={{ width: '100%', borderRadius: '12px', border: '1px solid #e2e8f0' }} />
+          </section>
+        </div>
+      ),
+      overviewExtra: '',
+      role: 'UX/UI 设计师',
+      roleDesc: '负责端到端的应用重构，将抽象的用户需求转化为具体、可操作的界面事件，从而规划出无缝、直观的功能流程。',
+      process: ['用户行为分析', '场景逻辑流', '线框图与导航', '设计系统', '高保真界面'],
+      insights: ['情景目标设定', '通过多样化展示快速决策', '交互式状态同步与支付'],
+      outcome: (
+        <div className="outcome-wrapper">
+          <h3 className="outcome-title">成果：让规划本身成为旅程的起点</h3>
+          <p className="outcome-intro">这款交互式应用将零碎复杂的团队旅行规划转变为无缝、协同的社交体验：</p>
+          <ul className="outcome-list">
+            <li>团队无需冗长的聊天就能快速达成集体决策</li>
+            <li>组织者显著减少了协调摩擦，轻松完成行程安排</li>
+            <li>旅行者通过即时上下文状态同步在旅途中保持完美同频</li>
+          </ul>
+          <p className="outcome-summary">本项目展示了直观的 UX/UI 设计与微交互（例如灵动岛的整合）如何将繁琐的物流协调转变为令人兴奋的行前共享仪式——通过最大化团队协作中的用户参与度和满意度来创造深层价值。</p>
+        </div>
+      ),
+      results: '一次全面的移动应用重构，显著简化了团队旅行的体验。'
+    },
+
     1: {
       title: 'Pixelated Adventures',
       description: '一款桌面实体互动游戏，为人们分享旅行回忆提供了一种新颖的方式。',
@@ -559,6 +1107,9 @@ const workData = {
       heroImage: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`,
       images: [
         `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/0.png`
+      ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`, text: '查看完整项目 (PDF)' }
       ],
       overview: (
         <>
@@ -573,16 +1124,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/1PixelatedAdventures/Pixelated Adventures.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              查看完整项目 (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -611,6 +1152,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/6.jpg`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`, text: '项目海报 (PDF)' },
+        { url: 'https://www.youtube.com/watch?v=nBapYYWg-BI', text: '展览视频 (YouTube)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`, text: '最终成品视频 (MP4)' },
+        { url: 'https://github.com/Qinlin619/E.C.H.O.git', text: '项目代码库 (GitHub)' }
+      ],
       overview: (
         <>
           <p>E.C.H.O.是一个社区机器人，与居民互动、收集他们的故事并记录下来。通过引入ECHO，我们想要探讨机器人在未来社区中的角色。</p>
@@ -629,40 +1176,6 @@ const workData = {
                 />
               );
             })}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/E.C.H.O-poster.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              项目海报 (PDF)
-            </a>
-            <a
-              href="https://www.youtube.com/watch?v=nBapYYWg-BI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              展览视频 (YouTube)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/2E.C.H.O/Meet E.C.H.O.mp4`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              最终成品视频 (MP4)
-            </a>
-            <a
-              href="https://github.com/Qinlin619/E.C.H.O.git"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              项目代码库 (GitHub)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -693,6 +1206,9 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`, text: '作品详情 (PDF)' }
+      ],
       overview: (
         <>
           <p>该项目是为利物浦博物馆专门设计的导览系统，旨在平衡儿童的娱乐性与教育性。通过插画地图和互动纪念品，鼓励年轻观众探索特定展品，以一种游戏化且难忘的方式了解利物浦丰富的历史。</p>
@@ -706,16 +1222,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2023/1LambananaTour/LambananaTour.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              作品详情 (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -744,19 +1250,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2023/2LemurGo/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`, text: '作品详情 (PDF)' }
+      ],
       overview: (
         <>
           <p>Lemur Go 是一项远程呈现装置，旨在疫情隔离期间搭建人与动物园动物之间的桥梁。该系统允许远程用户通过数字界面与狐猴进行交互，为动物提供心理刺激，同时也为用户提供独特的以保护为导向的体验。</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              作品详情 (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2023/2LemurGo/LemurGo.pdf#toolbar=0&view=FitH`}
@@ -784,19 +1283,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/1Doozi/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`, text: '作品详情 (PDF)' }
+      ],
       overview: (
         <>
           <p>Doozi 是一套专门为肢体残疾儿童设计的创新轮椅配件。该项目包括一个能自动摆放多米诺骨牌的机器人小车（帮助儿童锻炼运动技能和空间推理能力），以及一个提供触觉 and 听觉反馈的音乐解谜地毯。我们的目标是将轮椅从单纯的移动辅助工具转变为一个促进玩耍和社交融合的平台。</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              作品详情 (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2022/1Doozi/Doozi.pdf#toolbar=0&view=FitH`}
@@ -824,19 +1316,12 @@ const workData = {
       images: [
         `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/1.png`
       ],
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`, text: '作品详情 (PDF)' }
+      ],
       overview: (
         <>
           <p>Happy Little Pill 是一款专为阿兹海默症老年患者设计的包容性药物管理系统。该产品利用触觉和视觉提示（色彩编码和浮雕图案）帮助用户独立识别服药时间表，减少日常服药带来的焦虑 and 风险。</p>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              作品详情 (PDF)
-            </a>
-          </div>
           <div className="work-pdf-embed-container">
             <iframe
               src={`${process.env.PUBLIC_URL}/work/2022/2HappyLittlePill/HappyLittlePill.pdf#toolbar=0&view=FitH`}
@@ -860,9 +1345,15 @@ const workData = {
       description: '重新设计Atag感应炉，提升可用性，旨在提供可靠且便捷的家庭烹饪体验。',
       year: 2024,
       category: '团队. 用户界面. 用户体验. 重新设计',
-      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`,
-      images: [
-        `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/0.png`
+      heroImage: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/banner.png`,
+      images: [],
+      hideBanner: false,
+      hideHeaderTitle: true,
+      links: [
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`, text: '第一阶段报告 Phase 1 (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`, text: '第二阶段报告 Phase 2 (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`, text: '第三阶段最终报告 Phase 3 (PDF)' },
+        { url: `${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`, text: '项目海报 (PDF)' }
       ],
       overview: (
         <>
@@ -877,40 +1368,6 @@ const workData = {
                 style={{ objectFit: 'cover' }}
               />
             ))}
-          </div>
-          <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report1.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              第一阶段报告 Phase 1 (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report2.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              第二阶段报告 Phase 2 (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/AtagInductionHob-report3.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              第三阶段最终报告 Phase 3 (PDF)
-            </a>
-            <a
-              href={`${process.env.PUBLIC_URL}/work/2024/3AtagInductionHob/poster.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="work-pdf-link"
-            >
-              项目海报 (PDF)
-            </a>
           </div>
           <div className="work-pdf-embed-container">
             <iframe
@@ -969,10 +1426,26 @@ const workData = {
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/1.png`,
         `${process.env.PUBLIC_URL}/work/2025/Cobrush/6.JPEG`
       ],
-      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/111.mp4`,
+      videoUrl: `${process.env.PUBLIC_URL}/work/2025/Cobrush/demo.mp4`,
+      links: [
+        { url: 'https://drive.google.com/file/d/1BobzI21AxCLVOF8Xc_KllsoJ6xXeGM8-/view?usp=drivesdk', text: '查看原画视频 (850MB)' }
+      ],
+      achievements: (
+        <div className="project-achievements" style={{ padding: '1.5rem', background: '#f8fafc', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)' }}>
+          <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.1rem', fontWeight: 600, color: '#000' }}>学术成果与展览</h3>
+          <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.95rem', lineHeight: '1.5' }}>
+            <li>
+              <strong>学术发表（毕业设计项目）：</strong> 第三作者，"A Hierarchical Planning Framework for Human–Robot Co-Painting", 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (Accepted)
+            </li>
+            <li>
+              <strong>艺术展览：</strong> 视觉艺术作品 "The Eye - Human robot collaborating painting" 入选并展出毕于 AIART Gallery 2026 (Accepted)
+            </li>
+          </ul>
+        </div>
+      ),
       overview: (
         <>
-          <p>随着生成式人工智能的飞速发展，数字图像生成已经高度自动化。虽然效率有所提高，但身体参与感和感官交互却在减少，使人们感到疏离，往往只能处于被动监督的状态。这种转变促使了绘画机器人的发展，它们重新引入了身体动作以及人机之间的共享控制。然而，大多数现有系统优先考虑单次输出的质量，而忽视了节奏、控制和交互等面向过程的方面。为了弥补这一差距，我们提出了 CoBrush，它将生成式 AI 与机械臂相结合，使人类画家 and AI 能够物理画布上进行交互。一项用户研究表明，CoBrush 通过预测和分解绘画过程，提高了用户的控制感；通过类人姿态 and 笔触表达，增强了创作参与感；并通过交互式、具身化的共同创作体验，提供了更高的艺术满意度。</p>
+          <p>随着生成式人工智能的飞速发展，数字图像生成已经高度自动化。虽然效率有所提高，但身体参与感和感官交互却在减少，使人们感到疏离，往往只能处于被动监督的状态。这种转变促使了绘画机器人的发展，它们重新引入了身体动作以及人机之间的共享控制。然而，大多数现有系统优先考虑单次输出的质量，而忽视了节奏、控制和交互等面向过程的方面。为了弥补这一差距，我们提出了 CoBrush，它将生成式 AI 与机械臂相结合，使人类画家 and AI 能够物理画布上进行交互。一项用户研究表明，CoBrush 通过预测和分解绘画过程，提高了用户的控制感；通过类人姿态 and 笔触表达，增强了创作参与感；并通过交互式、具身化的共同创作体验，提供了更高极的艺术满意度。</p>
           <div style={{ marginTop: '1rem', color: '#666', fontStyle: 'italic' }}>
             作品正在商议投稿中，不方便进行展示，请见谅
           </div>
@@ -984,6 +1457,69 @@ const workData = {
       process: ['研究与概念', '交互设计', '原型制作', '机器人集成', '用户测试'],
       insights: ['人机协同创作', '创意 AI', '多轮交互'],
       results: '系统成功实现了人与机器人的共同绘画会话，为协同艺术与辅助创作提供了可能。'
+    },
+    261: {
+      title: 'Flavorblocks',
+      description: '想为爸爸妈妈设计一些打磨时间的小游戏。',
+      year: 2026,
+      overview: (
+        <>
+          <p>想为爸爸妈妈设计一些打磨时间的小游戏。</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
+            {[1, 2, 3, 4, 5].map(num => `${process.env.PUBLIC_URL}/side/GameDesign-Flavorblocks/${num}.png`).map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`Flavorblocks 截图 ${idx + 1}`}
+                style={{ width: '100%', maxWidth: '800px', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
+            <a
+              href="https://qinlin619.github.io/FlavorBlocks/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+            >
+              <span>游玩链接：Flavorblocks</span>
+              <span style={{ fontSize: '0.85em', textDecoration: 'none' }}>➔</span>
+            </a>
+          </div>
+        </>
+      )
+    },
+    262: {
+      title: 'Color&Color',
+      description: '想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。',
+      year: 2026,
+      category: '个人项目. 游戏开发与设计',
+      overview: (
+        <>
+          <p>想做一个袜子对对碰的小游戏，这个是简易版本的match，之后会做很多衍生的match。</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
+            {[1, 2, 3, 4].map(num => (
+              <img
+                key={num}
+                src={`${process.env.PUBLIC_URL}/side/GameDesign-Color&Color/${num}.png`}
+                alt={`Color&Color 截图 ${num}`}
+                style={{ width: '100%', maxWidth: '800px', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
+            <a
+              href="https://qinlin619.github.io/Color-Color/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-pdf-link"
+            >
+              游玩链接：Color&Color
+            </a>
+          </div>
+        </>
+      )
     }
   }
 };
@@ -1023,26 +1559,27 @@ const sectionLabels = {
   }
 };
 
+const PREMIUM_PROJECTS = [];
+
 function WorkDetail() {
   const { id } = useParams();
   const { language } = useLanguage();
-  const work = workData[language]?.[parseInt(id, 10)] || workData.en[parseInt(id, 10)];
+  const numericId = parseInt(id, 10);
+  const work = workData[language]?.[numericId] || workData.en[numericId];
   const labels = sectionLabels[language] || sectionLabels.en;
-  const [activeImage, setActiveImage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   const worksList = useMemo(() => getWorksListByYear(language), [language]);
   const otherProjects = useMemo(() => {
-    const currentId = parseInt(id, 10);
-    return worksList.filter((w) => w.id !== currentId);
-  }, [language, id, worksList]);
+    return worksList.filter((w) => w.id !== numericId);
+  }, [numericId, worksList]);
 
   const workFromList = useMemo(() => {
     if (work) return null;
-    return worksList.find((w) => w.id === parseInt(id, 10)) || null;
-  }, [work, worksList, id]);
+    return worksList.find((w) => w.id === numericId) || null;
+  }, [work, worksList, numericId]);
 
-  const currentIndex = useMemo(() => worksList.findIndex((w) => w.id === parseInt(id, 10)), [worksList, id]);
+  const currentIndex = useMemo(() => worksList.findIndex((w) => w.id === numericId), [worksList, numericId]);
   const prevProject = currentIndex > 0 ? worksList[currentIndex - 1] : null;
   const nextProject = currentIndex >= 0 && currentIndex < worksList.length - 1 ? worksList[currentIndex + 1] : null;
 
@@ -1057,10 +1594,13 @@ function WorkDetail() {
 
   useEffect(() => {
     setIsVisible(true);
+    window.scrollTo(0, 0);
   }, [id, language]);
 
+  const isPremium = PREMIUM_PROJECTS.includes(numericId);
+
   const moreSection = (
-    <section className="work-detail-more work-detail-more-desktop" aria-label={labels.moreProjects}>
+    <section className={`work-detail-more ${isPremium ? 'premium-more' : 'work-detail-more-desktop'}`} aria-label={labels.moreProjects}>
       <h2 className="work-detail-more-title">{labels.moreProjects}</h2>
       <div className="work-detail-more-row">
         <button type="button" className="work-detail-more-arrow work-detail-more-arrow-left" aria-label="Previous" onClick={() => scrollBy(-ARROW_SCROLL)} />
@@ -1088,21 +1628,29 @@ function WorkDetail() {
   );
 
   const prevNextSection = (prevProject || nextProject) ? (
-    <nav className="work-detail-prev-next" aria-label="Previous / Next project">
+    <nav className="work-detail-prev-next-nav" aria-label="Previous / Next project">
       <div className="work-detail-prev-next-inner">
         {prevProject ? (
-          <Link to={`/work/${prevProject.id}`} className="work-detail-prev-next-link work-detail-prev-next-prev">
-            ← {labels.prevProject}
+          <Link to={`/work/${prevProject.id}`} className="work-prev-next-btn work-prev-btn">
+            <span className="arrow-left" />
+            <div className="btn-text">
+              <span className="btn-label">{labels.prevProject}</span>
+              <span className="btn-title">{prevProject.title}</span>
+            </div>
           </Link>
         ) : (
-          <span className="work-detail-prev-next-link work-detail-prev-next-prev work-detail-prev-next-placeholder" aria-hidden />
+          <div className="work-prev-next-btn work-prev-btn disabled" />
         )}
         {nextProject ? (
-          <Link to={`/work/${nextProject.id}`} className="work-detail-prev-next-link work-detail-prev-next-next">
-            {labels.nextProject} →
+          <Link to={`/work/${nextProject.id}`} className="work-prev-next-btn work-next-btn">
+            <div className="btn-text">
+              <span className="btn-label">{labels.nextProject}</span>
+              <span className="btn-title">{nextProject.title}</span>
+            </div>
+            <span className="arrow-right" />
           </Link>
         ) : (
-          <span className="work-detail-prev-next-link work-detail-prev-next-next work-detail-prev-next-placeholder" aria-hidden />
+          <div className="work-prev-next-btn work-next-btn disabled" />
         )}
       </div>
     </nav>
@@ -1123,15 +1671,105 @@ function WorkDetail() {
     );
   }
 
-  const bannerImages = work.images && work.images.length > 0 ? work.images : (work.heroImage ? [work.heroImage] : []);
+  // Premium Layout inspired by manana.today
+  if (isPremium) {
+    return (
+      <div className={`premium-detail ${isVisible ? 'visible' : ''}`}>
+        <div className="premium-hero">
+          <div className="premium-hero-inner">
+            <img src={work.heroImage} alt={work.title} className="premium-hero-img" />
+          </div>
+        </div>
+
+        <header className="premium-header">
+          <Link to="/" className="work-detail-back" style={{ position: 'relative', top: 'auto', left: 'auto', marginBottom: '2rem', display: 'inline-block' }}>{labels.back}</Link>
+          <h1 className="premium-title">{work.title}</h1>
+          
+          <div className="premium-meta-grid">
+            <div className="premium-meta-item">
+              <h4>Role</h4>
+              <p>{work.role}</p>
+            </div>
+            <div className="premium-meta-item">
+              <h4>Client</h4>
+              <p>{work.client}</p>
+            </div>
+            <div className="premium-meta-item">
+              <h4>Deadline</h4>
+              <p>{work.deadline}</p>
+            </div>
+            <div className="premium-meta-item">
+              <h4>Category</h4>
+              <div>
+                {work.category.split('.').map((cat, i) => (
+                  <span key={i} className="premium-label">{cat.trim()}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section className="premium-content-section">
+          <div className="premium-grid-2">
+            <div>
+              <h3 className="premium-section-title">Introduction</h3>
+              <p className="premium-text-block">{work.intro}</p>
+            </div>
+            <div>
+              <h3 className="premium-section-title">The Challenge</h3>
+              <p className="premium-text-block">{work.challenge}</p>
+            </div>
+          </div>
+        </section>
+
+        {work.sections && work.sections.map((section, idx) => (
+          <section key={idx} className="premium-content-section">
+            <h3 className="premium-section-title">{section.title}</h3>
+            <p className="premium-text-block" style={{ marginBottom: '3rem' }}>{section.text}</p>
+            <div className="premium-grid-2">
+              {section.images && section.images.map((img, i) => (
+                <div key={i} className="premium-img-wrap">
+                  <img src={img} alt={`${section.title} ${i}`} />
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        <nav className="premium-footer-nav">
+          {prevProject ? (
+            <Link to={`/work/${prevProject.id}`} className="premium-footer-link">
+              ← Prev
+            </Link>
+          ) : <div />}
+          {nextProject ? (
+            <Link to={`/work/${nextProject.id}`} className="premium-footer-link">
+              Next →
+            </Link>
+          ) : <div />}
+        </nav>
+      </div>
+    );
+  }
+
+  const bannerImages = work.hideBanner ? [] : (work.images && work.images.length > 0 ? work.images : (work.heroImage ? [work.heroImage] : []));
 
   return (
     <>
       <div className={`page-content work-detail ${isVisible ? 'visible' : ''}`}>
         {bannerImages.length > 0 && (
-          <div className={`work-detail-banner ${bannerImages.length === 1 ? 'is-single' : ''}`} aria-hidden>
+          <div className={`work-detail-banner ${bannerImages.length === 1 ? 'is-single' : ''} ${work.fadeBanner ? 'banner-fade-out' : ''}`} aria-hidden>
             {bannerImages.map((src, i) => (
               <img key={i} src={src} alt="" />
+            ))}
+          </div>
+        )}
+        {work.links && work.links.length > 0 && (
+          <div className="work-banner-below-links">
+            {work.links.map((link, idx) => (
+              <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="work-pdf-link">
+                {link.text} ➔
+              </a>
             ))}
           </div>
         )}
@@ -1143,40 +1781,14 @@ function WorkDetail() {
               <CategoryIcons category={work.category} className="work-category-tags" />
             )}
           </div>
-          <h1 className="work-detail-title">{work.title}</h1>
-          <p className="work-description">{work.description}</p>
+          {!work.hideHeaderTitle && (
+            <>
+              <h1 className="work-detail-title">{work.title}</h1>
+              <p className="work-description">{work.description}</p>
+            </>
+          )}
         </header>
-        {(work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) ? (
-          <div className="work-detail-video-wrap">
-            <div className="work-detail-video">
-              <iframe
-                title={work.title}
-                src={getYoutubeEmbedUrl(work.youtubeUrl)}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        ) : (work.videoUrl && (
-          <div className="work-detail-video-wrap">
-            <div className="work-detail-video">
-              <video
-                src={work.videoUrl}
-                controls
-                style={{ width: '100%', height: '100%', display: 'block' }}
-              />
-            </div>
-          </div>
-        ))}
         <div className="work-content">
-          <section className="work-section-block">
-            {parseInt(id, 10) !== 8 && <h2>{labels.overview}</h2>}
-            <div className="text-content">
-              {typeof work.overview === 'string' ? <p>{work.overview}</p> : work.overview}
-              {work.overviewExtra && <p>{work.overviewExtra}</p>}
-            </div>
-          </section>
           {work.role && (
             <section className="work-section-block">
               <h2>{labels.role}</h2>
@@ -1187,22 +1799,81 @@ function WorkDetail() {
             </section>
           )}
 
-          {work.insights && work.insights.length > 0 && (
-            <section className="work-section-block">
-              <h2>{labels.insights}</h2>
-              <div className="insights-grid">
-                {work.insights.map((item, idx) => (
-                  <div key={idx} className="insight-card">{item}</div>
-                ))}
+          <section className="work-section-block">
+            {parseInt(id, 10) !== 8 && <h2>{labels.overview}</h2>}
+            {work.achievements && (
+              <div className="work-achievements-wrapper" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+                {work.achievements}
               </div>
+            )}
+            {((work.youtubeUrl && getYoutubeEmbedUrl(work.youtubeUrl)) || work.videoUrl) && (
+              <div className="work-detail-video-wrap" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+                <div className="video-browser-mockup">
+                  <div className="browser-header-bar">
+                    <div className="browser-dots">
+                      <span className="browser-dot red" />
+                      <span className="browser-dot yellow" />
+                      <span className="browser-dot green" />
+                    </div>
+                    <div className="browser-url-bar">
+                      {work.youtubeUrl ? work.youtubeUrl : (
+                        <>
+                          {numericId === 7 && 'https://qinlin619.github.io/Atag-Induction-Hob/'}
+                          {numericId === 2 && 'https://qinlin619.github.io/E.C.H.O/'}
+                          {numericId === 11 && 'https://qinlin619.github.io/CoBrush/'}
+                          {![2, 7, 11].includes(numericId) && 'https://qinlin619.github.io/Portfolio/'}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                  <div className="work-detail-video">
+                    {work.youtubeUrl ? (
+                      <iframe
+                        title={work.title}
+                        src={getYoutubeEmbedUrl(work.youtubeUrl)}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <video
+                        src={work.videoUrl}
+                        controls
+                        style={{ width: '100%', height: '100%', display: 'block' }}
+                      />
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="text-content">
+              {typeof work.overview === 'string' ? <p>{work.overview}</p> : work.overview}
+              {work.overviewExtra && <p>{work.overviewExtra}</p>}
+            </div>
+          </section>
+
+          {work.outcome ? (
+            <section className="work-section-block">
+              {work.outcome}
             </section>
+          ) : (
+            work.insights && work.insights.length > 0 && (
+              <section className="work-section-block">
+                <h2>{labels.insights}</h2>
+                <div className="insights-grid">
+                  {work.insights.map((item, idx) => (
+                    <div key={idx} className="insight-card">{item}</div>
+                  ))}
+                </div>
+              </section>
+            )
           )}
 
 
         </div>
+        {prevNextSection}
       </div>
       {moreSection}
-      {prevNextSection}
     </>
   );
 }

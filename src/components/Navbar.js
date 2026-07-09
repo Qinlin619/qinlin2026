@@ -2,19 +2,22 @@ import React, { memo, useCallback, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { getYears, getYearLabel } from './WorkGrid';
+import { useTheme } from '../contexts/ThemeContext';
 
 const navText = {
   en: {
-    work: 'WORK',
+    work: 'PROJECT',
     side: 'DESIGN',
     about: 'ABOUT',
-    cv: 'CV'
+    cv: 'CV',
+    contact: 'CONTACT'
   },
   zh: {
     work: '作品',
     side: '设计',
     about: '关于',
-    cv: '简历'
+    cv: '简历',
+    contact: '联系'
   },
 
 };
@@ -23,6 +26,7 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { language, toggleLanguage, getLanguageLabel } = useLanguage();
+  const { toggleTheme, isDark } = useTheme();
   const texts = useMemo(() => navText[language] || navText.en, [language]);
 
   const isActive = useCallback((path) => {
@@ -59,24 +63,22 @@ function Navbar() {
   }, [navigate, closeMenu]);
 
   const linkProps = [
-    { to: '/about', active: activeStates.about, label: texts.about },
     { to: '/', active: activeStates.work, label: texts.work, isWork: true },
-    { to: '/side', active: activeStates.side, label: texts.side },
-    { to: '/cv', active: activeStates.cv, label: texts.cv }
+    { to: '/about', active: activeStates.about, label: texts.about },
+    { to: 'https://www.linkedin.com/in/qinlin-liu-a88635209', label: texts.contact, isExternal: true }
   ];
 
   return (
     <>
       <nav className={`navbar ${menuOpen ? 'navbar-mobile-open' : ''}`}>
         <div className="nav-logo">
-          <Link to="/about" onClick={closeMenu}>
-            <span className="logo-text">UMBRELLA</span>
+          <Link to="/" onClick={closeMenu}>
             <span className="logo-icon">☂</span>
           </Link>
         </div>
         <div className="nav-right">
           <div className="nav-links">
-            {linkProps.map(({ to, active, label, isWork }) =>
+            {linkProps.map(({ to, active, label, isWork, isExternal }) =>
               isWork ? (
                 <div
                   key={to}
@@ -103,6 +105,10 @@ function Navbar() {
                     </div>
                   )}
                 </div>
+              ) : isExternal ? (
+                <a key={to} href={to} target="_blank" rel="noopener noreferrer" className={active ? 'active' : ''}>
+                  {label}
+                </a>
               ) : (
                 <Link key={to} to={to} className={active ? 'active' : ''}>
                   {label}
@@ -121,21 +127,42 @@ function Navbar() {
             <span className="hamburger-line" />
             <span className="hamburger-line" />
           </button>
+          {/* <button 
+            type="button" 
+            className="theme-toggle" 
+            onClick={toggleTheme} 
+            aria-label="Toggle theme"
+          >
+            {isDark ? '☀️' : '🌙'}
+          </button> */}
           <button className="language-toggle" onClick={toggleLanguage}>
             {languageLabel}
           </button>
         </div>
       </nav>
       <div className={`nav-mobile-menu ${menuOpen ? 'nav-mobile-menu-open' : ''}`}>
-        {linkProps.map(({ to, active, label }) => (
-          <Link
-            key={to}
-            to={to}
-            className={active ? 'active' : ''}
-            onClick={closeMenu}
-          >
-            {label}
-          </Link>
+        {linkProps.map(({ to, active, label, isExternal }) => (
+          isExternal ? (
+            <a
+              key={to}
+              href={to}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={active ? 'active' : ''}
+              onClick={closeMenu}
+            >
+              {label}
+            </a>
+          ) : (
+            <Link
+              key={to}
+              to={to}
+              className={active ? 'active' : ''}
+              onClick={closeMenu}
+            >
+              {label}
+            </Link>
+          )
         ))}
       </div>
     </>
